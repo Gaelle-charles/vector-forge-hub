@@ -47,6 +47,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // AI Agency Custom Colors
+        "electric-lime": "hsl(var(--electric-lime))",
+        "vibrant-magenta": "hsl(var(--vibrant-magenta))",
+        "deep-black": "hsl(var(--deep-black))",
+        "pure-white": "hsl(var(--pure-white))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

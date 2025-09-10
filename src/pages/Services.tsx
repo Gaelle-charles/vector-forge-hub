@@ -3,10 +3,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import AnimatedBackground from '@/components/AnimatedBackground';
+import FloralBackground from '@/components/FloralBackground';
+import tropicalArrangement from '@/assets/tropical-arrangement.jpg';
 import { 
   Smartphone, Video, Bot, GraduationCap, CheckCircle, ArrowRight, 
-  Zap, Code, Palette, Database, Cloud, Shield, Lightbulb, Target
+  Flower, Code, Palette, Database, Cloud, Shield, Lightbulb, Target
 } from 'lucide-react';
 
 const Services = () => {
@@ -107,15 +108,23 @@ const Services = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="hero-section py-20 relative">
-        <AnimatedBackground />
+      <section className="hero-section py-24 relative">
+        <FloralBackground />
+        <div className="absolute left-10 top-1/4 opacity-30 hidden lg:block">
+          <img 
+            src={tropicalArrangement} 
+            alt="Tropical arrangement" 
+            className="w-64 h-64 object-cover rounded-3xl floating-flora"
+          />
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-deep-black">
-            Services IA
-            <span className="block neon-text">Avant-Gardistes</span>
+          <h1 className="text-6xl md:text-7xl font-bold mb-8 text-foreground">
+            <span className="paradise-text">Services IA</span>
+            <span className="block text-foreground/90 text-4xl md:text-5xl mt-4">Élégants & Naturels</span>
           </h1>
-          <p className="text-xl text-deep-black/80 max-w-3xl mx-auto">
-            Des solutions IA innovantes pour propulser votre entreprise vers le futur
+          <p className="text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
+            Des solutions IA innovantes qui s'épanouissent comme les plus belles fleurs 
+            pour propulser votre entreprise vers de nouveaux horizons
           </p>
         </div>
       </section>
@@ -170,11 +179,11 @@ const Services = () => {
                 </div>
 
                 {/* Service Card */}
-                <Card className="ai-card">
+                <Card className="floral-card">
                   <CardHeader>
                     <CardTitle className="text-2xl flex items-center">
-                      <Zap className="mr-2 h-6 w-6 text-primary" />
-                      Tarification
+                      <Flower className="mr-3 h-6 w-6 text-primary" />
+                      Tarification Élégante
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
@@ -206,8 +215,8 @@ const Services = () => {
                       </div>
                     </div>
 
-                    <Button className="ai-button-primary w-full text-lg">
-                      Démarrer ce projet
+                    <Button className="floral-button-primary w-full text-lg">
+                      Faire fleurir ce projet
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </CardContent>
@@ -219,29 +228,30 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 neon-text">
+      <section className="py-24 bg-muted/20 relative">
+        <FloralBackground />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl font-bold mb-8 tropical-text">
               Notre Méthodologie
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Un processus éprouvé pour garantir le succès de vos projets IA
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Un processus organique et éprouvé pour garantir l'épanouissement de vos projets IA
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
-              <Card key={index} className="ai-card text-center group">
-                <CardContent className="pt-6">
-                  <div className="flex justify-center mb-4">
-                    <div className="p-4 bg-primary/10 rounded-2xl text-primary group-hover:scale-110 transition-transform duration-300">
+              <Card key={index} className="floral-card text-center group">
+                <CardContent className="pt-8">
+                  <div className="flex justify-center mb-6">
+                    <div className="p-5 bg-primary/10 rounded-3xl text-primary group-hover:scale-110 transition-transform duration-500 petal-glow">
                       {step.icon}
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground">{step.description}</p>
-                  <div className="mt-4 text-primary font-bold">Étape {index + 1}</div>
+                  <h3 className="text-xl font-bold mb-4">{step.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">{step.description}</p>
+                  <div className="mt-6 text-primary font-bold text-lg">Étape {index + 1}</div>
                 </CardContent>
               </Card>
             ))}
@@ -250,20 +260,23 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-deep-black text-pure-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Transformez Votre Vision en Réalité
+      <section className="py-24 bg-background relative">
+        <FloralBackground />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-5xl font-bold mb-8 text-foreground">
+            <span className="paradise-text">Transformez Votre Vision</span>
+            <span className="block text-foreground/90 text-3xl mt-2">en Réalité Florissante</span>
           </h2>
-          <p className="text-xl mb-8 text-gray-300">
-            Discutons de votre projet et découvrons ensemble comment l'IA peut révolutionner votre activité
+          <p className="text-xl mb-10 text-muted-foreground leading-relaxed">
+            Discutons de votre projet et découvrons ensemble comment l'IA peut révolutionner 
+            votre activité avec l'élégance et l'efficacité de la nature
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="ai-button-primary text-lg">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Button className="floral-button-primary text-lg px-8 py-4">
               Consultation gratuite
-              <Zap className="ml-2 h-5 w-5" />
+              <Flower className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" className="text-lg border-primary text-primary hover:bg-primary hover:text-black">
+            <Button variant="outline" className="text-lg px-8 py-4 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground">
               Voir nos réalisations
             </Button>
           </div>

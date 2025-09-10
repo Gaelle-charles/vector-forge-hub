@@ -47,11 +47,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // AI Agency Custom Colors
-        "electric-lime": "hsl(var(--electric-lime))",
-        "vibrant-magenta": "hsl(var(--vibrant-magenta))",
-        "deep-black": "hsl(var(--deep-black))",
-        "pure-white": "hsl(var(--pure-white))",
+        // Floral Realistic Custom Colors
+        "coral-orange": "hsl(var(--coral-orange))",
+        "soft-pink": "hsl(var(--soft-pink))",
+        "deep-purple": "hsl(var(--deep-purple))",
+        "tropical-green": "hsl(var(--tropical-green))",
+        "sunset-yellow": "hsl(var(--sunset-yellow))",
+        "dark-navy": "hsl(var(--dark-navy))",
+        "warm-white": "hsl(var(--warm-white))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

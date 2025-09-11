@@ -64,9 +64,9 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-bloom">
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-foreground leading-tight">
-              <span className="paradise-text"GoGoGo Studio</span>
+              <span className="paradise-text">GoGoGo Studio</span>
               <span className="block text-foreground/90 text-4xl md:text-6xl mt-4">
-              Créateurs d'expériences digitales              
+                Créateurs d'expériences digitales              
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto font-medium">
@@ -179,7 +179,6 @@ const Home = () => {
           </h2>
           <p className="text-xl text-foreground/80 mb-10 leading-relaxed">
             Raconte-nous ton rêve fou et on le transforme en réalité digitale ! 
-       
           </p>
           
           <Card className="floral-card max-w-lg mx-auto">

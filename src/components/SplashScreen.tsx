@@ -39,62 +39,46 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
-    }, 10000); // 18 seconds duration
+    }, 18000); // 18 seconds duration
 
     return () => clearTimeout(timer);
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center overflow-hidden">
-      {/* Large tropical leaves */}
-      <div className="absolute inset-0">
-        {/* Left side large leaf */}
-        <div className="absolute left-0 top-0 w-1/3 h-full">
-          <div 
-            className="w-full h-full bg-green-600 opacity-80 animate-gentle-sway"
-            style={{
-              clipPath: 'polygon(0% 20%, 30% 0%, 80% 30%, 100% 80%, 70% 100%, 20% 70%)',
-              transformOrigin: 'bottom right',
-              animationDelay: '0s'
-            }}
-          />
-        </div>
-        
-        {/* Right side large leaf */}
-        <div className="absolute right-0 top-0 w-1/3 h-full">
-          <div 
-            className="w-full h-full bg-green-700 opacity-75 animate-gentle-sway"
-            style={{
-              clipPath: 'polygon(20% 0%, 70% 30%, 100% 20%, 80% 70%, 50% 100%, 0% 80%)',
-              transformOrigin: 'bottom left',
-              animationDelay: '1.5s'
-            }}
-          />
+    <div className="fixed inset-0 bg-tropical-gradient flex items-center justify-center overflow-hidden">
+      {/* Animated tropical flower background */}
+      <div className="absolute inset-0 tropical-flower-animation">
+        {/* Bird of Paradise flower - main */}
+        <div className="absolute left-1/4 top-1/3 w-80 h-96 animate-tropical-bloom" style={{ animationDelay: '0s' }}>
+          <div className="relative w-full h-full">
+            {/* Orange petals */}
+            <div className="absolute inset-0 bird-petal-orange transform rotate-12 animate-petal-sway" style={{ animationDelay: '0.5s' }} />
+            <div className="absolute inset-0 bird-petal-orange transform rotate-24 animate-petal-sway" style={{ animationDelay: '1s' }} />
+            <div className="absolute inset-0 bird-petal-orange transform rotate-36 animate-petal-sway" style={{ animationDelay: '1.5s' }} />
+            
+            {/* Purple/Pink petals */}
+            <div className="absolute inset-0 bird-petal-purple transform -rotate-12 animate-petal-sway" style={{ animationDelay: '2s' }} />
+            <div className="absolute inset-0 bird-petal-pink transform -rotate-24 animate-petal-sway" style={{ animationDelay: '2.5s' }} />
+            
+            {/* Green leaves */}
+            <div className="absolute bottom-0 left-1/2 bird-leaf-green transform -translate-x-1/2 animate-leaf-sway" style={{ animationDelay: '1s' }} />
+          </div>
         </div>
 
-        {/* Bottom left smaller leaf */}
-        <div className="absolute bottom-0 left-1/4 w-64 h-80 opacity-60">
-          <div 
-            className="w-full h-full bg-green-800 animate-gentle-sway"
-            style={{
-              clipPath: 'ellipse(60% 80% at 50% 70%)',
-              transformOrigin: 'top center',
-              animationDelay: '3s'
-            }}
-          />
+        {/* Second flower - right side */}
+        <div className="absolute right-1/3 bottom-1/4 w-64 h-80 animate-tropical-bloom" style={{ animationDelay: '3s' }}>
+          <div className="relative w-full h-full">
+            <div className="absolute inset-0 bird-petal-pink transform rotate-45 animate-petal-sway" style={{ animationDelay: '3.5s' }} />
+            <div className="absolute inset-0 bird-petal-orange transform rotate-60 animate-petal-sway" style={{ animationDelay: '4s' }} />
+            <div className="absolute inset-0 bird-petal-purple transform rotate-75 animate-petal-sway" style={{ animationDelay: '4.5s' }} />
+            <div className="absolute bottom-0 right-1/2 bird-leaf-green transform translate-x-1/2 animate-leaf-sway" style={{ animationDelay: '3s' }} />
+          </div>
         </div>
 
-        {/* Bottom right smaller leaf */}
-        <div className="absolute bottom-0 right-1/4 w-56 h-72 opacity-65">
-          <div 
-            className="w-full h-full bg-green-600 animate-gentle-sway"
-            style={{
-              clipPath: 'ellipse(65% 75% at 50% 80%)',
-              transformOrigin: 'top center',
-              animationDelay: '2s'
-            }}
-          />
-        </div>
+        {/* Floating petals */}
+        <div className="absolute top-1/4 left-1/2 w-8 h-12 bird-floating-petal animate-petal-float" style={{ animationDelay: '6s' }} />
+        <div className="absolute top-2/3 right-1/4 w-6 h-10 bird-floating-petal-pink animate-petal-float" style={{ animationDelay: '8s' }} />
+        <div className="absolute bottom-1/3 left-1/3 w-10 h-14 bird-floating-petal-purple animate-petal-float" style={{ animationDelay: '10s' }} />
       </div>
 
       {/* Central content */}

@@ -53,7 +53,7 @@ export default {
         "deep-purple": "hsl(var(--deep-purple))",
         "tropical-green": "hsl(var(--tropical-green))",
         "sunset-yellow": "hsl(var(--sunset-yellow))",
-        "dark-navy": "hsl(var(--dark-navy))",
+        "dark-teal": "hsl(var(--dark-teal))",
         "warm-white": "hsl(var(--warm-white))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

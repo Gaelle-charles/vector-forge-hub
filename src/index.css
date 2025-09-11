@@ -8,14 +8,14 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Floral Realistic Design Palette */
-    --background: 220 20% 8%;
+    /* Tropical Paradise Design Palette - Based on Bird of Paradise images */
+    --background: 200 30% 6%;
     --foreground: 0 0% 98%;
 
-    --card: 220 20% 10%;
+    --card: 200 25% 8%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 20% 10%;
+    --popover: 200 25% 8%;
     --popover-foreground: 0 0% 98%;
 
     /* Primary - Coral Orange (Bird of Paradise) */
@@ -26,7 +26,7 @@ All colors MUST be HSL.
     --secondary: 320 60% 55%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 15% 15%;
+    --muted: 200 20% 12%;
     --muted-foreground: 0 0% 70%;
 
     /* Accent - Vibrant Pink */
@@ -36,20 +36,23 @@ All colors MUST be HSL.
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 20%;
-    --input: 220 15% 15%;
+    --border: 200 20% 18%;
+    --input: 200 20% 12%;
     --ring: 15 85% 60%;
 
     --radius: 1.2rem;
 
-    /* Floral Design Custom Variables */
-    --coral-orange: 15 85% 60%;
-    --soft-pink: 340 75% 65%;
-    --deep-purple: 270 50% 40%;
-    --tropical-green: 140 60% 45%;
-    --sunset-yellow: 45 90% 65%;
-    --dark-navy: 220 20% 8%;
+    /* Tropical Bird of Paradise Design Variables */
+    --coral-orange: 15 90% 65%;
+    --soft-pink: 325 85% 70%;
+    --deep-purple: 280 60% 50%;
+    --tropical-green: 140 70% 40%;
+    --sunset-yellow: 45 95% 70%;
+    --dark-teal: 200 30% 6%;
     --warm-white: 30 10% 98%;
+    
+    /* Tropical background gradient */
+    --tropical-gradient: linear-gradient(135deg, hsl(200 40% 4%) 0%, hsl(220 30% 8%) 30%, hsl(200 25% 12%) 100%);
     
     /* Floral Shadows */
     --shadow-coral: 0 15px 50px -15px hsl(var(--coral-orange) / 0.4);
@@ -232,6 +235,108 @@ All colors MUST be HSL.
   }
 
   .animate-progress {
-    animation: progress 15s linear;
+    animation: progress 18s linear;
+  }
+
+  /* Tropical Bird of Paradise Animations */
+  .bg-tropical-gradient {
+    background: var(--tropical-gradient);
+  }
+
+  .tropical-flower-animation {
+    animation: tropical-ambiance 20s ease-in-out infinite;
+  }
+
+  @keyframes tropical-ambiance {
+    0%, 100% { filter: brightness(1) hue-rotate(0deg); }
+    25% { filter: brightness(1.1) hue-rotate(5deg); }
+    50% { filter: brightness(0.95) hue-rotate(-3deg); }
+    75% { filter: brightness(1.05) hue-rotate(2deg); }
+  }
+
+  @keyframes tropical-bloom {
+    0% { opacity: 0; transform: scale(0.3) rotate(-10deg); }
+    50% { opacity: 0.8; transform: scale(1.1) rotate(5deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+
+  @keyframes petal-sway {
+    0%, 100% { transform: translateY(0px) rotate(0deg) scaleY(1); }
+    33% { transform: translateY(-3px) rotate(2deg) scaleY(1.02); }
+    66% { transform: translateY(-1px) rotate(-1deg) scaleY(0.98); }
+  }
+
+  @keyframes leaf-sway {
+    0%, 100% { transform: translateX(0px) rotate(0deg); }
+    50% { transform: translateX(2px) rotate(1deg); }
+  }
+
+  @keyframes petal-float {
+    0% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.8; }
+    25% { transform: translateY(-20px) translateX(5px) rotate(90deg); opacity: 1; }
+    50% { transform: translateY(-30px) translateX(-3px) rotate(180deg); opacity: 0.9; }
+    75% { transform: translateY(-15px) translateX(8px) rotate(270deg); opacity: 1; }
+    100% { transform: translateY(0px) translateX(0px) rotate(360deg); opacity: 0.8; }
+  }
+
+  .animate-tropical-bloom {
+    animation: tropical-bloom 3s ease-out;
+  }
+
+  .animate-petal-sway {
+    animation: petal-sway 6s ease-in-out infinite;
+  }
+
+  .animate-leaf-sway {
+    animation: leaf-sway 8s ease-in-out infinite;
+  }
+
+  .animate-petal-float {
+    animation: petal-float 12s ease-in-out infinite;
+  }
+
+  /* Bird of Paradise petal shapes */
+  .bird-petal-orange {
+    background: linear-gradient(45deg, hsl(var(--coral-orange)) 0%, hsl(35 95% 70%) 100%);
+    clip-path: polygon(50% 0%, 20% 40%, 30% 100%, 70% 100%, 80% 40%);
+    filter: drop-shadow(0 0 20px hsl(var(--coral-orange) / 0.6));
+  }
+
+  .bird-petal-purple {
+    background: linear-gradient(45deg, hsl(var(--deep-purple)) 0%, hsl(290 70% 60%) 100%);
+    clip-path: polygon(50% 0%, 15% 50%, 25% 100%, 75% 100%, 85% 50%);
+    filter: drop-shadow(0 0 15px hsl(var(--deep-purple) / 0.5));
+  }
+
+  .bird-petal-pink {
+    background: linear-gradient(45deg, hsl(var(--soft-pink)) 0%, hsl(340 90% 75%) 100%);
+    clip-path: polygon(50% 0%, 10% 60%, 30% 100%, 70% 100%, 90% 60%);
+    filter: drop-shadow(0 0 18px hsl(var(--soft-pink) / 0.5));
+  }
+
+  .bird-leaf-green {
+    background: linear-gradient(45deg, hsl(var(--tropical-green)) 0%, hsl(120 80% 50%) 100%);
+    clip-path: ellipse(60% 80% at 50% 70%);
+    width: 120px;
+    height: 200px;
+    filter: drop-shadow(0 0 10px hsl(var(--tropical-green) / 0.4));
+  }
+
+  .bird-floating-petal {
+    background: radial-gradient(circle, hsl(var(--coral-orange)) 0%, hsl(35 90% 65%) 100%);
+    clip-path: ellipse(70% 85% at 50% 50%);
+    filter: drop-shadow(0 0 8px hsl(var(--coral-orange) / 0.3));
+  }
+
+  .bird-floating-petal-pink {
+    background: radial-gradient(circle, hsl(var(--soft-pink)) 0%, hsl(340 85% 70%) 100%);
+    clip-path: ellipse(75% 80% at 50% 50%);
+    filter: drop-shadow(0 0 8px hsl(var(--soft-pink) / 0.3));
+  }
+
+  .bird-floating-petal-purple {
+    background: radial-gradient(circle, hsl(var(--deep-purple)) 0%, hsl(285 65% 55%) 100%);
+    clip-path: ellipse(65% 90% at 50% 50%);
+    filter: drop-shadow(0 0 8px hsl(var(--deep-purple) / 0.3));
   }
 }

@@ -44,7 +44,7 @@ const Navigation = () => {
               >
                 {item.name}
                 {isActive(item.path) && (
-                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent rounded-full"></div>
+                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"></div>
                 )}
               </Link>
             ))}

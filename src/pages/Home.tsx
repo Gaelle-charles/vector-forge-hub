@@ -88,7 +88,7 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-br from-background to-muted/30 relative">
+      <section className="py-20 bg-muted/30 relative">
         <div className="absolute inset-0">
           <img 
             src={tropicalArrangement} 

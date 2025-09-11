@@ -216,7 +216,7 @@ const About = () => {
             {team.map((member, index) => (
               <Card key={index} className={index % 2 === 0 ? "ai-card" : "ai-card-magenta"}>
                 <CardHeader className="text-center">
-                  <div className="w-20 h-20 mx-auto bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-2xl font-bold text-white mb-4">
+                  <div className="w-20 h-20 mx-auto bg-primary rounded-full flex items-center justify-center text-2xl font-bold text-white mb-4">
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <CardTitle className={`text-lg ${index % 2 !== 0 ? 'text-pure-white' : ''}`}>

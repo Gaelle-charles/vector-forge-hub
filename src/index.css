@@ -51,12 +51,6 @@ All colors MUST be HSL.
     --dark-navy: 220 20% 8%;
     --warm-white: 30 10% 98%;
     
-    /* Floral Gradients */
-    --gradient-tropical: linear-gradient(135deg, hsl(var(--coral-orange)), hsl(var(--soft-pink)));
-    --gradient-paradise: linear-gradient(120deg, hsl(var(--sunset-yellow)), hsl(var(--coral-orange)), hsl(var(--deep-purple)));
-    --gradient-nature: linear-gradient(90deg, hsl(var(--tropical-green)), hsl(var(--coral-orange)));
-    --gradient-depth: linear-gradient(180deg, hsl(var(--dark-navy)), hsl(220 25% 12%));
-    
     /* Floral Shadows */
     --shadow-coral: 0 15px 50px -15px hsl(var(--coral-orange) / 0.4);
     --shadow-pink: 0 15px 50px -15px hsl(var(--soft-pink) / 0.4);
@@ -136,37 +130,33 @@ All colors MUST be HSL.
 @layer components {
   /* Floral Realistic Design Components */
   .hero-section {
-    background: var(--gradient-depth);
-    @apply relative overflow-hidden;
+    @apply bg-background relative overflow-hidden;
   }
   
   .floral-card {
     @apply bg-card/80 backdrop-blur-xl border border-border/30 rounded-3xl p-8 hover:shadow-[var(--shadow-coral)] transition-all duration-500 hover:scale-[1.02] hover:border-primary/40;
-    background-image: radial-gradient(circle at top right, hsl(var(--coral-orange) / 0.1), transparent 60%);
   }
   
   .floral-card-accent {
-    @apply bg-gradient-to-br from-secondary/20 to-accent/10 text-foreground backdrop-blur-xl border border-secondary/30 rounded-3xl p-8 hover:shadow-[var(--shadow-pink)] transition-all duration-500 hover:scale-[1.02];
+    @apply bg-secondary/20 text-foreground backdrop-blur-xl border border-secondary/30 rounded-3xl p-8 hover:shadow-[var(--shadow-pink)] transition-all duration-500 hover:scale-[1.02];
   }
   
   .tropical-text {
-    @apply text-transparent bg-clip-text font-bold;
-    background-image: var(--gradient-tropical);
+    @apply text-primary font-bold;
     text-shadow: 0 0 30px hsl(var(--coral-orange) / 0.4);
   }
   
   .paradise-text {
-    @apply text-transparent bg-clip-text font-bold;
-    background-image: var(--gradient-paradise);
+    @apply text-accent font-bold;
   }
   
   .floral-button-primary {
-    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold py-4 px-8 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-[var(--shadow-coral)] hover:from-accent hover:to-primary;
+    @apply bg-primary text-primary-foreground font-bold py-4 px-8 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-[var(--shadow-coral)] hover:bg-accent;
     transform-style: preserve-3d;
   }
   
   .floral-button-secondary {
-    @apply bg-gradient-to-r from-secondary to-deep-purple text-secondary-foreground font-bold py-4 px-8 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-[var(--shadow-pink)];
+    @apply bg-secondary text-secondary-foreground font-bold py-4 px-8 rounded-2xl transition-all duration-500 hover:scale-105 hover:shadow-[var(--shadow-pink)];
   }
   
   .floating-flora {
@@ -183,9 +173,7 @@ All colors MUST be HSL.
   
   .floral-overlay {
     @apply absolute inset-0 pointer-events-none;
-    background: radial-gradient(circle at 20% 80%, hsl(var(--coral-orange) / 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, hsl(var(--soft-pink) / 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, hsl(var(--tropical-green) / 0.06) 0%, transparent 50%);
+    background: hsl(var(--coral-orange) / 0.05);
   }
 }
 
@@ -224,5 +212,26 @@ All colors MUST be HSL.
   
   .animate-petal-fall {
     animation: petal-fall 8s linear infinite;
+  }
+
+  /* Splash Screen Animations */
+  @keyframes gentle-sway {
+    0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+    25% { transform: translateX(2px) translateY(-1px) rotate(0.5deg); }
+    50% { transform: translateX(-1px) translateY(1px) rotate(-0.3deg); }
+    75% { transform: translateX(1px) translateY(-0.5px) rotate(0.2deg); }
+  }
+
+  @keyframes progress {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+
+  .animate-gentle-sway {
+    animation: gentle-sway 4s ease-in-out infinite;
+  }
+
+  .animate-progress {
+    animation: progress 15s linear;
   }
 }

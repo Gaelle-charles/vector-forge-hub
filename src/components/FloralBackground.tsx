@@ -16,10 +16,10 @@ const FloralBackground = () => {
 
   return (
     <div className="floral-overlay">
-      {/* Gradient Orbs with Floral Colors */}
-      <div className="absolute top-20 left-10 w-80 h-80 bg-gradient-to-br from-coral-orange/20 to-soft-pink/15 rounded-full blur-3xl floating-flora"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-tl from-deep-purple/15 to-tropical-green/10 rounded-full blur-3xl floating-flora" style={{ animationDelay: '3s' }}></div>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-sunset-yellow/8 to-coral-orange/12 rounded-full blur-3xl floating-flora" style={{ animationDelay: '6s' }}></div>
+      {/* Animated leaves in solid colors */}
+      <div className="absolute top-20 left-10 w-80 h-80 bg-coral-orange/20 rounded-full blur-3xl floating-flora"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-deep-purple/15 rounded-full blur-3xl floating-flora" style={{ animationDelay: '3s' }}></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-sunset-yellow/8 rounded-full blur-3xl floating-flora" style={{ animationDelay: '6s' }}></div>
 
       {/* Floating Petals */}
       {petals.map((petal) => (

@@ -15,25 +15,25 @@ const Home = () => {
   const services = [
     {
       icon: <Smartphone className="h-8 w-8" />,
-      title: "Apps Qui Époustouflent 📱",
+      title: "Apps Qui Époustouflent",
       description: "Des apps si intelligentes qu'elles lisent dans vos pensées ! On code avec l'IA comme copilote et la beauté naturelle comme inspiration 🌺",
       features: ["IA Conversationnelle", "Design Biomimétique", "Prédiction Magique", "UX Envoûtante"]
     },
     {
       icon: <Video className="h-8 w-8" />,
-      title: "Créations Visuelles Épiques 🎨",
+      title: "Créations Visuelles Épiques",
       description: "L'IA génère, vous rêvez ! Des visuels si beaux que même Mère Nature applaudit. Nos algorithmes ont étudié chez Picasso ET Darwin 🎭",
       features: ["IA Générative Pro", "Style Organique", "Rendu Photoréaliste", "Émotions Pures"]
     },
     {
       icon: <Bot className="h-8 w-8" />,
-      title: "Agents IA de Folie 🤖",
+      title: "Agents IA de Folie",
       description: "Des robots virtuels si cool qu'ils pourraient avoir leur propre compte TikTok ! Ils automatisent tout avec classe et finesse florale 🌿",
       features: ["Conversations Naturelles", "Automation Zen", "Prédictions Surnaturelles", "Intégration Fluide"]
     },
     {
       icon: <GraduationCap className="h-8 w-8" />,
-      title: "Formations IA Addictives 🎓",
+      title: "Formations IA Addictives",
       description: "Devenez un magicien de l'IA ! Nos formations sont si fun que vous oublierez que vous apprenez. Promis, pas de cours barbants 😉",
       features: ["Workshops Interactifs", "Certification Cool", "Mentorat Personnalisé", "Résultats Garantis"]
     }
@@ -64,18 +64,17 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-bloom">
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-foreground leading-tight">
-              <span className="paradise-text">🌸 IA Magique</span>
+              <span className="paradise-text"GoGoGo Studio</span>
               <span className="block text-foreground/90 text-4xl md:text-6xl mt-4">
-                Votre Futur Fleurit
+              Créateurs d'expériences digitales              
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto font-medium">
-              On transforme vos idées folles en réalité digitale ! Avec l'IA comme baguette magique 🪄 
-              et l'élégance naturelle comme signature ✨
+              On transforme vos idées en réalité digitale !
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button className="floral-button-primary text-lg px-8 py-4">
-                Découvrir nos services
+                Nos services
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button className="floral-button-secondary text-lg px-8 py-4">

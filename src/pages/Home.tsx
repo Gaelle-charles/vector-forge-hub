@@ -174,12 +174,12 @@ const Home = () => {
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-5xl md:text-6xl font-bold mb-8 text-foreground">
-            <span className="paradise-text">Prêt Pour La Magie IA ?</span>
-            <span className="block text-foreground/90 text-3xl md:text-4xl mt-2">🚀 Décollage Immédiat !</span>
+            <span className="paradise-text">Prêt à révolutionner votre business ?</span>
+            <span className="block text-foreground/90 text-3xl md:text-4xl mt-2">Envoi nous un message !</span>
           </h2>
           <p className="text-xl text-foreground/80 mb-10 leading-relaxed">
             Raconte-nous ton rêve fou et on le transforme en réalité digitale ! 
-            Avec l'IA comme super-pouvoir et la beauté naturelle comme signature ✨
+       
           </p>
           
           <Card className="floral-card max-w-lg mx-auto">

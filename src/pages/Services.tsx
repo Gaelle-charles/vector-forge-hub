@@ -7,7 +7,7 @@ import FloralBackground from '@/components/FloralBackground';
 import tropicalArrangement from '@/assets/tropical-arrangement.jpg';
 import { 
   Smartphone, Video, Bot, GraduationCap, CheckCircle, ArrowRight, 
-  Flower, Code, Palette, Database, Cloud, Shield, Lightbulb, Target
+  Flower, Code, Palette, Database, Cloud, Shield, Lightbulb, Target, Sparkles
 } from 'lucide-react';
 
 const Services = () => {
@@ -97,7 +97,7 @@ const Services = () => {
       description: "Création itérative avec feedback continu et tests réguliers"
     },
     {
-      icon: <Zap className="h-8 w-8" />,
+      icon: <Sparkles className="h-8 w-8" />,
       title: "Déploiement & Formation",
       description: "Mise en production accompagnée de formation de vos équipes"
     }

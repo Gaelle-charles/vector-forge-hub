@@ -15,27 +15,27 @@ const Home = () => {
   const services = [
     {
       icon: <Smartphone className="h-8 w-8" />,
-      title: "Applications Web & Mobile",
-      description: "Développement d'apps innovantes avec IA intégrée pour une expérience utilisateur révolutionnaire, aussi belle qu'une fleur épanouie.",
-      features: ["React Native", "Progressive Web App", "Intelligence Artificielle", "UX/UI Élégante"]
+      title: "Apps Qui Époustouflent 📱",
+      description: "Des apps si intelligentes qu'elles lisent dans vos pensées ! On code avec l'IA comme copilote et la beauté naturelle comme inspiration 🌺",
+      features: ["IA Conversationnelle", "Design Biomimétique", "Prédiction Magique", "UX Envoûtante"]
     },
     {
       icon: <Video className="h-8 w-8" />,
-      title: "Création Vidéo & Images IA",
-      description: "Production de contenus visuels époustouflants grâce aux dernières technologies d'IA générative, capturant la beauté naturelle.",
-      features: ["Vidéos cinématiques", "Images haute définition", "Animation organique", "Contenu sur mesure"]
+      title: "Créations Visuelles Épiques 🎨",
+      description: "L'IA génère, vous rêvez ! Des visuels si beaux que même Mère Nature applaudit. Nos algorithmes ont étudié chez Picasso ET Darwin 🎭",
+      features: ["IA Générative Pro", "Style Organique", "Rendu Photoréaliste", "Émotions Pures"]
     },
     {
       icon: <Bot className="h-8 w-8" />,
-      title: "Agents IA Sophistiqués",
-      description: "Développement d'assistants IA raffinés pour automatiser vos processus métier avec l'élégance de la nature.",
-      features: ["Chatbots intuitifs", "Automation fluide", "Analyse prédictive", "Intégration harmonieuse"]
+      title: "Agents IA de Folie 🤖",
+      description: "Des robots virtuels si cool qu'ils pourraient avoir leur propre compte TikTok ! Ils automatisent tout avec classe et finesse florale 🌿",
+      features: ["Conversations Naturelles", "Automation Zen", "Prédictions Surnaturelles", "Intégration Fluide"]
     },
     {
       icon: <GraduationCap className="h-8 w-8" />,
-      title: "Formation IA Premium",
-      description: "Programmes de formation pour maîtriser les outils d'IA et transformer votre entreprise en écosystème florissant.",
-      features: ["Ateliers immersifs", "Certification", "Accompagnement", "Croissance durable"]
+      title: "Formations IA Addictives 🎓",
+      description: "Devenez un magicien de l'IA ! Nos formations sont si fun que vous oublierez que vous apprenez. Promis, pas de cours barbants 😉",
+      features: ["Workshops Interactifs", "Certification Cool", "Mentorat Personnalisé", "Résultats Garantis"]
     }
   ];
 
@@ -64,14 +64,14 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-bloom">
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-foreground leading-tight">
-              <span className="paradise-text">L'IA Fleurit</span>
+              <span className="paradise-text">🌸 IA Magique</span>
               <span className="block text-foreground/90 text-4xl md:text-6xl mt-4">
-                Votre Innovation
+                Votre Futur Fleurit
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto font-medium">
-              Transformez vos idées en solutions intelligentes avec notre expertise en IA, 
-              cultivée avec la délicatesse et la beauté de la nature
+              On transforme vos idées folles en réalité digitale ! Avec l'IA comme baguette magique 🪄 
+              et l'élégance naturelle comme signature ✨
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button className="floral-button-primary text-lg px-8 py-4">
@@ -175,12 +175,12 @@ const Home = () => {
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-5xl md:text-6xl font-bold mb-8 text-foreground">
-            <span className="paradise-text">Prêt à Faire Fleurir</span>
-            <span className="block text-foreground/90 text-3xl md:text-4xl mt-2">Votre Business ?</span>
+            <span className="paradise-text">Prêt Pour La Magie IA ?</span>
+            <span className="block text-foreground/90 text-3xl md:text-4xl mt-2">🚀 Décollage Immédiat !</span>
           </h2>
           <p className="text-xl text-foreground/80 mb-10 leading-relaxed">
-            Obtenez un devis personnalisé et découvrez comment l'IA peut transformer 
-            votre entreprise avec l'élégance et l'efficacité de la nature
+            Raconte-nous ton rêve fou et on le transforme en réalité digitale ! 
+            Avec l'IA comme super-pouvoir et la beauté naturelle comme signature ✨
           </p>
           
           <Card className="floral-card max-w-lg mx-auto">

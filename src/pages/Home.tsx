@@ -49,8 +49,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-section min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/30"></div>
+      <section className="hero-section min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
         
         {/* Hero Image */}
         <div className="absolute right-10 top-1/2 transform -translate-y-1/2 hidden lg:block opacity-40">

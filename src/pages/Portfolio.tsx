@@ -2,11 +2,9 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import AnimatedBackground from '@/components/AnimatedBackground';
 import { 
   ExternalLink, Github, Play, Award, TrendingUp, Users, 
-  Smartphone, Video, Bot, GraduationCap, Zap, Eye, Heart
+  Smartphone, Video, Code, Palette, Zap, Eye, Heart
 } from 'lucide-react';
 
 const Portfolio = () => {
@@ -17,9 +15,9 @@ const Portfolio = () => {
       id: 1,
       title: "EcoSmart - App de Gestion Énergétique",
       category: "applications",
-      description: "Application mobile utilisant l'IA pour optimiser la consommation énergétique des foyers",
+      description: "Application mobile moderne pour optimiser la consommation énergétique",
       image: "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png",
-      technologies: ["React Native", "TensorFlow", "IoT", "Node.js"],
+      technologies: ["React Native", "Node.js", "MongoDB", "TypeScript"],
       results: [
         "30% de réduction de consommation",
         "50K+ utilisateurs actifs", 
@@ -32,14 +30,14 @@ const Portfolio = () => {
     },
     {
       id: 2,
-      title: "AutoVideoGen - Générateur Vidéo IA",
-      category: "video",
-      description: "Plateforme de création automatique de vidéos marketing avec IA générative",
+      title: "Brand Studio - Plateforme Creative",
+      category: "design",
+      description: "Plateforme de création et gestion de contenu pour les marques",
       image: "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png",
-      technologies: ["OpenAI", "FFmpeg", "React", "Python"],
+      technologies: ["React", "Figma API", "Adobe SDK", "Next.js"],
       results: [
-        "10K vidéos générées/mois",
-        "Réduction 80% temps production",
+        "10K designs créés/mois",
+        "Réduction 80% temps création",
         "ROI client 300%+"
       ],
       links: {
@@ -49,30 +47,30 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: "CustomerBot Pro",
-      category: "agents",
-      description: "Agent IA conversationnel multilingue pour le support client e-commerce",
+      title: "CustomerHub Pro",
+      category: "backend",
+      description: "API complète de gestion client avec dashboard analytics",
       image: "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png",
-      technologies: ["GPT-4", "LangChain", "Webhook", "CRM"],
+      technologies: ["Node.js", "PostgreSQL", "Redis", "GraphQL"],
       results: [
-        "85% résolution automatique",
-        "24/7 disponibilité",
-        "Satisfaction 92%"
+        "99.9% uptime garanti",
+        "500+ requêtes/seconde",
+        "Satisfaction 95%"
       ],
       links: {
         live: "#",
-        case: "#"
+        docs: "#"
       }
     },
     {
       id: 4,
-      title: "AI Mastery Program",
-      category: "formation",
-      description: "Programme de formation intensive aux outils IA pour les entreprises",
+      title: "Digital Mastery Program",
+      category: "conseil",
+      description: "Programme de transformation digitale pour les entreprises",
       image: "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png",
-      technologies: ["ChatGPT", "Midjourney", "Notion AI", "Zapier"],
+      technologies: ["Analytics", "SEO", "Performance", "Strategy"],
       results: [
-        "500+ professionnels formés",
+        "200+ entreprises accompagnées",
         "95% taux satisfaction",
         "ROI moyen 250%"
       ],
@@ -83,15 +81,15 @@ const Portfolio = () => {
     },
     {
       id: 5,
-      title: "MedIA - Diagnostic Médical IA",
+      title: "HealthTech Dashboard",
       category: "applications",
-      description: "Application d'aide au diagnostic médical par analyse d'images",
+      description: "Tableau de bord médical pour le suivi patient",
       image: "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png",
-      technologies: ["Computer Vision", "TensorFlow", "DICOM", "React"],
+      technologies: ["React", "D3.js", "WebSockets", "FHIR"],
       results: [
-        "94% précision diagnostic",
-        "50 hôpitaux partenaires",
-        "Certification CE médicale"
+        "94% précision données",
+        "50 cliniques partenaires",
+        "Certification médicale"
       ],
       links: {
         live: "#",
@@ -100,15 +98,15 @@ const Portfolio = () => {
     },
     {
       id: 6,
-      title: "CreativeStudio IA",
-      category: "video",
-      description: "Suite complète de création de contenu visuel alimentée par l'IA",
+      title: "Design System Pro",
+      category: "design",
+      description: "Système de design complet avec composants réutilisables",
       image: "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png",
-      technologies: ["Stable Diffusion", "DALL-E", "Adobe API", "Vue.js"],
+      technologies: ["Figma", "Storybook", "React", "Tokens"],
       results: [
-        "1M+ images générées",
-        "Temps création -70%",
-        "Utilisateurs +200% en 6 mois"
+        "100+ composants",
+        "Temps développement -60%",
+        "Cohérence 100%"
       ],
       links: {
         live: "#",
@@ -120,9 +118,9 @@ const Portfolio = () => {
   const categories = [
     { id: 'all', label: 'Tous les projets', icon: <Zap className="h-4 w-4" /> },
     { id: 'applications', label: 'Applications', icon: <Smartphone className="h-4 w-4" /> },
-    { id: 'video', label: 'Création Visuelle', icon: <Video className="h-4 w-4" /> },
-    { id: 'agents', label: 'Agents IA', icon: <Bot className="h-4 w-4" /> },
-    { id: 'formation', label: 'Formation', icon: <GraduationCap className="h-4 w-4" /> }
+    { id: 'design', label: 'Design', icon: <Palette className="h-4 w-4" /> },
+    { id: 'backend', label: 'Backend', icon: <Code className="h-4 w-4" /> },
+    { id: 'conseil', label: 'Conseil', icon: <Users className="h-4 w-4" /> }
   ];
 
   const stats = [
@@ -137,23 +135,22 @@ const Portfolio = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 bg-background">
       {/* Hero Section */}
-      <section className="hero-section py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/30"></div>
+      <section className="py-20 bg-background relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-deep-black">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
             Portfolio
-            <span className="block neon-text">Réalisations IA</span>
+            <span className="block orange-text">Nos Réalisations</span>
           </h1>
-          <p className="text-xl text-deep-black/80 max-w-3xl mx-auto">
-            Découvrez nos projets les plus innovants et les résultats exceptionnels obtenus avec l'IA
+          <p className="text-xl text-medium-gray max-w-3xl mx-auto">
+            Découvrez nos projets les plus innovants et les résultats exceptionnels obtenus
           </p>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-deep-black text-pure-white">
+      <section className="py-16 bg-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -164,7 +161,7 @@ const Portfolio = () => {
                   </div>
                 </div>
                 <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
-                <div className="text-sm text-gray-300">{stat.label}</div>
+                <div className="text-sm text-medium-gray">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -181,7 +178,7 @@ const Portfolio = () => {
                 key={category.id}
                 variant={activeCategory === category.id ? "default" : "outline"}
                 onClick={() => setActiveCategory(category.id)}
-                className={`${activeCategory === category.id ? 'ai-button-primary' : ''} flex items-center space-x-2`}
+                className={`${activeCategory === category.id ? 'modern-button-primary' : 'modern-button-secondary'} flex items-center space-x-2`}
               >
                 {category.icon}
                 <span>{category.label}</span>
@@ -192,14 +189,14 @@ const Portfolio = () => {
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
-              <Card key={project.id} className={index % 2 === 0 ? "ai-card group" : "ai-card-magenta group"}>
+              <Card key={project.id} className="modern-card group">
                 <div className="relative overflow-hidden rounded-t-3xl">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute top-4 left-4">
                     <Badge variant="secondary" className="bg-primary/90 text-primary-foreground">
                       {categories.find(c => c.id === project.category)?.label}
@@ -208,10 +205,10 @@ const Portfolio = () => {
                 </div>
                 
                 <CardHeader>
-                  <CardTitle className={`text-xl ${index % 2 !== 0 ? 'text-pure-white' : ''}`}>
+                  <CardTitle className="text-xl text-foreground">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className={index % 2 !== 0 ? 'text-pure-white/80' : ''}>
+                  <CardDescription className="text-medium-gray">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
@@ -220,7 +217,7 @@ const Portfolio = () => {
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="outline" className="text-xs">
+                      <Badge key={techIndex} variant="outline" className="text-xs border-primary/20">
                         {tech}
                       </Badge>
                     ))}
@@ -228,11 +225,11 @@ const Portfolio = () => {
 
                   {/* Results */}
                   <div className="space-y-2">
-                    <h4 className={`font-semibold text-sm ${index % 2 !== 0 ? 'text-pure-white' : ''}`}>
+                    <h4 className="font-semibold text-sm text-foreground">
                       Résultats clés :
                     </h4>
                     {project.results.map((result, resultIndex) => (
-                      <div key={resultIndex} className={`flex items-center text-sm ${index % 2 !== 0 ? 'text-pure-white/90' : 'text-muted-foreground'}`}>
+                      <div key={resultIndex} className="flex items-center text-sm text-medium-gray">
                         <TrendingUp className="h-3 w-3 mr-2 text-primary flex-shrink-0" />
                         <span>{result}</span>
                       </div>
@@ -268,45 +265,45 @@ const Portfolio = () => {
       </section>
 
       {/* Client Testimonials */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-secondary">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-16 neon-text">
-            Témoignages Clients
+          <h2 className="text-4xl font-bold text-center mb-16 text-foreground">
+            Témoignages <span className="orange-text">Clients</span>
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                quote: "L'application développée par AI Agency a révolutionné notre processus. Le ROI a dépassé toutes nos attentes !",
+                quote: "L'application développée par Gogogo Studio a révolutionné notre processus. Le ROI a dépassé toutes nos attentes !",
                 author: "Marie Dupont",
                 position: "CEO, EcoTech Solutions",
                 rating: 5
               },
               {
-                quote: "Une équipe exceptionnelle qui a su comprendre nos besoins et livrer une solution IA parfaitement adaptée.",
+                quote: "Une équipe exceptionnelle qui a su comprendre nos besoins et livrer une solution parfaitement adaptée.",
                 author: "Jean-Claude Martin", 
                 position: "CTO, Innovation Corp",
                 rating: 5
               },
               {
-                quote: "La formation IA a transformé notre équipe. Nos collaborateurs sont maintenant autonomes sur les outils d'IA.",
+                quote: "Le design system créé a transformé notre équipe. Nos développeurs sont maintenant beaucoup plus efficaces.",
                 author: "Sophie Laurent",
-                position: "DRH, Digital & Co",
+                position: "Lead Designer, Digital & Co",
                 rating: 5
               }
             ].map((testimonial, index) => (
-              <Card key={index} className="ai-card">
+              <Card key={index} className="modern-card">
                 <CardContent className="pt-6">
                   <div className="flex mb-4">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
                       <Award key={i} className="h-5 w-5 text-primary fill-current" />
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-4 italic">
+                  <p className="text-medium-gray mb-4 italic">
                     "{testimonial.quote}"
                   </p>
                   <div>
-                    <div className="font-semibold">{testimonial.author}</div>
+                    <div className="font-semibold text-foreground">{testimonial.author}</div>
                     <div className="text-sm text-primary">{testimonial.position}</div>
                   </div>
                 </CardContent>
@@ -317,21 +314,20 @@ const Portfolio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 hero-section relative">
-        <AnimatedBackground />
+      <section className="py-20 bg-background relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-deep-black">
-            Votre Projet est le Prochain !
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            Votre Projet est le <span className="orange-text">Prochain</span> !
           </h2>
-          <p className="text-xl text-deep-black/80 mb-8">
+          <p className="text-xl text-medium-gray mb-8">
             Rejoignez nos clients satisfaits et donnez vie à vos idées les plus ambitieuses
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="ai-button-primary text-lg">
+            <Button className="modern-button-primary text-lg">
               <Zap className="mr-2 h-5 w-5" />
               Démarrer mon projet
             </Button>
-            <Button className="ai-button-secondary text-lg">
+            <Button className="modern-button-outline text-lg">
               <Eye className="mr-2 h-5 w-5" />
               Voir plus de projets
             </Button>

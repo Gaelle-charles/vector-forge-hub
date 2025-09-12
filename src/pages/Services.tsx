@@ -3,11 +3,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import FloralBackground from '@/components/FloralBackground';
-import tropicalArrangement from '@/assets/tropical-arrangement.jpg';
 import { 
   Smartphone, Video, Bot, GraduationCap, CheckCircle, ArrowRight, 
-  Flower, Code, Palette, Database, Cloud, Shield, Lightbulb, Target, Sparkles
+  Code, Palette, Database, Cloud, Shield, Lightbulb, Target, Sparkles
 } from 'lucide-react';
 
 const Services = () => {
@@ -17,66 +15,66 @@ const Services = () => {
     applications: {
       title: "Applications Web & Mobile",
       icon: <Smartphone className="h-12 w-12" />,
-      description: "Développement d'applications intelligentes avec IA intégrée",
+      description: "Développement d'applications modernes et performantes",
       features: [
-        "Applications React Native cross-platform",
+        "Applications React/Next.js",
+        "Applications mobiles React Native",
         "Progressive Web Apps (PWA)",
-        "Intégration IA et Machine Learning",
-        "Interface utilisateur moderne et intuitive",
+        "Interface utilisateur moderne",
         "Performance optimisée",
         "Sécurité renforcée"
       ],
-      technologies: ["React", "React Native", "TypeScript", "Node.js", "Python", "TensorFlow"],
-      pricing: "À partir de 15 000€",
-      timeline: "6-12 semaines"
+      technologies: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB"],
+      pricing: "À partir de 5 000€",
+      timeline: "4-8 semaines"
     },
-    video: {
-      title: "Création Vidéo & Images IA",
-      icon: <Video className="h-12 w-12" />,
-      description: "Production de contenus visuels époustouflants avec l'IA générative",
+    design: {
+      title: "Design & UX/UI",
+      icon: <Palette className="h-12 w-12" />,
+      description: "Création d'interfaces élégantes et intuitives",
       features: [
-        "Génération d'images haute qualité",
-        "Création vidéo automatisée",
-        "Animation 3D et motion design",
-        "Personnalisation de contenu en masse",
-        "Retouche et amélioration d'images",
-        "Création de avatars virtuels"
+        "Design systems complets",
+        "Prototypage interactif",
+        "Tests utilisateurs",
+        "Interface responsive",
+        "Identité visuelle",
+        "Optimisation conversion"
       ],
-      technologies: ["DALL-E", "Midjourney", "Stable Diffusion", "After Effects", "Blender"],
+      technologies: ["Figma", "Adobe XD", "Sketch", "Framer", "Principle"],
       pricing: "À partir de 2 500€",
       timeline: "2-4 semaines"
     },
-    agents: {
-      title: "Agents IA Personnalisés",
-      icon: <Bot className="h-12 w-12" />,
-      description: "Assistants IA sur mesure pour automatiser vos processus",
+    backend: {
+      title: "Développement Backend",
+      icon: <Database className="h-12 w-12" />,
+      description: "API robustes et infrastructures scalables",
       features: [
-        "Chatbots conversationnels avancés",
-        "Automatisation de workflows",
-        "Analyse prédictive et insights",
-        "Intégration APIs multiples",
-        "Traitement du langage naturel",
-        "Apprentissage continu"
+        "API REST et GraphQL",
+        "Bases de données optimisées",
+        "Authentification sécurisée",
+        "Intégrations tierces",
+        "Monitoring en temps réel",
+        "Documentation complète"
       ],
-      technologies: ["OpenAI GPT", "LangChain", "Rasa", "TensorFlow", "API REST"],
-      pricing: "À partir de 8 000€",
-      timeline: "4-8 semaines"
+      technologies: ["Node.js", "Python", "PostgreSQL", "MongoDB", "Docker"],
+      pricing: "À partir de 3 500€",
+      timeline: "3-6 semaines"
     },
-    formation: {
-      title: "Formation & Accompagnement IA",
+    conseil: {
+      title: "Conseil & Stratégie Digitale",
       icon: <GraduationCap className="h-12 w-12" />,
-      description: "Programmes de formation pour maîtriser les outils d'IA",
+      description: "Accompagnement stratégique pour vos projets",
       features: [
-        "Ateliers pratiques en entreprise",
-        "Formation aux outils IA populaires",
-        "Stratégie d'adoption de l'IA",
-        "Certification personnalisée",
-        "Support et suivi post-formation",
-        "Cas d'usage métier spécifiques"
+        "Audit technique complet",
+        "Stratégie produit",
+        "Architecture technique",
+        "Formation des équipes",
+        "Support et maintenance",
+        "Optimisation continue"
       ],
-      technologies: ["ChatGPT", "Claude", "Midjourney", "Notion AI", "Zapier"],
+      technologies: ["Analytics", "SEO", "Performance", "Security", "Monitoring"],
       pricing: "À partir de 1 500€",
-      timeline: "1-3 jours"
+      timeline: "1-2 semaines"
     }
   };
 
@@ -84,7 +82,7 @@ const Services = () => {
     {
       icon: <Lightbulb className="h-8 w-8" />,
       title: "Analyse des Besoins",
-      description: "Audit complet de vos processus et identification des opportunités IA"
+      description: "Audit complet de vos besoins et définition des objectifs"
     },
     {
       icon: <Target className="h-8 w-8" />,
@@ -106,25 +104,16 @@ const Services = () => {
   const currentService = serviceDetails[selectedService as keyof typeof serviceDetails];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 bg-background">
       {/* Hero Section */}
-      <section className="hero-section py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="absolute left-10 top-1/4 opacity-30 hidden lg:block">
-          <img 
-            src={tropicalArrangement} 
-            alt="Tropical arrangement" 
-            className="w-64 h-64 object-cover rounded-3xl floating-flora"
-          />
-        </div>
+      <section className="py-24 bg-background relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-6xl md:text-7xl font-bold mb-8 text-foreground">
-            <span className="paradise-text">Services IA</span>
-            <span className="block text-foreground/90 text-4xl md:text-5xl mt-4">Élégants & Naturels</span>
+            <span className="orange-text">Services</span>
+            <span className="block text-foreground text-4xl md:text-5xl mt-4">Excellence & Innovation</span>
           </h1>
-          <p className="text-xl text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-            Des solutions IA innovantes qui s'épanouissent comme les plus belles fleurs 
-            pour propulser votre entreprise vers de nouveaux horizons
+          <p className="text-xl text-medium-gray max-w-3xl mx-auto leading-relaxed">
+            Des solutions digitales sur mesure qui propulsent votre entreprise vers de nouveaux horizons
           </p>
         </div>
       </section>
@@ -133,11 +122,11 @@ const Services = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Tabs value={selectedService} onValueChange={setSelectedService}>
-            <TabsList className="grid grid-cols-2 lg:grid-cols-4 mb-12 bg-muted p-2 rounded-2xl">
+            <TabsList className="grid grid-cols-2 lg:grid-cols-4 mb-12 bg-secondary p-2 rounded-2xl">
               <TabsTrigger value="applications" className="rounded-xl">Applications</TabsTrigger>
-              <TabsTrigger value="video" className="rounded-xl">Création Visuelle</TabsTrigger>
-              <TabsTrigger value="agents" className="rounded-xl">Agents IA</TabsTrigger>
-              <TabsTrigger value="formation" className="rounded-xl">Formation</TabsTrigger>
+              <TabsTrigger value="design" className="rounded-xl">Design</TabsTrigger>
+              <TabsTrigger value="backend" className="rounded-xl">Backend</TabsTrigger>
+              <TabsTrigger value="conseil" className="rounded-xl">Conseil</TabsTrigger>
             </TabsList>
 
             <TabsContent value={selectedService}>
@@ -149,28 +138,28 @@ const Services = () => {
                       {currentService.icon}
                     </div>
                     <div>
-                      <h2 className="text-3xl font-bold">{currentService.title}</h2>
-                      <p className="text-muted-foreground text-lg">{currentService.description}</p>
+                      <h2 className="text-3xl font-bold text-foreground">{currentService.title}</h2>
+                      <p className="text-medium-gray text-lg">{currentService.description}</p>
                     </div>
                   </div>
 
                   <div className="space-y-4">
-                    <h3 className="text-xl font-semibold">Fonctionnalités incluses :</h3>
+                    <h3 className="text-xl font-semibold text-foreground">Fonctionnalités incluses :</h3>
                     <div className="grid gap-3">
                       {currentService.features.map((feature, index) => (
                         <div key={index} className="flex items-center space-x-3">
                           <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
-                          <span>{feature}</span>
+                          <span className="text-medium-gray">{feature}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div className="space-y-4">
-                    <h3 className="text-xl font-semibold">Technologies utilisées :</h3>
+                    <h3 className="text-xl font-semibold text-foreground">Technologies utilisées :</h3>
                     <div className="flex flex-wrap gap-2">
                       {currentService.technologies.map((tech, index) => (
-                        <Badge key={index} variant="outline" className="text-sm">
+                        <Badge key={index} variant="outline" className="text-sm border-primary/20">
                           {tech}
                         </Badge>
                       ))}
@@ -179,11 +168,11 @@ const Services = () => {
                 </div>
 
                 {/* Service Card */}
-                <Card className="floral-card">
+                <Card className="modern-card">
                   <CardHeader>
-                    <CardTitle className="text-2xl flex items-center">
-                      <Flower className="mr-3 h-6 w-6 text-primary" />
-                      Tarification Élégante
+                    <CardTitle className="text-2xl flex items-center text-foreground">
+                      <Target className="mr-3 h-6 w-6 text-primary" />
+                      Tarification Transparente
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
@@ -191,32 +180,32 @@ const Services = () => {
                       <div className="text-3xl font-bold text-primary mb-2">
                         {currentService.pricing}
                       </div>
-                      <div className="text-muted-foreground">
+                      <div className="text-medium-gray">
                         Délai : {currentService.timeline}
                       </div>
                     </div>
                     
                     <div className="space-y-3">
-                      <div className="flex items-center text-sm">
+                      <div className="flex items-center text-sm text-medium-gray">
                         <CheckCircle className="h-4 w-4 mr-2 text-primary" />
                         Audit initial gratuit
                       </div>
-                      <div className="flex items-center text-sm">
+                      <div className="flex items-center text-sm text-medium-gray">
                         <CheckCircle className="h-4 w-4 mr-2 text-primary" />
-                        Support 6 mois inclus
+                        Support 3 mois inclus
                       </div>
-                      <div className="flex items-center text-sm">
+                      <div className="flex items-center text-sm text-medium-gray">
                         <CheckCircle className="h-4 w-4 mr-2 text-primary" />
                         Formation équipe
                       </div>
-                      <div className="flex items-center text-sm">
+                      <div className="flex items-center text-sm text-medium-gray">
                         <CheckCircle className="h-4 w-4 mr-2 text-primary" />
-                        Garantie résultat
+                        Garantie qualité
                       </div>
                     </div>
 
-                    <Button className="floral-button-primary w-full text-lg">
-                      Faire fleurir ce projet
+                    <Button className="modern-button-primary w-full text-lg">
+                      Démarrer ce projet
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </CardContent>
@@ -228,29 +217,28 @@ const Services = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 bg-muted/20 relative">
-        <FloralBackground />
+      <section className="py-24 bg-secondary relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-5xl font-bold mb-8 tropical-text">
-              Notre Méthodologie
+            <h2 className="text-5xl font-bold mb-8 text-foreground">
+              Notre <span className="orange-text">Méthodologie</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Un processus organique et éprouvé pour garantir l'épanouissement de vos projets IA
+            <p className="text-xl text-medium-gray max-w-3xl mx-auto leading-relaxed">
+              Un processus éprouvé pour garantir le succès de vos projets digitaux
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
-              <Card key={index} className="floral-card text-center group">
+              <Card key={index} className="modern-card text-center group">
                 <CardContent className="pt-8">
                   <div className="flex justify-center mb-6">
-                    <div className="p-5 bg-primary/10 rounded-3xl text-primary group-hover:scale-110 transition-transform duration-500 petal-glow">
+                    <div className="p-5 bg-primary/10 rounded-3xl text-primary group-hover:scale-110 transition-transform duration-300">
                       {step.icon}
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-4">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">{step.description}</p>
+                  <h3 className="text-xl font-bold mb-4 text-foreground">{step.title}</h3>
+                  <p className="text-medium-gray leading-relaxed mb-4">{step.description}</p>
                   <div className="mt-6 text-primary font-bold text-lg">Étape {index + 1}</div>
                 </CardContent>
               </Card>
@@ -261,22 +249,20 @@ const Services = () => {
 
       {/* CTA Section */}
       <section className="py-24 bg-background relative">
-        <FloralBackground />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-5xl font-bold mb-8 text-foreground">
-            <span className="paradise-text">Transformez Votre Vision</span>
-            <span className="block text-foreground/90 text-3xl mt-2">en Réalité Florissante</span>
+            <span className="orange-text">Transformons</span> Votre Vision
+            <span className="block text-foreground text-3xl mt-2">en Réalité Digitale</span>
           </h2>
-          <p className="text-xl mb-10 text-muted-foreground leading-relaxed">
-            Discutons de votre projet et découvrons ensemble comment l'IA peut révolutionner 
-            votre activité avec l'élégance et l'efficacité de la nature
+          <p className="text-xl mb-10 text-medium-gray leading-relaxed">
+            Discutons de votre projet et découvrons ensemble comment nous pouvons propulser votre entreprise
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button className="floral-button-primary text-lg px-8 py-4">
+            <Button className="modern-button-primary text-lg px-8 py-4">
               Consultation gratuite
-              <Flower className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button variant="outline" className="text-lg px-8 py-4 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground">
+            <Button className="modern-button-outline text-lg px-8 py-4">
               Voir nos réalisations
             </Button>
           </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Flower, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,22 +12,22 @@ const Navigation = () => {
     { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'À propos', path: '/about' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-border/30">
+    <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-lg border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="relative">
-              <Flower className="h-8 w-8 text-primary rotate-12 group-hover:rotate-45 transition-all duration-500" />
-              <Sparkles className="h-4 w-4 text-accent absolute -top-1 -right-1 animate-pulse" />
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-xl">G</span>
             </div>
-            <span className="text-2xl font-bold tropical-text">AI Flora</span>
+            <span className="text-2xl font-bold text-foreground">Gogogo Studio</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -48,8 +48,8 @@ const Navigation = () => {
                 )}
               </Link>
             ))}
-            <Button className="floral-button-primary">
-              Devis Gratuit
+            <Button className="modern-button-primary">
+              Démarrer un projet
             </Button>
           </div>
 
@@ -80,8 +80,8 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
-              <Button className="floral-button-primary mt-4">
-                Devis Gratuit
+              <Button className="modern-button-primary mt-4">
+                Démarrer un projet
               </Button>
             </div>
           </div>

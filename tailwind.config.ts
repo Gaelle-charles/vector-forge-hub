@@ -47,13 +47,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Floral Realistic Custom Colors
-        "coral-orange": "hsl(var(--coral-orange))",
-        "soft-pink": "hsl(var(--soft-pink))",
-        "deep-purple": "hsl(var(--deep-purple))",
-        "tropical-green": "hsl(var(--tropical-green))",
-        "sunset-yellow": "hsl(var(--sunset-yellow))",
-        "dark-teal": "hsl(var(--dark-teal))",
+        // Modern Design Custom Colors
+        "warm-orange": "hsl(var(--warm-orange))",
+        "soft-orange": "hsl(var(--soft-orange))",
+        "light-orange": "hsl(var(--light-orange))",
+        "dark-gray": "hsl(var(--dark-gray))",
+        "medium-gray": "hsl(var(--medium-gray))",
+        "light-gray": "hsl(var(--light-gray))",
         "warm-white": "hsl(var(--warm-white))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

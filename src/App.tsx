@@ -35,7 +35,10 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <div className="min-h-screen flex flex-col">
+          <div className="min-h-screen flex flex-col" style={{
+            background: 'url("/src/assets/bird-paradise-hero.jpg") center center / cover fixed',
+            backgroundAttachment: 'fixed'
+          }}>
             <Navigation />
             <main className="flex-grow">
               <Routes>

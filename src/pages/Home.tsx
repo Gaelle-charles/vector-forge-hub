@@ -50,7 +50,7 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="hero-section min-h-screen flex items-center justify-center relative overflow-hidden">
-        <FloralBackground />
+        <div className="absolute inset-0 bg-black/30"></div>
         
         {/* Hero Image */}
         <div className="absolute right-10 top-1/2 transform -translate-y-1/2 hidden lg:block opacity-40">
@@ -113,8 +113,8 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-background relative">
-        <FloralBackground />
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-6xl font-bold mb-8">
@@ -163,8 +163,8 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 hero-section relative">
-        <FloralBackground />
+      <section className="py-24 hero-section relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
         <div className="absolute right-0 bottom-0 opacity-20 hidden lg:block">
           <img 
             src={birdParadiseHero} 

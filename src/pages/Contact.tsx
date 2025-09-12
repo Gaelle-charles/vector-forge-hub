@@ -95,8 +95,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="hero-section py-20 relative">
-        <AnimatedBackground />
+      <section className="hero-section py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/30"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-deep-black">
             Contactez-Nous

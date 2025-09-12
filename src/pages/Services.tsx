@@ -108,8 +108,8 @@ const Services = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="hero-section py-24 relative">
-        <FloralBackground />
+      <section className="hero-section py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/30"></div>
         <div className="absolute left-10 top-1/4 opacity-30 hidden lg:block">
           <img 
             src={tropicalArrangement} 

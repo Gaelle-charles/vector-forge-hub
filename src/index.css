@@ -126,7 +126,9 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background: url('/src/assets/bird-paradise-hero.jpg') center center / cover fixed, hsl(var(--background));
+    background-attachment: fixed;
   }
 }
 

@@ -52,6 +52,12 @@ All colors MUST be HSL.
     --warm-white: 0 0% 100%;
     --black: 0 0% 0%;
     
+    /* Fluo colors for tags */
+    --neon-green: 120 100% 50%;
+    --neon-pink: 320 100% 50%;
+    --neon-cyan: 180 100% 50%;
+    --neon-yellow: 60 100% 50%;
+    
     /* Tropical background gradient */
     --tropical-gradient: linear-gradient(135deg, hsl(200 40% 4%) 0%, hsl(220 30% 8%) 30%, hsl(200 25% 12%) 100%);
     

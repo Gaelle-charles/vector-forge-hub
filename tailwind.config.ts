@@ -55,6 +55,11 @@ export default {
         "medium-gray": "hsl(var(--medium-gray))",
         "light-gray": "hsl(var(--light-gray))",
         "warm-white": "hsl(var(--warm-white))",
+        // Neon colors for tags
+        "neon-green": "hsl(var(--neon-green))",
+        "neon-pink": "hsl(var(--neon-pink))",
+        "neon-cyan": "hsl(var(--neon-cyan))",
+        "neon-yellow": "hsl(var(--neon-yellow))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",

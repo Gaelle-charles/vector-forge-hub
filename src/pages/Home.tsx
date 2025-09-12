@@ -107,16 +107,16 @@ const Home = () => {
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="space-y-8">
             <h1 className="text-6xl md:text-8xl font-bold leading-tight text-foreground">
-              Digital innovation
+              Innovation digitale
               <br />
-              and creative
+              et solutions
               <br />
-              solutions
+              créatives
             </h1>
             
             <p className="text-xl text-foreground/80 max-w-2xl leading-relaxed">
-              An essential tool for global brands, digital agencies, startups 
-              and creative professionals.
+              Un outil essentiel pour les marques mondiales, agences digitales, startups 
+              et professionnels créatifs.
             </p>
             
             <Button 
@@ -124,7 +124,7 @@ const Home = () => {
               className="bg-foreground text-background rounded-full px-8 py-4 text-lg font-medium hover:bg-foreground/90 group"
             >
               <Download className="h-5 w-5 mr-3" />
-              GET STARTED TODAY
+              COMMENCER AUJOURD'HUI
               <ArrowUpRight className="h-5 w-5 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </Button>
           </div>
@@ -136,10 +136,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-foreground mb-4">
-              Our Services
+              Nos Services
             </h2>
             <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
-              We provide comprehensive digital solutions for modern businesses
+              Nous fournissons des solutions digitales complètes pour les entreprises modernes
             </p>
           </div>
 
@@ -149,24 +149,24 @@ const Home = () => {
                 <div className="w-12 h-12 bg-foreground rounded-xl flex items-center justify-center mb-4">
                   <Smartphone className="h-6 w-6 text-background" />
                 </div>
-                <CardTitle className="text-2xl text-foreground">WEB DEVELOPMENT</CardTitle>
-                <CardDescription className="text-foreground/80">
-                  Modern, responsive websites and web applications built with cutting-edge technologies.
+                <CardTitle className="text-2xl text-black">DÉVELOPPEMENT WEB</CardTitle>
+                <CardDescription className="text-black/80">
+                  Sites web modernes et responsifs et applications web construites avec des technologies de pointe.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
+                <div className="space-y-3 text-black">
                   <div className="flex items-center text-sm">
                     <CheckCircle className="h-4 w-4 mr-2 text-foreground" />
-                    <span>React & Next.js Applications</span>
+                    <span>Applications React & Next.js</span>
                   </div>
                   <div className="flex items-center text-sm">
                     <CheckCircle className="h-4 w-4 mr-2 text-foreground" />
-                    <span>Progressive Web Apps</span>
+                    <span>Applications Web Progressives</span>
                   </div>
                   <div className="flex items-center text-sm">
                     <CheckCircle className="h-4 w-4 mr-2 text-foreground" />
-                    <span>E-commerce Solutions</span>
+                    <span>Solutions E-commerce</span>
                   </div>
                 </div>
               </CardContent>
@@ -177,24 +177,24 @@ const Home = () => {
                 <div className="w-12 h-12 bg-foreground rounded-xl flex items-center justify-center mb-4">
                   <Video className="h-6 w-6 text-background" />
                 </div>
-                <CardTitle className="text-2xl text-foreground">DESIGN & BRANDING</CardTitle>
-                <CardDescription className="text-foreground/80">
-                  Complete visual identity and user experience design for digital products.
+                <CardTitle className="text-2xl text-black">DESIGN & IMAGE DE MARQUE</CardTitle>
+                <CardDescription className="text-black/80">
+                  Identité visuelle complète et design d'expérience utilisateur pour les produits digitaux.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
+                <div className="space-y-3 text-black">
                   <div className="flex items-center text-sm">
                     <CheckCircle className="h-4 w-4 mr-2 text-foreground" />
-                    <span>UI/UX Design</span>
+                    <span>Design UI/UX</span>
                   </div>
                   <div className="flex items-center text-sm">
                     <CheckCircle className="h-4 w-4 mr-2 text-foreground" />
-                    <span>Brand Identity</span>
+                    <span>Identité de Marque</span>
                   </div>
                   <div className="flex items-center text-sm">
                     <CheckCircle className="h-4 w-4 mr-2 text-foreground" />
-                    <span>Design Systems</span>
+                    <span>Systèmes de Design</span>
                   </div>
                 </div>
               </CardContent>
@@ -205,24 +205,24 @@ const Home = () => {
                 <div className="w-12 h-12 bg-foreground rounded-xl flex items-center justify-center mb-4">
                   <Bot className="h-6 w-6 text-background" />
                 </div>
-                <CardTitle className="text-2xl text-foreground">AI SOLUTIONS</CardTitle>
-                <CardDescription className="text-foreground/80">
-                  Intelligent automation and AI-powered features for your business processes.
+                <CardTitle className="text-2xl text-black">SOLUTIONS IA</CardTitle>
+                <CardDescription className="text-black/80">
+                  Automatisation intelligente et fonctionnalités alimentées par l'IA pour vos processus métier.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
+                <div className="space-y-3 text-black">
                   <div className="flex items-center text-sm">
                     <CheckCircle className="h-4 w-4 mr-2 text-foreground" />
-                    <span>Chatbots & Virtual Assistants</span>
+                    <span>Chatbots & Assistants Virtuels</span>
                   </div>
                   <div className="flex items-center text-sm">
                     <CheckCircle className="h-4 w-4 mr-2 text-foreground" />
-                    <span>Process Automation</span>
+                    <span>Automatisation des Processus</span>
                   </div>
                   <div className="flex items-center text-sm">
                     <CheckCircle className="h-4 w-4 mr-2 text-foreground" />
-                    <span>Data Analytics</span>
+                    <span>Analyse de Données</span>
                   </div>
                 </div>
               </CardContent>
@@ -236,10 +236,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-foreground mb-4">
-              Latest Articles
+              Derniers Articles
             </h2>
             <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
-              Insights and updates from our team about technology and innovation
+              Insights et mises à jour de notre équipe sur la technologie et l'innovation
             </p>
           </div>
 
@@ -249,18 +249,18 @@ const Home = () => {
                 <div className="w-full h-48 bg-secondary rounded-lg mb-4 flex items-center justify-center">
                   <Code className="h-12 w-12 text-foreground/50" />
                 </div>
-                <Badge variant="outline" className="w-fit mb-2">Development</Badge>
-                <CardTitle className="text-xl text-foreground group-hover:text-foreground/80">
-                  The Future of Web Development
+                <Badge className="w-fit mb-2 bg-neon-green text-black font-bold border-0">Développement</Badge>
+                <CardTitle className="text-xl text-black group-hover:text-black/80">
+                  L'Avenir du Développement Web
                 </CardTitle>
-                <CardDescription className="text-foreground/80">
-                  Exploring emerging trends and technologies that will shape the next generation of web applications.
+                <CardDescription className="text-black/80">
+                  Explorer les tendances émergentes et les technologies qui façonneront la prochaine génération d'applications web.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-foreground/60">Dec 12, 2024</span>
-                  <Button variant="ghost" size="sm" className="p-0 h-auto">
+                  <span className="text-sm text-black/60">12 Déc, 2024</span>
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-black">
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>
@@ -272,18 +272,18 @@ const Home = () => {
                 <div className="w-full h-48 bg-secondary rounded-lg mb-4 flex items-center justify-center">
                   <Bot className="h-12 w-12 text-foreground/50" />
                 </div>
-                <Badge variant="outline" className="w-fit mb-2">AI</Badge>
-                <CardTitle className="text-xl text-foreground group-hover:text-foreground/80">
-                  AI in Modern Business
+                <Badge className="w-fit mb-2 bg-neon-cyan text-black font-bold border-0">IA</Badge>
+                <CardTitle className="text-xl text-black group-hover:text-black/80">
+                  L'IA dans les Entreprises Modernes
                 </CardTitle>
-                <CardDescription className="text-foreground/80">
-                  How artificial intelligence is transforming industries and creating new opportunities for growth.
+                <CardDescription className="text-black/80">
+                  Comment l'intelligence artificielle transforme les industries et crée de nouvelles opportunités de croissance.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-foreground/60">Dec 10, 2024</span>
-                  <Button variant="ghost" size="sm" className="p-0 h-auto">
+                  <span className="text-sm text-black/60">10 Déc, 2024</span>
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-black">
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>
@@ -295,18 +295,18 @@ const Home = () => {
                 <div className="w-full h-48 bg-secondary rounded-lg mb-4 flex items-center justify-center">
                   <Video className="h-12 w-12 text-foreground/50" />
                 </div>
-                <Badge variant="outline" className="w-fit mb-2">Design</Badge>
-                <CardTitle className="text-xl text-foreground group-hover:text-foreground/80">
-                  Design Systems That Scale
+                <Badge className="w-fit mb-2 bg-neon-pink text-black font-bold border-0">Design</Badge>
+                <CardTitle className="text-xl text-black group-hover:text-black/80">
+                  Systèmes de Design Évolutifs
                 </CardTitle>
-                <CardDescription className="text-foreground/80">
-                  Building consistent and maintainable design systems for large-scale applications.
+                <CardDescription className="text-black/80">
+                  Construire des systèmes de design cohérents et maintenables pour les applications à grande échelle.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-foreground/60">Dec 8, 2024</span>
-                  <Button variant="ghost" size="sm" className="p-0 h-auto">
+                  <span className="text-sm text-black/60">8 Déc, 2024</span>
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-black">
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>
@@ -316,15 +316,30 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Footer */}
+      <footer className="py-8 bg-foreground text-background">
+        <div className="max-w-7xl mx-auto px-8 text-center">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <div className="w-6 h-6 bg-background rounded-full flex items-center justify-center">
+              <Globe className="h-3 w-3 text-foreground" />
+            </div>
+            <span className="text-lg font-bold">GoGoGo Studio</span>
+          </div>
+          <p className="text-background/80 text-sm">
+            © 2024 GoGoGo Studio. Innovation digitale et solutions créatives.
+          </p>
+        </div>
+      </footer>
+
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-secondary">
         <div className="max-w-4xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-foreground mb-4">
-              Get In Touch
+              Contactez-nous
             </h2>
             <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
-              Ready to start your next project? Let's discuss how we can help bring your ideas to life.
+              Prêt à démarrer votre prochain projet ? Discutons de la façon dont nous pouvons donner vie à vos idées.
             </p>
           </div>
 
@@ -332,26 +347,26 @@ const Home = () => {
             {/* Contact Form */}
             <Card className="border-2 border-border">
               <CardHeader>
-                <CardTitle className="text-2xl text-foreground">Send us a message</CardTitle>
-                <CardDescription className="text-foreground/80">
-                  We'll get back to you within 24 hours.
+                <CardTitle className="text-2xl text-black">Envoyez-nous un message</CardTitle>
+                <CardDescription className="text-black/80">
+                  Nous vous répondrons dans les 24 heures.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="grid grid-cols-2 gap-4">
-                  <Input placeholder="First name" className="border-border" />
-                  <Input placeholder="Last name" className="border-border" />
+                  <Input placeholder="Prénom" className="border-border text-black" />
+                  <Input placeholder="Nom" className="border-border text-black" />
                 </div>
-                <Input placeholder="Email address" type="email" className="border-border" />
-                <Input placeholder="Company (optional)" className="border-border" />
+                <Input placeholder="Adresse email" type="email" className="border-border text-black" />
+                <Input placeholder="Entreprise (optionnel)" className="border-border text-black" />
                 <Textarea 
-                  placeholder="Tell us about your project..." 
+                  placeholder="Parlez-nous de votre projet..." 
                   rows={4} 
-                  className="border-border"
+                  className="border-border text-black"
                 />
                 <Button className="bg-foreground text-background w-full rounded-full py-3 hover:bg-foreground/90">
                   <Send className="h-4 w-4 mr-2" />
-                  Send Message
+                  Envoyer le Message
                 </Button>
               </CardContent>
             </Card>
@@ -359,7 +374,7 @@ const Home = () => {
             {/* Contact Info */}
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-foreground mb-6">Contact Information</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-6">Informations de Contact</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 bg-foreground rounded-full flex items-center justify-center">
@@ -376,7 +391,7 @@ const Home = () => {
                       <Phone className="h-5 w-5 text-background" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">Phone</p>
+                      <p className="font-medium text-foreground">Téléphone</p>
                       <p className="text-foreground/80">+33 1 23 45 67 89</p>
                     </div>
                   </div>
@@ -386,7 +401,7 @@ const Home = () => {
                       <MapPin className="h-5 w-5 text-background" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">Location</p>
+                      <p className="font-medium text-foreground">Localisation</p>
                       <p className="text-foreground/80">Paris, France</p>
                     </div>
                   </div>
@@ -394,11 +409,11 @@ const Home = () => {
               </div>
 
               <div>
-                <h4 className="text-lg font-bold text-foreground mb-4">Office Hours</h4>
+                <h4 className="text-lg font-bold text-foreground mb-4">Horaires de Bureau</h4>
                 <div className="space-y-2 text-foreground/80">
-                  <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                  <p>Saturday: 10:00 AM - 4:00 PM</p>
-                  <p>Sunday: Closed</p>
+                  <p>Lundi - Vendredi : 9h00 - 18h00</p>
+                  <p>Samedi : 10h00 - 16h00</p>
+                  <p>Dimanche : Fermé</p>
                 </div>
               </div>
             </div>

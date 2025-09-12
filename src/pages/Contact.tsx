@@ -241,81 +241,92 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Contact Info */}
+            {/* Fun Booking Section */}
             <div className="space-y-8">
-              <Card className="modern-card-accent">
-                <CardHeader>
-                  <CardTitle className="text-2xl text-foreground">
-                    Informations de Contact
+              <Card className="modern-card-accent text-center overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+                <CardHeader className="relative z-10">
+                  <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                    <Calendar className="h-8 w-8 text-primary" />
+                  </div>
+                  <CardTitle className="text-3xl text-foreground mb-2">
+                    🚀 Prêt pour le décollage ?
                   </CardTitle>
-                  <CardDescription className="text-medium-gray">
-                    Plusieurs moyens de nous joindre
+                  <CardDescription className="text-lg text-medium-gray">
+                    30 minutes qui pourraient changer votre business !
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-start space-x-4">
-                      <div className="p-3 bg-primary/10 rounded-xl text-primary">
-                        {info.icon}
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
-                        {info.action ? (
-                          <a 
-                            href={info.action}
-                            className="text-medium-gray hover:text-primary transition-colors"
-                          >
-                            {info.content}
-                          </a>
-                        ) : (
-                          <p className="text-medium-gray whitespace-pre-line">{info.content}</p>
-                        )}
-                      </div>
+                <CardContent className="space-y-6 relative z-10">
+                  <div className="bg-background/50 backdrop-blur-sm rounded-2xl p-6 border border-border/50">
+                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                      ☕ Café virtuel & brainstorming
+                    </h3>
+                    <ul className="text-left space-y-2 text-medium-gray">
+                      <li className="flex items-center">
+                        <Zap className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
+                        Analyse express de votre projet
+                      </li>
+                      <li className="flex items-center">
+                        <Zap className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
+                        Conseils personnalisés gratuits
+                      </li>
+                      <li className="flex items-center">
+                        <Zap className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
+                        Roadmap de développement
+                      </li>
+                      <li className="flex items-center">
+                        <Zap className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
+                        Estimation budgétaire réaliste
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <Button className="w-full modern-button-primary text-lg py-4 group">
+                      <Calendar className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                      Réserver mon créneau gratuit 🎯
+                    </Button>
+                    
+                    <div className="grid grid-cols-2 gap-3">
+                      <Button className="modern-button-secondary group">
+                        <MessageSquare className="mr-2 h-4 w-4 group-hover:animate-pulse" />
+                        Chat live
+                      </Button>
+                      <Button className="modern-button-secondary group">
+                        <Mail className="mr-2 h-4 w-4 group-hover:animate-bounce" />
+                        Email express
+                      </Button>
                     </div>
-                  ))}
-                </CardContent>
-              </Card>
-
-              {/* Quick Actions */}
-              <Card className="modern-card">
-                <CardHeader>
-                  <CardTitle className="flex items-center text-foreground">
-                    <Calendar className="mr-2 h-5 w-5 text-primary" />
-                    Actions Rapides
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <Button className="w-full modern-button-secondary">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Planifier un appel
-                  </Button>
-                  <Button className="w-full modern-button-secondary">
-                    <Zap className="mr-2 h-4 w-4" />
-                    Consultation express (15min)
-                  </Button>
-                  <Button className="w-full modern-button-secondary">
-                    <Mail className="mr-2 h-4 w-4" />
-                    Télécharger notre brochure
-                  </Button>
+                  </div>
+                  
+                  <div className="text-sm text-medium-gray bg-secondary/30 rounded-xl p-4">
+                    <strong className="text-foreground">🎁 Bonus :</strong> Une checklist IA personnalisée 
+                    pour votre secteur d'activité !
+                  </div>
                 </CardContent>
               </Card>
 
               {/* Social Links */}
               <Card className="modern-card text-center">
                 <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-4 text-foreground">Suivez-nous</h3>
+                  <h3 className="font-semibold mb-4 text-foreground">Rejoignez notre communauté</h3>
                   <div className="flex justify-center space-x-4">
                     {socialLinks.map((social, index) => (
                       <a
                         key={index}
                         href={social.url}
-                        className="p-3 bg-primary/10 rounded-xl text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+                        className="p-3 bg-primary/10 rounded-xl text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 group"
                         aria-label={social.label}
                       >
-                        {social.icon}
+                        <div className="group-hover:animate-pulse">
+                          {social.icon}
+                        </div>
                       </a>
                     ))}
                   </div>
+                  <p className="text-xs text-medium-gray mt-3">
+                    Suivez nos dernières innovations IA
+                  </p>
                 </CardContent>
               </Card>
             </div>

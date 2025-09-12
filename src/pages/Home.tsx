@@ -177,7 +177,7 @@ const Home = () => {
 
       {/* Hero Content Section */}
       <main className="relative px-8 py-20 bg-background scroll-animate opacity-0 rounded-t-[3rem]">
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
+        <div className="relative z-10 max-w-4xl mx-auto text-center scroll-animate">
           <div className="space-y-8">
             <h1 className="text-6xl md:text-8xl font-bold leading-tight text-foreground stagger-child opacity-0">
               Innovation digitale
@@ -206,7 +206,7 @@ const Home = () => {
 
       {/* Services Section */}
       <section id="services" className="py-24 bg-secondary scroll-animate opacity-0 rounded-t-[3rem]">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-8 scroll-animate">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
               Nos Services
@@ -306,7 +306,7 @@ const Home = () => {
 
       {/* Blog Section */}
       <section id="blog" className="py-24 bg-background scroll-animate opacity-0 rounded-t-[3rem]">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-8 scroll-animate">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-foreground mb-4 stagger-child opacity-0">
               Derniers Articles
@@ -391,7 +391,7 @@ const Home = () => {
 
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-secondary scroll-animate opacity-0 rounded-t-[3rem]">
-        <div className="max-w-4xl mx-auto px-8">
+        <div className="max-w-4xl mx-auto px-8 scroll-animate">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
               Contactez-nous

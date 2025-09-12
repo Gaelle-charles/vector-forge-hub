@@ -8,7 +8,7 @@ import geometricElephant from '@/assets/geometric-elephant.png';
 import geometricDashboard from '@/assets/geometric-dashboard.png';
 import { 
   ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, 
-  CheckCircle, Mail, MapPin, Phone, Send, ExternalLink
+  CheckCircle, Mail, MapPin, Phone, Send, ExternalLink, Play
 } from 'lucide-react';
 
 const Home = () => {
@@ -67,44 +67,83 @@ const Home = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <main className="relative px-8 py-20 pt-32">
-        {/* Geometric Illustrations */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-20 opacity-40">
-            <div className="w-24 h-24 border-2 border-foreground rounded-full"></div>
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-foreground rounded-full"></div>
-            <svg className="absolute top-8 left-32 w-16 h-8" viewBox="0 0 64 32">
-              <path d="M8 16 L24 8 L40 12 L56 4" stroke="currentColor" strokeWidth="2" fill="none" className="text-foreground"/>
-            </svg>
+      {/* Video Header Section */}
+      <section className="pt-20 bg-foreground">
+        <div className="grid grid-cols-1 md:grid-cols-3 h-[60vh] border-white">
+          {/* Video Section 1 */}
+          <div className="relative bg-foreground border-r border-white md:border-r-2 flex items-center justify-center group overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
+            <div className="relative z-10 text-center p-8">
+              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <Smartphone className="h-10 w-10 text-foreground" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">Applications</h3>
+              <p className="text-white/80 mb-6">Solutions mobiles innovantes</p>
+              <Button 
+                variant="ghost" 
+                size="lg"
+                className="bg-white/10 text-white border border-white/20 hover:bg-white/20"
+              >
+                <Play className="h-5 w-5 mr-2" />
+                Voir démo
+              </Button>
+            </div>
+            <div className="absolute inset-0 opacity-20">
+              <img src={geometricTravel} alt="" className="w-full h-full object-cover" />
+            </div>
           </div>
-          
-          <div className="absolute top-16 left-1/2 transform -translate-x-1/2 opacity-30">
-            <img src={geometricTravel} alt="" className="w-96 h-auto" />
+
+          {/* Video Section 2 */}
+          <div className="relative bg-foreground border-r border-white md:border-r-2 flex items-center justify-center group overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-700"></div>
+            <div className="relative z-10 text-center p-8">
+              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <Video className="h-10 w-10 text-foreground" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">Design</h3>
+              <p className="text-white/80 mb-6">Créations visuelles sur mesure</p>
+              <Button 
+                variant="ghost" 
+                size="lg"
+                className="bg-white/10 text-white border border-white/20 hover:bg-white/20"
+              >
+                <Play className="h-5 w-5 mr-2" />
+                Voir démo
+              </Button>
+            </div>
+            <div className="absolute inset-0 opacity-20">
+              <img src={geometricDashboard} alt="" className="w-full h-full object-cover" />
+            </div>
           </div>
-          
-          <div className="absolute top-32 right-20 opacity-40">
-            <img src={geometricElephant} alt="" className="w-32 h-32" />
-          </div>
-          
-          <div className="absolute top-40 right-40 opacity-30">
-            <img src={geometricDashboard} alt="" className="w-40 h-auto" />
-          </div>
-          
-          <div className="absolute bottom-32 left-32 opacity-20">
-            <div className="w-16 h-16 border-2 border-foreground transform rotate-45"></div>
-          </div>
-          
-          <div className="absolute bottom-20 right-32 opacity-30">
-            <svg className="w-20 h-20" viewBox="0 0 80 80">
-              <circle cx="40" cy="40" r="30" stroke="currentColor" strokeWidth="2" fill="none" className="text-foreground"/>
-              <circle cx="40" cy="40" r="15" stroke="currentColor" strokeWidth="2" fill="none" className="text-foreground"/>
-            </svg>
+
+          {/* Video Section 3 */}
+          <div className="relative bg-foreground flex items-center justify-center group overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-600"></div>
+            <div className="relative z-10 text-center p-8">
+              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <Bot className="h-10 w-10 text-foreground" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">IA</h3>
+              <p className="text-white/80 mb-6">Intelligence artificielle avancée</p>
+              <Button 
+                variant="ghost" 
+                size="lg"
+                className="bg-white/10 text-white border border-white/20 hover:bg-white/20"
+              >
+                <Play className="h-5 w-5 mr-2" />
+                Voir démo
+              </Button>
+            </div>
+            <div className="absolute inset-0 opacity-20">
+              <img src={geometricElephant} alt="" className="w-full h-full object-cover" />
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Main Content */}
-        <div className="relative z-10 max-w-4xl mx-auto">
+      {/* Hero Content Section */}
+      <main className="relative px-8 py-20 bg-background">
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="space-y-8">
             <h1 className="text-6xl md:text-8xl font-bold leading-tight text-foreground">
               Innovation digitale
@@ -114,7 +153,7 @@ const Home = () => {
               créatives
             </h1>
             
-            <p className="text-xl text-foreground/80 max-w-2xl leading-relaxed">
+            <p className="text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
               Un outil essentiel pour les marques mondiales, agences digitales, startups 
               et professionnels créatifs.
             </p>
@@ -144,13 +183,13 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 border-border hover:border-foreground transition-colors">
+            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white">
               <CardHeader>
                 <div className="w-12 h-12 bg-foreground rounded-xl flex items-center justify-center mb-4">
                   <Smartphone className="h-6 w-6 text-background" />
                 </div>
                 <CardTitle className="text-2xl text-black">DÉVELOPPEMENT WEB</CardTitle>
-                <CardDescription className="text-black/80">
+                <CardDescription className="text-black/70">
                   Sites web modernes et responsifs et applications web construites avec des technologies de pointe.
                 </CardDescription>
               </CardHeader>
@@ -172,13 +211,13 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors">
+            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white">
               <CardHeader>
                 <div className="w-12 h-12 bg-foreground rounded-xl flex items-center justify-center mb-4">
                   <Video className="h-6 w-6 text-background" />
                 </div>
                 <CardTitle className="text-2xl text-black">DESIGN & IMAGE DE MARQUE</CardTitle>
-                <CardDescription className="text-black/80">
+                <CardDescription className="text-black/70">
                   Identité visuelle complète et design d'expérience utilisateur pour les produits digitaux.
                 </CardDescription>
               </CardHeader>
@@ -200,13 +239,13 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors">
+            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white">
               <CardHeader>
                 <div className="w-12 h-12 bg-foreground rounded-xl flex items-center justify-center mb-4">
                   <Bot className="h-6 w-6 text-background" />
                 </div>
                 <CardTitle className="text-2xl text-black">SOLUTIONS IA</CardTitle>
-                <CardDescription className="text-black/80">
+                <CardDescription className="text-black/70">
                   Automatisation intelligente et fonctionnalités alimentées par l'IA pour vos processus métier.
                 </CardDescription>
               </CardHeader>
@@ -244,69 +283,69 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-2 border-border hover:border-foreground transition-colors group">
+            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white">
               <CardHeader>
-                <div className="w-full h-48 bg-secondary rounded-lg mb-4 flex items-center justify-center">
-                  <Code className="h-12 w-12 text-foreground/50" />
+                <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
+                  <Code className="h-12 w-12 text-gray-400" />
                 </div>
                 <Badge className="w-fit mb-2 bg-neon-green text-black font-bold border-0">Développement</Badge>
                 <CardTitle className="text-xl text-black group-hover:text-black/80">
                   L'Avenir du Développement Web
                 </CardTitle>
-                <CardDescription className="text-black/80">
+                <CardDescription className="text-black/70">
                   Explorer les tendances émergentes et les technologies qui façonneront la prochaine génération d'applications web.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-black/60">12 Déc, 2024</span>
-                  <Button variant="ghost" size="sm" className="p-0 h-auto text-black">
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-black hover:text-black/80">
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors group">
+            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white">
               <CardHeader>
-                <div className="w-full h-48 bg-secondary rounded-lg mb-4 flex items-center justify-center">
-                  <Bot className="h-12 w-12 text-foreground/50" />
+                <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
+                  <Bot className="h-12 w-12 text-gray-400" />
                 </div>
                 <Badge className="w-fit mb-2 bg-neon-cyan text-black font-bold border-0">IA</Badge>
                 <CardTitle className="text-xl text-black group-hover:text-black/80">
                   L'IA dans les Entreprises Modernes
                 </CardTitle>
-                <CardDescription className="text-black/80">
+                <CardDescription className="text-black/70">
                   Comment l'intelligence artificielle transforme les industries et crée de nouvelles opportunités de croissance.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-black/60">10 Déc, 2024</span>
-                  <Button variant="ghost" size="sm" className="p-0 h-auto text-black">
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-black hover:text-black/80">
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors group">
+            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white">
               <CardHeader>
-                <div className="w-full h-48 bg-secondary rounded-lg mb-4 flex items-center justify-center">
-                  <Video className="h-12 w-12 text-foreground/50" />
+                <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
+                  <Video className="h-12 w-12 text-gray-400" />
                 </div>
                 <Badge className="w-fit mb-2 bg-neon-pink text-black font-bold border-0">Design</Badge>
                 <CardTitle className="text-xl text-black group-hover:text-black/80">
                   Systèmes de Design Évolutifs
                 </CardTitle>
-                <CardDescription className="text-black/80">
+                <CardDescription className="text-black/70">
                   Construire des systèmes de design cohérents et maintenables pour les applications à grande échelle.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-black/60">8 Déc, 2024</span>
-                  <Button variant="ghost" size="sm" className="p-0 h-auto text-black">
+                  <Button variant="ghost" size="sm" className="p-0 h-auto text-black hover:text-black/80">
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>
@@ -315,21 +354,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-8 bg-foreground text-background">
-        <div className="max-w-7xl mx-auto px-8 text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-6 h-6 bg-background rounded-full flex items-center justify-center">
-              <Globe className="h-3 w-3 text-foreground" />
-            </div>
-            <span className="text-lg font-bold">GoGoGo Studio</span>
-          </div>
-          <p className="text-background/80 text-sm">
-            © 2024 GoGoGo Studio. Innovation digitale et solutions créatives.
-          </p>
-        </div>
-      </footer>
 
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-secondary">
@@ -345,24 +369,24 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="border-2 border-border">
+            <Card className="border-2 border-border bg-white">
               <CardHeader>
                 <CardTitle className="text-2xl text-black">Envoyez-nous un message</CardTitle>
-                <CardDescription className="text-black/80">
+                <CardDescription className="text-black/70">
                   Nous vous répondrons dans les 24 heures.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="grid grid-cols-2 gap-4">
-                  <Input placeholder="Prénom" className="border-border text-black" />
-                  <Input placeholder="Nom" className="border-border text-black" />
+                  <Input placeholder="Prénom" className="border-border text-black bg-white" />
+                  <Input placeholder="Nom" className="border-border text-black bg-white" />
                 </div>
-                <Input placeholder="Adresse email" type="email" className="border-border text-black" />
-                <Input placeholder="Entreprise (optionnel)" className="border-border text-black" />
+                <Input placeholder="Adresse email" type="email" className="border-border text-black bg-white" />
+                <Input placeholder="Entreprise (optionnel)" className="border-border text-black bg-white" />
                 <Textarea 
                   placeholder="Parlez-nous de votre projet..." 
                   rows={4} 
-                  className="border-border text-black"
+                  className="border-border text-black bg-white"
                 />
                 <Button className="bg-foreground text-background w-full rounded-full py-3 hover:bg-foreground/90">
                   <Send className="h-4 w-4 mr-2" />
@@ -420,6 +444,21 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-8 bg-foreground text-background">
+        <div className="max-w-7xl mx-auto px-8 text-center">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <div className="w-6 h-6 bg-background rounded-full flex items-center justify-center">
+              <Globe className="h-3 w-3 text-foreground" />
+            </div>
+            <span className="text-lg font-bold">GoGoGo Studio</span>
+          </div>
+          <p className="text-background/80 text-sm">
+            © 2024 GoGoGo Studio. Innovation digitale et solutions créatives.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };

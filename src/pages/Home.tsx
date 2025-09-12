@@ -33,12 +33,14 @@ const Home = () => {
         if (entry.isIntersecting) {
           const element = entry.target;
           
-          // Animation différée pour les enfants
+          // Animation différée pour les enfants avec animations variées
           const children = element.querySelectorAll('.stagger-child');
+          const animations = ['animate-bounce-in', 'animate-elastic-in', 'animate-zoom-bounce', 'animate-slide-rotate'];
           children.forEach((child, index) => {
             setTimeout(() => {
-              child.classList.add('animate-fade-in-up');
-            }, index * 100);
+              const randomAnimation = animations[index % animations.length];
+              child.classList.add(randomAnimation);
+            }, index * 150);
           });
           
           // Animation principale de l'élément
@@ -180,7 +182,7 @@ const Home = () => {
       </section>
 
       {/* Hero Content Section */}
-      <main className="relative px-8 py-20 bg-background scroll-animate opacity-0">
+      <main className="relative px-8 py-20 bg-background scroll-animate opacity-0 rounded-t-[3rem]">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="space-y-8">
             <h1 className="text-6xl md:text-8xl font-bold leading-tight text-foreground stagger-child opacity-0">
@@ -209,7 +211,7 @@ const Home = () => {
       </main>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-secondary scroll-animate opacity-0">
+      <section id="services" className="py-24 bg-secondary scroll-animate opacity-0 rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
@@ -309,7 +311,7 @@ const Home = () => {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-24 bg-background scroll-animate opacity-0">
+      <section id="blog" className="py-24 bg-background scroll-animate opacity-0 rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-foreground mb-4 stagger-child opacity-0">
@@ -394,7 +396,7 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-secondary scroll-animate opacity-0">
+      <section id="contact" className="py-24 bg-secondary scroll-animate opacity-0 rounded-t-[3rem]">
         <div className="max-w-4xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
@@ -484,7 +486,7 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-foreground text-background">
+      <footer className="py-8 bg-foreground text-background rounded-t-[3rem]">
         <div className="max-w-7xl mx-auto px-8 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <div className="w-6 h-6 bg-background rounded-full flex items-center justify-center">

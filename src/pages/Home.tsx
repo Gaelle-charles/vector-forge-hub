@@ -1,232 +1,104 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import techRobot from '@/assets/tech-robot.png';
-import techBrain from '@/assets/tech-brain.png';
-import techDevices from '@/assets/tech-devices.png';
-import techRocket from '@/assets/tech-rocket.png';
-import { ArrowRight, Smartphone, Video, Bot, GraduationCap, Star, CheckCircle, Users, Trophy, Clock, Code, Cpu, Zap, Sparkles } from 'lucide-react';
+import geometricTravel from '@/assets/geometric-travel.png';
+import geometricElephant from '@/assets/geometric-elephant.png';
+import geometricDashboard from '@/assets/geometric-dashboard.png';
+import { ArrowUpRight, Download, Globe } from 'lucide-react';
 
 const Home = () => {
-  const [email, setEmail] = useState('');
-
-  const services = [
-    {
-      icon: <Smartphone className="h-8 w-8" />,
-      title: "Apps Qui Époustouflent",
-      description: "Des apps si intelligentes qu'elles lisent dans vos pensées ! On code avec l'IA comme copilote et la beauté naturelle comme inspiration 🌺",
-      features: ["IA Conversationnelle", "Design Biomimétique", "Prédiction Magique", "UX Envoûtante"]
-    },
-    {
-      icon: <Video className="h-8 w-8" />,
-      title: "Créations Visuelles Épiques",
-      description: "L'IA génère, vous rêvez ! Des visuels si beaux que même Mère Nature applaudit. Nos algorithmes ont étudié chez Picasso ET Darwin 🎭",
-      features: ["IA Générative Pro", "Style Organique", "Rendu Photoréaliste", "Émotions Pures"]
-    },
-    {
-      icon: <Bot className="h-8 w-8" />,
-      title: "Agents IA de Folie",
-      description: "Des robots virtuels si cool qu'ils pourraient avoir leur propre compte TikTok ! Ils automatisent tout avec classe et finesse florale 🌿",
-      features: ["Conversations Naturelles", "Automation Zen", "Prédictions Surnaturelles", "Intégration Fluide"]
-    },
-    {
-      icon: <GraduationCap className="h-8 w-8" />,
-      title: "Formations IA Addictives",
-      description: "Devenez un magicien de l'IA ! Nos formations sont si fun que vous oublierez que vous apprenez. Promis, pas de cours barbants 😉",
-      features: ["Workshops Interactifs", "Certification Cool", "Mentorat Personnalisé", "Résultats Garantis"]
-    }
-  ];
-
-  const stats = [
-    { icon: <Users className="h-6 w-6" />, number: "500+", label: "Clients épanouis" },
-    { icon: <Trophy className="h-6 w-6" />, number: "150+", label: "Projets fleuris" },
-    { icon: <Clock className="h-6 w-6" />, number: "24/7", label: "Support continu" },
-    { icon: <Star className="h-6 w-6" />, number: "4.9/5", label: "Excellence reconnue" }
-  ];
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <nav className="flex items-center justify-between px-8 py-6">
+        <div className="flex items-center space-x-2">
+          <div className="w-8 h-8 bg-foreground rounded-full flex items-center justify-center">
+            <Globe className="h-4 w-4 text-background" />
+          </div>
+          <span className="text-2xl font-bold text-foreground">GoGoGo Studio</span>
+        </div>
+        
+        <div className="hidden md:flex items-center space-x-8">
+          <a href="#" className="text-foreground hover:text-foreground/80 font-medium">FOR WHOM</a>
+          <a href="#" className="text-foreground hover:text-foreground/80 font-medium">FEATURES</a>
+          <a href="#" className="text-foreground hover:text-foreground/80 font-medium">HOW IT WORKS</a>
+        </div>
+
+        <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 text-sm text-foreground">
+            <Globe className="h-4 w-4" />
+            <span>FR</span>
+          </div>
+          <Button className="bg-foreground text-background rounded-full px-6 py-2 hover:bg-foreground/90">
+            <Download className="h-4 w-4 mr-2" />
+            DOWNLOAD
+          </Button>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="hero-section min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
-        
-        {/* Tech Illustrations */}
-        <div className="absolute right-20 top-20 hidden lg:block opacity-30 animate-float">
-          <img 
-            src={techRobot} 
-            alt="Tech Robot" 
-            className="w-32 h-32 object-contain"
-          />
-        </div>
-        <div className="absolute left-20 bottom-20 hidden lg:block opacity-20 animate-bounce">
-          <img 
-            src={techBrain} 
-            alt="Tech Brain" 
-            className="w-28 h-28 object-contain"
-          />
-        </div>
-        <div className="absolute right-1/4 bottom-32 hidden lg:block opacity-25">
-          <img 
-            src={techDevices} 
-            alt="Tech Devices" 
-            className="w-24 h-24 object-contain"
-          />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="animate-bloom">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-foreground leading-tight">
-              <span className="orange-text">GoGoGo Studio</span>
-              <span className="block text-foreground text-4xl md:text-6xl mt-4">
-                Tech & Innovation              
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-medium-gray mb-8 max-w-3xl mx-auto font-medium">
-              On transforme vos idées en réalité digitale avec style !
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button className="modern-button-primary text-lg px-8 py-4">
-                Nos services
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button className="modern-button-outline text-lg px-8 py-4">
-                <Code className="mr-2 h-5 w-5" />
-                Portfolio
-              </Button>
-            </div>
+      <main className="relative px-8 py-20">
+        {/* Geometric Illustrations */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Top Left Abstract Elements */}
+          <div className="absolute top-20 left-20 opacity-40">
+            <div className="w-24 h-24 border-2 border-foreground rounded-full"></div>
+            <div className="absolute -top-4 -right-4 w-8 h-8 bg-foreground rounded-full"></div>
+            <svg className="absolute top-8 left-32 w-16 h-8" viewBox="0 0 64 32">
+              <path d="M8 16 L24 8 L40 12 L56 4" stroke="currentColor" strokeWidth="2" fill="none" className="text-foreground"/>
+            </svg>
           </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-secondary relative">
-        <div className="absolute right-10 top-10 opacity-10">
-          <img 
-            src={techRocket} 
-            alt="Tech Rocket" 
-            className="w-40 h-40 object-contain"
-          />
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="flex justify-center mb-4">
-                  <div className="p-4 bg-primary/10 rounded-2xl text-primary group-hover:scale-110 transition-transform duration-500">
-                    {stat.icon}
-                  </div>
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.number}</div>
-                <div className="text-sm text-medium-gray">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-24 bg-background relative overflow-hidden">
-        <div className="absolute left-10 top-1/4 opacity-10">
-          <img 
-            src={techBrain} 
-            alt="Tech Brain" 
-            className="w-32 h-32 object-contain"
-          />
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold mb-8">
-              <span className="orange-text">Services Tech</span>
-              <span className="block text-foreground text-3xl md:text-4xl mt-2">Innovation & Expertise</span>
-            </h2>
-            <p className="text-xl text-medium-gray max-w-3xl mx-auto">
-              De l'idée à la réalisation, nous créons des solutions digitales modernes et performantes
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-10">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className={index % 2 === 0 ? "modern-card" : "modern-card-accent"}
-              >
-                <div className="flex items-center mb-6">
-                  <div className={`p-4 rounded-xl mr-4 ${index % 2 === 0 ? 'text-primary bg-primary/10' : 'text-primary bg-primary/10'}`}>
-                    {service.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">{service.title}</h3>
-                </div>
-                <p className="text-medium-gray mb-8 leading-relaxed">
-                  {service.description}
-                </p>
-                <div className="space-y-3">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center text-sm">
-                      <CheckCircle className="h-4 w-4 mr-3 text-primary flex-shrink-0" />
-                      <span className="text-medium-gray">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                <Link to="/services">
-                  <Button variant="outline" className="mt-8 w-full hover:scale-105 transition-transform duration-300 border-primary/30 hover:border-primary">
-                    En savoir plus
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-secondary relative overflow-hidden">
-        <div className="absolute right-0 top-0 opacity-10 hidden lg:block">
-          <img 
-            src={techRocket} 
-            alt="Tech Rocket" 
-            className="w-40 h-40 object-contain"
-          />
-        </div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 text-foreground">
-            <span className="orange-text">Prêt à révolutionner</span>
-            <span className="block text-foreground text-3xl md:text-4xl mt-2">votre business ?</span>
-          </h2>
-          <p className="text-xl text-medium-gray mb-10 leading-relaxed">
-            Raconte-nous ton rêve fou et on le transforme en réalité digitale ! 
-          </p>
           
-          <Card className="modern-card max-w-lg mx-auto">
-            <CardHeader>
-              <CardTitle className="orange-text text-2xl">Contact Express</CardTitle>
-              <CardDescription className="text-medium-gray">
-                Recevez votre devis personnalisé en moins de 24h
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <Input 
-                placeholder="Votre email" 
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="border-primary/20 focus:border-primary"
-              />
-              <Textarea 
-                placeholder="Décrivez votre projet..." 
-                rows={3} 
-                className="border-primary/20 focus:border-primary"
-              />
-              <Button className="modern-button-primary w-full text-lg py-3">
-                <Sparkles className="mr-2 h-5 w-5" />
-                Lancer mon projet tech
-              </Button>
-            </CardContent>
-          </Card>
+          {/* Center Geometric Travel */}
+          <div className="absolute top-16 left-1/2 transform -translate-x-1/2 opacity-30">
+            <img src={geometricTravel} alt="" className="w-96 h-auto" />
+          </div>
+          
+          {/* Right Side Elements */}
+          <div className="absolute top-32 right-20 opacity-40">
+            <img src={geometricElephant} alt="" className="w-32 h-32" />
+          </div>
+          
+          {/* Dashboard UI Mockup */}
+          <div className="absolute top-40 right-40 opacity-30">
+            <img src={geometricDashboard} alt="" className="w-40 h-auto" />
+          </div>
+          
+          {/* Bottom geometric shapes */}
+          <div className="absolute bottom-32 left-32 opacity-20">
+            <div className="w-16 h-16 border-2 border-foreground transform rotate-45"></div>
+          </div>
+          
+          <div className="absolute bottom-20 right-32 opacity-30">
+            <svg className="w-20 h-20" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="30" stroke="currentColor" strokeWidth="2" fill="none" className="text-foreground"/>
+              <circle cx="40" cy="40" r="15" stroke="currentColor" strokeWidth="2" fill="none" className="text-foreground"/>
+            </svg>
+          </div>
         </div>
-      </section>
+
+        {/* Main Content */}
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <div className="space-y-8">
+            <h1 className="text-6xl md:text-8xl font-bold leading-tight text-foreground">
+              Digital innovation
+              <br />
+              and creative
+              <br />
+              solutions
+            </h1>
+            
+            <p className="text-xl text-foreground/80 max-w-2xl leading-relaxed">
+              An essential tool for global brands, digital agencies, startups 
+              and creative professionals.
+            </p>
+            
+            <Button className="bg-foreground text-background rounded-full px-8 py-4 text-lg font-medium hover:bg-foreground/90 group">
+              <Download className="h-5 w-5 mr-3" />
+              GET STARTED TODAY
+              <ArrowUpRight className="h-5 w-5 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </Button>
+          </div>
+        </div>
+      </main>
     </div>
   );
 };

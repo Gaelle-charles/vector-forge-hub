@@ -18,38 +18,38 @@ All colors MUST be HSL.
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
 
-    /* Primary - Warm Orange */
-    --primary: 25 95% 65%;
+    /* Primary - Pure Black */
+    --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Dark Gray */
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
+    /* Secondary - Pure White */
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
 
-    /* Accent - Orange */
-    --accent: 25 95% 65%;
-    --accent-foreground: 0 0% 9%;
+    /* Accent - Pure Black */
+    --accent: 0 0% 0%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 25 95% 65%;
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 0 0% 0%;
 
-    --radius: 1rem;
+    --radius: 0.5rem;
 
-    /* Modern Design Variables */
-    --warm-orange: 25 95% 65%;
-    --soft-orange: 25 95% 70%;
-    --light-orange: 25 95% 85%;
-    --dark-gray: 0 0% 5%;
-    --medium-gray: 0 0% 70%;
-    --light-gray: 0 0% 20%;
-    --warm-white: 0 0% 98%;
+    /* Modern Design Variables - Pure B&W */
+    --warm-orange: 0 0% 0%;
+    --soft-orange: 0 0% 20%;
+    --light-orange: 0 0% 90%;
+    --dark-gray: 0 0% 0%;
+    --medium-gray: 0 0% 60%;
+    --light-gray: 0 0% 96%;
+    --warm-white: 0 0% 100%;
     --black: 0 0% 0%;
     
     /* Tropical background gradient */

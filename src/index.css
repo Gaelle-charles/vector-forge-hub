@@ -334,4 +334,17 @@ All colors MUST be HSL.
     clip-path: ellipse(65% 90% at 50% 50%);
     filter: drop-shadow(0 0 8px hsl(var(--deep-purple) / 0.3));
   }
+
+  /* Animations de scroll avancées */
+  .scroll-animate {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .scroll-animate.in-view {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+
+  .stagger-child {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }

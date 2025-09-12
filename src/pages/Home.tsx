@@ -21,24 +21,40 @@ const Home = () => {
     }
   };
 
-  // Animation au scroll
+  // Animation au scroll avancée
   React.useEffect(() => {
-    const handleScroll = () => {
-      const elements = document.querySelectorAll('.scroll-animate');
-      elements.forEach((element) => {
-        const rect = element.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight * 0.8;
-        
-        if (isVisible) {
-          element.classList.add('animate-fade-in');
-        }
-      });
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial state
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const element = entry.target;
+          
+          // Animation différée pour les enfants
+          const children = element.querySelectorAll('.stagger-child');
+          children.forEach((child, index) => {
+            setTimeout(() => {
+              child.classList.add('animate-fade-in-up');
+            }, index * 100);
+          });
+          
+          // Animation principale de l'élément
+          element.classList.add('in-view');
+          
+          // Cessez d'observer l'élément une fois animé
+          observer.unobserve(element);
+        }
+      });
+    }, observerOptions);
+
+    // Observer tous les éléments avec la classe scroll-animate
+    const elements = document.querySelectorAll('.scroll-animate');
+    elements.forEach(element => observer.observe(element));
     
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -164,10 +180,10 @@ const Home = () => {
       </section>
 
       {/* Hero Content Section */}
-      <main className="relative px-8 py-20 bg-background animate-fade-in scroll-animate">
+      <main className="relative px-8 py-20 bg-background scroll-animate opacity-0">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div className="space-y-8 animate-scale-in">
-            <h1 className="text-6xl md:text-8xl font-bold leading-tight text-foreground animate-fade-in">
+          <div className="space-y-8">
+            <h1 className="text-6xl md:text-8xl font-bold leading-tight text-foreground stagger-child opacity-0">
               Innovation digitale
               <br />
               et solutions
@@ -175,14 +191,14 @@ const Home = () => {
               créatives
             </h1>
             
-            <p className="text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed animate-fade-in">
+            <p className="text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed stagger-child opacity-0">
               Un outil essentiel pour les marques mondiales, agences digitales, startups 
               et professionnels créatifs.
             </p>
             
             <Button 
               onClick={() => scrollToSection('services')}
-              className="bg-foreground text-background rounded-full px-8 py-4 text-lg font-medium hover:bg-foreground/90 group animate-fade-in hover-scale"
+              className="bg-foreground text-background rounded-full px-8 py-4 text-lg font-medium hover:bg-foreground/90 group stagger-child opacity-0 hover-scale"
             >
               <Download className="h-5 w-5 mr-3" />
               COMMENCER AUJOURD'HUI
@@ -193,19 +209,19 @@ const Home = () => {
       </main>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-secondary scroll-animate">
+      <section id="services" className="py-24 bg-secondary scroll-animate opacity-0">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-black mb-4">
+            <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
               Nos Services
             </h2>
-            <p className="text-xl text-black/80 max-w-3xl mx-auto">
+            <p className="text-xl text-black/80 max-w-3xl mx-auto stagger-child opacity-0">
               Nous fournissons des solutions digitales complètes pour les entreprises modernes
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white">
+            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white stagger-child opacity-0">
               <CardHeader>
                 <div className="w-12 h-12 bg-foreground rounded-xl flex items-center justify-center mb-4">
                   <Smartphone className="h-6 w-6 text-background" />
@@ -233,7 +249,7 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white">
+            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white stagger-child opacity-0">
               <CardHeader>
                 <div className="w-12 h-12 bg-foreground rounded-xl flex items-center justify-center mb-4">
                   <Video className="h-6 w-6 text-background" />
@@ -261,7 +277,7 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white">
+            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white stagger-child opacity-0">
               <CardHeader>
                 <div className="w-12 h-12 bg-foreground rounded-xl flex items-center justify-center mb-4">
                   <Bot className="h-6 w-6 text-background" />
@@ -293,19 +309,19 @@ const Home = () => {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-24 bg-background scroll-animate">
+      <section id="blog" className="py-24 bg-background scroll-animate opacity-0">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-5xl font-bold text-foreground mb-4 stagger-child opacity-0">
               Derniers Articles
             </h2>
-            <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
+            <p className="text-xl text-foreground/80 max-w-3xl mx-auto stagger-child opacity-0">
               Insights et mises à jour de notre équipe sur la technologie et l'innovation
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white">
+            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white stagger-child opacity-0">
               <CardHeader>
                 <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
                   <Code className="h-12 w-12 text-gray-400" />
@@ -328,7 +344,7 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white">
+            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white stagger-child opacity-0">
               <CardHeader>
                 <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
                   <Bot className="h-12 w-12 text-gray-400" />
@@ -351,7 +367,7 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white">
+            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white stagger-child opacity-0">
               <CardHeader>
                 <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
                   <Video className="h-12 w-12 text-gray-400" />
@@ -378,20 +394,20 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-secondary scroll-animate">
+      <section id="contact" className="py-24 bg-secondary scroll-animate opacity-0">
         <div className="max-w-4xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-black mb-4">
+            <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
               Contactez-nous
             </h2>
-            <p className="text-xl text-black/80 max-w-2xl mx-auto">
+            <p className="text-xl text-black/80 max-w-2xl mx-auto stagger-child opacity-0">
               Prêt à démarrer votre prochain projet ? Discutons de la façon dont nous pouvons donner vie à vos idées.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <Card className="border-2 border-border bg-white">
+            <Card className="border-2 border-border bg-white stagger-child opacity-0">
               <CardHeader>
                 <CardTitle className="text-2xl text-black">Envoyez-nous un message</CardTitle>
                 <CardDescription className="text-black/70">
@@ -418,7 +434,7 @@ const Home = () => {
             </Card>
 
             {/* Contact Info */}
-            <div className="space-y-8">
+            <div className="space-y-8 stagger-child opacity-0">
               <div>
                 <h3 className="text-2xl font-bold text-foreground mb-6">Informations de Contact</h3>
                 <div className="space-y-4">

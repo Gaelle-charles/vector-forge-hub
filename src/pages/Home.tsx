@@ -22,44 +22,44 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-neon-pink via-neon-cyan to-neon-green backdrop-blur-sm border-b border-white/20 shadow-lg">
         <div className="flex items-center justify-between px-8 py-6">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-foreground rounded-full flex items-center justify-center">
-              <Globe className="h-4 w-4 text-background" />
+          <div className="flex items-center space-x-2 animate-bounce">
+            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg rotate-12 hover:rotate-0 transition-transform duration-300">
+              <Globe className="h-5 w-5 text-black" />
             </div>
-            <span className="text-2xl font-bold text-foreground">GoGoGo Studio</span>
+            <span className="text-3xl font-black text-white tracking-wider drop-shadow-lg">GoGoGo Studio</span>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-foreground hover:text-foreground/80 font-medium"
+              className="text-white hover:text-neon-yellow font-black text-lg transform hover:scale-110 transition-all duration-200 hover:drop-shadow-lg"
             >
               SERVICES
             </button>
             <button 
               onClick={() => scrollToSection('blog')}
-              className="text-foreground hover:text-foreground/80 font-medium"
+              className="text-white hover:text-neon-yellow font-black text-lg transform hover:scale-110 transition-all duration-200 hover:drop-shadow-lg"
             >
               BLOG
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-foreground hover:text-foreground/80 font-medium"
+              className="text-white hover:text-neon-yellow font-black text-lg transform hover:scale-110 transition-all duration-200 hover:drop-shadow-lg"
             >
               CONTACT
             </button>
           </div>
 
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-sm text-foreground">
+            <div className="flex items-center space-x-2 text-sm text-white bg-white/20 rounded-full px-3 py-1">
               <Globe className="h-4 w-4" />
-              <span>FR</span>
+              <span className="font-bold">FR</span>
             </div>
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-foreground text-background rounded-full px-6 py-2 hover:bg-foreground/90"
+              className="bg-white text-black rounded-full px-8 py-3 font-black hover:bg-neon-yellow hover:scale-105 transition-all duration-200 shadow-lg"
             >
               CONTACT
             </Button>
@@ -68,84 +68,79 @@ const Home = () => {
       </nav>
 
       {/* Video Header Section */}
-      <section className="pt-20 bg-foreground">
-        <div className="grid grid-cols-1 md:grid-cols-3 h-[60vh] border-white">
+      <section className="pt-20 bg-black relative overflow-hidden">
+        {/* Header Title */}
+        <div className="absolute top-24 left-0 right-0 z-20 text-center px-8">
+          <h1 className="text-4xl md:text-6xl font-black text-white mb-4 drop-shadow-2xl">
+            Créativité Sans Limites
+          </h1>
+          <p className="text-xl md:text-2xl text-white/90 font-medium drop-shadow-lg">
+            Découvrez notre univers en mouvement
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 h-[70vh] border-white">
           {/* Video Section 1 */}
-          <div className="relative bg-foreground border-r border-white md:border-r-2 flex items-center justify-center group overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800"></div>
-            <div className="relative z-10 text-center p-8">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <Smartphone className="h-10 w-10 text-foreground" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Applications</h3>
-              <p className="text-white/80 mb-6">Solutions mobiles innovantes</p>
-              <Button 
-                variant="ghost" 
-                size="lg"
-                className="bg-white/10 text-white border border-white/20 hover:bg-white/20"
-              >
-                <Play className="h-5 w-5 mr-2" />
-                Voir démo
-              </Button>
-            </div>
-            <div className="absolute inset-0 opacity-20">
-              <img src={geometricTravel} alt="" className="w-full h-full object-cover" />
-            </div>
+          <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              className="w-full h-full object-cover opacity-60"
+              onEnded={(e) => {
+                // Passer à la vidéo suivante automatiquement
+                const nextVideo = e.currentTarget.parentElement?.nextElementSibling?.querySelector('video') as HTMLVideoElement;
+                if (nextVideo) nextVideo.play();
+              }}
+            >
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>
 
           {/* Video Section 2 */}
-          <div className="relative bg-foreground border-r border-white md:border-r-2 flex items-center justify-center group overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-700"></div>
-            <div className="relative z-10 text-center p-8">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <Video className="h-10 w-10 text-foreground" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Design</h3>
-              <p className="text-white/80 mb-6">Créations visuelles sur mesure</p>
-              <Button 
-                variant="ghost" 
-                size="lg"
-                className="bg-white/10 text-white border border-white/20 hover:bg-white/20"
-              >
-                <Play className="h-5 w-5 mr-2" />
-                Voir démo
-              </Button>
-            </div>
-            <div className="absolute inset-0 opacity-20">
-              <img src={geometricDashboard} alt="" className="w-full h-full object-cover" />
-            </div>
+          <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
+            <video 
+              muted 
+              loop 
+              playsInline
+              className="w-full h-full object-cover opacity-60"
+              onEnded={(e) => {
+                const nextVideo = e.currentTarget.parentElement?.nextElementSibling?.querySelector('video') as HTMLVideoElement;
+                if (nextVideo) nextVideo.play();
+              }}
+            >
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>
 
           {/* Video Section 3 */}
-          <div className="relative bg-foreground flex items-center justify-center group overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-600"></div>
-            <div className="relative z-10 text-center p-8">
-              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                <Bot className="h-10 w-10 text-foreground" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-4">IA</h3>
-              <p className="text-white/80 mb-6">Intelligence artificielle avancée</p>
-              <Button 
-                variant="ghost" 
-                size="lg"
-                className="bg-white/10 text-white border border-white/20 hover:bg-white/20"
-              >
-                <Play className="h-5 w-5 mr-2" />
-                Voir démo
-              </Button>
-            </div>
-            <div className="absolute inset-0 opacity-20">
-              <img src={geometricElephant} alt="" className="w-full h-full object-cover" />
-            </div>
+          <div className="relative bg-black overflow-hidden">
+            <video 
+              muted 
+              loop 
+              playsInline
+              className="w-full h-full object-cover opacity-60"
+              onEnded={(e) => {
+                // Revenir à la première vidéo
+                const firstVideo = e.currentTarget.parentElement?.parentElement?.querySelector('video') as HTMLVideoElement;
+                if (firstVideo) firstVideo.play();
+              }}
+            >
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>
         </div>
       </section>
 
       {/* Hero Content Section */}
-      <main className="relative px-8 py-20 bg-background">
+      <main className="relative px-8 py-20 bg-background animate-fade-in">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div className="space-y-8">
-            <h1 className="text-6xl md:text-8xl font-bold leading-tight text-foreground">
+          <div className="space-y-8 animate-scale-in">
+            <h1 className="text-6xl md:text-8xl font-bold leading-tight text-foreground animate-fade-in">
               Innovation digitale
               <br />
               et solutions
@@ -153,14 +148,14 @@ const Home = () => {
               créatives
             </h1>
             
-            <p className="text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-foreground/80 max-w-2xl mx-auto leading-relaxed animate-fade-in">
               Un outil essentiel pour les marques mondiales, agences digitales, startups 
               et professionnels créatifs.
             </p>
             
             <Button 
               onClick={() => scrollToSection('services')}
-              className="bg-foreground text-background rounded-full px-8 py-4 text-lg font-medium hover:bg-foreground/90 group"
+              className="bg-foreground text-background rounded-full px-8 py-4 text-lg font-medium hover:bg-foreground/90 group animate-fade-in hover-scale"
             >
               <Download className="h-5 w-5 mr-3" />
               COMMENCER AUJOURD'HUI
@@ -174,10 +169,10 @@ const Home = () => {
       <section id="services" className="py-24 bg-secondary">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-5xl font-bold text-black mb-4">
               Nos Services
             </h2>
-            <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
+            <p className="text-xl text-black/80 max-w-3xl mx-auto">
               Nous fournissons des solutions digitales complètes pour les entreprises modernes
             </p>
           </div>
@@ -359,10 +354,10 @@ const Home = () => {
       <section id="contact" className="py-24 bg-secondary">
         <div className="max-w-4xl mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-5xl font-bold text-black mb-4">
               Contactez-nous
             </h2>
-            <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
+            <p className="text-xl text-black/80 max-w-2xl mx-auto">
               Prêt à démarrer votre prochain projet ? Discutons de la façon dont nous pouvons donner vie à vos idées.
             </p>
           </div>

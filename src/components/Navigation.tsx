@@ -20,7 +20,7 @@ const Navigation = () => {
     <nav className="flex items-center justify-between px-8 py-6 bg-background">
      
         <Button className="bg-foreground text-background rounded-full px-6 py-2 hover:bg-foreground/90">
-          DOWNLOAD
+          CONTACT
         </Button>
       </div>
 

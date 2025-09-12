@@ -18,30 +18,7 @@ const Navigation = () => {
 
   return (
     <nav className="flex items-center justify-between px-8 py-6 bg-background">
-      <div className="flex items-center space-x-2">
-        <div className="w-8 h-8 bg-foreground rounded-full flex items-center justify-center">
-          <Globe className="h-4 w-4 text-background" />
-        </div>
-        <span className="text-2xl font-bold text-foreground">GoGoGo Studio</span>
-      </div>
-      
-      <div className="hidden md:flex items-center space-x-8">
-        {navItems.map((item) => (
-          <Link
-            key={item.name}
-            to={item.path}
-            className="text-foreground hover:text-foreground/80 font-medium"
-          >
-            {item.name}
-          </Link>
-        ))}
-      </div>
-
-      <div className="flex items-center space-x-4">
-        <div className="flex items-center space-x-2 text-sm text-foreground">
-          <Globe className="h-4 w-4" />
-          <span>FR</span>
-        </div>
+     
         <Button className="bg-foreground text-background rounded-full px-6 py-2 hover:bg-foreground/90">
           DOWNLOAD
         </Button>

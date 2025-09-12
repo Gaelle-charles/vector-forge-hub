@@ -33,18 +33,16 @@ const Home = () => {
         if (entry.isIntersecting) {
           const element = entry.target;
           
-          // Animation différée pour les enfants avec animations variées
+          // Animation principale de la section avec glissement doux vers le haut
+          element.classList.add('animate-section-reveal');
+          
+          // Animation différée pour les enfants avec glissement doux
           const children = element.querySelectorAll('.stagger-child');
-          const animations = ['animate-bounce-in', 'animate-elastic-in', 'animate-zoom-bounce', 'animate-slide-rotate'];
           children.forEach((child, index) => {
             setTimeout(() => {
-              const randomAnimation = animations[index % animations.length];
-              child.classList.add(randomAnimation);
-            }, index * 150);
+              child.classList.add('animate-gentle-fade-up');
+            }, index * 200 + 300);
           });
-          
-          // Animation principale de l'élément
-          element.classList.add('in-view');
           
           // Cessez d'observer l'élément une fois animé
           observer.unobserve(element);
@@ -96,10 +94,6 @@ const Home = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-sm text-white bg-white/10 rounded-full px-3 py-1 border border-white/20">
-              <Globe className="h-3 w-3" />
-              <span className="font-bold">FR</span>
-            </div>
             <Button 
               onClick={() => scrollToSection('contact')}
               className="bg-white text-black rounded-full px-6 py-2 font-black hover:bg-neon-cyan hover:text-black hover:scale-105 transition-all duration-300 shadow-lg text-sm"
@@ -486,7 +480,7 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-foreground text-background rounded-t-[3rem]">
+      <footer className="py-8 bg-foreground text-background">
         <div className="max-w-7xl mx-auto px-8 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <div className="w-6 h-6 bg-background rounded-full flex items-center justify-center">

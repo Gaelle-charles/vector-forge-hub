@@ -153,60 +153,34 @@ export default {
              transform: "translateY(0)"
            }
          },
-         "bounce-in": {
+         "smooth-slide-up": {
            "0%": {
              opacity: "0",
-             transform: "translateY(50px) scale(0.5) rotate(-10deg)"
-           },
-           "50%": {
-             opacity: "0.8",
-             transform: "translateY(-10px) scale(1.05) rotate(3deg)"
+             transform: "translateY(80px)"
            },
            "100%": {
              opacity: "1",
-             transform: "translateY(0) scale(1) rotate(0deg)"
+             transform: "translateY(0)"
            }
          },
-         "elastic-in": {
+         "gentle-fade-up": {
            "0%": {
              opacity: "0",
-             transform: "translateY(40px) scaleY(0.8)"
-           },
-           "60%": {
-             opacity: "1",
-             transform: "translateY(-5px) scaleY(1.1)"
+             transform: "translateY(40px)"
            },
            "100%": {
              opacity: "1",
-             transform: "translateY(0) scaleY(1)"
+             transform: "translateY(0)"
            }
          },
-         "zoom-bounce": {
+         "section-reveal": {
            "0%": {
              opacity: "0",
-             transform: "scale(0.3) rotate(-180deg)"
-           },
-           "50%": {
-             opacity: "0.8",
-             transform: "scale(1.1) rotate(-10deg)"
+             transform: "translateY(100px) scale(0.95)"
            },
            "100%": {
              opacity: "1",
-             transform: "scale(1) rotate(0deg)"
-           }
-         },
-         "slide-rotate": {
-           "0%": {
-             opacity: "0",
-             transform: "translateX(-100px) rotate(-45deg)"
-           },
-           "60%": {
-             opacity: "1",
-             transform: "translateX(10px) rotate(5deg)"
-           },
-           "100%": {
-             opacity: "1",
-             transform: "translateX(0) rotate(0deg)"
+             transform: "translateY(0) scale(1)"
            }
          }
       },
@@ -219,10 +193,9 @@ export default {
         "fade-in-right": "fade-in-right 0.6s ease-out forwards",
          "scale-in": "scale-in 0.5s ease-out forwards",
          "slide-up": "slide-up 0.8s ease-out forwards",
-         "bounce-in": "bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards",
-         "elastic-in": "elastic-in 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards",
-         "zoom-bounce": "zoom-bounce 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards",
-         "slide-rotate": "slide-rotate 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
+         "smooth-slide-up": "smooth-slide-up 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
+         "gentle-fade-up": "gentle-fade-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards",
+         "section-reveal": "section-reveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
       },
     },
   },

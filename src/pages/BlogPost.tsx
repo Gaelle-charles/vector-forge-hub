@@ -143,7 +143,11 @@ const BlogPost = () => {
           
           <div className="space-y-6">
             <div className="flex items-center space-x-4">
-              <span className="bg-primary/10 text-primary px-3 py-1 rounded-full font-medium text-sm">
+              <span className={`px-3 py-1 rounded-full font-medium text-sm ${
+                post.category === 'Technologie' ? 'bg-neon-cyan/20 text-neon-cyan' :
+                post.category === 'Design' ? 'bg-neon-pink/20 text-neon-pink' :
+                'bg-neon-green/20 text-neon-green'
+              }`}>
                 {post.category}
               </span>
               <div className="flex items-center space-x-2 text-sm text-medium-gray">

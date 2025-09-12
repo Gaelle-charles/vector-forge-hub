@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -10,6 +11,7 @@ import {
   ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, 
   CheckCircle, Mail, MapPin, Phone, Send, ExternalLink, Play
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const scrollToSection = (sectionId: string) => {
@@ -19,47 +21,70 @@ const Home = () => {
     }
   };
 
+  // Animation au scroll
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const elements = document.querySelectorAll('.scroll-animate');
+      elements.forEach((element) => {
+        const rect = element.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight * 0.8;
+        
+        if (isVisible) {
+          element.classList.add('animate-fade-in');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background animate-fade-in">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-neon-pink via-neon-cyan to-neon-green backdrop-blur-sm border-b border-white/20 shadow-lg">
-        <div className="flex items-center justify-between px-8 py-6">
-          <div className="flex items-center space-x-2 animate-bounce">
-            <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg rotate-12 hover:rotate-0 transition-transform duration-300">
-              <Globe className="h-5 w-5 text-black" />
+      <nav className="fixed top-4 left-4 right-4 z-50 bg-black border border-white rounded-2xl shadow-2xl">
+        <div className="flex items-center justify-between px-8 py-4">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg animate-pulse">
+              <Globe className="h-4 w-4 text-black" />
             </div>
-            <span className="text-3xl font-black text-white tracking-wider drop-shadow-lg">GoGoGo Studio</span>
+            <span className="text-2xl font-black text-white tracking-wider">GoGoGo Studio</span>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-white hover:text-neon-yellow font-black text-lg transform hover:scale-110 transition-all duration-200 hover:drop-shadow-lg"
+              className="text-white hover:text-neon-cyan font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group"
             >
               SERVICES
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-cyan group-hover:w-full transition-all duration-300"></span>
             </button>
-            <button 
-              onClick={() => scrollToSection('blog')}
-              className="text-white hover:text-neon-yellow font-black text-lg transform hover:scale-110 transition-all duration-200 hover:drop-shadow-lg"
+            <Link 
+              to="/blog"
+              className="text-white hover:text-neon-pink font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group"
             >
               BLOG
-            </button>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-pink group-hover:w-full transition-all duration-300"></span>
+            </Link>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-white hover:text-neon-yellow font-black text-lg transform hover:scale-110 transition-all duration-200 hover:drop-shadow-lg"
+              className="text-white hover:text-neon-green font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group"
             >
               CONTACT
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-green group-hover:w-full transition-all duration-300"></span>
             </button>
           </div>
 
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-sm text-white bg-white/20 rounded-full px-3 py-1">
-              <Globe className="h-4 w-4" />
+            <div className="flex items-center space-x-2 text-sm text-white bg-white/10 rounded-full px-3 py-1 border border-white/20">
+              <Globe className="h-3 w-3" />
               <span className="font-bold">FR</span>
             </div>
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-white text-black rounded-full px-8 py-3 font-black hover:bg-neon-yellow hover:scale-105 transition-all duration-200 shadow-lg"
+              className="bg-white text-black rounded-full px-6 py-2 font-black hover:bg-neon-cyan hover:text-black hover:scale-105 transition-all duration-300 shadow-lg text-sm"
             >
               CONTACT
             </Button>
@@ -70,13 +95,15 @@ const Home = () => {
       {/* Video Header Section */}
       <section className="pt-20 bg-black relative overflow-hidden">
         {/* Header Title */}
-        <div className="absolute top-24 left-0 right-0 z-20 text-center px-8">
-          <h1 className="text-4xl md:text-6xl font-black text-white mb-4 drop-shadow-2xl">
-            Créativité Sans Limites
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 font-medium drop-shadow-lg">
-            Découvrez notre univers en mouvement
-          </p>
+        <div className="absolute inset-0 z-20 flex items-center justify-center">
+          <div className="text-center px-8">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-2xl animate-fade-in">
+              Créativité Sans Limites
+            </h1>
+            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium drop-shadow-lg animate-fade-in">
+              Découvrez notre univers en mouvement
+            </p>
+          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 h-[70vh] border-white">
@@ -137,7 +164,7 @@ const Home = () => {
       </section>
 
       {/* Hero Content Section */}
-      <main className="relative px-8 py-20 bg-background animate-fade-in">
+      <main className="relative px-8 py-20 bg-background animate-fade-in scroll-animate">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="space-y-8 animate-scale-in">
             <h1 className="text-6xl md:text-8xl font-bold leading-tight text-foreground animate-fade-in">
@@ -166,7 +193,7 @@ const Home = () => {
       </main>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-secondary">
+      <section id="services" className="py-24 bg-secondary scroll-animate">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-black mb-4">
@@ -266,7 +293,7 @@ const Home = () => {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-24 bg-background">
+      <section id="blog" className="py-24 bg-background scroll-animate">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-foreground mb-4">
@@ -351,7 +378,7 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-secondary">
+      <section id="contact" className="py-24 bg-secondary scroll-animate">
         <div className="max-w-4xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-black mb-4">
@@ -373,15 +400,15 @@ const Home = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="grid grid-cols-2 gap-4">
-                  <Input placeholder="Prénom" className="border-border text-black bg-white" />
-                  <Input placeholder="Nom" className="border-border text-black bg-white" />
+                  <Input placeholder="Prénom" className="border-border text-black bg-white placeholder:text-gray-500" />
+                  <Input placeholder="Nom" className="border-border text-black bg-white placeholder:text-gray-500" />
                 </div>
-                <Input placeholder="Adresse email" type="email" className="border-border text-black bg-white" />
-                <Input placeholder="Entreprise (optionnel)" className="border-border text-black bg-white" />
+                <Input placeholder="Adresse email" type="email" className="border-border text-black bg-white placeholder:text-gray-500" />
+                <Input placeholder="Entreprise (optionnel)" className="border-border text-black bg-white placeholder:text-gray-500" />
                 <Textarea 
                   placeholder="Parlez-nous de votre projet..." 
                   rows={4} 
-                  className="border-border text-black bg-white"
+                  className="border-border text-black bg-white placeholder:text-gray-500"
                 />
                 <Button className="bg-foreground text-background w-full rounded-full py-3 hover:bg-foreground/90">
                   <Send className="h-4 w-4 mr-2" />

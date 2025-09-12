@@ -4,10 +4,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import FloralBackground from '@/components/FloralBackground';
-import birdParadiseHero from '@/assets/bird-paradise-hero.jpg';
-import tropicalArrangement from '@/assets/tropical-arrangement.jpg';
-import { ArrowRight, Smartphone, Video, Bot, GraduationCap, Flower, Star, CheckCircle, Users, Trophy, Clock } from 'lucide-react';
+import techRobot from '@/assets/tech-robot.png';
+import techBrain from '@/assets/tech-brain.png';
+import techDevices from '@/assets/tech-devices.png';
+import techRocket from '@/assets/tech-rocket.png';
+import { ArrowRight, Smartphone, Video, Bot, GraduationCap, Star, CheckCircle, Users, Trophy, Clock, Code, Cpu, Zap, Sparkles } from 'lucide-react';
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -51,33 +52,47 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero-section min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
         
-        {/* Hero Image */}
-        <div className="absolute right-10 top-1/2 transform -translate-y-1/2 hidden lg:block opacity-40">
+        {/* Tech Illustrations */}
+        <div className="absolute right-20 top-20 hidden lg:block opacity-30 animate-float">
           <img 
-            src={birdParadiseHero} 
-            alt="Bird of Paradise" 
-            className="w-96 h-96 object-cover rounded-3xl floating-flora"
+            src={techRobot} 
+            alt="Tech Robot" 
+            className="w-32 h-32 object-contain"
+          />
+        </div>
+        <div className="absolute left-20 bottom-20 hidden lg:block opacity-20 animate-bounce">
+          <img 
+            src={techBrain} 
+            alt="Tech Brain" 
+            className="w-28 h-28 object-contain"
+          />
+        </div>
+        <div className="absolute right-1/4 bottom-32 hidden lg:block opacity-25">
+          <img 
+            src={techDevices} 
+            alt="Tech Devices" 
+            className="w-24 h-24 object-contain"
           />
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="animate-bloom">
             <h1 className="text-6xl md:text-8xl font-bold mb-6 text-foreground leading-tight">
-              <span className="paradise-text">GoGoGo Studio</span>
-              <span className="block text-foreground/90 text-4xl md:text-6xl mt-4">
-                Créateurs d'expériences digitales              
+              <span className="orange-text">GoGoGo Studio</span>
+              <span className="block text-foreground text-4xl md:text-6xl mt-4">
+                Tech & Innovation              
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto font-medium">
-              On transforme vos idées en réalité digitale !
+            <p className="text-xl md:text-2xl text-medium-gray mb-8 max-w-3xl mx-auto font-medium">
+              On transforme vos idées en réalité digitale avec style !
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button className="floral-button-primary text-lg px-8 py-4">
+              <Button className="modern-button-primary text-lg px-8 py-4">
                 Nos services
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button className="floral-button-secondary text-lg px-8 py-4">
-                <Flower className="mr-2 h-5 w-5" />
+              <Button className="modern-button-outline text-lg px-8 py-4">
+                <Code className="mr-2 h-5 w-5" />
                 Portfolio
               </Button>
             </div>
@@ -86,12 +101,12 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-muted/30 relative">
-        <div className="absolute inset-0">
+      <section className="py-20 bg-secondary relative">
+        <div className="absolute right-10 top-10 opacity-10">
           <img 
-            src={tropicalArrangement} 
-            alt="Tropical arrangement" 
-            className="w-full h-full object-cover opacity-5"
+            src={techRocket} 
+            alt="Tech Rocket" 
+            className="w-40 h-40 object-contain"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -99,12 +114,12 @@ const Home = () => {
             {stats.map((stat, index) => (
               <div key={index} className="text-center group">
                 <div className="flex justify-center mb-4">
-                  <div className="p-4 bg-primary/10 rounded-2xl text-primary group-hover:scale-110 transition-transform duration-500 petal-glow">
+                  <div className="p-4 bg-primary/10 rounded-2xl text-primary group-hover:scale-110 transition-transform duration-500">
                     {stat.icon}
                   </div>
                 </div>
-                <div className="text-3xl md:text-4xl font-bold tropical-text mb-2">{stat.number}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.number}</div>
+                <div className="text-sm text-medium-gray">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -113,16 +128,21 @@ const Home = () => {
 
       {/* Services Section */}
       <section className="py-24 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute left-10 top-1/4 opacity-10">
+          <img 
+            src={techBrain} 
+            alt="Tech Brain" 
+            className="w-32 h-32 object-contain"
+          />
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-6xl font-bold mb-8">
-              <span className="tropical-text">Services IA</span>
-              <span className="block text-foreground/90 text-3xl md:text-4xl mt-2">Élégants & Naturels</span>
+              <span className="orange-text">Services Tech</span>
+              <span className="block text-foreground text-3xl md:text-4xl mt-2">Innovation & Expertise</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              De l'idée à la réalisation, nous vous accompagnons dans votre transformation digitale 
-              avec l'intelligence artificielle et l'esthétique de la nature
+            <p className="text-xl text-medium-gray max-w-3xl mx-auto">
+              De l'idée à la réalisation, nous créons des solutions digitales modernes et performantes
             </p>
           </div>
 
@@ -130,22 +150,22 @@ const Home = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className={index % 2 === 0 ? "floral-card" : "floral-card-accent"}
+                className={index % 2 === 0 ? "modern-card" : "modern-card-accent"}
               >
                 <div className="flex items-center mb-6">
-                  <div className={`p-4 rounded-xl mr-4 ${index % 2 === 0 ? 'text-primary bg-primary/10' : 'text-accent bg-accent/10'}`}>
+                  <div className={`p-4 rounded-xl mr-4 ${index % 2 === 0 ? 'text-primary bg-primary/10' : 'text-primary bg-primary/10'}`}>
                     {service.icon}
                   </div>
-                  <h3 className="text-2xl font-bold">{service.title}</h3>
+                  <h3 className="text-2xl font-bold text-foreground">{service.title}</h3>
                 </div>
-                <p className="text-muted-foreground mb-8 leading-relaxed">
+                <p className="text-medium-gray mb-8 leading-relaxed">
                   {service.description}
                 </p>
                 <div className="space-y-3">
                   {service.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center text-sm">
                       <CheckCircle className="h-4 w-4 mr-3 text-primary flex-shrink-0" />
-                      <span>{feature}</span>
+                      <span className="text-medium-gray">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -162,28 +182,27 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 hero-section relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute right-0 bottom-0 opacity-20 hidden lg:block">
+      <section className="py-24 bg-secondary relative overflow-hidden">
+        <div className="absolute right-0 top-0 opacity-10 hidden lg:block">
           <img 
-            src={birdParadiseHero} 
-            alt="Floral decoration" 
-            className="w-80 h-80 object-cover"
+            src={techRocket} 
+            alt="Tech Rocket" 
+            className="w-40 h-40 object-contain"
           />
         </div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-5xl md:text-6xl font-bold mb-8 text-foreground">
-            <span className="paradise-text">Prêt à révolutionner votre business ?</span>
-            <span className="block text-foreground/90 text-3xl md:text-4xl mt-2">Envoi nous un message !</span>
+            <span className="orange-text">Prêt à révolutionner</span>
+            <span className="block text-foreground text-3xl md:text-4xl mt-2">votre business ?</span>
           </h2>
-          <p className="text-xl text-foreground/80 mb-10 leading-relaxed">
+          <p className="text-xl text-medium-gray mb-10 leading-relaxed">
             Raconte-nous ton rêve fou et on le transforme en réalité digitale ! 
           </p>
           
-          <Card className="floral-card max-w-lg mx-auto">
+          <Card className="modern-card max-w-lg mx-auto">
             <CardHeader>
-              <CardTitle className="tropical-text text-2xl">Contact Express</CardTitle>
-              <CardDescription className="text-muted-foreground">
+              <CardTitle className="orange-text text-2xl">Contact Express</CardTitle>
+              <CardDescription className="text-medium-gray">
                 Recevez votre devis personnalisé en moins de 24h
               </CardDescription>
             </CardHeader>
@@ -200,9 +219,9 @@ const Home = () => {
                 rows={3} 
                 className="border-primary/20 focus:border-primary"
               />
-              <Button className="floral-button-primary w-full text-lg py-3">
-                <Flower className="mr-2 h-5 w-5" />
-                Faire fleurir mon projet
+              <Button className="modern-button-primary w-full text-lg py-3">
+                <Sparkles className="mr-2 h-5 w-5" />
+                Lancer mon projet tech
               </Button>
             </CardContent>
           </Card>

@@ -8,26 +8,26 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Modern Black & White with Orange Accents Design Palette */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* Modern Black Background with White Text Design Palette */
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 98%;
 
     /* Primary - Warm Orange */
     --primary: 25 95% 65%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Light Gray */
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
+    /* Secondary - Dark Gray */
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 70%;
 
     /* Accent - Orange */
     --accent: 25 95% 65%;
@@ -36,8 +36,8 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
     --ring: 25 95% 65%;
 
     --radius: 1rem;
@@ -46,10 +46,10 @@ All colors MUST be HSL.
     --warm-orange: 25 95% 65%;
     --soft-orange: 25 95% 70%;
     --light-orange: 25 95% 85%;
-    --dark-gray: 0 0% 9%;
-    --medium-gray: 0 0% 45%;
-    --light-gray: 0 0% 96%;
-    --warm-white: 0 0% 100%;
+    --dark-gray: 0 0% 5%;
+    --medium-gray: 0 0% 70%;
+    --light-gray: 0 0% 20%;
+    --warm-white: 0 0% 98%;
     --black: 0 0% 0%;
     
     /* Tropical background gradient */

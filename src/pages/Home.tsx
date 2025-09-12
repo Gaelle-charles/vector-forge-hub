@@ -9,11 +9,12 @@ import geometricElephant from '@/assets/geometric-elephant.png';
 import geometricDashboard from '@/assets/geometric-dashboard.png';
 import { 
   ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, 
-  CheckCircle, Mail, MapPin, Phone, Send, ExternalLink, Play
+  CheckCircle, Mail, MapPin, Phone, Send, ExternalLink, Play, Menu, X
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -21,39 +22,48 @@ const Home = () => {
     }
   };
 
-  // Animation au scroll
+  // Animation au scroll améliorée
   React.useEffect(() => {
-    const handleScroll = () => {
-      const elements = document.querySelectorAll('.scroll-animate');
-      elements.forEach((element) => {
-        const rect = element.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight * 0.8;
-        
-        if (isVisible) {
-          element.classList.add('animate-fade-in');
-        }
-      });
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial state
-    
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          
+          // Animer les enfants avec délais
+          const children = entry.target.querySelectorAll('.animate-child');
+          children.forEach((child, index) => {
+            setTimeout(() => {
+              child.classList.add('animate-fade-in');
+            }, index * 200);
+          });
+        }
+      });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll('.scroll-animate');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
   }, []);
 
   return (
     <div className="min-h-screen bg-background animate-fade-in">
       {/* Navigation */}
       <nav className="fixed top-4 left-4 right-4 z-50 bg-black border border-white rounded-2xl shadow-2xl">
-        <div className="flex items-center justify-between px-8 py-4">
+        <div className="flex items-center justify-between px-4 md:px-8 py-4">
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg animate-pulse">
-              <Globe className="h-4 w-4 text-black" />
+            <div className="w-6 h-6 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center shadow-lg animate-pulse">
+              <Globe className="h-3 w-3 md:h-4 md:w-4 text-black" />
             </div>
-            <span className="text-2xl font-black text-white tracking-wider">GoGoGo Studio</span>
+            <span className="text-lg md:text-2xl font-black text-white tracking-wider">GoGoGo Studio</span>
           </div>
           
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             <button 
               onClick={() => scrollToSection('services')}
               className="text-white hover:text-neon-cyan font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group"
@@ -77,19 +87,60 @@ const Home = () => {
             </button>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-sm text-white bg-white/10 rounded-full px-3 py-1 border border-white/20">
-              <Globe className="h-3 w-3" />
-              <span className="font-bold">FR</span>
-            </div>
+          <div className="flex items-center">
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-white text-black rounded-full px-6 py-2 font-black hover:bg-neon-cyan hover:text-black hover:scale-105 transition-all duration-300 shadow-lg text-sm"
+              className="bg-white text-black rounded-full px-4 py-2 md:px-6 font-black hover:bg-neon-cyan hover:text-black hover:scale-105 transition-all duration-300 shadow-lg text-xs md:text-sm"
             >
               CONTACT
             </Button>
           </div>
+          
+          {/* Mobile menu button */}
+          <div className="md:hidden ml-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-white h-8 w-8"
+            >
+              {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </Button>
+          </div>
         </div>
+        
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-white/20 bg-black rounded-b-2xl">
+            <div className="px-4 py-3 space-y-2">
+              <button 
+                onClick={() => {
+                  scrollToSection('services');
+                  setMobileMenuOpen(false);
+                }}
+                className="block w-full text-left text-white hover:text-neon-cyan font-bold text-sm py-2"
+              >
+                SERVICES
+              </button>
+              <Link 
+                to="/blog"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full text-white hover:text-neon-pink font-bold text-sm py-2"
+              >
+                BLOG
+              </Link>
+              <button 
+                onClick={() => {
+                  scrollToSection('contact');
+                  setMobileMenuOpen(false);
+                }}
+                className="block w-full text-left text-white hover:text-neon-green font-bold text-sm py-2"
+              >
+                CONTACT
+              </button>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Video Header Section */}
@@ -205,7 +256,7 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white">
+            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white animate-child opacity-0">
               <CardHeader>
                 <div className="w-12 h-12 bg-foreground rounded-xl flex items-center justify-center mb-4">
                   <Smartphone className="h-6 w-6 text-background" />
@@ -233,7 +284,7 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white">
+            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white animate-child opacity-0">
               <CardHeader>
                 <div className="w-12 h-12 bg-foreground rounded-xl flex items-center justify-center mb-4">
                   <Video className="h-6 w-6 text-background" />
@@ -261,7 +312,7 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white">
+            <Card className="border-2 border-border hover:border-foreground transition-colors bg-white animate-child opacity-0">
               <CardHeader>
                 <div className="w-12 h-12 bg-foreground rounded-xl flex items-center justify-center mb-4">
                   <Bot className="h-6 w-6 text-background" />
@@ -305,7 +356,7 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white">
+            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white animate-child opacity-0">
               <CardHeader>
                 <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
                   <Code className="h-12 w-12 text-gray-400" />
@@ -328,7 +379,7 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white">
+            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white animate-child opacity-0">
               <CardHeader>
                 <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
                   <Bot className="h-12 w-12 text-gray-400" />
@@ -351,7 +402,7 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white">
+            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white animate-child opacity-0">
               <CardHeader>
                 <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
                   <Video className="h-12 w-12 text-gray-400" />

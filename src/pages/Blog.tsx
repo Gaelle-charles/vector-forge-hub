@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Calendar, User, ArrowRight, Clock } from "lucide-react";
+import { Calendar, User, ArrowRight, Clock, Globe } from "lucide-react";
 
 const blogPosts = [
   {
@@ -36,7 +36,53 @@ const blogPosts = [
 
 const Blog = () => {
   return (
-    <div className="min-h-screen pt-20 bg-background">
+    <div className="min-h-screen bg-background">
+      {/* Navigation Header */}
+      <nav className="fixed top-4 left-4 right-4 z-50 bg-black border border-white rounded-2xl shadow-2xl">
+        <div className="flex items-center justify-between px-4 md:px-8 py-4">
+          <Link to="/" className="flex items-center space-x-2">
+            <div className="w-6 h-6 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center shadow-lg animate-pulse">
+              <Globe className="h-3 w-3 md:h-4 md:w-4 text-black" />
+            </div>
+            <span className="text-lg md:text-2xl font-black text-white tracking-wider">GoGoGo Studio</span>
+          </Link>
+          
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            <Link 
+              to="/#services"
+              className="text-white hover:text-neon-cyan font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group"
+            >
+              SERVICES
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-cyan group-hover:w-full transition-all duration-300"></span>
+            </Link>
+            <Link 
+              to="/blog"
+              className="text-neon-pink font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group"
+            >
+              BLOG
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-neon-pink"></span>
+            </Link>
+            <Link 
+              to="/#contact"
+              className="text-white hover:text-neon-green font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group"
+            >
+              CONTACT
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-green group-hover:w-full transition-all duration-300"></span>
+            </Link>
+          </div>
+
+          <div className="flex items-center">
+            <Link 
+              to="/#contact"
+              className="bg-white text-black rounded-full px-4 py-2 md:px-6 font-black hover:bg-neon-cyan hover:text-black hover:scale-105 transition-all duration-300 shadow-lg text-xs md:text-sm"
+            >
+              CONTACT
+            </Link>
+          </div>
+        </div>
+      </nav>
+      
+      <div className="pt-20">
       {/* Hero Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -132,6 +178,7 @@ const Blog = () => {
           </div>
         </div>
       </section>
+      </div>
     </div>
   );
 };

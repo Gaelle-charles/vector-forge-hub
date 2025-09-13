@@ -50,7 +50,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-6 left-6 right-6 z-50 bg-black border-4 border-white rounded-3xl shadow-2xl backdrop-blur-lg">
+      <nav className="fixed top-6 left-6 right-6 z-50 bg-black border-white rounded-3xl shadow-2xl backdrop-blur-lg">
         <div className="flex items-center justify-between px-10 py-5">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xl transform hover:rotate-12 hover:scale-110 transition-all duration-300">

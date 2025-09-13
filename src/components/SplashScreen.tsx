@@ -1,155 +1,529 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, CheckCircle, Send, ExternalLink } from 'lucide-react';
 
-const techQuotes = [
-  {
-    quote: "L'intelligence artificielle est probablement notre plus grande opportunité existentielle.",
-    author: "Demis Hassabis, DeepMind"
-  },
-  {
-    quote: "L'IA ne remplacera pas les humains, mais les humains avec l'IA remplaceront les humains sans l'IA.",
-    author: "Kai-Fu Lee"
-  },
-  {
-    quote: "La technologie n'est rien. L'important, c'est d'avoir confiance en les gens.",
-    author: "Steve Jobs"
-  },
-  {
-    quote: "Le futur appartient aux organisations qui peuvent transformer les données en insights, et les insights en actions.",
-    author: "Shantanu Narayen, Adobe"
-  },
-  {
-    quote: "L'intelligence artificielle sera soit la meilleure, soit la pire chose qui soit jamais arrivée à l'humanité.",
-    author: "Stephen Hawking"
-  },
-  {
-    quote: "Nous sommes sur le point de vivre la plus grande révolution technologique de l'histoire humaine.",
-    author: "Sundar Pichai, Google"
-  }
-];
+const Home = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
 
-interface SplashScreenProps {
-  onComplete: () => void;
-}
+  const videoRefs = useRef([React.createRef(), React.createRef(), React.createRef()]);
+  const [activeVideo, setActiveVideo] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
 
-const SplashScreen = ({ onComplete }: SplashScreenProps) => {
-  const [currentQuote] = useState(() => 
-    techQuotes[Math.floor(Math.random() * techQuotes.length)]
-  );
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  // Animation au scroll avancée avec effet de glissement
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      .scroll-animate {
+        transform: translateY(100px);
+        opacity: 0;
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      
+      .scroll-animate.animate-section-reveal {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .stagger-child {
+        transform: translateY(60px);
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      
+      .stagger-child.animate-gentle-fade-up {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .section-slide-up {
+        transform: translateY(80px);
+        opacity: 0;
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      
+      .section-slide-up.visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      /* New CSS for the door effect */
+      .door-left {
+        transition: transform 1.5s ease-out;
+      }
+      .door-left.open {
+        transform: translateX(-100%);
+      }
+      .door-right {
+        transition: transform 1.5s ease-out;
+      }
+      .door-right.open {
+        transform: translateX(100%);
+      }
+    `;
+    document.head.appendChild(style);
 
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -80px 0px'
+    };
+    
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target;
+          element.classList.add('animate-section-reveal');
+          element.classList.add('visible');
+
+          const children = element.querySelectorAll('.stagger-child');
+          children.forEach((child, index) => {
+            setTimeout(() => {
+              child.classList.add('animate-gentle-fade-up');
+            }, index * 150 + 200);
+          });
+        }
+      });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll('.scroll-animate, .section-slide-up');
+    elements.forEach(element => observer.observe(element));
+    
+    return () => {
+      observer.disconnect();
+      document.head.removeChild(style);
+    };
+  }, []);
+
+  // Effet pour la rotation des vidéos et la gestion du survol
   useEffect(() => {
-    // Le compte à rebours pour le contenu de la page
-    const contentTimer = setTimeout(() => {
-      setIsTransitioning(true);
-    }, 18000); // Déclenche la transition de la page après 18 secondes
+    if (isHovering) return;
 
-    // Le compte à rebours pour la transition des portes
-    const transitionTimer = setTimeout(() => {
-      onComplete();
-    }, 19000); // 1 seconde de plus pour laisser le temps à l'animation de portes
+    const startInterval = () => {
+      const interval = setInterval(() => {
+        setActiveVideo(prev => {
+          const nextVideo = (prev + 1) % videoRefs.current.length;
+          videoRefs.current.forEach(ref => ref.current?.pause());
+          videoRefs.current[nextVideo].current?.play().catch(e => console.log("Autoplay prevented:", e));
+          return nextVideo;
+        });
+      }, 4000);
+      return interval;
+    };
+
+    let rotationInterval = startInterval();
+    videoRefs.current[0].current?.play().catch(e => console.log("Autoplay prevented:", e));
 
     return () => {
-      clearTimeout(contentTimer);
-      clearTimeout(transitionTimer);
+      clearInterval(rotationInterval);
     };
-  }, [onComplete]);
+  }, [isHovering]);
+
+  // Gestion du survol des vidéos
+  const handleVideoHover = (index) => {
+    setActiveVideo(index);
+    setIsHovering(true);
+    
+    videoRefs.current.forEach(ref => ref.current?.pause());
+    videoRefs.current[index].current?.play().catch(e => console.log("Autoplay prevented:", e));
+  };
+
+  const handleVideoLeave = () => {
+    setIsHovering(false);
+  };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center overflow-hidden">
-      {/* Contenu principal du splash screen */}
-      <div className={`fixed inset-0 bg-tropical-gradient flex items-center justify-center overflow-hidden transition-opacity duration-1000 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
-        {/* Animated tropical flower background */}
-        <div className="absolute inset-0 tropical-flower-animation">
-          {/* Bird of Paradise flower - main */}
-          <div className="absolute left-1/4 top-1/3 w-80 h-96 animate-tropical-bloom" style={{ animationDelay: '0s' }}>
-            <div className="relative w-full h-full">
-              {/* Orange petals */}
-              <div className="absolute inset-0 bird-petal-orange transform rotate-12 animate-petal-sway" style={{ animationDelay: '0.5s' }} />
-              <div className="absolute inset-0 bird-petal-orange transform rotate-24 animate-petal-sway" style={{ animationDelay: '1s' }} />
-              <div className="absolute inset-0 bird-petal-orange transform rotate-36 animate-petal-sway" style={{ animationDelay: '1.5s' }} />
-              
-              {/* Purple/Pink petals */}
-              <div className="absolute inset-0 bird-petal-purple transform -rotate-12 animate-petal-sway" style={{ animationDelay: '2s' }} />
-              <div className="absolute inset-0 bird-petal-pink transform -rotate-24 animate-petal-sway" style={{ animationDelay: '2.5s' }} />
-              
-              {/* Green leaves */}
-              <div className="absolute bottom-0 left-1/2 bird-leaf-green transform -translate-x-1/2 animate-leaf-sway" style={{ animationDelay: '1s' }} />
-            </div>
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/90 border border-black rounded-full shadow-2xl backdrop-blur-lg transition-all duration-500 hover:bg-black hover:shadow-3xl hover:scale-[1.02] hover:-translate-y-1 hover:-translate-x-1/2 w-[90%] md:w-[70%] lg:w-[60%] max-w-5xl">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-2 sm:py-3">
+          <div className="flex items-center space-x-2">
+            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.svg" className="h-6 sm:h-8" alt="Logo GoGoGo Studio" />
+          </div>
+          
+          <div className="hidden md:flex items-center space-x-1 bg-white/10 rounded-full px-4 py-1 backdrop-blur-sm hover:bg-white/20 transition-all duration-300">
+            <button
+              onClick={() => scrollToSection('services')}
+              className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 hover:-translate-y-0.5"
+            >
+              SERVICES
+              <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
+            </button>
+            <button
+              onClick={() => scrollToSection('blog')}
+              className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 hover:-translate-y-0.5"
+            >
+              BLOG
+              <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 hover:-translate-y-0.5"
+            >
+              CONTACT
+              <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
+            </button>
           </div>
 
-          {/* Second flower - right side */}
-          <div className="absolute right-1/3 bottom-1/4 w-64 h-80 animate-tropical-bloom" style={{ animationDelay: '3s' }}>
-            <div className="relative w-full h-full">
-              <div className="absolute inset-0 bird-petal-pink transform rotate-45 animate-petal-sway" style={{ animationDelay: '3.5s' }} />
-              <div className="absolute inset-0 bird-petal-orange transform rotate-60 animate-petal-sway" style={{ animationDelay: '4s' }} />
-              <div className="absolute inset-0 bird-petal-purple transform rotate-75 animate-petal-sway" style={{ animationDelay: '4.5s' }} />
-              <div className="absolute bottom-0 right-1/2 bird-leaf-green transform translate-x-1/2 animate-leaf-sway" style={{ animationDelay: '3s' }} />
-            </div>
+          <div className="flex items-center space-x-3">
+            <Button
+              onClick={() => scrollToSection('contact')}
+              className="bg-[#e76f51] text-white rounded-full px-5 py-2 font-bold hover:bg-white hover:text-[#e76f51] hover:scale-110 transition-all duration-300 shadow-lg border border-[#e76f51] hover:shadow-[#e76f51]/50 text-xs transform hover:-translate-y-1 hover:rotate-2"
+            >
+              CONTACT
+            </Button>
           </div>
-
-          {/* Floating petals */}
-          <div className="absolute top-1/4 left-1/2 w-8 h-12 bird-floating-petal animate-petal-float" style={{ animationDelay: '6s' }} />
-          <div className="absolute top-2/3 right-1/4 w-6 h-10 bird-floating-petal-pink animate-petal-float" style={{ animationDelay: '8s' }} />
-          <div className="absolute bottom-1/3 left-1/3 w-10 h-14 bird-floating-petal-purple animate-petal-float" style={{ animationDelay: '10s' }} />
         </div>
+      </nav>
 
-        {/* Central content */}
-        <div className="relative z-10 text-center px-8 max-w-4xl">
-          {/* Orange leaf icon */}
-          <div className="mb-12">
-            <div className="w-12 h-8 mx-auto relative">
-              <svg className="w-12 h-8 text-coral-orange" fill="currentColor" viewBox="0 0 24 16">
-                <path d="M12 0c-6.627 0-12 3.582-12 8s5.373 8 12 8c1.5-2 2.5-4 2.5-8s-1-6-2.5-8z"/>
-              </svg>
-            </div>
-          </div>
-
-          {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl font-light text-white mb-2 tracking-wide leading-tight">
-            Créez votre rêve
-          </h1>
-          <h2 className="text-5xl md:text-7xl font-light text-white mb-16 tracking-wide leading-tight">
-            studio IA
-          </h2>
-
-          {/* Tech quote */}
-          <div className="mb-16 max-w-3xl mx-auto">
-            <blockquote className="text-lg md:text-xl text-white/80 italic mb-4 leading-relaxed font-light">
-              "{currentQuote.quote}"
-            </blockquote>
-            <cite className="text-base text-white/60 font-normal">
-              — {currentQuote.author}
-            </cite>
-          </div>
-
-          {/* CTA */}
-          <div className="mt-12">
-            <p className="text-coral-orange text-lg font-medium flex items-center justify-center gap-2">
-              Gogogo Studio 
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
+      {/* Video Header Section */}
+      <section className="bg-black relative overflow-hidden">
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center">
+          <div className="text-center px-8">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-2xl">
+              Créativité Sans Limites
+            </h1>
+            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium drop-shadow-lg">
+              Découvrez notre univers en mouvement
             </p>
           </div>
         </div>
-
-        {/* Progress indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="w-48 h-0.5 bg-white/10 rounded-full overflow-hidden">
-            <div className="h-full bg-coral-orange rounded-full animate-progress"></div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 h-[100vh] border-white">
+          <div
+            className="relative bg-black border-r border-white md:border-r-2 overflow-hidden"
+            onMouseEnter={() => handleVideoHover(0)}
+            onMouseLeave={handleVideoLeave}
+          >
+            <video
+              ref={videoRefs.current[0]}
+              loop
+              playsInline
+              className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 0 ? 'opacity-100' : 'opacity-60'}`}
+            >
+              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/Pixar_animated_short_202509131714_l40d4.mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+          </div>
+          <div
+            className="relative bg-black border-r border-white md:border-r-2 overflow-hidden"
+            onMouseEnter={() => handleVideoHover(1)}
+            onMouseLeave={handleVideoLeave}
+          >
+            <video
+              ref={videoRefs.current[1]}
+              loop
+              playsInline
+              className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 1 ? 'opacity-100' : 'opacity-60'}`}
+            >
+              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_rapid_fluid_202509131718_pqdeo.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+          </div>
+          <div
+            className="relative bg-black overflow-hidden"
+            onMouseEnter={() => handleVideoHover(2)}
+            onMouseLeave={handleVideoLeave}
+          >
+            <video
+              ref={videoRefs.current[2]}
+              loop
+              playsInline
+              className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 2 ? 'opacity-100' : 'opacity-60'}`}
+            >
+              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_rapid_fluid_202509131718_pqdeo.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Les "portes" qui s'ouvrent */}
-      <div className={`fixed inset-0 z-50 pointer-events-none transition-transform duration-1000 ease-in-out`}>
-        {/* Porte gauche */}
-        <div className={`absolute top-0 bottom-0 left-0 w-1/2 bg-black transform transition-transform duration-1000 ease-in-out ${isTransitioning ? '-translate-x-full' : 'translate-x-0'}`}></div>
-        {/* Porte droite */}
-        <div className={`absolute top-0 bottom-0 right-0 w-1/2 bg-black transform transition-transform duration-1000 ease-in-out ${isTransitioning ? 'translate-x-full' : 'translate-x-0'}`}></div>
-      </div>
+      {/* Hero Content Section */}
+      <main className="relative px-8 py-20 bg-white scroll-animate opacity-0 rounded-t-[4rem] -mt-16 z-10">
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <div className="space-y-8">
+            <h1 className="text-6xl md:text-8xl font-bold leading-tight text-black stagger-child opacity-0">
+              Innovation digitale
+              <br />
+              et solutions
+              <br />
+              créatives
+            </h1>
+            
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed stagger-child opacity-0">
+              Un outil essentiel pour les marques mondiales, agences digitales, startups 
+              et professionnels créatifs.
+            </p>
+            
+            <Button onClick={() => scrollToSection('services')} className="bg-black text-white rounded-full px-8 py-4 text-lg font-medium hover:bg-gray-800 group stagger-child opacity-0 hover:scale-105 transition-all duration-300">
+              <Download className="h-5 w-5 mr-3" />
+              COMMENCER AUJOURD'HUI
+              <ArrowUpRight className="h-5 w-5 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </Button>
+          </div>
+        </div>
+      </main>
+
+      {/* Services Section */}
+      <section id="services" className="py-24 bg-gray-50 section-slide-up rounded-t-[4rem] -mt-16 z-20 relative">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
+              Nos Services
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto stagger-child opacity-0">
+              Nous fournissons des solutions digitales complètes pour les entreprises modernes
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+              <CardHeader>
+                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
+                  <Smartphone className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle className="text-2xl text-black">DÉVELOPPEMENT WEB</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Sites web modernes et responsifs et applications web construites avec des technologies de pointe.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 text-black">
+                  <div className="flex items-center text-sm">
+                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
+                    <span>Applications React & Next.js</span>
+                  </div>
+                  <div className="flex items-center text-sm">
+                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
+                    <span>Applications Web Progressives</span>
+                  </div>
+                  <div className="flex items-center text-sm">
+                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
+                    <span>Solutions E-commerce</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+              <CardHeader>
+                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
+                  <Video className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle className="text-2xl text-black">DESIGN & IMAGE DE MARQUE</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Identité visuelle complète et design d'expérience utilisateur pour les produits digitaux.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 text-black">
+                  <div className="flex items-center text-sm">
+                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
+                    <span>Design UI/UX</span>
+                  </div>
+                  <div className="flex items-center text-sm">
+                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
+                    <span>Identité de Marque</span>
+                  </div>
+                  <div className="flex items-center text-sm">
+                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
+                    <span>Systèmes de Design</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+              <CardHeader>
+                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
+                  <Bot className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle className="text-2xl text-black">SOLUTIONS IA</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Automatisation intelligente et fonctionnalités alimentées par l'IA pour vos processus métier.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 text-black">
+                  <div className="flex items-center text-sm">
+                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
+                    <span>Chatbots & Assistants Virtuels</span>
+                  </div>
+                  <div className="flex items-center text-sm">
+                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
+                    <span>Automatisation des Processus</span>
+                  </div>
+                  <div className="flex items-center text-sm">
+                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
+                    <span>Analyse de Données</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section id="blog" className="py-24 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-6xl font-bold text-black mb-6 tracking-tight stagger-child opacity-0">
+              Derniers Articles
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed stagger-child opacity-0">
+              Insights et mises à jour de notre équipe sur la technologie et l'innovation
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="border-2 border-black hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group overflow-hidden bg-white stagger-child opacity-0">
+              <CardHeader>
+                <div className="w-full h-52 bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <Code className="h-16 w-16 text-blue-400" />
+                </div>
+                <Badge className="w-fit mb-4 bg-green-100 text-green-700 border-0 shadow-sm">
+                  Développement
+                </Badge>
+                <CardTitle className="text-2xl text-black group-hover:text-blue-600 transition-colors mb-3">
+                  L'Avenir du Développement Web
+                </CardTitle>
+                <CardDescription className="text-gray-600 leading-relaxed">
+                  Explorer les tendances émergentes et les technologies qui façonneront la prochaine génération d'applications web.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <span className="text-sm text-gray-500 font-medium">12 Déc, 2024</span>
+                  <Button className="p-2 h-auto text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-all">
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-black hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group overflow-hidden bg-white stagger-child opacity-0">
+              <CardHeader>
+                <div className="w-full h-52 bg-gradient-to-br from-cyan-100 to-teal-100 rounded-lg mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <Bot className="h-16 w-16 text-cyan-400" />
+                </div>
+                <Badge className="w-fit mb-4 bg-blue-100 text-blue-700 border-0 shadow-sm">
+                  IA
+                </Badge>
+                <CardTitle className="text-2xl text-black group-hover:text-cyan-600 transition-colors mb-3">
+                  L'IA dans les Entreprises Modernes
+                </CardTitle>
+                <CardDescription className="text-gray-600 leading-relaxed">
+                  Comment l'intelligence artificielle transforme les industries et crée de nouvelles opportunités de croissance.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <span className="text-sm text-gray-500 font-medium">10 Déc, 2024</span>
+                  <Button className="p-2 h-auto text-cyan-500 hover:text-cyan-700 hover:bg-cyan-50 rounded-full transition-all">
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-black hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group overflow-hidden bg-white stagger-child opacity-0">
+              <CardHeader>
+                <div className="w-full h-52 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <Video className="h-16 w-16 text-pink-400" />
+                </div>
+                <Badge className="w-fit mb-4 bg-purple-100 text-purple-700 border-0 shadow-sm">
+                  Design
+                </Badge>
+                <CardTitle className="text-2xl text-black group-hover:text-pink-600 transition-colors mb-3">
+                  Systèmes de Design Évolutifs
+                </CardTitle>
+                <CardDescription className="text-gray-600 leading-relaxed">
+                  Construire des systèmes de design cohérents et maintenables pour les applications à grande échelle.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <span className="text-sm text-gray-500 font-medium">8 Déc, 2024</span>
+                  <Button className="p-2 h-auto text-pink-500 hover:text-pink-700 hover:bg-pink-50 rounded-full transition-all">
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-24 bg-gray-50 section-slide-up rounded-t-[4rem] -mt-16 z-40 relative">
+        <div className="max-w-4xl mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
+              Contactez-nous
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto stagger-child opacity-0">
+              Prêt à démarrer votre prochain projet ? Discutons de la façon dont nous pouvons donner vie à vos idées.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            <Card className="border-2 border-black bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+              <CardHeader>
+                <CardTitle className="text-2xl text-black">Envoyez-nous un message</CardTitle>
+                <CardDescription className="text-gray-600">
+                  Nous vous répondrons dans les 24 heures.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid grid-cols-2 gap-4">
+                  <Input placeholder="Prénom" className="border-2 border-black text-black bg-white placeholder:text-gray-500" />
+                  <Input placeholder="Nom" className="border-2 border-black text-black bg-white placeholder:text-gray-500" />
+                </div>
+                <Input placeholder="Adresse email" type="email" className="border-2 border-black text-black bg-white placeholder:text-gray-500" />
+                <Input placeholder="Entreprise (optionnel)" className="border-2 border-black text-black bg-white placeholder:text-gray-500" />
+                <Textarea placeholder="Parlez-nous de votre projet..." rows={4} className="border-2 border-black text-black bg-white placeholder:text-gray-500" />
+                <Button className="bg-black text-white w-full rounded-full py-3 hover:bg-gray-800 transition-all duration-300">
+                  <Send className="h-4 w-4 mr-2" />
+                  Envoyer le Message
+                </Button>
+              </CardContent>
+            </Card>
+
+            <div className="flex items-center justify-center stagger-child opacity-0">
+              <div className="text-center text-gray-600">
+                <div className="w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                  <Bot className="h-16 w-16 text-blue-400" />
+                </div>
+                <p className="text-lg">Informations de contact à ajouter ici</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 bg-black text-white rounded-t-[4rem] -mt-16 z-50 relative">
+        <div className="max-w-7xl mx-auto px-8 text-center">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.svg" />
+          </div>
+          <p className="text-gray-400 text-sm">
+            © 2025 GoGoGo Studio. Innovation digitale et solutions créatives.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
 
-export default SplashScreen;
+export default Home;

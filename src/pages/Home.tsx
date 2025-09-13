@@ -247,7 +247,7 @@ const Home = () => {
               playsInline 
               className="w-full h-full object-cover opacity-60 transition-opacity duration-500"
             >
-              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_sequence_of_202509122027_jfiaz.mp4" type="video/mp4" />
+              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_rapid_fluid_202509131718_pqdeo.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>

@@ -92,21 +92,25 @@ const Home = () => {
 
   // Effet pour la rotation des vidéos et la gestion du survol
   useEffect(() => {
+    // Si une vidéo est survolée, on annule la rotation automatique
     if (isHovering) return;
 
     const startInterval = () => {
       const interval = setInterval(() => {
         setActiveVideo(prev => {
           const nextVideo = (prev + 1) % videoRefs.current.length;
+          // Mettre en pause toutes les vidéos avant de lire la suivante
           videoRefs.current.forEach(ref => ref.current?.pause());
           videoRefs.current[nextVideo].current?.play().catch(e => console.log("Autoplay prevented:", e));
           return nextVideo;
         });
-      }, 4000);
+      }, 4000); // Changement toutes les 4 secondes
       return interval;
     };
 
     let rotationInterval = startInterval();
+
+    // Rejouer la première vidéo au chargement
     videoRefs.current[0].current?.play().catch(e => console.log("Autoplay prevented:", e));
 
     return () => {
@@ -116,14 +120,20 @@ const Home = () => {
 
   // Gestion du survol des vidéos
   const handleVideoHover = (index) => {
+    // Mettre à jour la vidéo active sur le survol
     setActiveVideo(index);
+    // Indiquer qu'une vidéo est survolée pour stopper la rotation automatique
     setIsHovering(true);
     
+    // Mettre en pause toutes les vidéos
     videoRefs.current.forEach(ref => ref.current?.pause());
+    
+    // Jouer la vidéo survolée
     videoRefs.current[index].current?.play().catch(e => console.log("Autoplay prevented:", e));
   };
 
   const handleVideoLeave = () => {
+    // Indiquer que le survol est terminé pour relancer la rotation automatique
     setIsHovering(false);
   };
 
@@ -173,7 +183,7 @@ const Home = () => {
 
       {/* Video Header Section */}
       <section className="bg-black relative overflow-hidden">
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center">
+        <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="text-center px-8">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-2xl">
               Créativité Sans Limites
@@ -192,6 +202,7 @@ const Home = () => {
           >
             <video
               ref={videoRefs.current[0]}
+              muted
               loop
               playsInline
               className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 0 ? 'opacity-100' : 'opacity-60'}`}
@@ -207,6 +218,7 @@ const Home = () => {
           >
             <video
               ref={videoRefs.current[1]}
+              muted
               loop
               playsInline
               className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 1 ? 'opacity-100' : 'opacity-60'}`}
@@ -222,6 +234,7 @@ const Home = () => {
           >
             <video
               ref={videoRefs.current[2]}
+              muted
               loop
               playsInline
               className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 2 ? 'opacity-100' : 'opacity-60'}`}

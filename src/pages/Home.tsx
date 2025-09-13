@@ -7,17 +7,15 @@ import { Textarea } from '@/components/ui/textarea';
 import geometricTravel from '@/assets/geometric-travel.png';
 import geometricElephant from '@/assets/geometric-elephant.png';
 import geometricDashboard from '@/assets/geometric-dashboard.png';
-import { 
-  ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, 
-  CheckCircle, Mail, MapPin, Phone, Send, ExternalLink, Play
-} from 'lucide-react';
+import { ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, CheckCircle, Mail, MapPin, Phone, Send, ExternalLink, Play } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const Home = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -27,15 +25,14 @@ const Home = () => {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
     };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           const element = entry.target;
-          
+
           // Animation principale de la section avec glissement doux vers le haut
           element.classList.add('animate-section-reveal');
-          
+
           // Animation différée pour les enfants avec glissement doux
           const children = element.querySelectorAll('.stagger-child');
           children.forEach((child, index) => {
@@ -43,7 +40,7 @@ const Home = () => {
               child.classList.add('animate-gentle-fade-up');
             }, index * 200 + 300);
           });
-          
+
           // Cessez d'observer l'élément une fois animé
           observer.unobserve(element);
         }
@@ -53,12 +50,9 @@ const Home = () => {
     // Observer tous les éléments avec la classe scroll-animate
     const elements = document.querySelectorAll('.scroll-animate');
     elements.forEach(element => observer.observe(element));
-    
     return () => observer.disconnect();
   }, []);
-
-  return (
-    <div className="min-h-screen bg-background animate-fade-in">
+  return <div className="min-h-screen bg-background animate-fade-in">
       {/* Navigation */}
       <nav className="fixed top-4 left-4 right-4 z-50 bg-black border border-white rounded-2xl shadow-2xl">
         <div className="flex items-center justify-between px-8 py-4">
@@ -70,34 +64,22 @@ const Home = () => {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-white hover:text-neon-cyan font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group"
-            >
+            <button onClick={() => scrollToSection('services')} className="text-white hover:text-neon-cyan font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group">
               SERVICES
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-cyan group-hover:w-full transition-all duration-300"></span>
             </button>
-            <Link 
-              to="/blog"
-              className="text-white hover:text-neon-pink font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group"
-            >
+            <Link to="/blog" className="text-white hover:text-neon-pink font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group">
               BLOG
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-pink group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="text-white hover:text-neon-green font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group"
-            >
+            <button onClick={() => scrollToSection('contact')} className="text-white hover:text-neon-green font-bold text-sm transform hover:scale-110 transition-all duration-300 hover:drop-shadow-lg relative group">
               CONTACT
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-green group-hover:w-full transition-all duration-300"></span>
             </button>
           </div>
 
           <div className="flex items-center space-x-4">
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-white text-black rounded-full px-6 py-2 font-black hover:bg-neon-cyan hover:text-black hover:scale-105 transition-all duration-300 shadow-lg text-sm"
-            >
+            <Button onClick={() => scrollToSection('contact')} className="bg-white text-black rounded-full px-6 py-2 font-black hover:bg-neon-cyan hover:text-black hover:scale-105 transition-all duration-300 shadow-lg text-sm">
               CONTACT
             </Button>
           </div>
@@ -121,18 +103,11 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 h-[70vh] border-white">
           {/* Video Section 1 */}
           <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
-            <video 
-              autoPlay 
-              muted 
-              loop 
-              playsInline
-              className="w-full h-full object-cover opacity-60"
-              onEnded={(e) => {
-                // Passer à la vidéo suivante automatiquement
-                const nextVideo = e.currentTarget.parentElement?.nextElementSibling?.querySelector('video') as HTMLVideoElement;
-                if (nextVideo) nextVideo.play();
-              }}
-            >
+            <video autoPlay muted loop playsInline className="w-full h-full object-cover opacity-60" onEnded={e => {
+            // Passer à la vidéo suivante automatiquement
+            const nextVideo = e.currentTarget.parentElement?.nextElementSibling?.querySelector('video') as HTMLVideoElement;
+            if (nextVideo) nextVideo.play();
+          }}>
               <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -140,16 +115,10 @@ const Home = () => {
 
           {/* Video Section 2 */}
           <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
-            <video 
-              muted 
-              loop 
-              playsInline
-              className="w-full h-full object-cover opacity-60"
-              onEnded={(e) => {
-                const nextVideo = e.currentTarget.parentElement?.nextElementSibling?.querySelector('video') as HTMLVideoElement;
-                if (nextVideo) nextVideo.play();
-              }}
-            >
+            <video muted loop playsInline className="w-full h-full object-cover opacity-60" onEnded={e => {
+            const nextVideo = e.currentTarget.parentElement?.nextElementSibling?.querySelector('video') as HTMLVideoElement;
+            if (nextVideo) nextVideo.play();
+          }}>
               <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -157,17 +126,11 @@ const Home = () => {
 
           {/* Video Section 3 */}
           <div className="relative bg-black overflow-hidden">
-            <video 
-              muted 
-              loop 
-              playsInline
-              className="w-full h-full object-cover opacity-60"
-              onEnded={(e) => {
-                // Revenir à la première vidéo
-                const firstVideo = e.currentTarget.parentElement?.parentElement?.querySelector('video') as HTMLVideoElement;
-                if (firstVideo) firstVideo.play();
-              }}
-            >
+            <video muted loop playsInline className="w-full h-full object-cover opacity-60" onEnded={e => {
+            // Revenir à la première vidéo
+            const firstVideo = e.currentTarget.parentElement?.parentElement?.querySelector('video') as HTMLVideoElement;
+            if (firstVideo) firstVideo.play();
+          }}>
               <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -192,10 +155,7 @@ const Home = () => {
               et professionnels créatifs.
             </p>
             
-            <Button 
-              onClick={() => scrollToSection('services')}
-              className="bg-foreground text-background rounded-full px-8 py-4 text-lg font-medium hover:bg-foreground/90 group stagger-child opacity-0 hover-scale"
-            >
+            <Button onClick={() => scrollToSection('services')} className="bg-foreground text-background rounded-full px-8 py-4 text-lg font-medium hover:bg-foreground/90 group stagger-child opacity-0 hover-scale">
               <Download className="h-5 w-5 mr-3" />
               COMMENCER AUJOURD'HUI
               <ArrowUpRight className="h-5 w-5 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -417,11 +377,7 @@ const Home = () => {
                 </div>
                 <Input placeholder="Adresse email" type="email" className="border-border text-black bg-white placeholder:text-gray-500" />
                 <Input placeholder="Entreprise (optionnel)" className="border-border text-black bg-white placeholder:text-gray-500" />
-                <Textarea 
-                  placeholder="Parlez-nous de votre projet..." 
-                  rows={4} 
-                  className="border-border text-black bg-white placeholder:text-gray-500"
-                />
+                <Textarea placeholder="Parlez-nous de votre projet..." rows={4} className="border-border text-black bg-white placeholder:text-gray-500" />
                 <Button className="bg-foreground text-background w-full rounded-full py-3 hover:bg-foreground/90">
                   <Send className="h-4 w-4 mr-2" />
                   Envoyer le Message
@@ -430,51 +386,7 @@ const Home = () => {
             </Card>
 
             {/* Contact Info */}
-            <div className="space-y-8 stagger-child opacity-0">
-              <div>
-                <h3 className="text-2xl font-bold text-foreground mb-6">Informations de Contact</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-foreground rounded-full flex items-center justify-center">
-                      <Mail className="h-5 w-5 text-background" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Email</p>
-                      <p className="text-foreground/80">hello@gogogo-studio.com</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-foreground rounded-full flex items-center justify-center">
-                      <Phone className="h-5 w-5 text-background" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Téléphone</p>
-                      <p className="text-foreground/80">+33 1 23 45 67 89</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-foreground rounded-full flex items-center justify-center">
-                      <MapPin className="h-5 w-5 text-background" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Localisation</p>
-                      <p className="text-foreground/80">Paris, France</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="text-lg font-bold text-foreground mb-4">Horaires de Bureau</h4>
-                <div className="space-y-2 text-foreground/80">
-                  <p>Lundi - Vendredi : 9h00 - 18h00</p>
-                  <p>Samedi : 10h00 - 16h00</p>
-                  <p>Dimanche : Fermé</p>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -493,8 +405,6 @@ const Home = () => {
           </p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;

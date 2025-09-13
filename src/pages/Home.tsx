@@ -16,11 +16,49 @@ const Home = () => {
     }
   };
 
-  // Animation au scroll avancée
+  // Animation au scroll avancée avec effet de glissement
   React.useEffect(() => {
+    // Ajouter les styles CSS pour les animations
+    const style = document.createElement('style');
+    style.textContent = `
+      .scroll-animate {
+        transform: translateY(100px);
+        opacity: 0;
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      
+      .scroll-animate.animate-section-reveal {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .stagger-child {
+        transform: translateY(60px);
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      
+      .stagger-child.animate-gentle-fade-up {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      .section-slide-up {
+        transform: translateY(80px);
+        opacity: 0;
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      
+      .section-slide-up.visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    `;
+    document.head.appendChild(style);
+
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.15,
+      rootMargin: '0px 0px -80px 0px'
     };
     
     const observer = new IntersectionObserver(entries => {
@@ -28,23 +66,25 @@ const Home = () => {
         if (entry.isIntersecting) {
           const element = entry.target;
           element.classList.add('animate-section-reveal');
+          element.classList.add('visible');
 
           const children = element.querySelectorAll('.stagger-child');
           children.forEach((child, index) => {
             setTimeout(() => {
               child.classList.add('animate-gentle-fade-up');
-            }, index * 200 + 300);
+            }, index * 150 + 200);
           });
-
-          observer.unobserve(element);
         }
       });
     }, observerOptions);
 
-    const elements = document.querySelectorAll('.scroll-animate');
+    const elements = document.querySelectorAll('.scroll-animate, .section-slide-up');
     elements.forEach(element => observer.observe(element));
     
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      document.head.removeChild(style);
+    };
   }, []);
 
   return (
@@ -96,45 +136,44 @@ const Home = () => {
         </div>
       </nav>
 
-
       {/* Video Header Section */}
-<section className="bg-black relative overflow-hidden">
-  <div className="absolute inset-0 z-20 flex items-center justify-center">
-    <div className="text-center px-8">
-      <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-2xl">
-        Créativité Sans Limites
-      </h1>
-      <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium drop-shadow-lg">
-        Découvrez notre univers en mouvement
-      </p>
-    </div>
-  </div>
-  
-  <div className="grid grid-cols-1 md:grid-cols-3 h-[100vh] border-white">
-    <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
-      <video autoPlay muted loop playsInline className="w-full h-full object-cover opacity-60">
-        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-    </div>
-    <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
-      <video muted loop playsInline className="w-full h-full object-cover opacity-60">
-        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-    </div>
-    <div className="relative bg-black overflow-hidden">
-      <video muted loop playsInline className="w-full h-full object-cover opacity-60">
-        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
-      </video>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-    </div>
-  </div>
-</section>
+      <section className="bg-black relative overflow-hidden">
+        <div className="absolute inset-0 z-20 flex items-center justify-center">
+          <div className="text-center px-8">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-2xl">
+              Créativité Sans Limites
+            </h1>
+            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium drop-shadow-lg">
+              Découvrez notre univers en mouvement
+            </p>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 h-[100vh] border-white">
+          <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
+            <video autoPlay muted loop playsInline className="w-full h-full object-cover opacity-60">
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+          </div>
+          <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
+            <video muted loop playsInline className="w-full h-full object-cover opacity-60">
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+          </div>
+          <div className="relative bg-black overflow-hidden">
+            <video muted loop playsInline className="w-full h-full object-cover opacity-60">
+              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+          </div>
+        </div>
+      </section>
 
       {/* Hero Content Section */}
-      <main className="relative px-8 py-20 bg-white scroll-animate opacity-0 rounded-t-[3rem]">
-        <div className="relative z-10 max-w-4xl mx-auto text-center scroll-animate">
+      <main className="relative px-8 py-20 bg-white scroll-animate opacity-0 rounded-t-[4rem] -mt-16 z-10">
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="space-y-8">
             <h1 className="text-6xl md:text-8xl font-bold leading-tight text-black stagger-child opacity-0">
               Innovation digitale
@@ -162,8 +201,8 @@ const Home = () => {
       </main>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-gray-50 scroll-animate opacity-0 rounded-t-[3rem]">
-        <div className="max-w-7xl mx-auto px-8 scroll-animate">
+      <section id="services" className="py-24 bg-gray-50 section-slide-up rounded-t-[4rem] -mt-16 z-20 relative">
+        <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
               Nos Services
@@ -174,7 +213,7 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0">
+            <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
                 <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
                   <Smartphone className="h-6 w-6 text-white" />
@@ -202,7 +241,7 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0">
+            <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
                 <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
                   <Video className="h-6 w-6 text-white" />
@@ -230,7 +269,7 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0">
+            <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <CardHeader>
                 <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
                   <Bot className="h-6 w-6 text-white" />
@@ -262,7 +301,7 @@ const Home = () => {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-24 bg-white scroll-animate opacity-0">
+      <section id="blog" className="py-24 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-20">
             <h2 className="text-6xl font-bold text-black mb-6 tracking-tight stagger-child opacity-0">
@@ -353,8 +392,8 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-gray-50 scroll-animate opacity-0 rounded-t-[3rem]">
-        <div className="max-w-4xl mx-auto px-8 scroll-animate">
+      <section id="contact" className="py-24 bg-gray-50 section-slide-up rounded-t-[4rem] -mt-16 z-40 relative">
+        <div className="max-w-4xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
               Contactez-nous
@@ -365,7 +404,7 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <Card className="border-2 border-black bg-white stagger-child opacity-0">
+            <Card className="border-2 border-black bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-2xl text-black">Envoyez-nous un message</CardTitle>
                 <CardDescription className="text-gray-600">
@@ -400,7 +439,7 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-black text-white">
+      <footer className="py-8 bg-black text-white rounded-t-[4rem] -mt-16 z-50 relative">
         <div className="max-w-7xl mx-auto px-8 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">

@@ -162,12 +162,7 @@ const Home = () => {
       <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/90 border border-white/20 rounded-full shadow-2xl backdrop-blur-lg transition-all duration-500 hover:bg-black hover:shadow-3xl hover:scale-[1.02] hover:-translate-y-1 hover:-translate-x-1/2 w-[50%] max-w-2xl">
         <div className="flex items-center justify-between px-6 py-3">
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg transform hover:rotate-180 hover:scale-125 transition-all duration-500 hover:shadow-white/50">
-              <Globe className="h-4 w-4 text-black" />
-            </div>
-            <span className="text-lg font-black text-white tracking-wider hover:text-[#e76f51] transition-all duration-300 cursor-pointer hover:tracking-widest">
-              GoGoGo Studio
-            </span>
+              <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.svg" />
           </div>
           
           <div className="hidden md:flex items-center space-x-1 bg-white/10 rounded-full px-4 py-1 backdrop-blur-sm hover:bg-white/20 transition-all duration-300">

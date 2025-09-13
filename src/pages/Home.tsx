@@ -98,41 +98,39 @@ const Home = () => {
 
 
       {/* Video Header Section */}
-      <section className="pt-20 bg-black relative overflow-hidden">
-        <div className="absolute inset-0 z-20 flex items-center justify-center">
-          <div className="text-center px-8">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-2xl">
-              Créativité Sans Limites
-            </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium drop-shadow-lg">
-              Découvrez notre univers en mouvement
-            </p>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 h-[70vh] border-white">
-          <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
-            <video autoPlay muted loop playsInline className="w-full h-full object-cover opacity-60">
-              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-          </div>
-
-          <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
-            <video muted loop playsInline className="w-full h-full object-cover opacity-60">
-              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-          </div>
-
-          <div className="relative bg-black overflow-hidden">
-            <video muted loop playsInline className="w-full h-full object-cover opacity-60">
-              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-          </div>
-        </div>
-      </section>
+<section className="bg-black relative overflow-hidden">
+  <div className="absolute inset-0 z-20 flex items-center justify-center">
+    <div className="text-center px-8">
+      <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-2xl">
+        Créativité Sans Limites
+      </h1>
+      <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium drop-shadow-lg">
+        Découvrez notre univers en mouvement
+      </p>
+    </div>
+  </div>
+  
+  <div className="grid grid-cols-1 md:grid-cols-3 h-[100vh] border-white">
+    <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
+      <video autoPlay muted loop playsInline className="w-full h-full object-cover opacity-60">
+        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+    </div>
+    <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
+      <video muted loop playsInline className="w-full h-full object-cover opacity-60">
+        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+    </div>
+    <div className="relative bg-black overflow-hidden">
+      <video muted loop playsInline className="w-full h-full object-cover opacity-60">
+        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+    </div>
+  </div>
+</section>
 
       {/* Hero Content Section */}
       <main className="relative px-8 py-20 bg-white scroll-animate opacity-0 rounded-t-[3rem]">

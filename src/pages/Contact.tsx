@@ -1,10 +1,17 @@
 const handleSubmit = () => {
     if (!formData.firstName || !formData.email || !formData.message) {
-      alert("Veuillez remplir tous les champs obligatoires");
+      toast({
+        title: "Erreur",
+        description: "Veuillez remplir tous les champs obligatoires",
+        variant: "destructive",
+      });
       return;
     }
 
-    alert("Message envoyé ! Nous vous répondrons dans les plus brefs délais.");
+    toast({
+      title: "Message envoyé !",
+      description: "Nous vous répondrons dans les plus brefs délais.",
+    });
     
     setFormData({
       firstName: '',
@@ -21,11 +28,18 @@ const handleSubmit = () => {
 
   const handleAppointmentSubmit = () => {
     if (!appointmentData.name || !appointmentData.email || !appointmentData.date || !appointmentData.time) {
-      alert("Veuillez remplir tous les champs obligatoires");
+      toast({
+        title: "Erreur",
+        description: "Veuillez remplir tous les champs obligatoires",
+        variant: "destructive",
+      });
       return;
     }
 
-    alert("Rendez-vous programmé ! Nous vous enverrons une confirmation par email.");
+    toast({
+      title: "Rendez-vous programmé !",
+      description: "Nous vous enverrons une confirmation par email.",
+    });
     
     setAppointmentData({
       name: '',

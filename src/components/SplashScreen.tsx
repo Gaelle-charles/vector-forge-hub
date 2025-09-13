@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const techQuotes = [
   {
@@ -37,131 +37,99 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   );
 
   useEffect(() => {
-    // Remplacer le délai initial par votre propre durée
     const timer = setTimeout(() => {
       onComplete();
-    }, 1000); // Durée de l'animation de 1 seconde pour l'exemple
+    }, 1000); // 18 seconds duration
 
     return () => clearTimeout(timer);
   }, [onComplete]);
 
   return (
-    <>
-      <style>
-        {`
-          @keyframes loading-pulse {
-            0% {
-              transform: scale(0);
-              opacity: 0;
-            }
-            50% {
-              transform: scale(1);
-              opacity: 1;
-            }
-            100% {
-              transform: scale(0);
-              opacity: 0;
-            }
-          }
-          .loading-dot {
-            width: 20px;
-            height: 20px;
-            background-color: #f34213;
-            border-radius: 50%;
-            opacity: 0;
-            animation: loading-pulse 1.5s infinite ease-in-out;
-          }
-        `}
-      </style>
-      <div className="fixed inset-0 bg-tropical-gradient flex items-center justify-center overflow-hidden">
-        {/* Animated tropical flower background */}
-        <div className="absolute inset-0 tropical-flower-animation">
-          {/* Bird of Paradise flower - main */}
-          <div className="absolute left-1/4 top-1/3 w-80 h-96 animate-tropical-bloom" style={{ animationDelay: '0s' }}>
-            <div className="relative w-full h-full">
-              {/* Orange petals */}
-              <div className="absolute inset-0 bird-petal-orange transform rotate-12 animate-petal-sway" style={{ animationDelay: '0.5s' }} />
-              <div className="absolute inset-0 bird-petal-orange transform rotate-24 animate-petal-sway" style={{ animationDelay: '1s' }} />
-              <div className="absolute inset-0 bird-petal-orange transform rotate-36 animate-petal-sway" style={{ animationDelay: '1.5s' }} />
-              
-              {/* Purple/Pink petals */}
-              <div className="absolute inset-0 bird-petal-purple transform -rotate-12 animate-petal-sway" style={{ animationDelay: '2s' }} />
-              <div className="absolute inset-0 bird-petal-pink transform -rotate-24 animate-petal-sway" style={{ animationDelay: '2.5s' }} />
-              
-              {/* Green leaves */}
-              <div className="absolute bottom-0 left-1/2 bird-leaf-green transform -translate-x-1/2 animate-leaf-sway" style={{ animationDelay: '1s' }} />
-            </div>
-          </div>
-
-          {/* Second flower - right side */}
-          <div className="absolute right-1/3 bottom-1/4 w-64 h-80 animate-tropical-bloom" style={{ animationDelay: '3s' }}>
-            <div className="relative w-full h-full">
-              <div className="absolute inset-0 bird-petal-pink transform rotate-45 animate-petal-sway" style={{ animationDelay: '3.5s' }} />
-              <div className="absolute inset-0 bird-petal-orange transform rotate-60 animate-petal-sway" style={{ animationDelay: '4s' }} />
-              <div className="absolute inset-0 bird-petal-purple transform rotate-75 animate-petal-sway" style={{ animationDelay: '4.5s' }} />
-              <div className="absolute bottom-0 right-1/2 bird-leaf-green transform translate-x-1/2 animate-leaf-sway" style={{ animationDelay: '3s' }} />
-            </div>
-          </div>
-
-          {/* Floating petals */}
-          <div className="absolute top-1/4 left-1/2 w-8 h-12 bird-floating-petal animate-petal-float" style={{ animationDelay: '6s' }} />
-          <div className="absolute top-2/3 right-1/4 w-6 h-10 bird-floating-petal-pink animate-petal-float" style={{ animationDelay: '8s' }} />
-          <div className="absolute bottom-1/3 left-1/3 w-10 h-14 bird-floating-petal-purple animate-petal-float" style={{ animationDelay: '10s' }} />
-        </div>
-
-        {/* Central content */}
-        <div className="relative z-10 text-center px-8 max-w-4xl">
-          {/* Orange leaf icon */}
-          <div className="mb-12">
-            <div className="w-12 h-8 mx-auto relative">
-              <svg className="w-12 h-8 text-coral-orange" fill="currentColor" viewBox="0 0 24 16">
-                <path d="M12 0c-6.627 0-12 3.582-12 8s5.373 8 12 8c1.5-2 2.5-4 2.5-8s-1-6-2.5-8z"/>
-              </svg>
-            </div>
-          </div>
-
-          {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl font-light text-white mb-2 tracking-wide leading-tight">
-            Créez votre rêve
-          </h1>
-          <h2 className="text-5xl md:text-7xl font-light text-white mb-16 tracking-wide leading-tight">
-            studio IA
-          </h2>
-          
-          {/* Indicateur de chargement au centre */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="loading-dot"></div>
-          </div>
-
-          {/* Tech quote */}
-          <div className="mb-16 max-w-3xl mx-auto">
-            <blockquote className="text-lg md:text-xl text-white/80 italic mb-4 leading-relaxed font-light">
-              "{currentQuote.quote}"
-            </blockquote>
-            <cite className="text-base text-white/60 font-normal">
-              — {currentQuote.author}
-            </cite>
-          </div>
-
-          {/* CTA */}
-          <div className="mt-12">
-            <p className="text-coral-orange text-lg font-medium flex items-center justify-center gap-2">
-              Gogogo Studio 
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </p>
+    <div className="fixed inset-0 bg-tropical-gradient flex items-center justify-center overflow-hidden">
+      {/* Animated tropical flower background */}
+      <div className="absolute inset-0 tropical-flower-animation">
+        {/* Bird of Paradise flower - main */}
+        <div className="absolute left-1/4 top-1/3 w-80 h-96 animate-tropical-bloom" style={{ animationDelay: '0s' }}>
+          <div className="relative w-full h-full">
+            {/* Orange petals */}
+            <div className="absolute inset-0 bird-petal-orange transform rotate-12 animate-petal-sway" style={{ animationDelay: '0.5s' }} />
+            <div className="absolute inset-0 bird-petal-orange transform rotate-24 animate-petal-sway" style={{ animationDelay: '1s' }} />
+            <div className="absolute inset-0 bird-petal-orange transform rotate-36 animate-petal-sway" style={{ animationDelay: '1.5s' }} />
+            
+            {/* Purple/Pink petals */}
+            <div className="absolute inset-0 bird-petal-purple transform -rotate-12 animate-petal-sway" style={{ animationDelay: '2s' }} />
+            <div className="absolute inset-0 bird-petal-pink transform -rotate-24 animate-petal-sway" style={{ animationDelay: '2.5s' }} />
+            
+            {/* Green leaves */}
+            <div className="absolute bottom-0 left-1/2 bird-leaf-green transform -translate-x-1/2 animate-leaf-sway" style={{ animationDelay: '1s' }} />
           </div>
         </div>
 
-        {/* Progress indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="w-48 h-0.5 bg-white/10 rounded-full overflow-hidden">
-            <div className="h-full bg-coral-orange rounded-full animate-progress"></div>
+        {/* Second flower - right side */}
+        <div className="absolute right-1/3 bottom-1/4 w-64 h-80 animate-tropical-bloom" style={{ animationDelay: '3s' }}>
+          <div className="relative w-full h-full">
+            <div className="absolute inset-0 bird-petal-pink transform rotate-45 animate-petal-sway" style={{ animationDelay: '3.5s' }} />
+            <div className="absolute inset-0 bird-petal-orange transform rotate-60 animate-petal-sway" style={{ animationDelay: '4s' }} />
+            <div className="absolute inset-0 bird-petal-purple transform rotate-75 animate-petal-sway" style={{ animationDelay: '4.5s' }} />
+            <div className="absolute bottom-0 right-1/2 bird-leaf-green transform translate-x-1/2 animate-leaf-sway" style={{ animationDelay: '3s' }} />
           </div>
+        </div>
+
+        {/* Floating petals */}
+        <div className="absolute top-1/4 left-1/2 w-8 h-12 bird-floating-petal animate-petal-float" style={{ animationDelay: '6s' }} />
+        <div className="absolute top-2/3 right-1/4 w-6 h-10 bird-floating-petal-pink animate-petal-float" style={{ animationDelay: '8s' }} />
+        <div className="absolute bottom-1/3 left-1/3 w-10 h-14 bird-floating-petal-purple animate-petal-float" style={{ animationDelay: '10s' }} />
+      </div>
+
+      {/* Central content */}
+      <div className="relative z-10 text-center px-8 max-w-4xl">
+        {/* Orange leaf icon */}
+        <div className="mb-12">
+          <div className="w-12 h-8 mx-auto relative">
+            <svg className="w-12 h-8 text-coral-orange" fill="currentColor" viewBox="0 0 24 16">
+              <path d="M12 0c-6.627 0-12 3.582-12 8s5.373 8 12 8c1.5-2 2.5-4 2.5-8s-1-6-2.5-8z"/>
+            </svg>
+          </div>
+        </div>
+
+        {/* Main heading */}
+        <h1 className="text-5xl md:text-7xl font-light text-white mb-2 tracking-wide leading-tight">
+          Créez votre rêve
+        </h1>
+        <h2 className="text-5xl md:text-7xl font-light text-white mb-16 tracking-wide leading-tight">
+          studio IA
+        </h2>
+
+        {/* Tech quote */}
+        <div className="mb-16 max-w-3xl mx-auto">
+          <blockquote className="text-lg md:text-xl text-white/80 italic mb-4 leading-relaxed font-light">
+            "{currentQuote.quote}"
+          </blockquote>
+          <cite className="text-base text-white/60 font-normal">
+            — {currentQuote.author}
+          </cite>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-12">
+          <p className="text-coral-orange text-lg font-medium flex items-center justify-center gap-2">
+            Gogogo Studio 
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+          </p>
         </div>
       </div>
-    </>
+
+      {/* Loading animation */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="dot-animation-container">
+          <div className="dot-1" style={{ backgroundColor: '#f34213' }}></div>
+          <div className="dot-2" style={{ backgroundColor: '#f34213' }}></div>
+          <div className="dot-3" style={{ backgroundColor: '#f34213' }}></div>
+        </div>
+      </div>
+    </div>
   );
 };
 

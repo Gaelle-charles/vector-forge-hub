@@ -521,6 +521,8 @@ const Home = () => {
           </p>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Home;

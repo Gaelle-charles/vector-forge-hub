@@ -536,13 +536,10 @@ const Home = () => {
       <footer className="py-8 bg-black text-white rounded-t-[4rem] -mt-16 z-50 relative">
         <div className="max-w-7xl mx-auto px-8 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-              <Globe className="h-3 w-3 text-black" />
-            </div>
-            <span className="text-lg font-bold">GoGoGo Studio</span>
+            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.svg" />
           </div>
           <p className="text-gray-400 text-sm">
-            © 2024 GoGoGo Studio. Innovation digitale et solutions créatives.
+            © 2025 GoGoGo Studio. Innovation digitale et solutions créatives.
           </p>
         </div>
       </footer>

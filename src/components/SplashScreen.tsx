@@ -1,15 +1,12 @@
+// Fichier : src/components/SplashScreen.js
+
 import React, { useEffect } from 'react';
-import './splashScreen.css'; // Nous allons créer ce fichier pour les animations
 
-interface SplashScreenProps {
-  onComplete: () => void;
-}
-
-const SplashScreen = ({ onComplete }: SplashScreenProps) => {
+const SplashScreen = ({ onComplete }) => {
   useEffect(() => {
     // Déclencher l'animation des portes après un court délai
     const doorsTimer = setTimeout(() => {
-      document.body.classList.add('doors-open');
+      document.documentElement.classList.add('doors-open');
     }, 100);
 
     // Une fois l'animation terminée, appeler la fonction onComplete
@@ -20,7 +17,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
     return () => {
       clearTimeout(doorsTimer);
       clearTimeout(transitionTimer);
-      document.body.classList.remove('doors-open');
+      document.documentElement.classList.remove('doors-open');
     };
   }, [onComplete]);
 

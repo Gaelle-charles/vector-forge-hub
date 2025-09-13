@@ -16,7 +16,11 @@ const Home = () => {
   };
 
   // Références pour les vidéos
-  const videoRefs = useRef([React.createRef(), React.createRef(), React.createRef()]);
+  const videoRefs = [
+    useRef<HTMLVideoElement>(null),
+    useRef<HTMLVideoElement>(null),
+    useRef<HTMLVideoElement>(null)
+  ];
   const [activeVideo, setActiveVideo] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
@@ -93,24 +97,24 @@ const Home = () => {
     const interval = setInterval(() => {
       setActiveVideo(prev => {
         // Mettre en pause toutes les vidéos
-        videoRefs.current.forEach(ref => {
+        videoRefs.forEach(ref => {
           if (ref.current) {
             ref.current.pause();
           }
         });
 
         // Jouer la vidéo active
-        const nextVideo = (prev + 1) % videoRefs.current.length;
-        if (videoRefs.current[nextVideo].current) {
-          videoRefs.current[nextVideo].current.play().catch(e => console.log("Autoplay prevented:", e));
+        const nextVideo = (prev + 1) % videoRefs.length;
+        if (videoRefs[nextVideo].current) {
+          videoRefs[nextVideo].current.play().catch(e => console.log("Autoplay prevented:", e));
         }
         return nextVideo;
       });
     }, 4000); // Changement toutes les 4 secondes
 
     // Jouer la première vidéo au chargement
-    if (videoRefs.current[0].current) {
-      videoRefs.current[0].current.play().catch(e => console.log("Autoplay prevented:", e));
+    if (videoRefs[0].current) {
+      videoRefs[0].current.play().catch(e => console.log("Autoplay prevented:", e));
     }
     return () => clearInterval(interval);
   }, [isHovering]);
@@ -120,30 +124,30 @@ const Home = () => {
     setIsHovering(true);
 
     // Mettre en pause toutes les vidéos
-    videoRefs.current.forEach(ref => {
+    videoRefs.forEach(ref => {
       if (ref.current) {
         ref.current.pause();
       }
     });
 
     // Jouer la vidéo survolée
-    if (videoRefs.current[index].current) {
-      videoRefs.current[index].current.play().catch(e => console.log("Autoplay prevented:", e));
+    if (videoRefs[index].current) {
+      videoRefs[index].current.play().catch(e => console.log("Autoplay prevented:", e));
     }
   };
   const handleVideoLeave = () => {
     setIsHovering(false);
 
     // Mettre en pause toutes les vidéos
-    videoRefs.current.forEach(ref => {
+    videoRefs.forEach(ref => {
       if (ref.current) {
         ref.current.pause();
       }
     });
 
     // Rejouer la vidéo active dans la rotation
-    if (videoRefs.current[activeVideo].current) {
-      videoRefs.current[activeVideo].current.play().catch(e => console.log("Autoplay prevented:", e));
+    if (videoRefs[activeVideo].current) {
+      videoRefs[activeVideo].current.play().catch(e => console.log("Autoplay prevented:", e));
     }
   };
   return <div className="min-h-screen bg-white">
@@ -194,19 +198,19 @@ const Home = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 h-[100vh] border-white">
           <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden" onMouseEnter={() => handleVideoHover(0)} onMouseLeave={handleVideoLeave}>
-            <video ref={videoRefs.current[0]} muted loop playsInline className="w-full h-full object-cover opacity-60 transition-opacity duration-500">
+            <video ref={videoRefs[0]} muted loop playsInline className="w-full h-full object-cover opacity-60 transition-opacity duration-500">
               <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/Pixar_animated_short_202509131714_l40d4.mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>
           <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden" onMouseEnter={() => handleVideoHover(1)} onMouseLeave={handleVideoLeave}>
-            <video ref={videoRefs.current[1]} muted loop playsInline className="w-full h-full object-cover opacity-60 transition-opacity duration-500">
+            <video ref={videoRefs[1]} muted loop playsInline className="w-full h-full object-cover opacity-60 transition-opacity duration-500">
               <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_sequence_of_202509122027_jfiaz.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>
           <div className="relative bg-black overflow-hidden" onMouseEnter={() => handleVideoHover(2)} onMouseLeave={handleVideoLeave}>
-            <video ref={videoRefs.current[2]} muted loop playsInline className="w-full h-full object-cover opacity-60 transition-opacity duration-500">
+            <video ref={videoRefs[2]} muted loop playsInline className="w-full h-full object-cover opacity-60 transition-opacity duration-500">
               <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_rapid_fluid_202509131718_pqdeo.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>

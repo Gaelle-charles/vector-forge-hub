@@ -32,37 +32,32 @@ interface SplashScreenProps {
 }
 
 const SplashScreen = ({ onComplete }: SplashScreenProps) => {
-  const [currentQuote] = useState(() =>
+  const [currentQuote] = useState(() => 
     techQuotes[Math.floor(Math.random() * techQuotes.length)]
   );
-  const [isExiting, setIsExiting] = useState(false);
+  // Nouvel état pour gérer l'ouverture des portes
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
-    // La durée totale de l'écran de démarrage est de 18 secondes
-    const totalDuration = 1000;
-    // Déclencher l'animation de sortie 1 seconde avant la fin
-    const exitDelay = 500;
+    // La durée totale du splash screen
+    const splashDuration = 1000; // 1 second
 
-    const exitTimer = setTimeout(() => {
-      setIsExiting(true);
-    }, totalDuration - exitDelay);
+    // Déclencher la transition après la durée du splash screen
+    const timer = setTimeout(() => {
+      setIsTransitioning(true);
+      // Appeler onComplete après la fin de l'animation de transition (e.g., 500ms après)
+      setTimeout(() => {
+        onComplete();
+      }, 500);
+    }, splashDuration);
 
-    const completionTimer = setTimeout(() => {
-      onComplete();
-    }, totalDuration);
-
-    return () => {
-      clearTimeout(exitTimer);
-      clearTimeout(completionTimer);
-    };
+    return () => clearTimeout(timer);
   }, [onComplete]);
 
   return (
-    <div className={`fixed inset-0 flex items-center justify-center transition-all duration-500 ease-in-out`}>
-      {/* Moitié gauche */}
-      <div
-        className={`absolute inset-0 right-1/2 bg-tropical-gradient origin-left transform transition-transform duration-1000 ease-in-out ${isExiting ? '-translate-x-full' : 'translate-x-0'}`}
-      >
+    <div className="fixed inset-0 flex items-center justify-center overflow-hidden">
+      {/* Contenu du splash screen */}
+      <div className={`fixed inset-0 bg-tropical-gradient flex items-center justify-center overflow-hidden transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
         {/* Animated tropical flower background */}
         <div className="absolute inset-0 tropical-flower-animation">
           {/* Bird of Paradise flower - main */}
@@ -97,16 +92,9 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
           <div className="absolute top-2/3 right-1/4 w-6 h-10 bird-floating-petal-pink animate-petal-float" style={{ animationDelay: '8s' }} />
           <div className="absolute bottom-1/3 left-1/3 w-10 h-14 bird-floating-petal-purple animate-petal-float" style={{ animationDelay: '10s' }} />
         </div>
-      </div>
 
-      {/* Moitié droite */}
-      <div
-        className={`absolute inset-0 left-1/2 bg-tropical-gradient origin-right transform transition-transform duration-1000 ease-in-out ${isExiting ? 'translate-x-full' : 'translate-x-0'}`}
-      ></div>
-
-      {/* Contenu central */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative z-20 text-center px-8 max-w-4xl opacity-100 transition-opacity duration-500 delay-500 ease-in-out">
+        {/* Central content */}
+        <div className="relative z-10 text-center px-8 max-w-4xl">
           {/* Orange leaf icon */}
           <div className="mb-12">
             <div className="w-12 h-8 mx-auto relative">
@@ -146,12 +134,20 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
         </div>
 
         {/* Progress indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-100 transition-opacity duration-500 delay-500 ease-in-out">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
           <div className="w-48 h-0.5 bg-white/10 rounded-full overflow-hidden">
             <div className="h-full bg-coral-orange rounded-full animate-progress"></div>
           </div>
         </div>
       </div>
+
+      {/* Les "portes" qui s'ouvrent */}
+      <div 
+        className={`fixed top-0 left-0 w-1/2 h-full bg-white z-50 transform transition-transform ease-out duration-700 ${isTransitioning ? '-translate-x-full' : 'translate-x-0'}`}
+      ></div>
+      <div 
+        className={`fixed top-0 right-0 w-1/2 h-full bg-white z-50 transform transition-transform ease-out duration-700 ${isTransitioning ? 'translate-x-full' : 'translate-x-0'}`}
+      ></div>
     </div>
   );
 };

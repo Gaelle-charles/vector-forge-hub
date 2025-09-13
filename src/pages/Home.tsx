@@ -175,10 +175,10 @@ const Home = () => {
       <section className="bg-black relative overflow-hidden">
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center">
           <div className="text-center px-8">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-2xl opacity-20">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-2xl opacity-60">
               L'IA pour vous servir
             </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium drop-shadow-lg opacity-20">
+            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium drop-shadow-lg opacity-60">
               Découvrez comment nous boosterons votre entreprise avec l'IA
             </p>
           </div>

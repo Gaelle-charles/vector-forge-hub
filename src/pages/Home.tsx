@@ -158,13 +158,13 @@ const Home = () => {
           </div>
           <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden">
             <video muted loop playsInline className="w-full h-full object-cover opacity-60">
-              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
+              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_sequence_of_202509122027_jfiaz.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>
           <div className="relative bg-black overflow-hidden">
             <video muted loop playsInline className="w-full h-full object-cover opacity-60">
-              <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_succession_of_202509131243_9z8z6.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>

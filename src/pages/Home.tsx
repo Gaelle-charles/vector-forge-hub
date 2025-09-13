@@ -264,82 +264,155 @@ const Home = () => {
         </div>
       </section>
 
+     import React from 'react';
+import { Code, Bot, Video, ExternalLink, Send } from 'lucide-react';
+
+const Card = ({ children, className = "" }) => (
+  <div className={`bg-white rounded-xl shadow-lg ${className}`}>
+    {children}
+  </div>
+);
+
+const CardHeader = ({ children }) => (
+  <div className="p-6 pb-4">
+    {children}
+  </div>
+);
+
+const CardContent = ({ children }) => (
+  <div className="px-6 pb-6">
+    {children}
+  </div>
+);
+
+const CardTitle = ({ children, className = "" }) => (
+  <h3 className={`font-semibold ${className}`}>
+    {children}
+  </h3>
+);
+
+const CardDescription = ({ children, className = "" }) => (
+  <p className={`${className}`}>
+    {children}
+  </p>
+);
+
+const Badge = ({ children, className = "" }) => (
+  <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${className}`}>
+    {children}
+  </span>
+);
+
+const Button = ({ children, variant = "default", size = "default", className = "" }) => (
+  <button className={`inline-flex items-center justify-center font-medium transition-colors ${className}`}>
+    {children}
+  </button>
+);
+
+const Input = ({ placeholder, type = "text", className = "" }) => (
+  <input 
+    type={type} 
+    placeholder={placeholder} 
+    className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all ${className}`} 
+  />
+);
+
+const Textarea = ({ placeholder, rows = 4, className = "" }) => (
+  <textarea 
+    placeholder={placeholder} 
+    rows={rows}
+    className={`w-full px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-300 transition-all resize-none ${className}`} 
+  />
+);
+
+export default function ImprovedBlogSection() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Blog Section */}
-      <section id="blog" className="py-24 bg-background scroll-animate opacity-0 rounded-t-[3rem]">
-        <div className="max-w-7xl mx-auto px-8 scroll-animate">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-foreground mb-4 stagger-child opacity-0">
+      <section id="blog" className="py-24">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-6xl font-bold text-slate-800 mb-6 tracking-tight">
               Derniers Articles
             </h2>
-            <p className="text-xl text-foreground/80 max-w-3xl mx-auto stagger-child opacity-0">
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               Insights et mises à jour de notre équipe sur la technologie et l'innovation
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white stagger-child opacity-0">
+            {/* Article 1 */}
+            <Card className="border-0 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group overflow-hidden">
               <CardHeader>
-                <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
-                  <Code className="h-12 w-12 text-gray-400" />
+                <div className="w-full h-52 bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <Code className="h-16 w-16 text-blue-400" />
                 </div>
-                <Badge className="w-fit mb-2 bg-neon-green text-black font-bold border-0">Développement</Badge>
-                <CardTitle className="text-xl text-black group-hover:text-black/80">
+                <Badge className="w-fit mb-4 bg-green-100 text-green-700 border-0 shadow-sm">
+                  Développement
+                </Badge>
+                <CardTitle className="text-2xl text-slate-800 group-hover:text-blue-600 transition-colors mb-3">
                   L'Avenir du Développement Web
                 </CardTitle>
-                <CardDescription className="text-black/70">
+                <CardDescription className="text-slate-600 leading-relaxed">
                   Explorer les tendances émergentes et les technologies qui façonneront la prochaine génération d'applications web.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-black/60">12 Déc, 2024</span>
-                  <Button variant="ghost" size="sm" className="p-0 h-auto text-black hover:text-black/80">
+                <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                  <span className="text-sm text-slate-500 font-medium">12 Déc, 2024</span>
+                  <Button variant="ghost" size="sm" className="p-2 h-auto text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-all">
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white stagger-child opacity-0">
+            {/* Article 2 */}
+            <Card className="border-0 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group overflow-hidden">
               <CardHeader>
-                <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
-                  <Bot className="h-12 w-12 text-gray-400" />
+                <div className="w-full h-52 bg-gradient-to-br from-cyan-100 to-teal-100 rounded-lg mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <Bot className="h-16 w-16 text-cyan-400" />
                 </div>
-                <Badge className="w-fit mb-2 bg-neon-cyan text-black font-bold border-0">IA</Badge>
-                <CardTitle className="text-xl text-black group-hover:text-black/80">
+                <Badge className="w-fit mb-4 bg-blue-100 text-blue-700 border-0 shadow-sm">
+                  IA
+                </Badge>
+                <CardTitle className="text-2xl text-slate-800 group-hover:text-cyan-600 transition-colors mb-3">
                   L'IA dans les Entreprises Modernes
                 </CardTitle>
-                <CardDescription className="text-black/70">
+                <CardDescription className="text-slate-600 leading-relaxed">
                   Comment l'intelligence artificielle transforme les industries et crée de nouvelles opportunités de croissance.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-black/60">10 Déc, 2024</span>
-                  <Button variant="ghost" size="sm" className="p-0 h-auto text-black hover:text-black/80">
+                <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                  <span className="text-sm text-slate-500 font-medium">10 Déc, 2024</span>
+                  <Button variant="ghost" size="sm" className="p-2 h-auto text-cyan-500 hover:text-cyan-700 hover:bg-cyan-50 rounded-full transition-all">
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-border hover:border-foreground transition-colors group bg-white stagger-child opacity-0">
+            {/* Article 3 */}
+            <Card className="border-0 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group overflow-hidden">
               <CardHeader>
-                <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
-                  <Video className="h-12 w-12 text-gray-400" />
+                <div className="w-full h-52 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <Video className="h-16 w-16 text-pink-400" />
                 </div>
-                <Badge className="w-fit mb-2 bg-neon-pink text-black font-bold border-0">Design</Badge>
-                <CardTitle className="text-xl text-black group-hover:text-black/80">
+                <Badge className="w-fit mb-4 bg-purple-100 text-purple-700 border-0 shadow-sm">
+                  Design
+                </Badge>
+                <CardTitle className="text-2xl text-slate-800 group-hover:text-pink-600 transition-colors mb-3">
                   Systèmes de Design Évolutifs
                 </CardTitle>
-                <CardDescription className="text-black/70">
+                <CardDescription className="text-slate-600 leading-relaxed">
                   Construire des systèmes de design cohérents et maintenables pour les applications à grande échelle.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-black/60">8 Déc, 2024</span>
-                  <Button variant="ghost" size="sm" className="p-0 h-auto text-black hover:text-black/80">
+                <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                  <span className="text-sm text-slate-500 font-medium">8 Déc, 2024</span>
+                  <Button variant="ghost" size="sm" className="p-2 h-auto text-pink-500 hover:text-pink-700 hover:bg-pink-50 rounded-full transition-all">
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>
@@ -348,6 +421,58 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-6xl font-bold text-slate-800 mb-6 tracking-tight">
+              Contactez-nous
+            </h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Prêt à démarrer votre prochain projet ? Discutons de la façon dont nous pouvons donner vie à vos idées.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <Card className="border-0 shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-3xl text-slate-800 mb-2">Envoyez-nous un message</CardTitle>
+                <CardDescription className="text-slate-600 text-lg">
+                  Nous vous répondrons dans les 24 heures.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid grid-cols-2 gap-4">
+                  <Input placeholder="Prénom" className="border-slate-200 text-slate-700 bg-slate-50 placeholder:text-slate-400 focus:bg-white" />
+                  <Input placeholder="Nom" className="border-slate-200 text-slate-700 bg-slate-50 placeholder:text-slate-400 focus:bg-white" />
+                </div>
+                <Input placeholder="Adresse email" type="email" className="border-slate-200 text-slate-700 bg-slate-50 placeholder:text-slate-400 focus:bg-white" />
+                <Input placeholder="Entreprise (optionnel)" className="border-slate-200 text-slate-700 bg-slate-50 placeholder:text-slate-400 focus:bg-white" />
+                <Textarea placeholder="Parlez-nous de votre projet..." rows={4} className="border-slate-200 text-slate-700 bg-slate-50 placeholder:text-slate-400 focus:bg-white" />
+                <Button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white w-full rounded-full py-4 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                  <Send className="h-5 w-5 mr-3" />
+                  Envoyer le Message
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Contact Info - Placeholder */}
+            <div className="flex items-center justify-center">
+              <div className="text-center text-slate-600">
+                <div className="w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                  <Bot className="h-16 w-16 text-blue-400" />
+                </div>
+                <p className="text-lg">Informations de contact à ajouter ici</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
 
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-secondary scroll-animate opacity-0 rounded-t-[3rem]">

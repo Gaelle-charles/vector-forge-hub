@@ -285,7 +285,7 @@ const Home = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-700 mb-4">
-                Nous ne créons pas de simples applications, nous construisons des plateformes intelligentes qui s'adaptent, apprennent et évoluent. De l'idée à l'app store, on vous accompagne pour que votre projet soit une véritable success story. Une UX pensée par l'humain, optimisée par l'IA.
+                On vous accompagne pour que votre projet soit une véritable success story. Une UX pensée par l'humain, optimisée par l'IA.
               </p>
             </CardContent>
           </Card>
@@ -303,7 +303,7 @@ const Home = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-700 mb-4">
-                Oubliez les banques d'images sans âme. Notre IA génère des visuels uniques et sur-mesure pour votre marque. Des photos de produits ultra-réalistes aux vidéos promotionnelles époustouflantes, on crée le contenu qui attire l'œil et engage votre audience. Le futur du marketing visuel, c'est maintenant.
+                Nos outils IA génèrent des visuels uniques et sur-mesure pour votre marque. Des photos de produits ultra-réalistes aux vidéos promotionnelles.
               </p>
             </CardContent>
           </Card>
@@ -321,7 +321,7 @@ const Home = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-700 mb-4">
-                Laissez l'IA gérer les tâches fastidieuses pendant que vous vous concentrez sur la croissance. De l'automatisation du service client à la gestion des données, on met en place des flux de travail qui vous font gagner du temps, de l'argent et de l'énergie. L'efficacité devient votre super-pouvoir.
+                Laissez l'IA gérer les tâches fastidieuses. De l'automatisation du service client à la gestion des données, on met en place des flux de travail qui vous font gagner du temps, de l'argent et de l'énergie.
               </p>
             </CardContent>
           </Card>
@@ -339,7 +339,7 @@ const Home = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-700 mb-4">
-                Nous concevons des agents IA sur mesure, capables de dialoguer, d'assister ou de prendre des décisions. Que ce soit un chatbot intelligent pour vos clients ou un assistant pour votre équipe interne, on crée des agents qui travaillent pour vous 24h/24, 7j/7. Un allié discret, mais redoutablement efficace.
+                Nous concevons des agents IA sur mesure, capables de dialoguer, d'assister ou de prendre des décisions. Que ce soit un chatbot intelligent pour vos clients ou un assistant pour votre équipe interne.
               </p>
             </CardContent>
           </Card>

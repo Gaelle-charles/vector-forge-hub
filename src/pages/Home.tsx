@@ -248,7 +248,7 @@ const Home = () => {
       <main className="relative px-8 py-40 bg-white scroll-animate opacity-0 rounded-t-[4rem] -mt-16 z-10">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="space-y-8">
-            <h2 className="text-5xl md:text-8xl font-bold leading-tight text-black stagger-child opacity-0">
+            <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
               Innovation digitale
               <br />
               et solutions créatives

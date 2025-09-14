@@ -166,7 +166,7 @@ const Home = () => {
               onClick={() => scrollToSection('contact')}
               className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 hover:-translate-y-0.5"
             >
-              CONTACT
+              Prendre un rendez-vous
               <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
             </button>
           </div>

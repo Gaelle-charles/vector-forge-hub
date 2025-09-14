@@ -261,103 +261,91 @@ const Home = () => {
 
       {/* Services Section */}
       <section id="services" className="py-24 bg-gray-50 section-slide-up rounded-t-[4rem] -mt-16 z-20 relative">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
-              Nos Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto stagger-child opacity-0">
-              Nous fournissons des solutions digitales complètes pour les entreprises modernes
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
-                  <Smartphone className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-2xl text-black">DÉVELOPPEMENT WEB</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Sites web modernes et responsifs et applications web construites avec des technologies de pointe.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3 text-black">
-                  <div className="flex items-center text-sm">
-                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
-                    <span>Applications React & Next.js</span>
-                  </div>
-                  <div className="flex items-center text-sm">
-                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
-                    <span>Applications Web Progressives</span>
-                  </div>
-                  <div className="flex items-center text-sm">
-                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
-                    <span>Solutions E-commerce</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
-                  <Video className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-2xl text-black">DESIGN & IMAGE DE MARQUE</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Identité visuelle complète et design d'expérience utilisateur pour les produits digitaux.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3 text-black">
-                  <div className="flex items-center text-sm">
-                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
-                    <span>Design UI/UX</span>
-                  </div>
-                  <div className="flex items-center text-sm">
-                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
-                    <span>Identité de Marque</span>
-                  </div>
-                  <div className="flex items-center text-sm">
-                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
-                    <span>Systèmes de Design</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
-                  <Bot className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-2xl text-black">SOLUTIONS IA</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Automatisation intelligente et fonctionnalités alimentées par l'IA pour vos processus métier.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3 text-black">
-                  <div className="flex items-center text-sm">
-                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
-                    <span>Chatbots & Assistants Virtuels</span>
-                  </div>
-                  <div className="flex items-center text-sm">
-                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
-                    <span>Automatisation des Processus</span>
-                  </div>
-                  <div className="flex items-center text-sm">
-                    <CheckCircle className="h-4 w-4 mr-2 text-black" />
-                    <span>Analyse de Données</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
+            Nos Services
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto stagger-child opacity-0">
+            Nous fournissons des solutions digitales complètes pour les entreprises modernes
+          </p>
         </div>
-      </section>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Réalisation d'apps web/mobile */}
+          <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <CardHeader>
+              <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
+                <Smartphone className="h-6 w-6 text-white" />
+              </div>
+              <CardTitle className="text-2xl text-black">Réalisation d'apps web/mobile</CardTitle>
+              <CardDescription className="text-gray-600">
+                Plus qu'une app, une révolution.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-700 mb-4">
+                Nous ne créons pas de simples applications, nous construisons des plateformes intelligentes qui s'adaptent, apprennent et évoluent. De l'idée à l'app store, on vous accompagne pour que votre projet soit une véritable success story. Une UX pensée par l'humain, optimisée par l'IA.
+              </p>
+            </CardContent>
+          </Card>
+
+          {/* Génération de vidéo/photo avec l'IA */}
+          <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <CardHeader>
+              <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
+                <Camera className="h-6 w-6 text-white" />
+              </div>
+              <CardTitle className="text-2xl text-black">Génération de vidéo/photo avec l'IA</CardTitle>
+              <CardDescription className="text-gray-600">
+                Le visuel 2.0. Des images qui ne mentent pas, qui captivent.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-700 mb-4">
+                Oubliez les banques d'images sans âme. Notre IA génère des visuels uniques et sur-mesure pour votre marque. Des photos de produits ultra-réalistes aux vidéos promotionnelles époustouflantes, on crée le contenu qui attire l'œil et engage votre audience. Le futur du marketing visuel, c'est maintenant.
+              </p>
+            </CardContent>
+          </Card>
+          
+          {/* Automatisation du process */}
+          <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <CardHeader>
+              <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
+                <Zap className="h-6 w-6 text-white" />
+              </div>
+              <CardTitle className="text-2xl text-black">Automatisation du process</CardTitle>
+              <CardDescription className="text-gray-600">
+                La productivité sans limites. Dites adieu aux tâches répétitives.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-700 mb-4">
+                Laissez l'IA gérer les tâches fastidieuses pendant que vous vous concentrez sur la croissance. De l'automatisation du service client à la gestion des données, on met en place des flux de travail qui vous font gagner du temps, de l'argent et de l'énergie. L'efficacité devient votre super-pouvoir.
+              </p>
+            </CardContent>
+          </Card>
+          
+          {/* Réalisation d'agents IA */}
+          <Card className="border-2 border-black hover:border-gray-600 transition-colors bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <CardHeader>
+              <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center mb-4">
+                <Bot className="h-6 w-6 text-white" />
+              </div>
+              <CardTitle className="text-2xl text-black">Réalisation d'agents IA</CardTitle>
+              <CardDescription className="text-gray-600">
+                Votre nouvel associé. Un cerveau de plus dans l'équipe.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-gray-700 mb-4">
+                Nous concevons des agents IA sur mesure, capables de dialoguer, d'assister ou de prendre des décisions. Que ce soit un chatbot intelligent pour vos clients ou un assistant pour votre équipe interne, on crée des agents qui travaillent pour vous 24h/24, 7j/7. Un allié discret, mais redoutablement efficace.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
 
       {/* Blog Section */}
       <section id="blog" className="py-24 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">

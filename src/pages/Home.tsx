@@ -450,51 +450,68 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-gray-50 section-slide-up rounded-t-[4rem] -mt-16 z-40 relative">
-        <div className="max-w-4xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
-              Contactez-nous
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto stagger-child opacity-0">
-              Prêt à démarrer votre prochain projet ? Discutons de la façon dont nous pouvons donner vie à vos idées.
-            </p>
-          </div>
+     {/* Contact Section */}
+<section id="contact" className="py-24 bg-black section-slide-up rounded-t-[4rem] -mt-16 z-40 relative">
+  <div className="max-w-4xl mx-auto px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-5xl font-bold text-white mb-4 stagger-child opacity-0">
+        Contactez-nous
+      </h2>
+      <p className="text-xl text-gray-300 max-w-2xl mx-auto stagger-child opacity-0">
+        Prêt à démarrer votre prochain projet ? Discutons de la façon dont nous pouvons donner vie à vos idées.
+      </p>
+    </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <Card className="border-2 border-black bg-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-2xl text-black">Envoyez-nous un message</CardTitle>
-                <CardDescription className="text-gray-600">
-                  Nous vous répondrons dans les 24 heures.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <Input placeholder="Prénom" className="border-2 border-black text-black bg-white placeholder:text-gray-500" />
-                  <Input placeholder="Nom" className="border-2 border-black text-black bg-white placeholder:text-gray-500" />
-                </div>
-                <Input placeholder="Adresse email" type="email" className="border-2 border-black text-black bg-white placeholder:text-gray-500" />
-                <Input placeholder="Entreprise (optionnel)" className="border-2 border-black text-black bg-white placeholder:text-gray-500" />
-                <Textarea placeholder="Parlez-nous de votre projet..." rows={4} className="border-2 border-black text-black bg-white placeholder:text-gray-500" />
-                <Button className="bg-black text-white w-full rounded-full py-3 hover:bg-gray-800 transition-all duration-300">
-                  <Send className="h-4 w-4 mr-2" />
-                  Envoyer le Message
-                </Button>
-              </CardContent>
-            </Card>
-
-            <div className="flex items-center justify-center stagger-child opacity-0">
-              <div className="text-center text-gray-600">
-                <div className="w-32 h-32 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <Bot className="h-16 w-16 text-blue-400" />
-                </div>
-                <p className="text-lg">Informations de contact à ajouter ici</p>
-              </div>
-            </div>
+    <div className="grid md:grid-cols-3 gap-8">
+      {/* Formulaire de Contact */}
+      <Card className="border-2 border-white bg-black stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 col-span-2">
+        <CardHeader>
+          <CardTitle className="text-3xl text-white">Envoyez-nous un message</CardTitle>
+          <CardDescription className="text-gray-400">
+            Nous vous répondrons dans les 24 heures.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Input placeholder="Prénom" className="border-2 border-white text-white bg-black placeholder:text-gray-500" />
+            <Input placeholder="Nom" className="border-2 border-white text-white bg-black placeholder:text-gray-500" />
           </div>
-        </div>
-      </section>
+          <Input placeholder="Adresse email" type="email" className="border-2 border-white text-white bg-black placeholder:text-gray-500" />
+          <Input placeholder="Entreprise (optionnel)" className="border-2 border-white text-white bg-black placeholder:text-gray-500" />
+          <Textarea placeholder="Parlez-nous de votre projet..." rows={4} className="border-2 border-white text-white bg-black placeholder:text-gray-500" />
+          <Button className="bg-[#e76f51] text-white w-full rounded-full py-3 hover:bg-white hover:text-[#e76f51] transition-all duration-300">
+            <Send className="h-4 w-4 mr-2" />
+            Envoyer le Message
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Prise de rendez-vous */}
+      <Card className="border-2 border-white bg-black text-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+        <CardHeader>
+          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4">
+            <Zap className="h-6 w-6 text-black" />
+          </div>
+          <CardTitle className="text-2xl">Consulting 30min offert</CardTitle>
+          <CardDescription className="text-gray-400">
+            Discutons ensemble de vos besoins. C'est simple, rapide et sans engagement.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-gray-300 mb-6">
+            L'occasion de découvrir comment l'IA peut transformer votre entreprise et de poser toutes vos questions.
+          </p>
+          <a href="URL_DE_VOTRE_CALENDLY_OU_AUTRE_SERVICE" target="_blank" rel="noopener noreferrer">
+            <Button className="bg-[#e76f51] text-white w-full rounded-full py-3 hover:bg-white hover:text-[#e76f51] transition-all duration-300">
+              <CheckCircle className="h-4 w-4 mr-2" />
+              Prendre un rendez-vous
+            </Button>
+          </a>
+        </CardContent>
+      </Card>
+    </div>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="py-8 bg-black text-white rounded-t-[4rem] -mt-16 z-50 relative">

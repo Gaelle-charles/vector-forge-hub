@@ -512,12 +512,12 @@ const Home = () => {
 </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-black text-white rounded-t-[4rem] -mt-16 z-50 relative">
+      <footer className="py-8 bg-white text-white rounded-t-[4rem] -mt-16 z-50 relative">
         <div className="max-w-7xl mx-auto px-8 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.svg" />
+            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.png" />
           </div>
-          <p className="text-gray-400 text-sm">
+          <p className="text-black-400 text-sm">
             © 2025 GoGoGo Studio. Innovation digitale et solutions créatives.
           </p>
         </div>

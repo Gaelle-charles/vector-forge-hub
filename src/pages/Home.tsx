@@ -248,7 +248,7 @@ const Home = () => {
       <main className="relative px-8 py-40 bg-white scroll-animate opacity-0 rounded-t-[4rem] -mt-16 z-10">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="space-y-8">
-            <h2 className="text-6xl md:text-8xl font-bold leading-tight text-black stagger-child opacity-0">
+            <h2 className="text-5xl md:text-8xl font-bold leading-tight text-black stagger-child opacity-0">
               Innovation digitale
               <br />
               et solutions créatives
@@ -259,7 +259,7 @@ const Home = () => {
               et professionnels créatifs.
             </p>
             
-            <Button onClick={() => scrollToSection('contact')} className="bg-[#e76f51] text-white w-full rounded-full py-3 hover:bg-white hover:text-[#e76f51] transition-all duration-300">
+            <Button onClick={() => scrollToSection('contact')} className="bg-[#e76f51] text-white rounded-full py-3 hover:bg-white hover:text-[#e76f51] transition-all duration-300">
            
               COMMENCER AUJOURD'HUI
               <ArrowUpRight className="h-5 w-5 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

@@ -474,9 +474,9 @@ const Home = () => {
             <Input placeholder="Prénom" className="border-2 border-white text-white bg-black placeholder:text-gray-500" />
             <Input placeholder="Nom" className="border-2 border-white text-white bg-black placeholder:text-gray-500" />
           </div>
-          <Input placeholder="Adresse email" type="email" className="border-2 border-white text-white bg-black placeholder:text-gray-500" />
-          <Input placeholder="Entreprise (optionnel)" className="border-2 border-white text-white bg-black placeholder:text-gray-500" />
-          <Textarea placeholder="Parlez-nous de votre projet..." rows={4} className="border-2 border-white text-white bg-black placeholder:text-gray-500" />
+          <Input placeholder="Adresse email" type="email" className="border-2 border-white text-black bg-white placeholder:text-gray-500" />
+          <Input placeholder="Entreprise (optionnel)" className="border-2 border-white text-black bg-white placeholder:text-gray-500" />
+          <Textarea placeholder="Parlez-nous de votre projet..." rows={4} className="border-2 border-white text-black bg-white placeholder:text-gray-500" />
           <Button className="bg-[#e76f51] text-white w-full rounded-full py-3 hover:bg-white hover:text-[#e76f51] transition-all duration-300">
             <Send className="h-4 w-4 mr-2" />
             Envoyer le Message

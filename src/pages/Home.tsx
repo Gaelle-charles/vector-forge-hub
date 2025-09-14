@@ -186,9 +186,9 @@ const Home = () => {
       <section className="bg-black relative overflow-hidden">
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center">
           <div className="text-center px-8">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-2xl opacity-60">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-2xl opacity-60">
               L'IA pour vous servir
-            </h2>
+            </h1>
             <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium drop-shadow-lg opacity-60">
               Découvrez comment booster votre entreprise avec l'IA
             </p>
@@ -248,21 +248,19 @@ const Home = () => {
       <main className="relative px-8 py-20 bg-white scroll-animate opacity-0 rounded-t-[4rem] -mt-16 z-10">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="space-y-8">
-            <h1 className="text-6xl md:text-8xl font-bold leading-tight text-black stagger-child opacity-0">
+            <h2 className="text-6xl md:text-8xl font-bold leading-tight text-black stagger-child opacity-0">
               Innovation digitale
               <br />
-              et solutions
-              <br />
-              créatives
-            </h1>
+              et solutions créatives
+            </h2>
             
             <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed stagger-child opacity-0">
               Un outil essentiel pour les marques mondiales, agences digitales, startups 
               et professionnels créatifs.
             </p>
             
-            <Button onClick={() => scrollToSection('services')} className="bg-black text-white rounded-full px-8 py-4 text-lg font-medium hover:bg-gray-800 group stagger-child opacity-0 hover:scale-105 transition-all duration-300">
-              <Download className="h-5 w-5 mr-3" />
+            <Button onClick={() => scrollToSection('contact')} className="bg-[#e76f51] text-white w-full rounded-full py-3 hover:bg-white hover:text-[#e76f51] transition-all duration-300">
+           
               COMMENCER AUJOURD'HUI
               <ArrowUpRight className="h-5 w-5 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </Button>

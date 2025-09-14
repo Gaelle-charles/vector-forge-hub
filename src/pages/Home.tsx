@@ -387,7 +387,7 @@ const Home = () => {
               <CardContent>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <span className="text-sm text-gray-500 font-medium">12 Déc, 2024</span>
-                  <Button className="p-2 h-auto text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-all">
+                  <Button className="p-2 h-auto text-white-500 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-all">
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>
@@ -412,7 +412,7 @@ const Home = () => {
               <CardContent>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <span className="text-sm text-gray-500 font-medium">10 Déc, 2024</span>
-                  <Button className="p-2 h-auto text-cyan-500 hover:text-cyan-700 hover:bg-cyan-50 rounded-full transition-all">
+                  <Button className="p-2 h-auto text-white-500 hover:text-cyan-700 hover:bg-cyan-50 rounded-full transition-all">
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>
@@ -437,7 +437,7 @@ const Home = () => {
               <CardContent>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <span className="text-sm text-gray-500 font-medium">8 Déc, 2024</span>
-                  <Button className="p-2 h-auto text-pink-500 hover:text-pink-700 hover:bg-pink-50 rounded-full transition-all">
+                  <Button className="p-2 h-auto text-white-500 hover:text-pink-700 hover:bg-pink-50 rounded-full transition-all">
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>

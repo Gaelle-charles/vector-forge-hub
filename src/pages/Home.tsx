@@ -179,7 +179,7 @@ const Home = () => {
               L'IA pour vous servir
             </h1>
             <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-medium drop-shadow-lg opacity-60">
-              Découvrez comment nous boosterons votre entreprise avec l'IA
+              Découvrez comment booster votre entreprise avec l'IA
             </p>
           </div>
         </div>

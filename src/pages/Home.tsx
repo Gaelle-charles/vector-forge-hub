@@ -152,21 +152,21 @@ const Home = () => {
               onClick={() => scrollToSection('services')}
               className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 hover:-translate-y-0.5"
             >
-              SERVICES
+              Services
               <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
             </button>
             <button
               onClick={() => scrollToSection('blog')}
               className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 hover:-translate-y-0.5"
             >
-              BLOG
+              Blog
               <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
             </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 hover:-translate-y-0.5"
             >
-              Prendre un rendez-vous
+              Prendre rendez-vous
               <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
             </button>
           </div>
@@ -185,7 +185,7 @@ const Home = () => {
       {/* Video Header Section */}
       <section className="bg-black relative overflow-hidden">
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center">
-          <div className="text-center px-8">
+          <div className="text-center px-8 pt-24">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 drop-shadow-2xl opacity-80">
               L'IA pour vous servir
             </h1>

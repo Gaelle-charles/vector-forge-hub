@@ -321,7 +321,7 @@ const Home = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-gray-700 mb-4">
-                Laissez l'IA gérer les tâches fastidieuses. De l'automatisation du service client à la gestion des données, on met en place des flux de travail qui vous font gagner du temps, de l'argent et de l'énergie.
+                Laissez l'IA gérer les tâches fastidieuses. De l'automatisation du service client à la gestion des données, on met en place des flux de travail optimisiés.
               </p>
             </CardContent>
           </Card>

@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, CheckCircle, Send, ExternalLink } from 'lucide-react';
+import { ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, CheckCircle, Send, ExternalLink, Camera, Zap } from 'lucide-react';
 
 const Home = () => {
   const scrollToSection = (sectionId) => {
@@ -16,7 +16,7 @@ const Home = () => {
     }
   };
 
-  const videoRefs = useRef([React.createRef(), React.createRef(), React.createRef()]);
+  const videoRefs = useRef([useRef<HTMLVideoElement>(null), useRef<HTMLVideoElement>(null), useRef<HTMLVideoElement>(null)]);
   const [activeVideo, setActiveVideo] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 

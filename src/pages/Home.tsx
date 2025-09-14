@@ -517,7 +517,7 @@ const Home = () => {
           <div className="flex items-center justify-center space-x-2 mb-4">
             <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.png" />
           </div>
-          <p className="text-black-400 text-sm">
+          <p className="text-gray-400 text-sm">
             © 2025 GoGoGo Studio. Innovation digitale et solutions créatives.
           </p>
         </div>

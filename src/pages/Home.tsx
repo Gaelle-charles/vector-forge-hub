@@ -245,7 +245,7 @@ const Home = () => {
       </section>
 
       {/* Hero Content Section */}
-      <main className="relative px-8 py-20 bg-white scroll-animate opacity-0 rounded-t-[4rem] -mt-16 z-10">
+      <main className="relative px-8 py-40 bg-white scroll-animate opacity-0 rounded-t-[4rem] -mt-16 z-10">
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <div className="space-y-8">
             <h2 className="text-6xl md:text-8xl font-bold leading-tight text-black stagger-child opacity-0">
@@ -269,7 +269,7 @@ const Home = () => {
       </main>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-black section-slide-up rounded-t-[4rem] -mt-16 z-20 relative">
+      <section id="services" className="py-40 bg-black section-slide-up rounded-t-[4rem] -mt-16 z-20 relative">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-white mb-4 stagger-child opacity-0">
@@ -357,7 +357,7 @@ const Home = () => {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-24 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
+      <section id="blog" className="py-40 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-20">
             <h2 className="text-6xl font-bold text-black mb-6 tracking-tight stagger-child opacity-0">
@@ -449,7 +449,7 @@ const Home = () => {
 
       {/* Contact Section */}
      {/* Contact Section */}
-<section id="contact" className="py-24 bg-black section-slide-up rounded-t-[4rem] -mt-16 z-40 relative">
+<section id="contact" className="py-40 bg-black section-slide-up rounded-t-[4rem] -mt-16 z-40 relative">
   <div className="max-w-4xl mx-auto px-8">
     <div className="text-center mb-16">
       <h2 className="text-5xl font-bold text-white mb-4 stagger-child opacity-0">

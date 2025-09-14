@@ -471,8 +471,8 @@ const Home = () => {
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input placeholder="Prénom" className="border-2 border-white text-white bg-black placeholder:text-gray-500" />
-            <Input placeholder="Nom" className="border-2 border-white text-white bg-black placeholder:text-gray-500" />
+            <Input placeholder="Prénom" className="border-2 border-white text-black bg-white placeholder:text-gray-500" />
+            <Input placeholder="Nom" className="border-2 border-white text-black bg-white placeholder:text-gray-500" />
           </div>
           <Input placeholder="Adresse email" type="email" className="border-2 border-white text-black bg-white placeholder:text-gray-500" />
           <Input placeholder="Entreprise (optionnel)" className="border-2 border-white text-black bg-white placeholder:text-gray-500" />

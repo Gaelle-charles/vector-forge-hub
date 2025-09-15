@@ -344,9 +344,18 @@ const Home = () => {
           <div className="space-y-12">
             {/* Article Principal (Most Recent) */}
             <div className="bg-[#e76f51] from-emerald-700 to-emerald-800 rounded-3xl p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+              {/* Image de l'article */}
+              <div className="absolute top-4 right-4 w-32 h-32 rounded-2xl overflow-hidden opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+                <img 
+                  src="/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png" 
+                  alt="Article blog"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
               {/* Decorative Elements */}
               <div className="absolute top-0 left-0 w-64 h-32 bg-gradient-to-br from-pink-400/30 to-purple-400/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-              <div className="absolute top-0 right-0 w-64 h-32 bg-gradient-to-bl from-pink-400/30 to-purple-400/30 rounded-full translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute bottom-0 right-0 w-48 h-24 bg-gradient-to-bl from-pink-400/20 to-purple-400/20 rounded-full translate-x-1/2 translate-y-1/2"></div>
               
 
               <div className="relative z-10 max-w-2xl">

@@ -55,51 +55,6 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
 
   return (
     <div className="splash-screen fixed inset-0 bg-tropical-gradient flex items-center justify-center overflow-hidden animate-fade-in">
-      {/* Animated tropical flower background */}
-      <div className="absolute inset-0 tropical-flower-animation">
-        {/* Bird of Paradise flower - main */}
-        <div className="absolute left-1/4 top-1/3 w-80 h-96 animate-tropical-bloom" style={{ animationDelay: '0s' }}>
-          <div className="relative w-full h-full">
-            {/* Orange petals */}
-            <div className="absolute inset-0 bird-petal-orange transform rotate-12 animate-petal-sway" style={{ animationDelay: '0.5s' }} />
-            <div className="absolute inset-0 bird-petal-orange transform rotate-24 animate-petal-sway" style={{ animationDelay: '1s' }} />
-            <div className="absolute inset-0 bird-petal-orange transform rotate-36 animate-petal-sway" style={{ animationDelay: '1.5s' }} />
-            
-            {/* Purple/Pink petals */}
-            <div className="absolute inset-0 bird-petal-purple transform -rotate-12 animate-petal-sway" style={{ animationDelay: '2s' }} />
-            <div className="absolute inset-0 bird-petal-pink transform -rotate-24 animate-petal-sway" style={{ animationDelay: '2.5s' }} />
-            
-            {/* Green leaves */}
-            <div className="absolute bottom-0 left-1/2 bird-leaf-green transform -translate-x-1/2 animate-leaf-sway" style={{ animationDelay: '1s' }} />
-          </div>
-        </div>
-
-        {/* Second flower - right side */}
-        <div className="absolute right-1/3 bottom-1/4 w-64 h-80 animate-tropical-bloom" style={{ animationDelay: '3s' }}>
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 bird-petal-pink transform rotate-45 animate-petal-sway" style={{ animationDelay: '3.5s' }} />
-            <div className="absolute inset-0 bird-petal-orange transform rotate-60 animate-petal-sway" style={{ animationDelay: '4s' }} />
-            <div className="absolute inset-0 bird-petal-purple transform rotate-75 animate-petal-sway" style={{ animationDelay: '4.5s' }} />
-            <div className="absolute bottom-0 right-1/2 bird-leaf-green transform translate-x-1/2 animate-leaf-sway" style={{ animationDelay: '3s' }} />
-          </div>
-        </div>
-
-        {/* Floating petals */}
-        <div className="absolute top-1/4 left-1/2 w-8 h-12 bird-floating-petal animate-petal-float" style={{ animationDelay: '6s' }} />
-        <div className="absolute top-2/3 right-1/4 w-6 h-10 bird-floating-petal-pink animate-petal-float" style={{ animationDelay: '8s' }} />
-        <div className="absolute bottom-1/3 left-1/3 w-10 h-14 bird-floating-petal-purple animate-petal-float" style={{ animationDelay: '10s' }} />
-      </div>
-
-      {/* Central content */}
-      <div className="relative z-10 text-center px-4 sm:px-8 max-w-4xl">
-        {/* Orange leaf icon */}
-        <div className="mb-8 sm:mb-12">
-          <div className="w-8 h-6 sm:w-12 sm:h-8 mx-auto relative">
-            <svg className="w-8 h-6 sm:w-12 sm:h-8 text-coral-orange" fill="currentColor" viewBox="0 0 24 16">
-              <path d="M12 0c-6.627 0-12 3.582-12 8s5.373 8 12 8c1.5-2 2.5-4 2.5-8s-1-6-2.5-8z"/>
-            </svg>
-          </div>
-        </div>
 
         {/* Main heading */}
         <h1 className="text-3xl sm:text-5xl md:text-7xl font-light text-white mb-2 tracking-wide leading-tight">
@@ -128,7 +83,6 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
             </svg>
           </p>
         </div>
-      </div>
 
       {/* Loading animation */}
       <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">

@@ -3,67 +3,54 @@ import { Flower, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-r
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white border-t border-border/30 py-8">
+    <footer className="bg-white text-black border-t border-border/20 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main footer content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-          {/* Logo & Description */}
-          <div className="md:col-span-2">
-            <Link to="/" className="flex items-center space-x-2 mb-3">
-              <Flower className="h-6 w-6 text-primary" />
-              <span className="text-xl font-bold text-white">AI Flora</span>
-            </Link>
-            <p className="text-sm text-gray-300 mb-4">
-              Votre partenaire IA pour transformer vos idées en solutions intelligentes, 
-              avec l'élégance et la beauté de la nature.
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-semibold mb-3 text-white">Liens rapides</h3>
-            <div className="space-y-2">
-              <Link to="/services" className="block text-sm text-gray-300 hover:text-white transition-colors">Services</Link>
-              <Link to="/portfolio" className="block text-sm text-gray-300 hover:text-white transition-colors">Portfolio</Link>
-              <Link to="/about" className="block text-sm text-gray-300 hover:text-white transition-colors">À propos</Link>
-              <Link to="/contact" className="block text-sm text-gray-300 hover:text-white transition-colors">Contact</Link>
-            </div>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h3 className="font-semibold mb-3 text-white">Contact</h3>
-            <div className="space-y-2">
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
-                <Mail className="h-4 w-4" />
-                <span>contact@aiflora.fr</span>
-              </div>
-              <div className="flex items-center space-x-2 text-sm text-gray-300">
-                <Phone className="h-4 w-4" />
-                <span>+33 1 23 45 67 89</span>
-              </div>
-            </div>
-          </div>
+        {/* Top Navigation Links */}
+        <div className="flex flex-wrap justify-center gap-8 mb-12">
+          <Link to="/about" className="text-sm font-medium text-black hover:text-primary transition-colors uppercase tracking-wider border-b border-transparent hover:border-primary">
+            À PROPOS
+          </Link>
+          <Link to="/services" className="text-sm font-medium text-black hover:text-primary transition-colors uppercase tracking-wider border-b border-transparent hover:border-primary">
+            SERVICES
+          </Link>
+          <Link to="/portfolio" className="text-sm font-medium text-black hover:text-primary transition-colors uppercase tracking-wider border-b border-transparent hover:border-primary">
+            PORTFOLIO
+          </Link>
+          <Link to="/contact" className="text-sm font-medium text-black hover:text-primary transition-colors uppercase tracking-wider border-b border-transparent hover:border-primary">
+            CONTACT
+          </Link>
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-center pt-4 border-t border-gray-700">
-          <p className="text-xs text-gray-300 mb-2 sm:mb-0">
-            © 2024 AI Flora. Tous droits réservés.
-          </p>
-          
-          {/* Social Links */}
-          <div className="flex space-x-4">
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">
-              <Github className="h-4 w-4" />
-            </a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">
-              <Linkedin className="h-4 w-4" />
-            </a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">
-              <Twitter className="h-4 w-4" />
-            </a>
-          </div>
+        {/* Social Links */}
+        <div className="flex justify-center space-x-6 mb-12">
+          <a href="#" className="text-black hover:text-primary transition-colors">
+            <Github className="h-5 w-5" />
+          </a>
+          <a href="#" className="text-black hover:text-primary transition-colors">
+            <Linkedin className="h-5 w-5" />
+          </a>
+          <a href="#" className="text-black hover:text-primary transition-colors">
+            <Twitter className="h-5 w-5" />
+          </a>
+          <a href="#" className="text-black hover:text-primary transition-colors">
+            <Mail className="h-5 w-5" />
+          </a>
+        </div>
+
+        {/* Large Brand Name */}
+        <div className="text-center mb-12">
+          <Link to="/" className="inline-flex items-center justify-center space-x-3">
+            <Flower className="h-8 w-8 text-primary" />
+            <h2 className="text-6xl md:text-8xl font-bold text-black tracking-tight">
+              AI Flora
+            </h2>
+          </Link>
+        </div>
+
+        {/* Bottom Copyright */}
+        <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-gray-600">
+          <p>©AI FLORA 2024.</p>
+          <p>TOUS DROITS RÉSERVÉS.</p>
         </div>
       </div>
     </footer>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -299,59 +300,56 @@ const Home = () => {
               </CardContent>
             </Card>
 
-            {/* Génération de vidéo/photo avec l'IA */}
-            <Card className="border-2 border-white hover:border-gray-600 transition-colors bg-black stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 p-2">
-                  <Coffee className="h-6 w-6 text-black" />
-                </div>
-                <CardTitle className="text-2xl text-white">Génération de vidéo/photo avec l'IA</CardTitle>
-                <CardDescription className="text-gray-400">
-                  Le visuel 2.0. Des images qui ne mentent pas, qui captivent.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-50 mb-4">
+          {/* Génération de vidéo/photo avec l'IA */}
+            <div className="bg-gradient-to-br from-lime-300 to-lime-400 rounded-3xl p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold text-black mb-4">
+                  Génération de vidéo/photo avec l'IA
+                </h3>
+                <p className="text-black/80 text-lg leading-relaxed mb-6">
                   Nos outils IA génèrent des visuels uniques et sur-mesure pour votre marque. Des photos de produits ultra-réalistes aux vidéos promotionnelles.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="absolute top-6 right-6 w-8 h-8 text-black/60 group-hover:text-black transition-colors">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
+                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+              </div>
+            </div>
             
             {/* Automatisation du process */}
-            <Card className="border-2 border-white hover:border-gray-600 transition-colors bg-black stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 p-2">
-                  <Rocket className="h-6 w-6 text-black" />
-                </div>
-                <CardTitle className="text-2xl text-white">Automatisation du process</CardTitle>
-                <CardDescription className="text-gray-400">
-                  La productivité sans limites. Dites adieu aux tâches répétitives.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-50 mb-4">
+            <div className="bg-white border border-gray-200 rounded-3xl p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold text-black mb-4">
+                  Automatisation du process
+                </h3>
+                <p className="text-gray-700 text-lg leading-relaxed mb-6">
                   Laissez l'IA gérer les tâches fastidieuses. De l'automatisation du service client à la gestion des données, on met en place des flux de travail optimisiés.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="absolute top-6 right-6 w-8 h-8 text-gray-400 group-hover:text-black transition-colors">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
+                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+              </div>
+            </div>
             
             {/* Réalisation d'agents IA */}
-            <Card className="border-2 border-white hover:border-gray-600 transition-colors bg-black stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
-              <CardHeader>
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 p-2">
-                  <Bot className="h-6 w-6 text-black" />
-                </div>
-                <CardTitle className="text-2xl text-white">Réalisation d'agents IA</CardTitle>
-                <CardDescription className="text-gray-400">
-                  Votre nouvel associé. Un cerveau de plus dans l'équipe.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-50 mb-4">
+            <div className="bg-gradient-to-br from-purple-400 to-purple-500 rounded-3xl p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Réalisation d'agents IA
+                </h3>
+                <p className="text-white/90 text-lg leading-relaxed mb-6">
                   Nous concevons des agents IA sur mesure, capables de dialoguer, d'assister ou de prendre des décisions. Que ce soit un chatbot intelligent pour vos clients ou un assistant pour votre équipe interne.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+              <div className="absolute top-6 right-6 w-8 h-8 text-white/60 group-hover:text-white transition-colors">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
+                  <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -387,9 +385,11 @@ const Home = () => {
               <CardContent>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <span className="text-sm text-gray-500 font-medium">12 Déc, 2024</span>
-                  <Button className="p-2 h-auto text-white-500 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-all">
-                    <ExternalLink className="h-4 w-4" />
-                  </Button>
+                  <Link to="/blog">
+                    <Button className="p-2 h-auto text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-all">
+                      <ExternalLink className="h-4 w-4" />
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -412,9 +412,11 @@ const Home = () => {
               <CardContent>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <span className="text-sm text-gray-500 font-medium">10 Déc, 2024</span>
-                  <Button className="p-2 h-auto text-white-500 hover:text-cyan-700 hover:bg-cyan-50 rounded-full transition-all">
-                    <ExternalLink className="h-4 w-4" />
-                  </Button>
+                  <Link to="/blog">
+                    <Button className="p-2 h-auto text-cyan-500 hover:text-cyan-700 hover:bg-cyan-50 rounded-full transition-all">
+                      <ExternalLink className="h-4 w-4" />
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
@@ -437,9 +439,11 @@ const Home = () => {
               <CardContent>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <span className="text-sm text-gray-500 font-medium">8 Déc, 2024</span>
-                  <Button className="p-2 h-auto text-white-500 hover:text-pink-700 hover:bg-pink-50 rounded-full transition-all">
-                    <ExternalLink className="h-4 w-4" />
-                  </Button>
+                  <Link to="/blog">
+                    <Button className="p-2 h-auto text-pink-500 hover:text-pink-700 hover:bg-pink-50 rounded-full transition-all">
+                      <ExternalLink className="h-4 w-4" />
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -385,11 +384,12 @@ const Home = () => {
               <CardContent>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <span className="text-sm text-gray-500 font-medium">12 Déc, 2024</span>
-                  <Link to="/blog">
-                    <Button className="p-2 h-auto text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-all">
-                      <ExternalLink className="h-4 w-4" />
-                    </Button>
-                  </Link>
+                  <Button 
+                    className="p-2 h-auto text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-all"
+                    onClick={() => window.location.href = '/blog'}
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -412,11 +412,12 @@ const Home = () => {
               <CardContent>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <span className="text-sm text-gray-500 font-medium">10 Déc, 2024</span>
-                  <Link to="/blog">
-                    <Button className="p-2 h-auto text-cyan-500 hover:text-cyan-700 hover:bg-cyan-50 rounded-full transition-all">
-                      <ExternalLink className="h-4 w-4" />
-                    </Button>
-                  </Link>
+                  <Button 
+                    className="p-2 h-auto text-cyan-500 hover:text-cyan-700 hover:bg-cyan-50 rounded-full transition-all"
+                    onClick={() => window.location.href = '/blog'}
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
                 </div>
               </CardContent>
             </Card>
@@ -439,11 +440,12 @@ const Home = () => {
               <CardContent>
                 <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                   <span className="text-sm text-gray-500 font-medium">8 Déc, 2024</span>
-                  <Link to="/blog">
-                    <Button className="p-2 h-auto text-pink-500 hover:text-pink-700 hover:bg-pink-50 rounded-full transition-all">
-                      <ExternalLink className="h-4 w-4" />
-                    </Button>
-                  </Link>
+                  <Button 
+                    className="p-2 h-auto text-pink-500 hover:text-pink-700 hover:bg-pink-50 rounded-full transition-all"
+                    onClick={() => window.location.href = '/blog'}
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
                 </div>
               </CardContent>
             </Card>

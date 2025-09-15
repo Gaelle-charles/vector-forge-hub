@@ -48,7 +48,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
       } else {
         onComplete();
       }
-    }, 1000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, [onComplete]);

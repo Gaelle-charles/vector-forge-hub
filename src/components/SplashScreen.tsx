@@ -127,7 +127,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   };
 
   return (
-    <div className={`splash-screen fixed inset-0 bg-black from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center overflow-hidden ${isVisible ? 'splash-fade-in' : 'splash-fade-out'}`}>
+    <div className={`splash-screen fixed inset-0 bg-black flex items-center justify-center overflow-hidden ${isVisible ? 'splash-fade-in' : 'splash-fade-out'}`}>
       
       {/* Conteneur principal centré */}
       <div className="flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-4xl mx-auto">
@@ -150,10 +150,9 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
           </cite>
         </div>
 
-      {/* Loading animation */}
-      <div className="absolute bottom-1 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="dot-animation-container">
-          <div className="loader"></div>
+        {/* Loading animation - centré avec le contenu */}
+        <div className="mt-8 mb-8">
+          <div className="loader mx-auto"></div>
         </div>
       </div>
 
@@ -165,7 +164,6 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
         Passer →
       </button>
     </div>
-      </div>
   );
 };
 

@@ -473,9 +473,9 @@ const Home = () => {
       {/* Contact Section */}
      {/* Contact Section */}
 <section id="contact" className="py-40 bg-black section-slide-up rounded-t-[4rem] -mt-16 z-40 relative">
-  <div className="max-w-4xl mx-auto px-8">
-    <div className="text-center mb-16">
-      <h2 className="text-5xl font-bold text-white mb-4 stagger-child opacity-0">
+  <div className="max-w-7xl mx-auto px-8">
+    <div className="text-center mb-20">
+      <h2 className="text-6xl font-bold text-white mb-6 tracking-tight stagger-child opacity-0">
         Contactez-nous
       </h2>
       <p className="text-xl text-gray-300 max-w-2xl mx-auto stagger-child opacity-0">
@@ -483,53 +483,91 @@ const Home = () => {
       </p>
     </div>
 
-    <div className="grid md:grid-cols-3 gap-8">
-      {/* Formulaire de Contact */}
-      <Card className="border-2 border-white bg-black stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 col-span-2">
-        <CardHeader>
-          <CardTitle className="text-3xl text-white">Envoyez-nous un message</CardTitle>
-          <CardDescription className="text-gray-400">
-            Nous vous répondrons dans les 24 heures.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input placeholder="Prénom" className="border-2 border-white text-black bg-white placeholder:text-gray-500" />
-            <Input placeholder="Nom" className="border-2 border-white text-black bg-white placeholder:text-gray-500" />
+    <div className="space-y-12">
+      {/* Card Principal de Contact */}
+      <div className="bg-[#e76f51] rounded-3xl p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 left-0 w-64 h-32 bg-gradient-to-br from-pink-400/30 to-purple-400/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute top-0 right-0 w-64 h-32 bg-gradient-to-bl from-pink-400/30 to-purple-400/30 rounded-full translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div className="relative z-10 max-w-4xl">
+          <div className="flex items-center gap-3 mb-6">
+            <Badge className="bg-black text-white hover:bg-purple-700 border-0 px-4 py-2 rounded-full font-medium">
+              Contact
+            </Badge>
+            <Badge className="bg-black text-white hover:bg-pink-600 border-0 px-4 py-2 rounded-full font-medium">
+              Collaboration
+            </Badge>
+            <span className="text-white/80 text-sm font-medium">Réponse sous 24h</span>
           </div>
-          <Input placeholder="Adresse email" type="email" className="border-2 border-white text-black bg-white placeholder:text-gray-500" />
-          <Input placeholder="Entreprise (optionnel)" className="border-2 border-white text-black bg-white placeholder:text-gray-500" />
-          <Textarea placeholder="Parlez-nous de votre projet..." rows={4} className="border-2 border-white text-black bg-white placeholder:text-gray-500" />
-          <Button className="bg-[#e76f51] text-white w-full rounded-full py-3 hover:bg-white hover:text-[#e76f51] transition-all duration-300">
-            <Send className="h-4 w-4 mr-2" />
+          
+          <h3 className="text-4xl font-bold text-white mb-6 leading-tight">
+            Envoyez-nous un message
+          </h3>
+          
+          <p className="text-white/90 text-lg leading-relaxed mb-8 max-w-2xl">
+            Nous vous répondrons dans les 24 heures pour discuter de votre projet et voir comment nous pouvons vous aider.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <Input placeholder="Prénom" className="border-2 border-white/20 text-black bg-white placeholder:text-gray-500 rounded-xl py-3" />
+            <Input placeholder="Nom" className="border-2 border-white/20 text-black bg-white placeholder:text-gray-500 rounded-xl py-3" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <Input placeholder="Adresse email" type="email" className="border-2 border-white/20 text-black bg-white placeholder:text-gray-500 rounded-xl py-3" />
+            <Input placeholder="Entreprise (optionnel)" className="border-2 border-white/20 text-black bg-white placeholder:text-gray-500 rounded-xl py-3" />
+          </div>
+          <Textarea placeholder="Parlez-nous de votre projet..." rows={4} className="border-2 border-white/20 text-black bg-white placeholder:text-gray-500 rounded-xl mb-6" />
+          
+          <Button 
+            className="bg-black text-white hover:bg-white hover:text-black border-2 border-black hover:border-black rounded-full px-8 py-3 font-medium text-lg transition-all duration-300"
+          >
+            <Send className="h-5 w-5 mr-2" />
             Envoyer le Message
           </Button>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
 
-      {/* Prise de rendez-vous */}
-      <Card className="border-2 border-white bg-black text-white stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-        <CardHeader>
-          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4">
-            <Zap className="h-6 w-6 text-black" />
+      {/* Card de Consultation */}
+      <div className="bg-white border border-gray-200 rounded-3xl p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+        <div className="flex items-start gap-6">
+          <div className="w-20 h-20 bg-[#e76f51] rounded-2xl flex items-center justify-center flex-shrink-0">
+            <Zap className="h-10 w-10 text-white" />
           </div>
-          <CardTitle className="text-2xl">Consulting 30min offert</CardTitle>
-          <CardDescription className="text-gray-400">
-            Discutons ensemble de vos besoins. C'est simple, rapide et sans engagement.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-gray-300 mb-6">
-            L'occasion de découvrir comment l'IA peut transformer votre entreprise et de poser toutes vos questions.
-          </p>
-          <a href="URL_DE_VOTRE_CALENDLY_OU_AUTRE_SERVICE" target="_blank" rel="noopener noreferrer">
-            <Button className="bg-[#e76f51] text-white w-full rounded-full py-3 hover:bg-white hover:text-[#e76f51] transition-all duration-300">
+          <div className="flex-1">
+            <div className="flex items-center gap-2 mb-4">
+              <Badge className="bg-[#e76f51] text-white hover:bg-purple-700 border-0 px-3 py-1 rounded-full text-xs font-medium">
+                Gratuit
+              </Badge>
+              <Badge className="bg-[#e76f51] text-white hover:bg-pink-600 border-0 px-3 py-1 rounded-full text-xs font-medium">
+                30 minutes
+              </Badge>
+              <span className="text-gray-500 text-xs">Sans engagement</span>
+            </div>
+            
+            <h4 className="text-2xl font-bold text-black mb-4">
+              Consulting 30min offert
+            </h4>
+            
+            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              Discutons ensemble de vos besoins. C'est simple, rapide et sans engagement. L'occasion de découvrir comment l'IA peut transformer votre entreprise.
+            </p>
+            
+            <Button 
+              className="bg-[#e76f51] text-white hover:bg-black hover:text-white rounded-full px-6 py-3 font-medium transition-all duration-300"
+              onClick={() => window.location.href = 'URL_DE_VOTRE_CALENDLY_OU_AUTRE_SERVICE'}
+            >
               <CheckCircle className="h-4 w-4 mr-2" />
               Prendre un rendez-vous
             </Button>
-          </a>
-        </CardContent>
-      </Card>
+          </div>
+        </div>
+        <div className="absolute top-6 right-6 w-8 h-8 text-gray-400 group-hover:text-black transition-colors">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </div>
+      </div>
     </div>
   </div>
 </section>

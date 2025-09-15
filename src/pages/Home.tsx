@@ -343,90 +343,144 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-2 border-black hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group overflow-hidden bg-white stagger-child opacity-0">
-              <CardHeader>
-                <div className="w-full h-52 bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <Code className="h-16 w-16 text-blue-400" />
-                </div>
-                <Badge className="w-fit mb-4 bg-green-100 text-green-700 border-0 shadow-sm">
-                  Développement
-                </Badge>
-                <CardTitle className="text-2xl text-black group-hover:text-blue-600 transition-colors mb-3">
-                  L'Avenir du Développement Web
-                </CardTitle>
-                <CardDescription className="text-gray-600 leading-relaxed">
-                  Explorer les tendances émergentes et les technologies qui façonneront la prochaine génération d'applications web.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="text-sm text-gray-500 font-medium">12 Déc, 2024</span>
-                  <Button 
-                    className="p-2 h-auto text-blue-500 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-all"
-                    onClick={() => window.location.href = '/blog'}
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="space-y-12">
+            {/* Article Principal (Most Recent) */}
+            <div className="bg-gradient-to-br from-emerald-700 to-emerald-800 rounded-3xl p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 left-0 w-64 h-32 bg-gradient-to-br from-pink-400/30 to-purple-400/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+              <div className="absolute top-0 right-0 w-64 h-32 bg-gradient-to-bl from-pink-400/30 to-purple-400/30 rounded-full translate-x-1/2 -translate-y-1/2"></div>
+              
+              {/* Icons */}
+              <div className="absolute top-12 right-1/4 text-yellow-400">
+                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <div className="absolute top-16 left-1/3 text-yellow-400">
+                <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/>
+                </svg>
+              </div>
 
-            <Card className="border-2 border-black hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group overflow-hidden bg-white stagger-child opacity-0">
-              <CardHeader>
-                <div className="w-full h-52 bg-gradient-to-br from-cyan-100 to-teal-100 rounded-lg mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <Bot className="h-16 w-16 text-cyan-400" />
-                </div>
-                <Badge className="w-fit mb-4 bg-blue-100 text-blue-700 border-0 shadow-sm">
-                  IA
-                </Badge>
-                <CardTitle className="text-2xl text-black group-hover:text-cyan-600 transition-colors mb-3">
-                  L'IA dans les Entreprises Modernes
-                </CardTitle>
-                <CardDescription className="text-gray-600 leading-relaxed">
-                  Comment l'intelligence artificielle transforme les industries et crée de nouvelles opportunités de croissance.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="text-sm text-gray-500 font-medium">10 Déc, 2024</span>
-                  <Button 
-                    className="p-2 h-auto text-cyan-500 hover:text-cyan-700 hover:bg-cyan-50 rounded-full transition-all"
-                    onClick={() => window.location.href = '/blog'}
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+              {/* Silhouette */}
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-48 bg-lime-400 rounded-t-full opacity-80" style={{clipPath: "polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%)"}}>
+              </div>
 
-            <Card className="border-2 border-black hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group overflow-hidden bg-white stagger-child opacity-0">
-              <CardHeader>
-                <div className="w-full h-52 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg mb-6 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <Video className="h-16 w-16 text-pink-400" />
+              <div className="relative z-10 max-w-2xl">
+                <div className="flex items-center gap-3 mb-6">
+                  <Badge className="bg-purple-600 text-white hover:bg-purple-700 border-0 px-4 py-2 rounded-full font-medium">
+                    Article
+                  </Badge>
+                  <Badge className="bg-pink-500 text-white hover:bg-pink-600 border-0 px-4 py-2 rounded-full font-medium">
+                    Entrepreneuriat
+                  </Badge>
+                  <span className="text-white/80 text-sm font-medium">10/02/2025</span>
                 </div>
-                <Badge className="w-fit mb-4 bg-purple-100 text-purple-700 border-0 shadow-sm">
-                  Design
-                </Badge>
-                <CardTitle className="text-2xl text-black group-hover:text-pink-600 transition-colors mb-3">
-                  Systèmes de Design Évolutifs
-                </CardTitle>
-                <CardDescription className="text-gray-600 leading-relaxed">
-                  Construire des systèmes de design cohérents et maintenables pour les applications à grande échelle.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="text-sm text-gray-500 font-medium">8 Déc, 2024</span>
-                  <Button 
-                    className="p-2 h-auto text-pink-500 hover:text-pink-700 hover:bg-pink-50 rounded-full transition-all"
-                    onClick={() => window.location.href = '/blog'}
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                  </Button>
+                
+                <h3 className="text-4xl font-bold text-white mb-6 leading-tight">
+                  Pharmacie : Fonds ou Titres ?
+                </h3>
+                
+                <p className="text-white/90 text-lg leading-relaxed mb-8 max-w-xl">
+                  Se lancer dans l'acquisition de sa pharmacie passe par plusieurs étapes, dont une : Est-ce que j'achète un fonds de commerce ou une société (via ses parts ou ses actions) ?
+                </p>
+                
+                <Button 
+                  className="bg-white/20 text-white border border-white/30 hover:bg-white hover:text-emerald-800 rounded-full px-8 py-3 font-medium transition-all duration-300"
+                  onClick={() => window.location.href = '/blog'}
+                >
+                  Lire l'article
+                </Button>
+              </div>
+            </div>
+
+            {/* Articles Secondaires */}
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Article 1 */}
+              <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group stagger-child opacity-0 overflow-hidden border border-gray-100">
+                <div className="flex">
+                  <div className="w-1/3 h-48 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center">
+                    <div className="w-24 h-24 bg-white/20 rounded-2xl flex items-center justify-center">
+                      <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.415-3.414l5-5A2 2 0 008 10.172V5L8 4z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="flex-1 p-6">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Badge className="bg-purple-600 text-white hover:bg-purple-700 border-0 px-3 py-1 rounded-full text-xs font-medium">
+                        Article
+                      </Badge>
+                      <Badge className="bg-pink-500 text-white hover:bg-pink-600 border-0 px-3 py-1 rounded-full text-xs font-medium">
+                        Juridique
+                      </Badge>
+                      <span className="text-gray-500 text-xs">15/10/2024</span>
+                    </div>
+                    
+                    <h4 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                      Pharmacie et bail commercial
+                    </h4>
+                    
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      Le bail commercial constitue l'un des contrats essentiels à l'exploitation d'une pharmacie puisqu'il organise les conditions d'occupation des locaux et les relations avec le...
+                    </p>
+                    
+                    <Button 
+                      variant="ghost"
+                      className="text-pink-500 hover:text-pink-600 hover:bg-pink-50 p-0 h-auto font-medium text-sm"
+                      onClick={() => window.location.href = '/blog'}
+                    >
+                      Lire l'article
+                    </Button>
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+
+              {/* Article 2 */}
+              <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group stagger-child opacity-0 overflow-hidden border border-gray-100">
+                <div className="flex">
+                  <div className="w-1/3 h-48 bg-gradient-to-br from-orange-400 via-red-400 to-pink-500 flex items-center justify-center relative">
+                    <div className="w-24 h-24 bg-white/20 rounded-2xl flex items-center justify-center">
+                      <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                      </svg>
+                    </div>
+                    <div className="absolute bottom-4 right-4 text-black/60">
+                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="flex-1 p-6">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Badge className="bg-purple-600 text-white hover:bg-purple-700 border-0 px-3 py-1 rounded-full text-xs font-medium">
+                        Article
+                      </Badge>
+                      <Badge className="bg-pink-500 text-white hover:bg-pink-600 border-0 px-3 py-1 rounded-full text-xs font-medium">
+                        Entrepreneuriat
+                      </Badge>
+                      <span className="text-gray-500 text-xs">03/12/2024</span>
+                    </div>
+                    
+                    <h4 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                      Pharmacien entrepreneur, un acteur majeur de la santé
+                    </h4>
+                    
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      Pour exceller dans ce métier exigeant et atteindre votre plein potentiel, il est essentiel de développer cinq domaines clés : vos relations, vos finances, votre santé, votre...
+                    </p>
+                    
+                    <Button 
+                      variant="ghost"
+                      className="text-pink-500 hover:text-pink-600 hover:bg-pink-50 p-0 h-auto font-medium text-sm"
+                      onClick={() => window.location.href = '/blog'}
+                    >
+                      Lire l'article
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

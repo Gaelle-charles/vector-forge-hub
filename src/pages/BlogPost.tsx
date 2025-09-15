@@ -1,118 +1,61 @@
 import { useParams, Link } from "react-router-dom";
 import { Calendar, User, Clock, ArrowLeft, Share2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
-const blogPosts = {
-  1: {
-    id: 1,
-    title: "L'avenir du développement web avec l'IA",
-    excerpt: "Comment l'intelligence artificielle transforme la façon dont nous créons des applications web modernes.",
-    author: "Gogogo Studio",
-    date: "15 Mars 2024",
-    readTime: "5 min",
-    category: "Technologie",
-    image: "/src/assets/ai-brain.jpg",
-    content: `
-      <p>L'intelligence artificielle révolutionne le développement web d'une manière que nous n'aurions jamais imaginée il y a quelques années. Cette transformation ne se limite pas à l'automatisation de tâches répétitives, mais s'étend à la création de nouvelles expériences utilisateur et à l'optimisation des processus de développement.</p>
-
-      <h2>Les outils d'IA pour les développeurs</h2>
-      <p>Les assistants de code comme GitHub Copilot et ChatGPT ont déjà commencé à changer la façon dont nous écrivons du code. Ces outils permettent aux développeurs de :</p>
-      <ul>
-        <li>Générer du code plus rapidement</li>
-        <li>Résoudre des problèmes complexes</li>
-        <li>Apprendre de nouvelles technologies</li>
-        <li>Automatiser les tests et la documentation</li>
-      </ul>
-
-      <h2>L'impact sur l'expérience utilisateur</h2>
-      <p>L'IA permet également de créer des interfaces plus intuitives et personnalisées. Les chatbots intelligents, les systèmes de recommandation et l'analyse prédictive améliorent considérablement l'engagement des utilisateurs.</p>
-
-      <h2>Défis et opportunités</h2>
-      <p>Bien que l'IA offre des possibilités extraordinaires, elle soulève aussi des questions importantes concernant la sécurité, la confidentialité et l'éthique. Il est crucial de développer des solutions responsables qui profitent à tous.</p>
-
-      <p>Chez Gogogo Studio, nous intégrons ces technologies de pointe dans nos projets tout en maintenant notre engagement envers la qualité et l'innovation responsable.</p>
-    `
-  },
-  2: {
-    id: 2,
-    title: "Design Systems : La clé d'une interface cohérente",
-    excerpt: "Découvrez comment créer et maintenir un design system efficace pour vos projets.",
-    author: "Gogogo Studio",
-    date: "10 Mars 2024", 
-    readTime: "7 min",
-    category: "Design",
-    image: "/src/assets/app-mockup.jpg",
-    content: `
-      <p>Un design system est bien plus qu'une simple bibliothèque de composants. C'est la fondation qui permet de créer des expériences utilisateur cohérentes et scalables à travers tous vos produits digitaux.</p>
-
-      <h2>Qu'est-ce qu'un design system ?</h2>
-      <p>Un design system est un ensemble de standards, de composants réutilisables et de guidelines qui permettent de construire des interfaces cohérentes. Il comprend :</p>
-      <ul>
-        <li>Une palette de couleurs définie</li>
-        <li>Une typographie harmonieuse</li>
-        <li>Des composants UI réutilisables</li>
-        <li>Des règles d'espacement et de layout</li>
-        <li>Des guidelines d'interaction</li>
-      </ul>
-
-      <h2>Les avantages d'un design system</h2>
-      <p>Implementer un design system apporte de nombreux bénéfices :</p>
-      <ul>
-        <li>Cohérence visuelle à travers tous les produits</li>
-        <li>Développement plus rapide</li>
-        <li>Maintenance simplifiée</li>
-        <li>Collaboration améliorée entre designers et développeurs</li>
-        <li>Scalabilité facilitée</li>
-      </ul>
-
-      <h2>Comment créer votre design system</h2>
-      <p>La création d'un design system efficace nécessite une approche méthodique. Commencez par auditer vos interfaces existantes, définissez vos principes de design, puis construisez progressivement votre bibliothèque de composants.</p>
-
-      <p>N'oubliez pas que la documentation est cruciale pour l'adoption et la maintenance de votre design system.</p>
-    `
-  },
-  3: {
-    id: 3,
-    title: "Performance Web : Optimisation avancée",
-    excerpt: "Techniques et stratégies pour améliorer significativement les performances de votre site web.",
-    author: "Gogogo Studio",
-    date: "5 Mars 2024",
-    readTime: "8 min", 
-    category: "Performance",
-    image: "/src/assets/tropical-arrangement.jpg",
-    content: `
-      <p>La performance web est devenue un facteur critique pour le succès d'un site internet. Une seconde de délai peut réduire les conversions de 7% et affecter significativement votre référencement naturel.</p>
-
-      <h2>Les métriques clés à surveiller</h2>
-      <p>Google a défini les Core Web Vitals comme standards de performance :</p>
-      <ul>
-        <li><strong>LCP (Largest Contentful Paint)</strong> : Temps de chargement du plus gros élément</li>
-        <li><strong>FID (First Input Delay)</strong> : Délai avant la première interaction</li>
-        <li><strong>CLS (Cumulative Layout Shift)</strong> : Stabilité visuelle de la page</li>
-      </ul>
-
-      <h2>Techniques d'optimisation avancées</h2>
-      <p>Voici quelques stratégies pour améliorer vos performances :</p>
-      <ul>
-        <li>Lazy loading des images et composants</li>
-        <li>Code splitting et bundling optimisé</li>
-        <li>Utilisation d'un CDN global</li>
-        <li>Compression des assets (Gzip, Brotli)</li>
-        <li>Optimisation des polices web</li>
-        <li>Service Workers pour le cache</li>
-      </ul>
-
-      <h2>Optimisation des images</h2>
-      <p>Les images représentent souvent la majorité du poids d'une page. Utilisez les formats modernes comme WebP ou AVIF, implémentez le responsive design avec srcset, et n'oubliez pas la compression.</p>
-
-      <h2>Monitoring continu</h2>
-      <p>La performance n'est pas un projet ponctuel mais un processus continu. Utilisez des outils comme Lighthouse, WebPageTest et des solutions de monitoring en temps réel pour maintenir vos performances au top niveau.</p>
-    `
-  }
-};
+interface Article {
+  id: string;
+  title: string;
+  excerpt: string | null;
+  content: string | null;
+  author: string;
+  date: string;
+  read_time: number;
+  category: string;
+  image_url: string | null;
+  slug: string;
+}
 
 const BlogPost = () => {
-  const { id } = useParams();
-  const post = blogPosts[Number(id) as keyof typeof blogPosts];
+  const { slug } = useParams();
+  const [post, setPost] = useState<Article | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchArticle = async () => {
+      if (!slug) return;
+      
+      const { data, error } = await supabase
+        .from('articles')
+        .select('*')
+        .eq('slug', slug)
+        .maybeSingle();
+
+      if (error) {
+        console.error('Error fetching article:', error);
+      } else {
+        setPost(data);
+      }
+      setLoading(false);
+    };
+
+    fetchArticle();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen pt-20 bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="animate-pulse">
+            <div className="h-8 bg-gray-200 rounded mb-6 w-1/4"></div>
+            <div className="h-12 bg-gray-200 rounded mb-4"></div>
+            <div className="h-6 bg-gray-200 rounded w-3/4 mb-8"></div>
+            <div className="h-64 bg-gray-200 rounded"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!post) {
     return (
@@ -144,15 +87,16 @@ const BlogPost = () => {
           <div className="space-y-6">
             <div className="flex items-center space-x-4">
               <span className={`px-3 py-1 rounded-full font-medium text-sm ${
-                post.category === 'Technologie' ? 'bg-neon-cyan/20 text-neon-cyan' :
+                post.category === 'Innovation' ? 'bg-neon-cyan/20 text-neon-cyan' :
                 post.category === 'Design' ? 'bg-neon-pink/20 text-neon-pink' :
-                'bg-neon-green/20 text-neon-green'
+                post.category === 'Développement' ? 'bg-neon-green/20 text-neon-green' :
+                'bg-neon-purple/20 text-neon-purple'
               }`}>
                 {post.category}
               </span>
               <div className="flex items-center space-x-2 text-sm text-medium-gray">
                 <Clock className="w-4 h-4" />
-                <span>{post.readTime}</span>
+                <span>{post.read_time} min</span>
               </div>
             </div>
             
@@ -172,7 +116,11 @@ const BlogPost = () => {
                 </div>
                 <div className="flex items-center space-x-1">
                   <Calendar className="w-4 h-4" />
-                  <span>{post.date}</span>
+                  <span>{new Date(post.date).toLocaleDateString('fr-FR', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                  })}</span>
                 </div>
               </div>
               
@@ -189,7 +137,7 @@ const BlogPost = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="aspect-video overflow-hidden rounded-3xl">
           <img
-            src={post.image}
+            src={post.image_url || "/src/assets/ai-brain.jpg"}
             alt={post.title}
             className="w-full h-full object-cover"
           />
@@ -200,7 +148,7 @@ const BlogPost = () => {
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div 
           className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-medium-gray prose-a:text-primary prose-strong:text-foreground prose-ul:text-medium-gray prose-li:text-medium-gray"
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: post.content || "" }}
         />
       </article>
 

@@ -353,10 +353,10 @@ const Home = () => {
 
               <div className="relative z-10 max-w-2xl">
                 <div className="flex items-center gap-3 mb-6">
-                  <Badge className="bg-[#e76f51] text-white hover:bg-purple-700 border-0 px-4 py-2 rounded-full font-medium">
+                  <Badge className="bg-black text-white hover:bg-purple-700 border-0 px-4 py-2 rounded-full font-medium">
                     Article
                   </Badge>
-                  <Badge className="bg-[#e76f51] text-white hover:bg-pink-600 border-0 px-4 py-2 rounded-full font-medium">
+                  <Badge className="bg-black text-white hover:bg-pink-600 border-0 px-4 py-2 rounded-full font-medium">
                     Entrepreneuriat
                   </Badge>
                   <span className="text-white/80 text-sm font-medium">10/02/2025</span>
@@ -412,7 +412,7 @@ const Home = () => {
                     
                     <Button 
                       variant="ghost"
-                      className="text-pink-500 hover:text-pink-600 hover:bg-pink-50 p-0 h-auto font-medium text-sm"
+                      className="text-[#e76f51] hover:text-pink-600 hover:bg-pink-50 p-0 h-auto font-medium text-sm"
                       onClick={() => window.location.href = '/blog'}
                     >
                       Lire l'article
@@ -438,10 +438,10 @@ const Home = () => {
                   </div>
                   <div className="flex-1 p-6">
                     <div className="flex items-center gap-2 mb-4">
-                      <Badge className="bg-purple-600 text-white hover:bg-purple-700 border-0 px-3 py-1 rounded-full text-xs font-medium">
+                      <Badge className="bg-[#e76f51] text-white hover:bg-purple-700 border-0 px-3 py-1 rounded-full text-xs font-medium">
                         Article
                       </Badge>
-                      <Badge className="bg-pink-500 text-white hover:bg-pink-600 border-0 px-3 py-1 rounded-full text-xs font-medium">
+                      <Badge className="bg-[#e76f51] text-white hover:bg-pink-600 border-0 px-3 py-1 rounded-full text-xs font-medium">
                         Entrepreneuriat
                       </Badge>
                       <span className="text-gray-500 text-xs">03/12/2024</span>
@@ -457,7 +457,7 @@ const Home = () => {
                     
                     <Button 
                       variant="ghost"
-                      className="text-pink-500 hover:text-pink-600 hover:bg-pink-50 p-0 h-auto font-medium text-sm"
+                      className="text-[#e76f51] hover:text-pink-600 hover:bg-pink-50 p-0 h-auto font-medium text-sm"
                       onClick={() => window.location.href = '/blog'}
                     >
                       Lire l'article

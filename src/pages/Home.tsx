@@ -244,32 +244,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Hero Content Section */}
-      /*<main className="relative px-8 py-40 bg-white scroll-animate opacity-0 rounded-t-[4rem] -mt-16 z-10">
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <div className="space-y-8">
-            <h2 className="text-5xl font-bold text-black mb-4 stagger-child opacity-0">
-              Innovation digitale
-              <br />
-              et solutions créatives
-            </h2>
-            
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed stagger-child opacity-0">
-              Un outil essentiel pour les marques mondiales, agences digitales, startups 
-              et professionnels créatifs.
-            </p>
-            
-            <Button onClick={() => scrollToSection('contact')} className="bg-[#e76f51] text-white rounded-full py-3 hover:bg-white hover:text-[#e76f51] transition-all duration-300">
-           
-              COMMENCER AUJOURD'HUI
-              <ArrowUpRight className="h-5 w-5 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </Button>
-          </div>
-        </div>
-      </main>*/
-
       {/* Services Section */}
-      <section id="services" className="py-35 bg-black section-slide-up rounded-t-[4rem] -mt-16 z-20 relative">
+      <section id="services" className="py-40 bg-black section-slide-up rounded-t-[4rem] -mt-16 z-20 relative">
         <div className="max-w-7xl mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-white mb-4 stagger-child opacity-0">
@@ -284,21 +260,23 @@ const Home = () => {
 
 
             {/* Réalisation d'apps web/mobile */}
-            <div className="border-2 border-white hover:border-gray-600 transition-colors bg-black stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+               {/* Automatisation du process */}
+            <div className="bg-white border border-gray-200 rounded-3xl p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-white mb-4">
+                <h3 className="text-2xl font-bold text-black mb-4">
                   Réalisation d'apps web/mobile
                 </h3>
-                <p className="text-white/80 text-lg leading-relaxed mb-6">
+                <p className="text-gray-700 text-lg leading-relaxed mb-6">
                   On vous accompagne pour que votre projet soit une véritable success story. Une UX pensée par l'humain, optimisée par l'IA.
                 </p>
               </div>
-              <div className="absolute top-6 right-6 w-8 h-8 text-white/60 group-hover:text-black transition-colors">
+              <div className="absolute top-6 right-6 w-8 h-8 text-gray-400 group-hover:text-black transition-colors">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
                   <path d="M7 17L17 7M17 7H7M17 7V17"/>
                 </svg>
               </div>
             </div>
+
           {/* Génération de vidéo/photo avec l'IA */}
             <div className="bg-[#e76f51] from-lime-300 to-lime-400 rounded-3xl p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="relative z-10">

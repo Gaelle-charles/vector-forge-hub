@@ -360,7 +360,7 @@ All colors MUST be HSL.
   content: "";
   position: absolute;
   border-radius: 50px;
-  box-shadow: 0 0 0 3px inset #fff;
+  box-shadow: 0 0 0 3px inset #e76f51;
   animation: l5 2.5s infinite;
 }
 .loader:after {

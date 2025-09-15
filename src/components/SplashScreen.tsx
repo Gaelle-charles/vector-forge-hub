@@ -38,14 +38,23 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      onComplete();
-    }, 1000); // 18 seconds duration
+      // Transition fade out
+      const element = document.querySelector('.splash-screen');
+      if (element) {
+        element.classList.add('animate-fade-out');
+        setTimeout(() => {
+          onComplete();
+        }, 300);
+      } else {
+        onComplete();
+      }
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
 
   return (
-    <div className="fixed inset-0 bg-tropical-gradient flex items-center justify-center overflow-hidden">
+    <div className="splash-screen fixed inset-0 bg-tropical-gradient flex items-center justify-center overflow-hidden animate-fade-in">
       {/* Animated tropical flower background */}
       <div className="absolute inset-0 tropical-flower-animation">
         {/* Bird of Paradise flower - main */}
@@ -82,37 +91,37 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
       </div>
 
       {/* Central content */}
-      <div className="relative z-10 text-center px-8 max-w-4xl">
+      <div className="relative z-10 text-center px-4 sm:px-8 max-w-4xl">
         {/* Orange leaf icon */}
-        <div className="mb-12">
-          <div className="w-12 h-8 mx-auto relative">
-            <svg className="w-12 h-8 text-coral-orange" fill="currentColor" viewBox="0 0 24 16">
+        <div className="mb-8 sm:mb-12">
+          <div className="w-8 h-6 sm:w-12 sm:h-8 mx-auto relative">
+            <svg className="w-8 h-6 sm:w-12 sm:h-8 text-coral-orange" fill="currentColor" viewBox="0 0 24 16">
               <path d="M12 0c-6.627 0-12 3.582-12 8s5.373 8 12 8c1.5-2 2.5-4 2.5-8s-1-6-2.5-8z"/>
             </svg>
           </div>
         </div>
 
         {/* Main heading */}
-        <h1 className="text-5xl md:text-7xl font-light text-white mb-2 tracking-wide leading-tight">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-light text-white mb-2 tracking-wide leading-tight">
           Créez votre rêve
         </h1>
-        <h2 className="text-5xl md:text-7xl font-light text-white mb-16 tracking-wide leading-tight">
+        <h2 className="text-3xl sm:text-5xl md:text-7xl font-light text-white mb-8 sm:mb-16 tracking-wide leading-tight">
           studio IA
         </h2>
 
         {/* Tech quote */}
-        <div className="mb-16 max-w-3xl mx-auto">
-          <blockquote className="text-lg md:text-xl text-white/80 italic mb-4 leading-relaxed font-light">
+        <div className="mb-8 sm:mb-16 max-w-3xl mx-auto">
+          <blockquote className="text-base sm:text-lg md:text-xl text-white/80 italic mb-4 leading-relaxed font-light">
             "{currentQuote.quote}"
           </blockquote>
-          <cite className="text-base text-white/60 font-normal">
+          <cite className="text-sm sm:text-base text-white/60 font-normal">
             — {currentQuote.author}
           </cite>
         </div>
 
         {/* CTA */}
-        <div className="mt-12">
-          <p className="text-coral-orange text-lg font-medium flex items-center justify-center gap-2">
+        <div className="mt-8 sm:mt-12">
+          <p className="text-coral-orange text-base sm:text-lg font-medium flex items-center justify-center gap-2">
             Gogogo Studio 
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -122,7 +131,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
       </div>
 
       {/* Loading animation */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <div className="dot-animation-container">
           <div className="dot-1" style={{ backgroundColor: '#f34213' }}></div>
           <div className="dot-2" style={{ backgroundColor: '#f34213' }}></div>

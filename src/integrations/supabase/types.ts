@@ -14,7 +14,75 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      articles: {
+        Row: {
+          author: string
+          category: string
+          content: string | null
+          created_at: string
+          date: string
+          excerpt: string | null
+          id: string
+          image_url: string | null
+          is_featured: boolean | null
+          read_time: number
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          author?: string
+          category?: string
+          content?: string | null
+          created_at?: string
+          date?: string
+          excerpt?: string | null
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean | null
+          read_time?: number
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          author?: string
+          category?: string
+          content?: string | null
+          created_at?: string
+          date?: string
+          excerpt?: string | null
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean | null
+          read_time?: number
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      Vidéo: {
+        Row: {
+          created_at: string
+          id: number
+          link_video: string | null
+          titre: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          link_video?: string | null
+          titre?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          link_video?: string | null
+          titre?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

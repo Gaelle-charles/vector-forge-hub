@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import React from 'react';
 
 const techQuotes = [
   {
@@ -35,26 +36,98 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   const [currentQuote] = useState(() => 
     techQuotes[Math.floor(Math.random() * techQuotes.length)]
   );
+  const [isVisible, setIsVisible] = useState(true);
+
+  // Ajout des styles de transition
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      .splash-fade-in {
+        animation: splashFadeIn 0.8s ease-out forwards;
+      }
+      
+      .splash-fade-out {
+        animation: splashFadeOut 0.6s ease-in forwards;
+      }
+      
+      @keyframes splashFadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      
+      @keyframes splashFadeOut {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0;
+          transform: scale(1.05);
+        }
+      }
+      
+      .loader {
+        width: 65px;
+        aspect-ratio: 1;
+        position: relative;
+      }
+      .loader:before,
+      .loader:after {
+        content: "";
+        position: absolute;
+        border-radius: 50px;
+        box-shadow: 0 0 0 3px inset #e76f51;
+        animation: l5 2.5s infinite;
+      }
+      .loader:after {
+        animation-delay: -1.25s;
+        border-radius: 0;
+      }
+      @keyframes l5{
+        0%    {inset:0    35px 35px 0   }
+        12.5% {inset:0    35px 0    0   }
+        25%   {inset:35px 35px 0    0   }
+        37.5% {inset:35px 0    0    0   }
+        50%   {inset:35px 0    0    35px}
+        62.5% {inset:0    0    0    35px}
+        75%   {inset:0    0    35px 35px}
+        87.5% {inset:0    0    35px 0   }
+        100%  {inset:0    35px 35px 0   }
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      // Transition fade out
-      const element = document.querySelector('.splash-screen');
-      if (element) {
-        element.classList.add('animate-fade-out');
-        setTimeout(() => {
-          onComplete();
-        }, 300);
-      } else {
+      setIsVisible(false);
+      setTimeout(() => {
         onComplete();
-      }
+      }, 600);
     }, 6000);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
 
+  const handleSkip = () => {
+    setIsVisible(false);
+    setTimeout(() => {
+      onComplete();
+    }, 600);
+  };
+
   return (
- <div className="splash-screen fixed inset-0 bg-tropical-gradient flex items-center justify-center overflow-hidden animate-fade-in">
+    <div className={`splash-screen fixed inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center overflow-hidden ${isVisible ? 'splash-fade-in' : 'splash-fade-out'}`}>
       
       {/* Conteneur principal centré */}
       <div className="flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-4xl mx-auto">
@@ -77,24 +150,36 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
           </cite>
         </div>
 
-        {/* CTA */}
+        {/* CTA avec lien */}
         <div className="mt-8 sm:mt-12">
-          <p className="text-[#e76f51] text-base sm:text-lg font-medium flex items-center justify-center gap-2">
-            Gogogo Studio 
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <button 
+            onClick={handleSkip}
+            className="text-[#e76f51] text-base sm:text-lg font-medium flex items-center justify-center gap-2 hover:text-[#d4583a] transition-colors duration-300 cursor-pointer group"
+          >
+            Entrer dans Gogogo Studio 
+            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
-          </p>
+          </button>
         </div>
       </div>
 
       {/* Loading animation */}
-      <div className="absolute bottom-1 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <div className="dot-animation-container">
           <div className="loader"></div>
         </div>
       </div>
+
+      {/* Skip button */}
+      <button 
+        onClick={handleSkip}
+        className="absolute top-4 right-4 text-white/60 hover:text-white text-sm transition-colors duration-300"
+      >
+        Passer →
+      </button>
     </div>
   );
 };
+
 export default SplashScreen;

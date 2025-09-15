@@ -127,7 +127,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   };
 
   return (
-    <div className={`splash-screen fixed inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center overflow-hidden ${isVisible ? 'splash-fade-in' : 'splash-fade-out'}`}>
+    <div className={`splash-screen fixed inset-0 bg-black from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center overflow-hidden ${isVisible ? 'splash-fade-in' : 'splash-fade-out'}`}>
       
       {/* Conteneur principal centré */}
       <div className="flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-4xl mx-auto">

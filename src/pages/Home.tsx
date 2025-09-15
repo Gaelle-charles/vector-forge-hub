@@ -530,15 +530,15 @@ const Home = () => {
             {/* Card de Consultation */}
             <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#e76f51] rounded-2xl flex items-center justify-center flex-shrink-0">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-black rounded-2xl flex items-center justify-center flex-shrink-0">
                   <Zap className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-3 sm:mb-4">
-                    <Badge className="bg-[#e76f51] text-white hover:bg-purple-700 border-0 px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
+                    <Badge className="bg-black text-white hover:bg-purple-700 border-0 px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
                       Gratuit
                     </Badge>
-                    <Badge className="bg-[#e76f51] text-white hover:bg-pink-600 border-0 px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
+                    <Badge className="bg-black text-white hover:bg-pink-600 border-0 px-2 sm:px-3 py-1 rounded-full text-xs font-medium">
                       30 minutes
                     </Badge>
                     <span className="text-gray-500 text-xs">Sans engagement</span>
@@ -553,7 +553,7 @@ const Home = () => {
                   </p>
                   
                   <Button 
-                    className="bg-[#e76f51] text-white hover:bg-black hover:text-white rounded-full px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300"
+                    className="bg-black text-white hover:bg-black hover:text-white rounded-full px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300"
                     onClick={() => window.location.href = 'URL_DE_VOTRE_CALENDLY_OU_AUTRE_SERVICE'}
                   >
                     <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />

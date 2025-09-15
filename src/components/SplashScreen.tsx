@@ -56,6 +56,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   return (
     <div className="splash-screen fixed inset-0 bg-tropical-gradient flex items-center justify-center overflow-hidden animate-fade-in">
 
+
         {/* Main heading */}
         <h1 className="text-3xl sm:text-5xl md:text-7xl font-light text-white mb-2 tracking-wide leading-tight">
           Créez votre rêve
@@ -83,6 +84,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
             </svg>
           </p>
         </div>
+                </div>
 
       {/* Loading animation */}
       <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
@@ -90,7 +92,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
 <div class="loader"></div>
         </div>
       </div>
-    </div>
+ 
   );
 };
 

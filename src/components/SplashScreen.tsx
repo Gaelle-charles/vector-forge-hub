@@ -54,9 +54,11 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   }, [onComplete]);
 
   return (
-    <div className="splash-screen fixed inset-0 bg-tropical-gradient flex items-center justify-center overflow-hidden animate-fade-in">
-
-
+ <div className="splash-screen fixed inset-0 bg-tropical-gradient flex items-center justify-center overflow-hidden animate-fade-in">
+      
+      {/* Conteneur principal centré */}
+      <div className="flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-4xl mx-auto">
+        
         {/* Main heading */}
         <h1 className="text-3xl sm:text-5xl md:text-7xl font-light text-white mb-2 tracking-wide leading-tight">
           Créez votre rêve
@@ -84,16 +86,15 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
             </svg>
           </p>
         </div>
-                </div>
+      </div>
 
       {/* Loading animation */}
       <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <div className="dot-animation-container">
-<div class="loader"></div>
+          <div className="loader"></div>
         </div>
       </div>
- 
+    </div>
   );
 };
-
 export default SplashScreen;

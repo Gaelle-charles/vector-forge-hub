@@ -133,9 +133,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
       {/* Loading animation */}
       <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <div className="dot-animation-container">
-          <div className="dot-1" style={{ backgroundColor: '#f34213' }}></div>
-          <div className="dot-2" style={{ backgroundColor: '#f34213' }}></div>
-          <div className="dot-3" style={{ backgroundColor: '#f34213' }}></div>
+<div class="loader"></div>
         </div>
       </div>
     </div>

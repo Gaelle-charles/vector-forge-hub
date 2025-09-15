@@ -345,33 +345,18 @@ const Home = () => {
 
           <div className="space-y-12">
             {/* Article Principal (Most Recent) */}
-            <div className="bg-gradient-to-br from-emerald-700 to-emerald-800 rounded-3xl p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+            <div className="bg-[#e76f51] from-emerald-700 to-emerald-800 rounded-3xl p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               {/* Decorative Elements */}
               <div className="absolute top-0 left-0 w-64 h-32 bg-gradient-to-br from-pink-400/30 to-purple-400/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
               <div className="absolute top-0 right-0 w-64 h-32 bg-gradient-to-bl from-pink-400/30 to-purple-400/30 rounded-full translate-x-1/2 -translate-y-1/2"></div>
               
-              {/* Icons */}
-              <div className="absolute top-12 right-1/4 text-yellow-400">
-                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-              </div>
-              <div className="absolute top-16 left-1/3 text-yellow-400">
-                <svg className="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/>
-                </svg>
-              </div>
-
-              {/* Silhouette */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-48 bg-lime-400 rounded-t-full opacity-80" style={{clipPath: "polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%)"}}>
-              </div>
 
               <div className="relative z-10 max-w-2xl">
                 <div className="flex items-center gap-3 mb-6">
-                  <Badge className="bg-purple-600 text-white hover:bg-purple-700 border-0 px-4 py-2 rounded-full font-medium">
+                  <Badge className="bg-[#e76f51] text-white hover:bg-purple-700 border-0 px-4 py-2 rounded-full font-medium">
                     Article
                   </Badge>
-                  <Badge className="bg-pink-500 text-white hover:bg-pink-600 border-0 px-4 py-2 rounded-full font-medium">
+                  <Badge className="bg-[#e76f51] text-white hover:bg-pink-600 border-0 px-4 py-2 rounded-full font-medium">
                     Entrepreneuriat
                   </Badge>
                   <span className="text-white/80 text-sm font-medium">10/02/2025</span>
@@ -408,10 +393,10 @@ const Home = () => {
                   </div>
                   <div className="flex-1 p-6">
                     <div className="flex items-center gap-2 mb-4">
-                      <Badge className="bg-purple-600 text-white hover:bg-purple-700 border-0 px-3 py-1 rounded-full text-xs font-medium">
+                      <Badge className="bg-[#e76f51] text-white hover:bg-purple-700 border-0 px-3 py-1 rounded-full text-xs font-medium">
                         Article
                       </Badge>
-                      <Badge className="bg-pink-500 text-white hover:bg-pink-600 border-0 px-3 py-1 rounded-full text-xs font-medium">
+                      <Badge className="bg-[#e76f51] text-white hover:bg-pink-600 border-0 px-3 py-1 rounded-full text-xs font-medium">
                         Juridique
                       </Badge>
                       <span className="text-gray-500 text-xs">15/10/2024</span>

@@ -165,6 +165,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
         Passer →
       </button>
     </div>
+      </div>
   );
 };
 

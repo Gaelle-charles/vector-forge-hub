@@ -3,19 +3,25 @@ import { Flower, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-r
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black py-20">
+    <footer className="bg-white text-black py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Navigation Links */}
-        <div className="flex flex-wrap justify-center gap-12 mb-16">
+        {/* Top Navigation with Logo in center */}
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-16">
           <Link to="/about" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
             À PROPOS
           </Link>
           <Link to="/services" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
             SERVICES
           </Link>
-          <Link to="/portfolio" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
-            PORTFOLIO
-          </Link>
+          
+          {/* Central Logo */}
+          <div className="mx-8">
+            <Link to="/" className="flex items-center space-x-2">
+              <Flower className="h-8 w-8 text-black" />
+              <span className="text-2xl font-bold text-black italic">AI Flora</span>
+            </Link>
+          </div>
+          
           <Link to="/contact" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
             CONTACT
           </Link>
@@ -42,11 +48,9 @@ const Footer = () => {
 
         {/* Large Brand Name */}
         <div className="text-center mb-16">
-          <Link to="/" className="inline-block">
-            <h2 className="text-7xl md:text-9xl lg:text-[12rem] font-bold text-black tracking-tight leading-none">
-              AI Flora
-            </h2>
-          </Link>
+          <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-bold text-black tracking-tight leading-none">
+            AI Flora
+          </h2>
         </div>
 
         {/* Bottom Copyright */}

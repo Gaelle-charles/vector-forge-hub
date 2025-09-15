@@ -280,10 +280,10 @@ const Home = () => {
           {/* Génération de vidéo/photo avec l'IA */}
             <div className="bg-[#e76f51] from-lime-300 to-lime-400 rounded-3xl p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-black mb-4">
+                <h3 className="text-2xl font-bold text-white mb-4">
                   Génération de vidéo/photo avec l'IA
                 </h3>
-                <p className="text-black/80 text-lg leading-relaxed mb-6">
+                <p className="text-white/80 text-lg leading-relaxed mb-6">
                   Nos outils IA génèrent des visuels uniques et sur-mesure pour votre marque. Des photos de produits ultra-réalistes aux vidéos promotionnelles.
                 </p>
               </div>

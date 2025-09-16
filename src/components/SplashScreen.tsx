@@ -151,7 +151,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
         </div>
 
       {/* Loading animation */}
-      <div className="absolute bottom-1 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <div className="dot-animation-container">
           <div className="loader"></div>
         </div>

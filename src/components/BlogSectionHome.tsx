@@ -51,7 +51,7 @@ const BlogSectionHome = () => {
           {/* Article Principal (Featured) */}
           <Link 
             to={`/blog/${featuredArticle.slug}`}
-            className="block bg-[#e76f51] rounded-3xl overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
+            className="block bg-[#e76f51] rounded-3xl overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
           
             <div className="flex">
               {/* Image de l'article */}

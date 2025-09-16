@@ -63,8 +63,8 @@ const Blog = () => {
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14">
+        <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
               <Link
@@ -84,9 +84,9 @@ const Blog = () => {
                   <div className="flex items-center justify-between text-sm text-white">
                      <span className={`px-3 py-1 rounded-full font-medium ${
                        post.category === 'Innovation' ? 'bg-[#e76f51] text-white' :
-                       post.category === 'Design' ? 'bg-[#e76f51] text-neon-pink' :
+                       post.category === 'Design' ? 'bg-[#e76f51] text-white' :
                        post.category === 'Développement' ? 'bg-[#e76f51] text-white' :
-                       'bg-neon-purple/20 text-neon-purple'
+                       'bg-[#e76f51] text-white'
                      }`}>
                        {post.category}
                      </span>

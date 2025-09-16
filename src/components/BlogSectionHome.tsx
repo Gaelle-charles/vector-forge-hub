@@ -43,7 +43,7 @@ const BlogSectionHome = () => {
             Derniers articles
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed stagger-child opacity-0">
-            Intéréssé{`(e)`} par l'IA, la tech, l'automatisation, vous êtes au bon endroit, découvrez nos articles rédigés avec passion et quelques assistants 😉
+           L'IA, la tech, l'automatisation, sont l'un de vos sujet de prédilection, vous êtes au bon endroit, découvrez nos articles rédigés avec passion et quelques assistants 😉
           </p>
         </div>
 

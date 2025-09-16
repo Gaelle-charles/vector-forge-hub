@@ -1,41 +1,9 @@
 import { Link } from "react-router-dom";
 import { Calendar, User, ArrowRight, Clock } from "lucide-react";
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-
-interface Article {
-  id: string;
-  title: string;
-  excerpt: string | null;
-  author: string;
-  date: string;
-  read_time: number;
-  category: string;
-  image_url: string | null;
-  slug: string;
-}
+import { useArticles } from "@/hooks/useArticles";
 
 const Blog = () => {
-  const [blogPosts, setBlogPosts] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchArticles = async () => {
-      const { data, error } = await supabase
-        .from('articles')
-        .select('*')
-        .order('date', { ascending: false });
-
-      if (error) {
-        console.error('Error fetching articles:', error);
-      } else {
-        setBlogPosts(data || []);
-      }
-      setLoading(false);
-    };
-
-    fetchArticles();
-  }, []);
+  const { articles: blogPosts, featuredArticle, loading } = useArticles();
 
   if (loading) {
     return (
@@ -51,12 +19,21 @@ const Blog = () => {
   }
   return (
     <div className="min-h-screen pt-20 bg-black">
-      {/* Hero Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">Blog
+      {/* Hero Section avec Image de Header */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/ai-brain.jpg" 
+            alt="Intelligence Artificielle" 
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">Blog
           </h1>
-          <p className="text-xl text-medium-gray max-w-3xl mx-auto mb-12">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto mb-12 drop-shadow-md">
             Découvrez nos articles et plongez dans l'univers de l'intelligence artificielle émergentes qui vous permettra de booster votre business.
           </p>
         </div>
@@ -66,6 +43,65 @@ const Blog = () => {
       <section className="py-14">
         <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Featured Article en premier si il existe */}
+            {featuredArticle && (
+              <Link
+                key={featuredArticle.id}
+                to={`/blog/${featuredArticle.slug}`}
+                className="group modern-card hover:border-primary/20 md:col-span-2 lg:col-span-3"
+              >
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="aspect-[4/3] sm:aspect-video overflow-hidden rounded-xl sm:rounded-2xl">
+                    <img
+                      src={featuredArticle.image_url || "/src/assets/ai-brain.jpg"}
+                      alt={featuredArticle.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  
+                  <div className="space-y-4 flex flex-col justify-center">
+                    <div className="flex items-center justify-between text-sm text-white">
+                      <span className="px-3 py-1 rounded-full font-medium bg-[#e76f51] text-white">
+                        Featured • {featuredArticle.category}
+                      </span>
+                      <div className="flex items-center space-x-2">
+                        <Clock className="w-4 h-4" />
+                        <span>{featuredArticle.read_time} min</span>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-2xl lg:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      {featuredArticle.title}
+                    </h3>
+                    
+                    <p className="text-medium-gray line-clamp-3">
+                      {featuredArticle.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center justify-between pt-4 border-t border-border">
+                      <div className="flex items-center space-x-3 text-sm text-medium-gray">
+                        <div className="flex items-center space-x-1">
+                          <User className="w-4 h-4" />
+                          <span>{featuredArticle.author}</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <Calendar className="w-4 h-4" />
+                          <span>{new Date(featuredArticle.date).toLocaleDateString('fr-FR', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                          })}</span>
+                        </div>
+                      </div>
+                      
+                      <ArrowRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            )}
+            
+            {/* Articles normaux */}
             {blogPosts.map((post) => (
               <Link
                 key={post.id}

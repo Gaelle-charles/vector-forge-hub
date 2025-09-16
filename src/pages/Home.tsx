@@ -239,9 +239,7 @@ const Home = () => {
             {/* Réalisation d'apps web/mobile */}
             <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="absolute top-4 sm:top-6 right-4 sm:right-6 w-6 h-6 sm:w-8 sm:h-8 text-gray-400 group-hover:text-black transition-colors mb-4">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" />
-                </svg>
+                <Smartphone className="w-full h-full" />
               </div>
               <div className="relative z-10 mt-8 sm:mt-12">
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-4">
@@ -256,9 +254,7 @@ const Home = () => {
             {/* Génération de vidéo/photo avec l'IA */}
             <div className="bg-[#e76f51] rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="absolute top-4 sm:top-6 right-4 sm:right-6 w-6 h-6 sm:w-8 sm:h-8 text-black/60 group-hover:text-black transition-colors mb-4">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" />
-                </svg>
+                <Camera className="w-full h-full" />
               </div>
               <div className="relative z-10 mt-8 sm:mt-12">
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
@@ -273,9 +269,7 @@ const Home = () => {
             {/* Automatisation du process */}
             <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="absolute top-4 sm:top-6 right-4 sm:right-6 w-6 h-6 sm:w-8 sm:h-8 text-gray-400 group-hover:text-black transition-colors mb-4">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" />
-                </svg>
+                <Zap className="w-full h-full" />
               </div>
               <div className="relative z-10 mt-8 sm:mt-12">
                 <h3 className="text-xl sm:text-2xl font-bold text-black mb-4">
@@ -290,9 +284,7 @@ const Home = () => {
             {/* Réalisation d'agents IA */}
             <div className="bg-[#e76f51] rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="absolute top-4 sm:top-6 right-4 sm:right-6 w-6 h-6 sm:w-8 sm:h-8 text-white/60 group-hover:text-white transition-colors mb-4">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" />
-                </svg>
+                <Bot className="w-full h-full" />
               </div>
               <div className="relative z-10 mt-8 sm:mt-12">
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">

@@ -1,49 +1,13 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-
-interface Article {
-  id: string;
-  title: string;
-  excerpt: string | null;
-  author: string;
-  date: string;
-  read_time: number;
-  category: string;
-  image_url: string | null;
-  slug: string;
-  is_featured: boolean;
-}
+import { useArticles } from "@/hooks/useArticles";
 
 const BlogSectionHome = () => {
-  const [articles, setArticles] = useState<Article[]>([]);
-  const [featuredArticle, setFeaturedArticle] = useState<Article | null>(null);
+  const { articles, featuredArticle, loading } = useArticles(4);
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      const { data, error } = await supabase
-        .from('articles')
-        .select('*')
-        .order('date', { ascending: false })
-        .limit(4);
-
-      if (error) {
-        console.error('Error fetching articles:', error);
-      } else if (data) {
-        const featured = data.find(article => article.is_featured) || data[0];
-        const others = data.filter(article => article.id !== featured?.id).slice(0, 2);
-        
-        setFeaturedArticle(featured);
-        setArticles(others);
-      }
-    };
-
-    fetchArticles();
-  }, []);
-
-  if (!featuredArticle) {
+  if (loading) {
     return (
       <section id="blog" className="py-40 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
         <div className="max-w-7xl mx-auto px-8">
@@ -52,6 +16,19 @@ const BlogSectionHome = () => {
               <div className="h-12 bg-gray-200 rounded mb-6 w-1/2 mx-auto"></div>
               <div className="h-6 bg-gray-200 rounded w-3/4 mx-auto"></div>
             </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!featuredArticle) {
+    return (
+      <section id="blog" className="py-40 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="text-center">
+            <h2 className="text-6xl font-bold text-black mb-6">Aucun article disponible</h2>
+            <p className="text-xl text-gray-600">Revenez bientôt pour découvrir nos derniers articles !</p>
           </div>
         </div>
       </section>
@@ -128,7 +105,7 @@ const BlogSectionHome = () => {
 
           {/* Articles Secondaires */}
           <div className="grid md:grid-cols-2 gap-8">
-            {articles.map((article, index) => (
+            {articles.slice(0, 2).map((article, index) => (
               <Link
                 key={article.id}
                 to={`/blog/${article.slug}`}

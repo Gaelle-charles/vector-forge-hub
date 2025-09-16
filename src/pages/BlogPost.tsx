@@ -1,46 +1,10 @@
 import { useParams, Link } from "react-router-dom";
 import { Calendar, User, Clock, ArrowLeft, Share2 } from "lucide-react";
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-
-interface Article {
-  id: string;
-  title: string;
-  excerpt: string | null;
-  content: string | null;
-  author: string;
-  date: string;
-  read_time: number;
-  category: string;
-  image_url: string | null;
-  slug: string;
-}
+import { useArticle } from "@/hooks/useArticles";
 
 const BlogPost = () => {
   const { slug } = useParams();
-  const [post, setPost] = useState<Article | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchArticle = async () => {
-      if (!slug) return;
-      
-      const { data, error } = await supabase
-        .from('articles')
-        .select('*')
-        .eq('slug', slug)
-        .maybeSingle();
-
-      if (error) {
-        console.error('Error fetching article:', error);
-      } else {
-        setPost(data);
-      }
-      setLoading(false);
-    };
-
-    fetchArticle();
-  }, [slug]);
+  const { article: post, loading } = useArticle(slug || '');
 
   if (loading) {
     return (

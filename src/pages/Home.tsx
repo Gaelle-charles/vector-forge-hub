@@ -102,29 +102,41 @@ const Home = () => {
     };
   }, []);
 
-  // Effet pour la rotation des vidéos et la gestion du survol
-  useEffect(() => {
-    if (isHovering) return;
+  // Effet pour lancer la première vidéo et enchaîner automatiquement
+useEffect(() => {
+  if (!videoRefs.current.length) return;
 
-    const startInterval = () => {
-      const interval = setInterval(() => {
-        setActiveVideo(prev => {
-          const nextVideo = (prev + 1) % videoRefs.current.length;
-          videoRefs.current.forEach(ref => ref.current?.pause());
-          videoRefs.current[nextVideo].current?.play().catch(e => console.log("Autoplay prevented:", e));
-          return nextVideo;
-        });
-      }, 4000);
-      return interval;
+  // Démarre la première vidéo
+  const firstVideo = videoRefs.current[0].current;
+  if (firstVideo) {
+    firstVideo.play().catch(e => console.log("Autoplay prevented:", e));
+  }
+
+  // Ajoute les listeners "ended"
+  videoRefs.current.forEach((ref, index) => {
+    if (!ref.current) return;
+
+    const handleEnded = () => {
+      const nextVideoIndex = (index + 1) % videoRefs.current.length;
+      setActiveVideo(nextVideoIndex);
+
+      // Met en pause toutes les vidéos
+      videoRefs.current.forEach(r => r.current?.pause());
+
+      // Joue la suivante
+      const nextVideo = videoRefs.current[nextVideoIndex].current;
+      nextVideo?.play().catch(e => console.log("Autoplay prevented:", e));
     };
 
-    let rotationInterval = startInterval();
-    videoRefs.current[0].current?.play().catch(e => console.log("Autoplay prevented:", e));
+    ref.current.addEventListener("ended", handleEnded);
 
+    // Nettoyage
     return () => {
-      clearInterval(rotationInterval);
+      ref.current?.removeEventListener("ended", handleEnded);
     };
-  }, [isHovering]);
+  });
+}, []);
+
 
   // Gestion du survol des vidéos
   const handleVideoHover = (index) => {

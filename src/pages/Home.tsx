@@ -375,7 +375,7 @@ const Home = () => {
                   </div>
                   
                   <h4 className="text-xl sm:text-2xl font-bold text-black mb-3 sm:mb-4">
-                    Consulting 30min offert
+                    Consulting de 30 minutes gratuit
                   </h4>
                   
                   <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
@@ -388,11 +388,7 @@ const Home = () => {
                   </Button>
                 </div>
               </div>
-              <div className="absolute top-4 sm:top-6 right-4 sm:right-6 w-6 h-6 sm:w-8 sm:h-8 text-gray-400 group-hover:text-black transition-colors">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-full h-full">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" />
-                </svg>
-              </div>
+              
             </div>
           </div>
         </div>

@@ -191,7 +191,7 @@ useEffect(() => {
               <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection('consultation')}
               className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 hover:-translate-y-0.5"
             >
               Prendre rendez-vous
@@ -418,7 +418,7 @@ useEffect(() => {
             </div>
 
             {/* Card de Consultation */}
-            <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+            <div id="consultation" className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 bg-black rounded-2xl flex items-center justify-center flex-shrink-0">
                   <Zap className="h-8 w-8 sm:h-10 sm:w-10 text-white" />

@@ -135,9 +135,9 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
         {/* Main heading */}
         <h1 className="text-3xl sm:text-5xl md:text-7xl font-light text-white mb-2 tracking-wide leading-tight">
           Créez votre rêve
-        </h1>
+        </h1>Avec l'IA penser 
         <h2 className="text-3xl sm:text-5xl md:text-7xl font-light text-white mb-8 sm:mb-16 tracking-wide leading-tight">
-          studio IA
+          votre business autrement
         </h2>
 
         {/* Tech quote */}

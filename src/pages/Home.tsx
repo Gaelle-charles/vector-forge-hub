@@ -223,7 +223,7 @@ useEffect(() => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 h-[60vh] sm:h-[80vh] lg:h-[100vh] border-white">
+        <div className="grid grid-cols-1 md:grid-cols-3 h-screen border-white">
           <div
             className="relative bg-black border-r border-white md:border-r-2 overflow-hidden"
             onMouseEnter={() => handleVideoHover(0)}

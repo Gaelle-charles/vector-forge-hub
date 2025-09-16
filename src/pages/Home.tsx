@@ -216,7 +216,7 @@ useEffect(() => {
           >
             <video
               ref={videoRefs.current[0]}
-              loop
+              
               playsInline
               className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 0 ? 'opacity-100' : 'opacity-20'}`}
             >
@@ -231,7 +231,7 @@ useEffect(() => {
           >
             <video
               ref={videoRefs.current[1]}
-              loop
+              
               playsInline
               className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 1 ? 'opacity-100' : 'opacity-20'}`}
             >
@@ -246,7 +246,7 @@ useEffect(() => {
           >
             <video
               ref={videoRefs.current[2]}
-              loop
+              
               playsInline
               className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 2 ? 'opacity-100' : 'opacity-20'}`}
             >

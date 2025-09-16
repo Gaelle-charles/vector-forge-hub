@@ -155,6 +155,15 @@ useEffect(() => {
 
   const handleVideoLeave = () => {
     setIsHovering(false);
+    // Reprendre la lecture séquentielle après le survol
+    setTimeout(() => {
+      if (!isHovering) {
+        const currentVideo = videoRefs.current[activeVideo].current;
+        if (currentVideo) {
+          currentVideo.play().catch(e => console.log("Autoplay prevented:", e));
+        }
+      }
+    }, 100);
   };
 
   return (
@@ -222,7 +231,7 @@ useEffect(() => {
           >
             <video
               ref={videoRefs.current[0]}
-              
+              muted
               playsInline
               className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 0 ? 'opacity-100' : 'opacity-20'}`}
             >
@@ -237,7 +246,7 @@ useEffect(() => {
           >
             <video
               ref={videoRefs.current[1]}
-              
+              muted
               playsInline
               className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 1 ? 'opacity-100' : 'opacity-20'}`}
             >
@@ -252,7 +261,7 @@ useEffect(() => {
           >
             <video
               ref={videoRefs.current[2]}
-              
+              muted
               playsInline
               className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 2 ? 'opacity-100' : 'opacity-20'}`}
             >

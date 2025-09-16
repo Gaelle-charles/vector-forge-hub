@@ -150,6 +150,20 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
           </cite>
         </div>
 
+        {/* CTA avec lien */}
+        <div className="mt-8 sm:mt-12">
+          <button 
+            onClick={handleSkip}
+            className="text-[#e76f51] text-base sm:text-lg font-medium flex items-center justify-center gap-2 hover:text-[#d4583a] transition-colors duration-300 cursor-pointer group"
+          >
+            Entrer dans Gogogo Studio 
+            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
       {/* Loading animation */}
       <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
         <div className="dot-animation-container">

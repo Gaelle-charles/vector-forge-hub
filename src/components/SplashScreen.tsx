@@ -134,10 +134,10 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
         
         {/* Main heading */}
         <h1 className="text-3xl sm:text-5xl md:text-7xl font-light text-white mb-2 tracking-wide leading-tight">
-         Notre studio vous aide à penser 
+         Penser votre
         </h1>
         <h2 className="text-3xl sm:text-5xl md:text-7xl font-light text-white mb-8 sm:mb-16 tracking-wide leading-tight">
-          votre business autrement
+         business autrement
         </h2>
 
         {/* Tech quote */}

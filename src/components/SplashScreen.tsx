@@ -127,7 +127,7 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
   };
 
   return (
-    <div className={`splash-screen fixed inset-0 bg-black from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center overflow-hidden ${isVisible ? 'splash-fade-in' : 'splash-fade-out'}`}>
+    <div className={`splash-screen fixed inset-0 bg-black flex items-center justify-center overflow-hidden ${isVisible ? 'splash-fade-in' : 'splash-fade-out'}`}>
       
       {/* Conteneur principal centré */}
       <div className="flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-4xl mx-auto">
@@ -150,24 +150,9 @@ const SplashScreen = ({ onComplete }: SplashScreenProps) => {
           </cite>
         </div>
 
-        {/* CTA avec lien */}
-        <div className="mt-8 sm:mt-12">
-          <button 
-            onClick={handleSkip}
-            className="text-[#e76f51] text-base sm:text-lg font-medium flex items-center justify-center gap-2 hover:text-[#d4583a] transition-colors duration-300 cursor-pointer group"
-          >
-            Entrer dans Gogogo Studio 
-            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {/* Loading animation */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="dot-animation-container">
-          <div className="loader"></div>
+        {/* Loading animation - centré avec le contenu */}
+        <div className="mt-8 mb-8">
+          <div className="loader mx-auto"></div>
         </div>
       </div>
 

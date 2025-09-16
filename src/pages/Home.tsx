@@ -102,7 +102,7 @@ const Home = () => {
     };
   }, []);
 
-  // Effet pour lancer la première vidéo et enchaîner automatiquement
+// Effet pour lancer la première vidéo et enchaîner automatiquement
 useEffect(() => {
   if (!videoRefs.current.length) return;
 
@@ -112,7 +112,9 @@ useEffect(() => {
     firstVideo.play().catch(e => console.log("Autoplay prevented:", e));
   }
 
-  // Ajoute les listeners "ended"
+  // Liste des handlers pour pouvoir les nettoyer après
+  const handlers = [];
+
   videoRefs.current.forEach((ref, index) => {
     if (!ref.current) return;
 
@@ -120,7 +122,7 @@ useEffect(() => {
       const nextVideoIndex = (index + 1) % videoRefs.current.length;
       setActiveVideo(nextVideoIndex);
 
-      // Met en pause toutes les vidéos
+      // Pause toutes les vidéos
       videoRefs.current.forEach(r => r.current?.pause());
 
       // Joue la suivante
@@ -129,13 +131,17 @@ useEffect(() => {
     };
 
     ref.current.addEventListener("ended", handleEnded);
-
-    // Nettoyage
-    return () => {
-      ref.current?.removeEventListener("ended", handleEnded);
-    };
+    handlers.push({ ref: ref.current, handler: handleEnded });
   });
+
+  // Nettoyage correct
+  return () => {
+    handlers.forEach(({ ref, handler }) => {
+      ref.removeEventListener("ended", handler);
+    });
+  };
 }, []);
+
 
 
   // Gestion du survol des vidéos

@@ -50,15 +50,14 @@ const Blog = () => {
     );
   }
   return (
-    <div className="min-h-screen pt-20 bg-background">
+    <div className="min-h-screen pt-20 bg-black">
       {/* Hero Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-            Notre <span className="orange-text">Blog</span>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">Blog
           </h1>
           <p className="text-xl text-medium-gray max-w-3xl mx-auto mb-12">
-            Découvrez nos derniers articles sur le développement web, le design et les technologies émergentes.
+            Découvrez nos articles et plongez dans l'univers de l'intelligence artificielle émergentes qui vous permettra de booster votre business.
           </p>
         </div>
       </section>
@@ -82,11 +81,11 @@ const Blog = () => {
                 </div>
                 
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between text-sm text-medium-gray">
+                  <div className="flex items-center justify-between text-sm text-white">
                      <span className={`px-3 py-1 rounded-full font-medium ${
-                       post.category === 'Innovation' ? 'bg-neon-cyan/20 text-neon-cyan' :
-                       post.category === 'Design' ? 'bg-neon-pink/20 text-neon-pink' :
-                       post.category === 'Développement' ? 'bg-neon-green/20 text-neon-green' :
+                       post.category === 'Innovation' ? 'bg-[#e76f51] text-white' :
+                       post.category === 'Design' ? 'bg-[#e76f51] text-neon-pink' :
+                       post.category === 'Développement' ? 'bg-[#e76f51] text-white' :
                        'bg-neon-purple/20 text-neon-purple'
                      }`}>
                        {post.category}
@@ -130,27 +129,17 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="py-20 bg-secondary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            Restez informé
-          </h2>
-          <p className="text-xl text-medium-gray mb-8">
-            Recevez nos derniers articles directement dans votre boîte mail.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Votre adresse email"
-              className="flex-1 px-6 py-4 rounded-2xl border border-border bg-background text-foreground placeholder-medium-gray focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <button className="modern-button-primary whitespace-nowrap">
-              S'abonner
-            </button>
+       {/* Footer */}
+      <footer className="py-8 bg-white text-white rounded-t-[4rem] -mt-16 z-50 relative">
+        <div className="max-w-7xl mx-auto px-8 text-center">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.png" />
           </div>
+          <p className="text-gray-400 text-sm">
+            © 2025 GoGoGo Studio. Innovation digitale et solutions créatives.
+          </p>
         </div>
-      </section>
+      </footer>
     </div>
   );
 };

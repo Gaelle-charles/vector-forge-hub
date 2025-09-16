@@ -1,54 +1,40 @@
 import { Link } from "react-router-dom";
 import { Calendar, User, ArrowRight, Clock } from "lucide-react";
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
 
-interface Article {
-  id: string;
-  title: string;
-  excerpt: string | null;
-  author: string;
-  date: string;
-  read_time: number;
-  category: string;
-  image_url: string | null;
-  slug: string;
-}
+const blogPosts = [
+  {
+    id: 1,
+    title: "L'avenir du développement web avec l'IA",
+    excerpt: "Comment l'intelligence artificielle transforme la façon dont nous créons des applications web modernes.",
+    author: "Gogogo Studio",
+    date: "15 Mars 2024",
+    readTime: "5 min",
+    category: "Technologie",
+    image: "/src/assets/ai-brain.jpg"
+  },
+  {
+    id: 2,
+    title: "Design Systems : La clé d'une interface cohérente",
+    excerpt: "Découvrez comment créer et maintenir un design system efficace pour vos projets.",
+    author: "Gogogo Studio", 
+    date: "10 Mars 2024",
+    readTime: "7 min",
+    category: "Design",
+    image: "/src/assets/app-mockup.jpg"
+  },
+  {
+    id: 3,
+    title: "Performance Web : Optimisation avancée",
+    excerpt: "Techniques et stratégies pour améliorer significativement les performances de votre site web.",
+    author: "Gogogo Studio",
+    date: "5 Mars 2024", 
+    readTime: "8 min",
+    category: "Performance",
+    image: "/src/assets/tropical-arrangement.jpg"
+  }
+];
 
 const Blog = () => {
-  const [blogPosts, setBlogPosts] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchArticles = async () => {
-      const { data, error } = await supabase
-        .from('articles')
-        .select('*')
-        .order('date', { ascending: false });
-
-      if (error) {
-        console.error('Error fetching articles:', error);
-      } else {
-        setBlogPosts(data || []);
-      }
-      setLoading(false);
-    };
-
-    fetchArticles();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen pt-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <div className="animate-pulse">
-            <div className="h-12 bg-gray-200 rounded mb-4"></div>
-            <div className="h-6 bg-gray-200 rounded w-3/4 mx-auto"></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
   return (
     <div className="min-h-screen pt-20 bg-background">
       {/* Hero Section */}
@@ -70,12 +56,12 @@ const Blog = () => {
             {blogPosts.map((post) => (
               <Link
                 key={post.id}
-                to={`/blog/${post.slug}`}
+                to={`/blog/${post.id}`}
                 className="group modern-card hover:border-primary/20"
               >
                 <div className="aspect-video mb-6 overflow-hidden rounded-2xl">
                   <img
-                    src={post.image_url || "/src/assets/ai-brain.jpg"}
+                    src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
@@ -84,16 +70,15 @@ const Blog = () => {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-sm text-medium-gray">
                      <span className={`px-3 py-1 rounded-full font-medium ${
-                       post.category === 'Innovation' ? 'bg-neon-cyan/20 text-neon-cyan' :
+                       post.category === 'Technologie' ? 'bg-neon-cyan/20 text-neon-cyan' :
                        post.category === 'Design' ? 'bg-neon-pink/20 text-neon-pink' :
-                       post.category === 'Développement' ? 'bg-neon-green/20 text-neon-green' :
-                       'bg-neon-purple/20 text-neon-purple'
+                       'bg-neon-green/20 text-neon-green'
                      }`}>
                        {post.category}
                      </span>
                     <div className="flex items-center space-x-2">
                       <Clock className="w-4 h-4" />
-                      <span>{post.read_time} min</span>
+                      <span>{post.readTime}</span>
                     </div>
                   </div>
                   
@@ -113,11 +98,7 @@ const Blog = () => {
                       </div>
                       <div className="flex items-center space-x-1">
                         <Calendar className="w-4 h-4" />
-                        <span>{new Date(post.date).toLocaleDateString('fr-FR', {
-                          day: 'numeric',
-                          month: 'long',
-                          year: 'numeric'
-                        })}</span>
+                        <span>{post.date}</span>
                       </div>
                     </div>
                     

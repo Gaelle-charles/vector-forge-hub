@@ -5,13 +5,13 @@ const Footer = () => {
   return (
     
       <footer className="py-8 bg-white text-white rounded-t-[4rem] -mt-16 z-50 relative">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-            <div className="flex items-center justify-center space-x-2 mb-4">
+        <div className="max-w-7xl mx-auto px-8 text-center">
+            <div className="flex items-center justify-center space-x-2 mb-8">
               <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.png" alt="logo"/>
             </div>
 
               {/* Social Links */}
-            <div className="flex justify-center space-x-4 mb-20">
+            <div className="flex justify-center space-x-4 mb-10">
               <a href="https://www.instagram.com/gogogo.studio?igsh=enQ0cm13cGFyOW9y" className="text-black hover:text-gray-600 transition-colors">
             <Instagram className="h-6 w-6" />
               </a>

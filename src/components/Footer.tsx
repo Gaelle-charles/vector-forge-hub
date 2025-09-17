@@ -3,63 +3,17 @@ import { Flower, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-r
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Navigation with Logo in center */}
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-16">
-          <Link to="/about" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
-            À PROPOS
-          </Link>
-          <Link to="/services" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
-            SERVICES
-          </Link>
-          
-          {/* Central Logo */}
-          <div className="mx-8">
-            <Link to="/" className="flex items-center space-x-2">
-              <Flower className="h-8 w-8 text-black" />
-              <span className="text-2xl font-bold text-black italic">AI Flora</span>
-            </Link>
+      {/* Footer */}
+      <footer className="py-8 bg-white text-white rounded-t-[4rem] -mt-16 z-50 relative">
+        <div className="max-w-7xl mx-auto px-8 text-center">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.png" />
           </div>
-          
-          <Link to="/contact" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
-            CONTACT
-          </Link>
-          <Link to="/blog" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
-            CRÉATIONS
-          </Link>
+          <p className="text-gray-400 text-sm">
+            © 2025 GoGoGo Studio. Innovation digitale et solutions créatives.
+          </p>
         </div>
-
-        {/* Social Links */}
-        <div className="flex justify-center space-x-8 mb-20">
-          <a href="#" className="text-black hover:text-gray-600 transition-colors">
-            <Github className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-black hover:text-gray-600 transition-colors">
-            <Linkedin className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-black hover:text-gray-600 transition-colors">
-            <Twitter className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-black hover:text-gray-600 transition-colors">
-            <Mail className="h-6 w-6" />
-          </a>
-        </div>
-
-        {/* Large Brand Name */}
-        <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-bold text-black tracking-tight leading-none">
-            AI Flora
-          </h2>
-        </div>
-
-        {/* Bottom Copyright */}
-        <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-black uppercase tracking-wider">
-          <p>©AI FLORA 2024.</p>
-          <p>TOUS DROITS RÉSERVÉS.</p>
-        </div>
-      </div>
-    </footer>
+      </footer>
   );
 };
 

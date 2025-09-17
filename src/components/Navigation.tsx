@@ -62,17 +62,17 @@ const Navigation = () => {
         </div>
       </nav>
 
-      {/* Overlay du menu mobile - position fixed en dehors de la nav */}
+      {/* Overlay du menu mobile - avec z-index plus élevé */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden mt-20">
+        <div className="fixed inset-0 z-[60] lg:hidden">
           {/* Fond semi-transparent */}
           <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/70 backdrop-blur-md"
             onClick={() => setIsMenuOpen(false)}
           />
           
-          {/* Menu mobile - positionné sous la navbar */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[95%] sm:w-[90%] md:w-[85%] bg-black/95 border border-white/20 rounded-2xl p-6 backdrop-blur-xl shadow-2xl">
+          {/* Menu mobile - positionné juste en dessous de la navbar */}
+          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 w-[95%] sm:w-[90%] md:w-[85%] max-w-5xl bg-black/95 border border-white/20 rounded-2xl p-6 backdrop-blur-xl shadow-2xl">
             <div className="flex flex-col space-y-4">
               <button 
                 onClick={() => scrollToSection('services')}

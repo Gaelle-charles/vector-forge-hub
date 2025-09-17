@@ -57,7 +57,6 @@ const BlogSectionHome = () => {
             className="block bg-[#e76f51] rounded-3xl overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
           
             <div className="flex">
-              {/* Image */}
               <div className="w-1/3 h-64 bg-gradient-to-br from-[#d95f3f] to-[#c44d2b] flex items-center justify-center relative overflow-hidden">
                 <img 
                   src={featuredArticle.image_url || "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png"} 
@@ -68,15 +67,14 @@ const BlogSectionHome = () => {
               </div>
 
               <div className="flex-1 p-8 relative">
-                {/* Décor */}
                 <div className="absolute top-0 right-0 w-48 h-24 bg-gradient-to-bl from-pink-400/20 to-purple-400/20 rounded-full translate-x-1/2 -translate-y-1/2"></div>
                 
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-6">
-                    <Badge className="bg-black text-white hover:bg-purple-700 border-0 px-4 py-2 rounded-full font-medium">
+                    <Badge className="bg-black text-white border-0 px-4 py-2 rounded-full font-medium">
                       Article
                     </Badge>
-                    <Badge className="bg-black text-white hover:bg-pink-600 border-0 px-4 py-2 rounded-full font-medium">
+                    <Badge className="bg-black text-white border-0 px-4 py-2 rounded-full font-medium">
                       {featuredArticle.category}
                     </Badge>
                     <span className="text-white/80 text-sm font-medium">
@@ -97,7 +95,7 @@ const BlogSectionHome = () => {
                   </p>
                   
                   <Button 
-                    className="bg-white/20 text-white border border-white/30 hover:bg-white hover:text-[#e76f51] rounded-full px-8 py-3 font-medium transition-all duration-300"
+                    className="bg-white/20 text-white border border-white/30 rounded-full px-8 py-3 font-medium"
                   >
                     Lire l'article
                   </Button>
@@ -106,7 +104,7 @@ const BlogSectionHome = () => {
             </div>
           </Link>
 
-          {/* Articles Secondaires (tous sauf le dernier) */}
+          {/* Articles Secondaires */}
           <div className="grid md:grid-cols-2 gap-8">
             {articles.slice(0, -1).map((article, index) => (
               <Link
@@ -129,24 +127,17 @@ const BlogSectionHome = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.415-3.414l5-5A2 2 0 008 10.172V5L8 4z"/>
                           </svg>
                         </div>
-                        {index === 1 && (
-                          <div className="absolute bottom-4 right-4 text-black/60">
-                            <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                          </div>
-                        )}
                       </div>
                     )}
                   </div>
 
-                  {/* Contenu aligné avec bouton en bas */}
+                  {/* Contenu avec bouton aligné */}
                   <div className="flex-1 p-6 flex flex-col">
                     <div className="flex items-center gap-2 mb-4">
-                      <Badge className="bg-[#e76f51] text-white hover:bg-purple-700 border-0 px-3 py-1 rounded-full text-xs font-medium">
+                      <Badge className="bg-[#e76f51] text-white border-0 px-3 py-1 rounded-full text-xs font-medium">
                         Article
                       </Badge>
-                      <Badge className="bg-[#e76f51] text-white hover:bg-pink-600 border-0 px-3 py-1 rounded-full text-xs font-medium">
+                      <Badge className="bg-[#e76f51] text-white border-0 px-3 py-1 rounded-full text-xs font-medium">
                         {article.category}
                       </Badge>
                       <span className="text-gray-500 text-xs">
@@ -168,7 +159,7 @@ const BlogSectionHome = () => {
                     
                     <Button 
                       variant="ghost"
-                      className="text-[#e76f51] hover:text-pink-600 hover:bg-pink-50 p-0 h-auto font-medium text-sm mt-auto"
+                      className="text-[#e76f51] font-medium text-sm mt-auto p-0 h-auto"
                     >
                       Lire l'article
                     </Button>

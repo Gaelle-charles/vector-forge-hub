@@ -3,7 +3,7 @@ import { Flower, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-r
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black py-16">
+    <footer className="bg-white text-black py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Navigation with Logo in center */}
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-16">

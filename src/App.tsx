@@ -4,8 +4,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import SplashScreen from "@/components/SplashScreen";
 import Home from "./pages/Home";
 import Blog from "./pages/Blog";
@@ -32,14 +30,12 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Navigation />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="*" element={<Home />} />
           </Routes>
-          <Footer />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

@@ -4,7 +4,7 @@ import { Flower, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-r
 const Footer = () => {
   return (
     <footer className="bg-white text-black py-4">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Top Navigation with Logo in center */}
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-16">
           <Link to="/about" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="mx-8">
             <Link to="/" className="flex items-center space-x-2">
                 <div className="flex items-center space-x-2">
-            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.svg" className="h-5 sm:h-6 md:h-8" alt="Logo GoGoGo Studio" />
+            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.png" className="h-5 sm:h-6 md:h-8" alt="Logo GoGoGo Studio" />
           </div>
             </Link>
           </div>

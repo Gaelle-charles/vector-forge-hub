@@ -3,46 +3,17 @@ import { Flower, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-r
 
 const Footer = () => {
   return (
-    <footer className="bg-white text-black py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Navigation with Logo in center */}
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-16">
-          <Link to="/services" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
-            SERVICES
-          </Link>   
-          <Link to="/contact" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
-            CONSULTING
-          </Link>
-          <Link to="/blog" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
-            CONTACT
-          </Link>
-        </div>
-
-        {/* Social Links */}
-        <div className="flex justify-center space-x-8 mb-20">
-          <a href="#" className="text-black hover:text-gray-600 transition-colors">
-            <Instagram className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-black hover:text-gray-600 transition-colors">
-            <Linkedin className="h-6 w-6" />
-          </a>
-          <a href="#" className="text-black hover:text-gray-600 transition-colors">
-            <Mail className="h-6 w-6" />
-          </a>
-        </div>
-
-        {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.svg" className="h-5 sm:h-6 md:h-8" alt="Logo GoGoGo Studio" />
+      {/* Footer */}
+      <footer className="py-8 bg-white text-white rounded-t-[4rem] -mt-16 z-50 relative">
+        <div className="max-w-7xl mx-auto px-8 text-center">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.png" />
           </div>
-
-        {/* Bottom Copyright */}
-        <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-black uppercase tracking-wider">
-          <p>©GoGoGo Studio 2025</p>
-          <p>TOUS DROITS RÉSERVÉS.</p>
+          <p className="text-gray-400 text-sm">
+            © 2025 GoGoGo Studio. Innovation digitale et solutions créatives.
+          </p>
         </div>
-      </div>
-    </footer>
+      </footer>
   );
 };
 

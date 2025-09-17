@@ -198,56 +198,102 @@ const Home = () => {
       </nav>
 
       {/* Video Header Section */}
-      <section className="bg-black relative overflow-hidden">
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center">
-          <div className="text-center px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24">
-            <h1 className="sm:text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4 sm:mb-6 drop-shadow-2xl opacity-80 text-3xl">
-              L'IA pour vous servir
-            </h1>
-            <p className="sm:text-xl md:text-2xl lg:text-3xl text-white/90 font-medium drop-shadow-lg opacity-60 text-base">
-              Découvrez comment booster votre entreprise avec l'IA
-            </p>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 h-screen border-white">
-          <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden" onMouseEnter={() => handleVideoHover(0)} onMouseLeave={handleVideoLeave}>
-            <video
-              ref={el => (videoRefs.current[0] = el)}
-              muted
-              playsInline
-              className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 0 ? 'opacity-100' : 'opacity-40'}`}
-            >
-              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/Pixar_animated_short_202509131714_l40d4.mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-          </div>
+     {/* Video Header Section */}
+<section className="bg-black relative overflow-hidden">
+  {/* Overlay avec texte */}
+  <div className="absolute inset-0 z-20 flex flex-col items-center justify-center">
+    <div className="text-center px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-28">
+      <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white mb-3 sm:mb-4 md:mb-5 lg:mb-6 drop-shadow-2xl opacity-80 leading-tight">
+        L'IA pour vous servir
+      </h1>
+      <p className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-white/90 font-medium drop-shadow-lg opacity-60 max-w-4xl mx-auto px-4">
+        Découvrez comment booster votre entreprise avec l'IA
+      </p>
+    </div>
+  </div>
+  
+  {/* Conteneur vidéos - Layout responsive */}
+  <div className="grid grid-cols-1 md:grid-cols-3 h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-screen border-white">
+    {/* Vidéo 1 */}
+    <div 
+      className="relative bg-black border-b border-white md:border-b-0 md:border-r border-white/50 md:border-white overflow-hidden group"
+      onMouseEnter={() => handleVideoHover(0)}
+      onMouseLeave={handleVideoLeave}
+      onTouchStart={() => handleVideoHover(0)}
+      onTouchEnd={handleVideoLeave}
+    >
+      <video
+        ref={el => (videoRefs.current[0] = el)}
+        muted
+        playsInline
+        className={`w-full h-full object-cover transition-all duration-700 ${
+          activeVideo === 0 ? 'opacity-100 scale-105' : 'opacity-40 scale-100'
+        } group-hover:scale-105`}
+      >
+        <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/Pixar_animated_short_202509131714_l40d4.mp4" type="video/mp4" />
+        Votre navigateur ne supporte pas la vidéo.
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent md:from-black/80"></div>
+      
+      {/* Indicateur mobile */}
+      <div className="md:hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-xs opacity-70">
+        Touchez pour zoomer
+      </div>
+    </div>
 
-          <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden" onMouseEnter={() => handleVideoHover(1)} onMouseLeave={handleVideoLeave}>
-            <video
-              ref={el => (videoRefs.current[1] = el)}
-              muted
-              playsInline
-              className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 1 ? 'opacity-100' : 'opacity-40'}`}
-            >
-              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_sequence_of_202509122027_jfiaz.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-          </div>
+    {/* Vidéo 2 */}
+    <div 
+      className="relative bg-black border-b border-white/50 md:border-b-0 md:border-r border-white/50 md:border-white overflow-hidden group"
+      onMouseEnter={() => handleVideoHover(1)}
+      onMouseLeave={handleVideoLeave}
+      onTouchStart={() => handleVideoHover(1)}
+      onTouchEnd={handleVideoLeave}
+    >
+      <video
+        ref={el => (videoRefs.current[1] = el)}
+        muted
+        playsInline
+        className={`w-full h-full object-cover transition-all duration-700 ${
+          activeVideo === 1 ? 'opacity-100 scale-105' : 'opacity-40 scale-100'
+        } group-hover:scale-105`}
+      >
+        <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_sequence_of_202509122027_jfiaz.mp4" type="video/mp4" />
+        Votre navigateur ne supporte pas la vidéo.
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent md:from-black/80"></div>
+      
+      <div className="md:hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-xs opacity-70">
+        Touchez pour zoomer
+      </div>
+    </div>
 
-          <div className="relative bg-black overflow-hidden" onMouseEnter={() => handleVideoHover(2)} onMouseLeave={handleVideoLeave}>
-            <video
-              ref={el => (videoRefs.current[2] = el)}
-              muted
-              playsInline
-              className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 2 ? 'opacity-100' : 'opacity-40'}`}
-            >
-              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_rapid_fluid_202509131718_pqdeo.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-          </div>
-        </div>
-      </section>
+    {/* Vidéo 3 */}
+    <div 
+      className="relative bg-black overflow-hidden group"
+      onMouseEnter={() => handleVideoHover(2)}
+      onMouseLeave={handleVideoLeave}
+      onTouchStart={() => handleVideoHover(2)}
+      onTouchEnd={handleVideoLeave}
+    >
+      <video
+        ref={el => (videoRefs.current[2] = el)}
+        muted
+        playsInline
+        className={`w-full h-full object-cover transition-all duration-700 ${
+          activeVideo === 2 ? 'opacity-100 scale-105' : 'opacity-40 scale-100'
+        } group-hover:scale-105`}
+      >
+        <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_rapid_fluid_202509131718_pqdeo.mp4" type="video/mp4" />
+        Votre navigateur ne supporte pas la vidéo.
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent md:from-black/80"></div>
+      
+      <div className="md:hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-xs opacity-70">
+        Touchez pour zoomer
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Services Section */}
       <section id="services" className="py-20 sm:py-32 lg:py-40 bg-black section-slide-up rounded-t-[4rem] -mt-16 z-20 relative">

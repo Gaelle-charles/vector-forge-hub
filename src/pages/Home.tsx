@@ -6,6 +6,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, CheckCircle, Send, ExternalLink, Camera, Zap, Wand2, Coffee, Rocket } from 'lucide-react';
 import BlogSectionHome from '@/components/BlogSectionHome';
+import Footer from '@/components/Footer';
+
 const Home = () => {
   const scrollToSection = sectionId => {
     const element = document.getElementById(sectionId);
@@ -395,16 +397,7 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-white text-white rounded-t-[4rem] -mt-16 z-50 relative">
-        <div className="max-w-7xl mx-auto px-8 text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.png" />
-          </div>
-          <p className="text-gray-400 text-sm">
-            © 2025 GoGoGo Studio. Innovation digitale et solutions créatives.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>;
 };
 export default Home;

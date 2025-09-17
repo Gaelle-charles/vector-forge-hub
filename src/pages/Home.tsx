@@ -159,7 +159,7 @@ const Home = () => {
   return <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/90 border border-black rounded-full shadow-2xl backdrop-blur-lg transition-all duration-500 hover:bg-black hover:shadow-3xl hover:scale-[1.02] hover:-translate-y-1 hover:-translate-x-1/2 w-[95%] sm:w-[90%] md:w-[70%] lg:w-[60%] max-w-5xl">
-        <div className="flex items-center justify-between px-3 sm:px-4 md:px-6 py-5 sm:py-3">
+        <div className="flex items-center justify-between px-3 sm:px-4 md:px-6 py-2 sm:py-3">
           <div className="flex items-center space-x-2">
             <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.svg" className="h-5 sm:h-6 md:h-8" alt="Logo GoGoGo Studio" />
           </div>

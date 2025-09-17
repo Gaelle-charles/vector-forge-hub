@@ -40,10 +40,10 @@ const BlogSectionHome = () => {
       <div className="max-w-7xl mx-auto px-8">
         <div className="text-center mb-20">
           <h2 className="text-6xl font-bold text-black mb-6 tracking-tight stagger-child opacity-0">
-            Derniers Articles
+            Derniers articles
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed stagger-child opacity-0">
-            Insights et mises à jour de notre équipe sur la technologie et l'innovation
+            Intéréssé(e) par l'IA, la tech, l'automatisation, vous êtes au bon endroit, découvrez nos articles rédigés avec passion et quelques assistants 😉
           </p>
         </div>
 
@@ -52,7 +52,7 @@ const BlogSectionHome = () => {
           <Link 
             to={`/blog/${featuredArticle.slug}`}
             className="block bg-[#e76f51] rounded-3xl overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group"
-          >
+          
             <div className="flex">
               {/* Image de l'article */}
               <div className="w-1/3 h-64 bg-gradient-to-br from-[#d95f3f] to-[#c44d2b] flex items-center justify-center relative overflow-hidden">

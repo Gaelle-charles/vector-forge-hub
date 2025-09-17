@@ -29,7 +29,6 @@ const Footer = () => {
           <p>TOUS DROITS RÉSERVÉS.</p>
         </div>
 
-
         </div>
       </footer>
   );

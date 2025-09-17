@@ -5,7 +5,10 @@ import { Button } from "@/components/ui/button";
 import { useArticles } from "@/hooks/useArticles";
 
 const BlogSectionHome = () => {
-  const { articles, featuredArticle, loading } = useArticles(4);
+  const { articles, loading } = useArticles(4);
+
+  // On prend le dernier article comme "featured"
+  const featuredArticle = articles.length > 0 ? articles[articles.length - 1] : null;
 
   if (loading) {
     return (
@@ -48,13 +51,13 @@ const BlogSectionHome = () => {
         </div>
 
         <div className="space-y-12">
-          {/* Article Principal (Featured) */}
+          {/* Article Principal (dernier, en orange) */}
           <Link 
             to={`/blog/${featuredArticle.slug}`}
             className="block bg-[#e76f51] rounded-3xl overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
           
             <div className="flex">
-              {/* Image de l'article */}
+              {/* Image */}
               <div className="w-1/3 h-64 bg-gradient-to-br from-[#d95f3f] to-[#c44d2b] flex items-center justify-center relative overflow-hidden">
                 <img 
                   src={featuredArticle.image_url || "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png"} 
@@ -65,7 +68,7 @@ const BlogSectionHome = () => {
               </div>
 
               <div className="flex-1 p-8 relative">
-                {/* Decorative Elements */}
+                {/* Décor */}
                 <div className="absolute top-0 right-0 w-48 h-24 bg-gradient-to-bl from-pink-400/20 to-purple-400/20 rounded-full translate-x-1/2 -translate-y-1/2"></div>
                 
                 <div className="relative z-10">
@@ -103,9 +106,9 @@ const BlogSectionHome = () => {
             </div>
           </Link>
 
-          {/* Articles Secondaires */}
+          {/* Articles Secondaires (tous sauf le dernier) */}
           <div className="grid md:grid-cols-2 gap-8">
-            {articles.slice(0, 2).map((article, index) => (
+            {articles.slice(0, -1).map((article, index) => (
               <Link
                 key={article.id}
                 to={`/blog/${article.slug}`}
@@ -136,7 +139,9 @@ const BlogSectionHome = () => {
                       </div>
                     )}
                   </div>
-                  <div className="flex-1 p-6">
+
+                  {/* Contenu aligné avec bouton en bas */}
+                  <div className="flex-1 p-6 flex flex-col">
                     <div className="flex items-center gap-2 mb-4">
                       <Badge className="bg-[#e76f51] text-white hover:bg-purple-700 border-0 px-3 py-1 rounded-full text-xs font-medium">
                         Article
@@ -163,7 +168,7 @@ const BlogSectionHome = () => {
                     
                     <Button 
                       variant="ghost"
-                      className="text-[#e76f51] hover:text-pink-600 hover:bg-pink-50 p-0 h-auto font-medium text-sm"
+                      className="text-[#e76f51] hover:text-pink-600 hover:bg-pink-50 p-0 h-auto font-medium text-sm mt-auto"
                     >
                       Lire l'article
                     </Button>

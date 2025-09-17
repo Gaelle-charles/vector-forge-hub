@@ -9,9 +9,30 @@ const Footer = () => {
           <div className="flex items-center justify-center space-x-2 mb-4">
             <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.png" />
           </div>
-          <p className="text-gray-400 text-sm">
-            © 2025 GoGoGo Studio. Innovation digitale et solutions créatives.
-          </p>
+
+              {/* Social Links */}
+        <div className="flex justify-center space-x-8 mb-20">
+          <a href="#" className="text-black hover:text-gray-600 transition-colors">
+            <Github className="h-6 w-6" />
+          </a>
+          <a href="#" className="text-black hover:text-gray-600 transition-colors">
+            <Linkedin className="h-6 w-6" />
+          </a>
+          <a href="#" className="text-black hover:text-gray-600 transition-colors">
+            <Mail className="h-6 w-6" />
+          </a>
+        </div>
+
+        {/* Bottom Copyright */}
+        <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-black uppercase tracking-wider">
+          <p>©GoGoGo 2025</p>
+          <p>TOUS DROITS RÉSERVÉS.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
         </div>
       </footer>
   );

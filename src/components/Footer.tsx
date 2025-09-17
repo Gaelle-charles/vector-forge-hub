@@ -14,12 +14,6 @@ const Footer = () => {
             SERVICES
           </Link>
           
-          {/* Central Logo */}
-          <div className="mx-8">
-            <Link to="/" className="flex items-center space-x-2">
-                <div className="flex items-center space-x-2">
-            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.png" className="h-5 sm:h-6 md:h-8" alt="Logo GoGoGo Studio" />
-          </div>
             </Link>
           </div>
           <Link to="/blog" className="text-sm font-medium text-black hover:text-black transition-colors uppercase tracking-[0.2em] border-b border-transparent hover:border-black pb-1">
@@ -32,6 +26,17 @@ const Footer = () => {
         </div>
 
         {/* Social Links */}
+
+            {/* Central Logo */}
+          <div className="flex justify-center space-x-8 mb-20">
+
+          <div className="mx-8">
+            <Link to="/" className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2">
+            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.png" className="h-5 sm:h-6 md:h-8" alt="Logo GoGoGo Studio" />
+          </div>
+                      </div>
+
         <div className="flex justify-center space-x-8 mb-20">
           <a href="#" className="text-black hover:text-gray-600 transition-colors">
             <Github className="h-6 w-6" />

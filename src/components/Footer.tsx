@@ -46,13 +46,6 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Large Brand Name */}
-        <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-bold text-black tracking-tight leading-none">
-            AI Flora
-          </h2>
-        </div>
-
         {/* Bottom Copyright */}
         <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-black uppercase tracking-wider">
           <p>©AI FLORA 2024.</p>

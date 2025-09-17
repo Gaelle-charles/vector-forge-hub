@@ -11,7 +11,7 @@ const Footer = () => {
             </div>
 
               {/* Social Links */}
-            <div className="flex justify-center space-x-8 mb-20">
+            <div className="flex justify-center space-x-4 mb-20">
               <a href="https://www.instagram.com/gogogo.studio?igsh=enQ0cm13cGFyOW9y" className="text-black hover:text-gray-600 transition-colors">
             <Instagram className="h-6 w-6" />
               </a>

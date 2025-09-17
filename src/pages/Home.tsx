@@ -156,7 +156,7 @@ const Home = () => {
       }
     }, 100);
   };
-  return <div className="min-h-screen bg-white">
+  return <div className="min-h-screen bg-white pt-20">
 
       {/* Video Header Section */}
       <section className="bg-black relative overflow-hidden">

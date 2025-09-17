@@ -17,12 +17,14 @@ const Home = () => {
       });
     }
   };
-  const videoRefs = useRef([useRef(null), useRef(null), useRef(null)]);
+
+  // -> CORRECTION : utiliser un tableau simple dans useRef et assigner les éléments via callback refs
+  const videoRefs = useRef([]); // contiendra les éléments <video> (DOM nodes)
   const [activeVideo, setActiveVideo] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
-  // Animation au scroll avancée avec effet de glissement
-  React.useEffect(() => {
+  // Animation au scroll avancée avec effet de glissement (inchangé)
+  useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
       .scroll-animate {
@@ -65,7 +67,6 @@ const Home = () => {
     };
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        // Si l'élément est visible, on ajoute les classes d'animation
         if (entry.isIntersecting) {
           const element = entry.target;
           element.classList.add('animate-section-reveal');
@@ -77,7 +78,6 @@ const Home = () => {
             }, index * 150 + 200);
           });
         } else {
-          // Si l'élément n'est plus visible, on retire les classes d'animation pour le réanimer lors du prochain scroll
           const element = entry.target;
           element.classList.remove('animate-section-reveal');
           element.classList.remove('visible');
@@ -96,69 +96,77 @@ const Home = () => {
     };
   }, []);
 
-  // Effet pour lancer la première vidéo et enchaîner automatiquement
+  // Lecture séquentielle des vidéos : plus robuste et sans dépendance sur .current internals confus
   useEffect(() => {
-    if (!videoRefs.current.length) return;
+    // filtrer les refs valides
+    const refs = (videoRefs.current || []).filter(Boolean);
+    if (refs.length === 0) return;
 
-    // Démarre la première vidéo
-    const firstVideo = videoRefs.current[0].current;
-    if (firstVideo) {
-      firstVideo.play().catch(e => console.log("Autoplay prevented:", e));
+    // Démarrer la première vidéo si possible
+    try {
+      refs[0].play?.().catch(e => console.log("Autoplay prevented:", e));
+    } catch (e) {
+      console.log("Play error:", e);
     }
 
-    // Liste des handlers pour pouvoir les nettoyer après
+    // Ajouter les écouteurs ended
     const handlers = [];
-    videoRefs.current.forEach((ref, index) => {
-      if (!ref.current) return;
+    refs.forEach((el, index) => {
+      if (!el) return;
       const handleEnded = () => {
-        const nextVideoIndex = (index + 1) % videoRefs.current.length;
-        setActiveVideo(nextVideoIndex);
+        const nextIndex = (index + 1) % refs.length;
+        setActiveVideo(nextIndex);
 
-        // Pause toutes les vidéos
-        videoRefs.current.forEach(r => r.current?.pause());
+        // pause toutes les vidéos
+        refs.forEach(v => {
+          try { v.pause?.(); } catch (e) { /* ignore */ }
+        });
 
-        // Joue la suivante
-        const nextVideo = videoRefs.current[nextVideoIndex].current;
-        nextVideo?.play().catch(e => console.log("Autoplay prevented:", e));
+        // play suivante
+        try {
+          refs[nextIndex].play?.().catch(e => console.log("Autoplay prevented:", e));
+        } catch (e) {
+          console.log("Play error:", e);
+        }
       };
-      ref.current.addEventListener("ended", handleEnded);
-      handlers.push({
-        ref: ref.current,
-        handler: handleEnded
-      });
+      el.addEventListener('ended', handleEnded);
+      handlers.push({ el, handleEnded });
     });
 
-    // Nettoyage correct
+    // cleanup
     return () => {
-      handlers.forEach(({
-        ref,
-        handler
-      }) => {
-        ref.removeEventListener("ended", handler);
+      handlers.forEach(({ el, handleEnded }) => {
+        try { el.removeEventListener('ended', handleEnded); } catch (e) { /* ignore */ }
       });
     };
-  }, []);
+  }, []); // exécuter une seule fois après mount
 
-  // Gestion du survol des vidéos
+  // Survol / hover : changement de vidéo
   const handleVideoHover = index => {
     setActiveVideo(index);
     setIsHovering(true);
-    videoRefs.current.forEach(ref => ref.current?.pause());
-    videoRefs.current[index].current?.play().catch(e => console.log("Autoplay prevented:", e));
+
+    const refs = (videoRefs.current || []).filter(Boolean);
+    // pause tout, puis jouer l'index
+    refs.forEach(r => {
+      try { r.pause?.(); } catch (e) {}
+    });
+    try { refs[index]?.play?.().catch(e => console.log("Autoplay prevented:", e)); } catch (e) {}
   };
   const handleVideoLeave = () => {
     setIsHovering(false);
-    // Reprendre la lecture séquentielle après le survol
+    // Reprendre la lecture séquentielle après le survol (courte latence)
     setTimeout(() => {
       if (!isHovering) {
-        const currentVideo = videoRefs.current[activeVideo].current;
-        if (currentVideo) {
-          currentVideo.play().catch(e => console.log("Autoplay prevented:", e));
-        }
+        const refs = (videoRefs.current || []).filter(Boolean);
+        const current = refs[activeVideo];
+        try { current?.play?.().catch(e => console.log("Autoplay prevented:", e)); } catch (e) {}
       }
     }, 100);
   };
-  return <div className="min-h-screen bg-white">
+
+  return (
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/90 border border-black rounded-full shadow-2xl backdrop-blur-lg transition-all duration-500 hover:bg-black hover:shadow-3xl hover:scale-[1.02] hover:-translate-y-1 hover:-translate-x-1/2 w-[95%] sm:w-[90%] md:w-[70%] lg:w-[60%] max-w-5xl">
         <div className="flex items-center justify-between px-3 sm:px-4 md:px-6 py-5 sm:py-3">
@@ -204,19 +212,36 @@ const Home = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 h-screen border-white">
           <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden" onMouseEnter={() => handleVideoHover(0)} onMouseLeave={handleVideoLeave}>
-            <video ref={videoRefs.current[0]} muted playsInline className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 0 ? 'opacity-100' : 'opacity-40'}`}>
+            <video
+              ref={el => (videoRefs.current[0] = el)}
+              muted
+              playsInline
+              className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 0 ? 'opacity-100' : 'opacity-40'}`}
+            >
               <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/Pixar_animated_short_202509131714_l40d4.mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>
+
           <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden" onMouseEnter={() => handleVideoHover(1)} onMouseLeave={handleVideoLeave}>
-            <video ref={videoRefs.current[1]} muted playsInline className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 1 ? 'opacity-100' : 'opacity-40'}`}>
+            <video
+              ref={el => (videoRefs.current[1] = el)}
+              muted
+              playsInline
+              className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 1 ? 'opacity-100' : 'opacity-40'}`}
+            >
               <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_sequence_of_202509122027_jfiaz.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>
+
           <div className="relative bg-black overflow-hidden" onMouseEnter={() => handleVideoHover(2)} onMouseLeave={handleVideoLeave}>
-            <video ref={videoRefs.current[2]} muted playsInline className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 2 ? 'opacity-100' : 'opacity-40'}`}>
+            <video
+              ref={el => (videoRefs.current[2] = el)}
+              muted
+              playsInline
+              className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 2 ? 'opacity-100' : 'opacity-40'}`}
+            >
               <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_rapid_fluid_202509131718_pqdeo.mp4" type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -237,8 +262,7 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-
-            {/* Réalisation d'apps web/mobile */}
+            {/* ... les cards de service (inchangées) ... */}
             <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="absolute top-4 sm:top-6 right-4 sm:right-6 w-6 h-6 sm:w-8 sm:h-8 text-gray-400 group-hover:text-black transition-colors mb-4">
                 <Smartphone className="w-full h-full" />
@@ -253,7 +277,6 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Génération de vidéo/photo avec l'IA */}
             <div className="bg-[#e76f51] rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="absolute top-4 sm:top-6 right-4 sm:right-6 w-6 h-6 sm:w-8 sm:h-8 text-black/60 group-hover:text-black transition-colors mb-4">
                 <Camera className="w-full h-full" />
@@ -267,8 +290,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            
-            {/* Automatisation du process */}
+
             <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="absolute top-4 sm:top-6 right-4 sm:right-6 w-6 h-6 sm:w-8 sm:h-8 text-gray-400 group-hover:text-black transition-colors mb-4">
                 <Zap className="w-full h-full" />
@@ -282,8 +304,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            
-            {/* Réalisation d'agents IA */}
+
             <div className="bg-[#e76f51] rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="absolute top-4 sm:top-6 right-4 sm:right-6 w-6 h-6 sm:w-8 sm:h-8 text-white/60 group-hover:text-white transition-colors mb-4">
                 <Bot className="w-full h-full" />
@@ -304,7 +325,6 @@ const Home = () => {
       <BlogSectionHome />
 
       {/* Contact Section */}
-      {/* Contact Section */}
       <section id="contact" className="py-20 sm:py-32 lg:py-40 bg-black section-slide-up rounded-t-[4rem] -mt-16 z-40 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
@@ -319,7 +339,6 @@ const Home = () => {
           <div className="space-y-8 sm:space-y-12">
             {/* Card Principal de Contact */}
             <div className="bg-[#e76f51] rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
-              {/* Decorative Elements */}
               <div className="absolute top-0 left-0 w-32 h-16 sm:w-64 sm:h-32 bg-gradient-to-br from-pink-400/30 to-purple-400/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
               <div className="absolute top-0 right-0 w-32 h-16 sm:w-64 sm:h-32 bg-gradient-to-bl from-pink-400/30 to-purple-400/30 rounded-full translate-x-1/2 -translate-y-1/2"></div>
               
@@ -396,8 +415,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Home;

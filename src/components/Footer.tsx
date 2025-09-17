@@ -28,10 +28,7 @@ const Footer = () => {
           <p>©GoGoGo 2025</p>
           <p>TOUS DROITS RÉSERVÉS.</p>
         </div>
-      </div>
-    </footer>
-  );
-};
+
 
         </div>
       </footer>

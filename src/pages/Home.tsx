@@ -6,6 +6,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, CheckCircle, Send, ExternalLink, Camera, Zap, Wand2, Coffee, Rocket } from 'lucide-react';
 import BlogSectionHome from '@/components/BlogSectionHome';
+import Footer from '@/components/Footer';
+
 const Home = () => {
   const scrollToSection = sectionId => {
     const element = document.getElementById(sectionId);

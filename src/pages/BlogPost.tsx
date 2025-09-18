@@ -152,16 +152,16 @@ const BlogPost = () => {
             prose-headings:text-black-900 
             prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-6
             prose-h3:text-2xl prose-h3:font-bold prose-h3:mt-10 prose-h3:mb-4
-            prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6
+            prose-p:text-black-700 prose-p:leading-relaxed prose-p:mb-6
             prose-a:text-[#e76f51] prose-a:font-medium prose-a:no-underline hover:prose-a:underline
-            prose-strong:text-gray-900
-            prose-ul:text-gray-700 prose-ul:my-6
-            prose-ol:text-gray-700 prose-ol:my-6
-            prose-li:text-gray-700 prose-li:mb-2
+            prose-strong:text-black-900
+            prose-ul:text-black-700 prose-ul:my-6
+            prose-ol:text-black-700 prose-ol:my-6
+            prose-li:text-black-700 prose-li:mb-2
             prose-blockquote:border-[#e76f51] prose-blockquote:text-gray-600 prose-blockquote:italic prose-blockquote:pl-6 prose-blockquote:py-2
             prose-img:rounded-xl prose-img:shadow-md prose-img:my-8
             prose-hr:my-12 prose-hr:border-gray-200
-            prose-code:text-gray-800 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded
+            prose-code:text-black-800 prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded
             prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:p-6 prose-pre:rounded-xl
             prose-table:w-full prose-table:my-8
             prose-th:bg-gray-100 prose-th:text-gray-900 prose-th:p-4 prose-th:text-left

@@ -117,20 +117,6 @@ const BlogPost = () => {
             </p>
           )}
 
-          {/* Tags */}
-          {post.tags && post.tags.length > 0 && (
-            <div className="flex flex-wrap items-center gap-2 mb-8">
-              <Tag className="w-4 h-4 text-gray-400" />
-              {post.tags.map((tag, index) => (
-                <span
-                  key={index}
-                  className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          )}
 
           {/* Bouton partager */}
           <div className="flex justify-end mb-8">

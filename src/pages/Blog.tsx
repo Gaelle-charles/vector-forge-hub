@@ -23,7 +23,7 @@ const Blog = () => {
       <section className="relative pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/ai-brain.jpg" 
+            src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Gemini_Generated_Image_3s74133s74133s74.png" 
             alt="Intelligence Artificielle" 
             className="w-full h-full object-cover opacity-30"
           />

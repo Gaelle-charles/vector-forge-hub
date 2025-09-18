@@ -143,8 +143,7 @@ const BlogPost = () => {
           {/* Séparateur */}
           <div className="border-t border-gray-200 mb-8"></div>
 
-          {/* CONTENU DE L'ARTICLE */}
-          {/* CONTENU DE L'ARTICLE */}
+         {/* CONTENU DE L'ARTICLE */}
 <article className="prose prose-lg max-w-none 
   prose-headings:text-black 
   prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-6

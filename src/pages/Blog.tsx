@@ -20,7 +20,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen py-10 bg-white">
       {/* Hero Section avec Image de Header */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/ai-brain.jpg" 
@@ -166,16 +166,7 @@ const Blog = () => {
       </section>
 
        {/* Footer */}
-      <footer className="py-8 bg-white text-white rounded-t-[4rem] -mt-16 z-50 relative">
-        <div className="max-w-7xl mx-auto px-8 text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <img src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.png" />
-          </div>
-          <p className="text-gray-400 text-sm">
-            © 2025 GoGoGo Studio. Innovation digitale et solutions créatives.
-          </p>
-        </div>
-      </footer>
+
     </div>
   );
 };

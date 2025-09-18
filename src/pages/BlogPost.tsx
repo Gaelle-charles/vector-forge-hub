@@ -149,7 +149,7 @@ const BlogPost = () => {
 
           {/* CONTENU DE L'ARTICLE */}
           <article className="prose prose-lg max-w-none 
-            prose-headings:text-gray-900 
+            prose-headings:text-black-900 
             prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-12 prose-h2:mb-6
             prose-h3:text-2xl prose-h3:font-bold prose-h3:mt-10 prose-h3:mb-4
             prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6

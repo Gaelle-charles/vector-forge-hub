@@ -18,7 +18,7 @@ const Blog = () => {
     );
   }
   return (
-    <div className="min-h-screen pt-20 bg-black">
+    <div className="min-h-screen py-10 bg-white">
       {/* Hero Section avec Image de Header */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -70,7 +70,7 @@ const Blog = () => {
                       </div>
                     </div>
                     
-                    <h3 className="text-2xl lg:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-foreground group-hover:text-[#e76f51] transition-colors">
                       {featuredArticle.title}
                     </h3>
                     
@@ -132,7 +132,7 @@ const Blog = () => {
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-[#e76f51] transition-colors">
                     {post.title}
                   </h3>
                   

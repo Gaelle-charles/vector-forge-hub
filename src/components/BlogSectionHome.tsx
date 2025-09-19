@@ -49,7 +49,14 @@ const BlogSectionHome = () => {
           <Link to={`/blog/${featuredArticle.slug}`} className="block bg-[#e76f51] rounded-3xl overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
             
             <div className="w-full h-80 relative overflow-hidden">
-              <img src={featuredArticle.image_url || "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png"} alt={featuredArticle.title} className="w-full h-full object-cover opacity-70 group-hover:opacity-80 transition-opacity duration-300" />
+              <img 
+                src={featuredArticle.image_url || "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png"} 
+                alt={featuredArticle.title} 
+                className="w-full h-full object-cover opacity-70 group-hover:opacity-80 transition-opacity duration-300"
+                onError={(e) => {
+                  e.currentTarget.src = "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png";
+                }}
+              />
               <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
             </div>
 
@@ -91,13 +98,24 @@ const BlogSectionHome = () => {
             {otherArticles.map(article => <Link key={article.id} to={`/blog/${article.slug}`} className="block bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group stagger-child opacity-0 overflow-hidden border border-gray-100 flex flex-col">
                 {/* Image pleine largeur */}
                 <div className="w-full h-48 relative overflow-hidden">
-                  {article.image_url ? <img src={article.image_url} alt={article.title} className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300" /> : <div className="w-full h-full bg-gradient-to-br from-orange-400 via-red-400 to-pink-500 flex items-center justify-center">
+                  {article.image_url ? (
+                    <img 
+                      src={article.image_url} 
+                      alt={article.title} 
+                      className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
+                      onError={(e) => {
+                        e.currentTarget.src = "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png";
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-orange-400 via-red-400 to-pink-500 flex items-center justify-center">
                       <div className="w-24 h-24 bg-white/20 rounded-2xl flex items-center justify-center">
                         <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.415-3.414l5-5A2 2 0 008 10.172V5L8 4z" />
                         </svg>
                       </div>
-                    </div>}
+                    </div>
+                  )}
                 </div>
                 
                 {/* Contenu */}

@@ -68,9 +68,12 @@ const Blog = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="aspect-[4/3] sm:aspect-video overflow-hidden rounded-xl sm:rounded-2xl">
                     <img
-                      src={featuredArticle.image_url || "/src/assets/ai-brain.jpg"}
+                      src={featuredArticle.image_url || "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png"}
                       alt={featuredArticle.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => {
+                        e.currentTarget.src = "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png";
+                      }}
                     />
                   </div>
                   
@@ -125,9 +128,12 @@ const Blog = () => {
               >
                 <div className="aspect-[4/3] sm:aspect-video mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl">
                   <img
-                    src={post.image_url || "/src/assets/ai-brain.jpg"}
+                    src={post.image_url || "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png"}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    onError={(e) => {
+                      e.currentTarget.src = "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png";
+                    }}
                   />
                 </div>
                 

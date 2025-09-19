@@ -54,9 +54,12 @@ const BlogPost = () => {
       {/* Header avec image de couverture */}
       <header className="relative h-96 w-full overflow-hidden">
         <img
-          src={post.image_url || "/src/assets/ai-brain.jpg"}
+          src={post.image_url || "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png"}
           alt={post.title}
           className="w-full h-full object-cover"
+          onError={(e) => {
+            e.currentTarget.src = "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png";
+          }}
         />
         <div className="absolute inset-0 bg-black/40"></div>
         

@@ -18,7 +18,7 @@ const Blog = () => {
     );
   }
   return (
-    <div className="min-h-screen py-10 bg-white">
+    <div className="min-h-screen pb-10 bg-white">
       {/* Hero Section avec Image de Header */}
       <section className="relative pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">

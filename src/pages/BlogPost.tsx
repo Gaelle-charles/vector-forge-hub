@@ -121,19 +121,13 @@ const BlogPost = () => {
           )}
 
 
-          {/* Bouton partager */}
-          <div className="flex justify-end mb-8">
-            <button className="flex items-center space-x-2 text-gray-600 hover:text-[#e76f51] transition-colors px-4 py-2 rounded-lg hover:bg-gray-50">
-              <Share2 className="w-4 h-4" />
-              <span>Partager cet article</span>
-            </button>
-          </div>
+         
 
           {/* Séparateur */}
           <div className="border-t border-gray-200 mb-8"></div>
 
        {/* CONTENU DE L'ARTICLE */}
-<article className="prose prose-lg max-w-none 
+<article className="prose prose-lg max-w-none text-black-600
   prose-headings:!text-black 
   prose-h2:!text-3xl prose-h2:!font-bold prose-h2:!mt-12 prose-h2:!mb-6
   prose-h3:!text-2xl prose-h3:!font-bold prose-h3:!mt-10 prose-h3:!mb-4

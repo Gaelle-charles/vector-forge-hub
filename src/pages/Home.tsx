@@ -25,19 +25,8 @@ const Home = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   // === Formspree hook ===
-  const [state, handleSubmit] = useForm("xqadrkjd"); // Remplace par ton ID Formspree
-const Home = () => {
-  const scrollToSection = sectionId => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  };
-  const videoRefs = useRef([useRef(null), useRef(null), useRef(null)]);
-  const [activeVideo, setActiveVideo] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
+  const [state, handleSubmit] = useForm("xqadrkjd");
+
 
   
 

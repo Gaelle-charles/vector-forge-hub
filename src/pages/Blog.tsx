@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Calendar, User, ArrowRight, Clock } from "lucide-react";
+import { Calendar, User, ArrowRight, Clock, Home } from "lucide-react";
 import { useArticles } from "@/hooks/useArticles";
 
 const Blog = () => {
@@ -25,7 +25,7 @@ const Blog = () => {
           <img 
             src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Gemini_Generated_Image_3s74133s74133s74.png" 
             alt="Intelligence Artificielle" 
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-contain opacity-30"
           />
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
@@ -36,6 +36,19 @@ const Blog = () => {
           <p className="text-xl text-white/90 max-w-3xl mx-auto mb-12 drop-shadow-md">
             Découvrez nos articles et plongez dans l'univers de l'intelligence artificielle émergentes qui vous permettra de booster votre business.
           </p>
+        </div>
+      </section>
+
+      {/* Bouton Retour à l'accueil */}
+      <section className="py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link
+            to="/"
+            className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors font-medium"
+          >
+            <Home className="w-5 h-5" />
+            <span>Retour à l'accueil</span>
+          </Link>
         </div>
       </section>
 

@@ -167,7 +167,8 @@ const Home = () => {
       }
     }, 100);
   };
-  return <div className="min-h-screen bg-white">
+  return (
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
            <Navigation />
 
@@ -385,6 +386,8 @@ const Home = () => {
       {/* Footer */}
     <Footer />
 
-    </div>;
+    </div>
+  );
 };
+
 export default Home;

@@ -21,21 +21,29 @@ const Blog = () => {
   return (
     <div className="min-h-screen pb-10 bg-white">
       {/* Hero Section avec Image de Header */}
-      <section className="relative pb-20 overflow-hidden">
+<section className="relative h-[70vh] min-h-[500px] overflow-hidden">
+        {/* Image de fond */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Gemini_Generated_Image_3s74133s74133s74.png" 
             alt="Intelligence Artificielle" 
-            className="w-full h-full object-cover opacity-80"
+            className="w-full h-full object-cover"
           />
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto py-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-black drop-shadow-lg">Blog
-          </h1>
-          <p className="text-xl text-black/90 max-w-3xl mx-auto mb-12 drop-shadow-md">
-            Découvrez nos articles et plongez dans l'univers de l'intelligence artificielle émergentes qui vous permettra de booster votre business.
-          </p>
+        {/* Overlay sombre pour améliorer la lisibilité */}
+        <div className="absolute inset-0 z-5 bg-black/40"></div>
+        
+        {/* Contenu */}
+        <div className="relative z-10 max-w-7xl mx-auto h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 text-center">
+          <div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white drop-shadow-2xl">
+              Blog
+            </h1>
+            <p className="text-xl md:text-2xl text-white/95 max-w-4xl mx-auto mb-12 drop-shadow-xl leading-relaxed">
+              Découvrez nos articles et plongez dans l'univers de l'intelligence artificielle émergentes qui vous permettra de booster votre business.
+            </p>
+          </div>
         </div>
       </section>
 

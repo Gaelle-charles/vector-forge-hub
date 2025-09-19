@@ -300,9 +300,7 @@ const Home = () => {
           </div>
 
           <div className="space-y-8 sm:space-y-12">
-            {/* Card Principal de Contact */}
-            <div className="bg-[#e76f51] rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
-              {/* Formulaire connecté à Formspree */}
+            {/* Formulaire connecté à Formspree */}
             <form onSubmit={handleSubmit} className="bg-[#e76f51] rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               {/* Decorative Elements */}
               <div className="absolute top-0 left-0 w-32 h-16 sm:w-64 sm:h-32 bg-gradient-to-br from-pink-400/30 to-purple-400/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>

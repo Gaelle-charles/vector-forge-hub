@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from "react-router-dom";
+
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,10 +34,13 @@ const Navigation = () => {
               Services
               <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
             </button>
-            <button onClick={() => scrollToSection('blog')} className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20">
-              Blog
-              <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
-            </button>
+<Link 
+  to="/blog" 
+  className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 inline-block"
+>
+  Blog
+  <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
+</Link>
             <button onClick={() => scrollToSection('consultation')} className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20">
               Prendre rendez-vous
               <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
@@ -80,12 +85,13 @@ const Navigation = () => {
               >
                 Services
               </button>
-              <button 
-                onClick={() => scrollToSection('blog')}
-                className="text-white hover:text-[#e76f51] font-bold py-4 px-6 rounded-xl hover:bg-white/10 transition-all duration-300 text-center text-lg"
-              >
-                Blog
-              </button>
+<Link 
+  to="/blog" 
+  className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 inline-block"
+>
+  Blog
+  <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
+</Link>
               <button 
                 onClick={() => scrollToSection('consultation')}
                 className="text-white hover:text-[#e76f51] font-bold py-4 px-6 rounded-xl hover:bg-white/10 transition-all duration-300 text-center text-lg"

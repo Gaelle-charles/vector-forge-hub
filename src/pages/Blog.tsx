@@ -30,10 +30,10 @@ const Blog = () => {
           />
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">Blog
+        <div className="relative z-10 max-w-7xl mx-auto py-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-black drop-shadow-lg">Blog
           </h1>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto mb-12 drop-shadow-md">
+          <p className="text-xl text-black/90 max-w-3xl mx-auto mb-12 drop-shadow-md">
             Découvrez nos articles et plongez dans l'univers de l'intelligence artificielle émergentes qui vous permettra de booster votre business.
           </p>
         </div>

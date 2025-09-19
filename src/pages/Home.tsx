@@ -8,6 +8,9 @@ import { ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, CheckCircl
 import BlogSectionHome from '@/components/BlogSectionHome';
 import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
+// === Formspree ===
+import { useForm, ValidationError } from "@formspree/react";
+
 const Home = () => {
   const scrollToSection = sectionId => {
     const element = document.getElementById(sectionId);
@@ -20,6 +23,23 @@ const Home = () => {
   const videoRefs = useRef([useRef(null), useRef(null), useRef(null)]);
   const [activeVideo, setActiveVideo] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+
+  // === Formspree hook ===
+  const [state, handleSubmit] = useForm("xqadrkjd"); // Remplace par ton ID Formspree
+const Home = () => {
+  const scrollToSection = sectionId => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
+  const videoRefs = useRef([useRef(null), useRef(null), useRef(null)]);
+  const [activeVideo, setActiveVideo] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+
+  
 
   // Animation au scroll avancée avec effet de glissement
   React.useEffect(() => {
@@ -293,18 +313,16 @@ const Home = () => {
           <div className="space-y-8 sm:space-y-12">
             {/* Card Principal de Contact */}
             <div className="bg-[#e76f51] rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+              {/* Formulaire connecté à Formspree */}
+            <form onSubmit={handleSubmit} className="bg-[#e76f51] rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               {/* Decorative Elements */}
               <div className="absolute top-0 left-0 w-32 h-16 sm:w-64 sm:h-32 bg-gradient-to-br from-pink-400/30 to-purple-400/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
               <div className="absolute top-0 right-0 w-32 h-16 sm:w-64 sm:h-32 bg-gradient-to-bl from-pink-400/30 to-purple-400/30 rounded-full translate-x-1/2 -translate-y-1/2"></div>
               
               <div className="relative z-10 max-w-full lg:max-w-4xl">
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                  <Badge className="bg-black text-white hover:bg-purple-700 border-0 px-3 sm:px-4 py-1 sm:py-2 rounded-full font-medium text-xs sm:text-sm">
-                    Contact
-                  </Badge>
-                  <Badge className="bg-black text-white hover:bg-pink-600 border-0 px-3 sm:px-4 py-1 sm:py-2 rounded-full font-medium text-xs sm:text-sm">
-                    Collaboration
-                  </Badge>
+                  <Badge className="bg-black text-white">Contact</Badge>
+                  <Badge className="bg-black text-white">Collaboration</Badge>
                   <span className="text-white/80 text-xs sm:text-sm font-medium">Réponse sous 24h</span>
                 </div>
                 
@@ -317,21 +335,28 @@ const Home = () => {
                 </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-                  <Input placeholder="Prénom" className="border-2 border-white/20 text-black bg-white placeholder:text-gray-500 rounded-xl py-2 sm:py-3" />
-                  <Input placeholder="Nom" className="border-2 border-white/20 text-black bg-white placeholder:text-gray-500 rounded-xl py-2 sm:py-3" />
+                  <Input name="firstName" placeholder="Prénom" className="border-2 border-white/20 text-black bg-white" />
+                  <Input name="lastName" placeholder="Nom" className="border-2 border-white/20 text-black bg-white" />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
-                  <Input placeholder="Adresse email" type="email" className="border-2 border-white/20 text-black bg-white placeholder:text-gray-500 rounded-xl py-2 sm:py-3" />
-                  <Input placeholder="Entreprise (optionnel)" className="border-2 border-white/20 text-black bg-white placeholder:text-gray-500 rounded-xl py-2 sm:py-3" />
+                  <Input name="email" type="email" placeholder="Adresse email" required className="border-2 border-white/20 text-black bg-white" />
+                  <Input name="company" placeholder="Entreprise (optionnel)" className="border-2 border-white/20 text-black bg-white" />
                 </div>
-                <Textarea placeholder="Parlez-nous de votre projet..." rows={4} className="border-2 border-white/20 text-black bg-white placeholder:text-gray-500 rounded-xl mb-4 sm:mb-6" />
+                <Textarea name="message" placeholder="Parlez-nous de votre projet..." rows={4} required className="border-2 border-white/20 text-black bg-white mb-4 sm:mb-6" />
                 
-                <Button className="bg-black text-white hover:bg-white hover:text-black border-2 border-black hover:border-black rounded-full px-6 sm:px-8 py-2 sm:py-3 font-medium text-base sm:text-lg transition-all duration-300">
-                  <Send className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
-                  Envoyer le Message
-                </Button>
+                <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-sm" />
+                <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-sm mb-2" />
+
+                {state.succeeded ? (
+                  <p className="text-white font-medium">Merci pour votre message, nous vous répondrons vite !</p>
+                ) : (
+                  <Button type="submit" disabled={state.submitting} className="bg-black text-white hover:bg-white hover:text-black border-2 border-black rounded-full px-6 sm:px-8 py-2 sm:py-3 font-medium text-base sm:text-lg">
+                    <Send className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
+                    {state.submitting ? "Envoi..." : "Envoyer le Message"}
+                  </Button>
+                )}
               </div>
-            </div>
+            </form>
 
             {/* Card de Consultation */}
             <div id="consultation" className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 relative overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">

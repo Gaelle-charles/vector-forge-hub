@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Calendar, User, ArrowRight, Clock, Home } from "lucide-react";
 import { useArticles } from "@/hooks/useArticles";
+import { Button } from "@/components/ui/button";
 
 const Blog = () => {
   const { articles: blogPosts, featuredArticle, loading } = useArticles();
@@ -25,9 +26,8 @@ const Blog = () => {
           <img 
             src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Gemini_Generated_Image_3s74133s74133s74.png" 
             alt="Intelligence Artificielle" 
-            className="w-full h-full object-contain opacity-30"
+            className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-black/60"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -42,13 +42,15 @@ const Blog = () => {
       {/* Bouton Retour à l'accueil */}
       <section className="py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            to="/"
-            className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors font-medium"
-          >
-            <Home className="w-5 h-5" />
-            <span>Retour à l'accueil</span>
-          </Link>
+          <Button asChild variant="outline">
+            <Link
+              to="/"
+              className="inline-flex items-center space-x-2"
+            >
+              <Home className="w-5 h-5" />
+              <span>Retour à l'accueil</span>
+            </Link>
+          </Button>
         </div>
       </section>
 

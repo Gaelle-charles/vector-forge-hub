@@ -6,6 +6,7 @@ import { useArticles } from "@/hooks/useArticles";
 const BlogSectionHome = () => {
   const {
     articles,
+    featuredArticle,
     loading
   } = useArticles(4);
   if (loading) {
@@ -31,10 +32,8 @@ const BlogSectionHome = () => {
       </section>;
   }
 
-  // dernier article = card orange
-  const featuredArticle = articles[articles.length - 1];
-  // autres articles
-  const otherArticles = articles.slice(0, -1);
+  // L'article featured est maintenant géré par le hook useArticles
+  // otherArticles sont les articles restants
   return <section id="blog" className="py-40 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
       <div className="max-w-7xl mx-auto px-8">
         <div className="text-center mb-20">
@@ -45,8 +44,9 @@ const BlogSectionHome = () => {
         </div>
 
         <div className="space-y-12">
-          {/* Article Principal (Dernier = Featured) */}
-          <Link to={`/blog/${featuredArticle.slug}`} className="block bg-[#e76f51] rounded-3xl overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+          {/* Article Principal (Plus récent) */}
+          {featuredArticle && (
+            <Link to={`/blog/${featuredArticle.slug}`} className="block bg-[#e76f51] rounded-3xl overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
             
             <div className="w-full h-80 relative overflow-hidden">
               <img 
@@ -92,10 +92,11 @@ const BlogSectionHome = () => {
               </div>
             </div>
           </Link>
+          )}
 
           {/* Articles Secondaires */}
           <div className="grid md:grid-cols-2 gap-8">
-            {otherArticles.map(article => <Link key={article.id} to={`/blog/${article.slug}`} className="block bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group stagger-child opacity-0 overflow-hidden border border-gray-100 flex flex-col">
+            {articles.map(article => <Link key={article.id} to={`/blog/${article.slug}`} className="block bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group stagger-child opacity-0 overflow-hidden border border-gray-100 flex flex-col">
                 {/* Image pleine largeur */}
                 <div className="w-full h-48 relative overflow-hidden">
                   {article.image_url ? (

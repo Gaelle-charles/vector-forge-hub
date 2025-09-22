@@ -90,6 +90,10 @@ const Blog = () => {
                       <span className="px-3 py-1 rounded-full font-medium bg-[#e76f51] text-white">
                         Featured • {featuredArticle.category}
                       </span>
+                      <div className="flex items-center space-x-2">
+                        <Clock className="w-4 h-4" />
+                        <span>{featuredArticle.read_time} min</span>
+                      </div>
                     </div>
                     
                     <h3 className="text-2xl lg:text-3xl font-bold text-foreground group-hover:text-[#e76f51] transition-colors">
@@ -151,7 +155,10 @@ const Blog = () => {
                      }`}>
                        {post.category}
                      </span>
-
+                    <div className="flex items-center space-x-2">
+                      <Clock className="w-4 h-4" />
+                      <span>{post.read_time} min</span>
+                    </div>
                   </div>
                   
                   <h3 className="text-xl font-bold text-foreground group-hover:text-[#e76f51] transition-colors">
@@ -164,7 +171,10 @@ const Blog = () => {
                   
                   <div className="flex items-center justify-between pt-4 border-t border-border">
                     <div className="flex items-center space-x-3 text-sm text-medium-gray">
-   
+                      <div className="flex items-center space-x-1">
+                        <User className="w-4 h-4" />
+                        <span>{post.author}</span>
+                      </div>
                       <div className="flex items-center space-x-1">
                         <Calendar className="w-4 h-4" />
                         <span>{new Date(post.date).toLocaleDateString('fr-FR', {

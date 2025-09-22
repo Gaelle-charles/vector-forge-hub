@@ -107,10 +107,6 @@ const Blog = () => {
                     <div className="flex items-center justify-between pt-4 border-t border-border">
                       <div className="flex items-center space-x-3 text-sm text-medium-gray">
                         <div className="flex items-center space-x-1">
-                          <User className="w-4 h-4" />
-                          <span>{featuredArticle.author}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
                           <Calendar className="w-4 h-4" />
                           <span>{new Date(featuredArticle.date).toLocaleDateString('fr-FR', {
                             day: 'numeric',
@@ -171,10 +167,7 @@ const Blog = () => {
                   
                   <div className="flex items-center justify-between pt-4 border-t border-border">
                     <div className="flex items-center space-x-3 text-sm text-medium-gray">
-                      <div className="flex items-center space-x-1">
-                        <User className="w-4 h-4" />
-                        <span>{post.author}</span>
-                      </div>
+
                       <div className="flex items-center space-x-1">
                         <Calendar className="w-4 h-4" />
                         <span>{new Date(post.date).toLocaleDateString('fr-FR', {

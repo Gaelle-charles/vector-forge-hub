@@ -1,12 +1,19 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import type { Database } from '@/integrations/supabase/types';
 
-type Article = Database['public']['Tables']['articles']['Row'] & {
-  Statut?: string;
-};
-
-export { type Article };
+export interface Article {
+  id: string;
+  title: string;
+  excerpt: string | null;
+  content?: string | null;
+  author: string;
+  date: string;
+  read_time: number;
+  category: string;
+  image_url: string | null;
+  slug: string;
+  is_featured?: boolean;
+}
 
 export const useArticles = (limit?: number) => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -18,15 +25,10 @@ export const useArticles = (limit?: number) => {
     const fetchArticles = async () => {
       try {
         setLoading(true);
-        
-        // Construire la requête étape par étape
         let query = supabase
           .from('articles')
           .select('*')
           .order('date', { ascending: false });
-
-        // Ajouter le filtre Statut en utilisant une assertion de type pour contourner le problème
-        query = (query as any).eq('Statut', 'Publié');
 
         if (limit) {
           query = query.limit(limit);
@@ -41,15 +43,12 @@ export const useArticles = (limit?: number) => {
         }
 
         if (data && data.length > 0) {
-          // L'article le plus récent devient l'article featured
-          const mostRecent = data[0] as Article;
-          const otherArticles = data.slice(1) as Article[];
+          // Séparer l'article featured des autres
+          const featured = data.find(article => article.is_featured);
+          const regular = data.filter(article => !article.is_featured);
 
-          setFeaturedArticle(mostRecent);
-          setArticles(otherArticles);
-        } else {
-          setFeaturedArticle(null);
-          setArticles([]);
+          setFeaturedArticle(featured || null);
+          setArticles(regular);
         }
       } catch (err) {
         console.error('Error in fetchArticles:', err);
@@ -69,6 +68,7 @@ export const useArticles = (limit?: number) => {
     error,
     refetch: () => {
       setLoading(true);
+      // Re-déclencher l'useEffect
     }
   };
 };
@@ -84,16 +84,11 @@ export const useArticle = (slug: string) => {
 
       try {
         setLoading(true);
-        
-        let query = supabase
+        const { data, error } = await supabase
           .from('articles')
           .select('*')
-          .eq('slug', slug);
-        
-        // Ajouter le filtre Statut
-        query = (query as any).eq('Statut', 'Publié');
-
-        const { data, error } = await query.maybeSingle();
+          .eq('slug', slug)
+          .maybeSingle();
 
         if (error) {
           console.error('Error fetching article:', error);
@@ -101,7 +96,7 @@ export const useArticle = (slug: string) => {
           return;
         }
 
-        setArticle(data as Article);
+        setArticle(data);
       } catch (err) {
         console.error('Error in fetchArticle:', err);
         setError('Erreur lors du chargement de l\'article');

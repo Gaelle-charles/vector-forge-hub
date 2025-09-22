@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 
 export interface Article {
   id: string;
@@ -14,9 +15,6 @@ export interface Article {
   is_featured?: boolean;
 }
 
-const SUPABASE_URL = "https://zsvnqforlvunxzphatey.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpzdm5xZm9ybHZ1bnh6cGhhdGV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc3ODAyNjAsImV4cCI6MjA3MzM1NjI2MH0.XQcMCR2E4Xk7k53NU2Q1RQiKyOT_2Ei2gRp126goOBw";
-
 export const useArticles = (limit?: number) => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [featuredArticle, setFeaturedArticle] = useState<Article | null>(null);
@@ -27,33 +25,30 @@ export const useArticles = (limit?: number) => {
     const fetchArticles = async () => {
       try {
         setLoading(true);
-        
-        let url = `${SUPABASE_URL}/rest/v1/articles?Statut=eq.Publié&order=date.desc`;
+        let query = supabase
+          .from('articles')
+          .select('*')
+          .order('date', { ascending: false });
+
         if (limit) {
-          url += `&limit=${limit}`;
+          query = query.limit(limit);
         }
 
-        const response = await fetch(url, {
-          headers: {
-            'apikey': SUPABASE_ANON_KEY,
-            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-            'Content-Type': 'application/json'
-          }
-        });
+        const { data, error } = await query;
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch articles');
+        if (error) {
+          console.error('Error fetching articles:', error);
+          setError('Erreur lors du chargement des articles');
+          return;
         }
-
-        const data: Article[] = await response.json();
 
         if (data && data.length > 0) {
-          // L'article le plus récent devient l'article featured
-          const mostRecent = data[0];
-          const otherArticles = data.slice(1);
+          // Séparer l'article featured des autres
+          const featured = data.find(article => article.is_featured);
+          const regular = data.filter(article => !article.is_featured);
 
-          setFeaturedArticle(mostRecent);
-          setArticles(otherArticles);
+          setFeaturedArticle(featured || null);
+          setArticles(regular);
         }
       } catch (err) {
         console.error('Error in fetchArticles:', err);
@@ -73,6 +68,7 @@ export const useArticles = (limit?: number) => {
     error,
     refetch: () => {
       setLoading(true);
+      // Re-déclencher l'useEffect
     }
   };
 };
@@ -88,23 +84,19 @@ export const useArticle = (slug: string) => {
 
       try {
         setLoading(true);
-        
-        const url = `${SUPABASE_URL}/rest/v1/articles?slug=eq.${slug}&Statut=eq.Publié&limit=1`;
-        
-        const response = await fetch(url, {
-          headers: {
-            'apikey': SUPABASE_ANON_KEY,
-            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-            'Content-Type': 'application/json'
-          }
-        });
+        const { data, error } = await supabase
+          .from('articles')
+          .select('*')
+          .eq('slug', slug)
+          .maybeSingle();
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch article');
+        if (error) {
+          console.error('Error fetching article:', error);
+          setError('Erreur lors du chargement de l\'article');
+          return;
         }
 
-        const data: Article[] = await response.json();
-        setArticle(data.length > 0 ? data[0] : null);
+        setArticle(data);
       } catch (err) {
         console.error('Error in fetchArticle:', err);
         setError('Erreur lors du chargement de l\'article');

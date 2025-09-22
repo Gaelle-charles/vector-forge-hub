@@ -371,7 +371,7 @@ const Home = () => {
                     Discutons ensemble de vos besoins. C'est simple, rapide et sans engagement. L'occasion de découvrir comment l'IA peut transformer votre entreprise.
                   </p>
                   
-                  <Button className="bg-black text-white hover:bg-black hover:text-white rounded-full px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300" onClick={() => window.location.href = 'https://calendly.com/g-charlesbel/30min'}>
+                  <Button className="bg-black text-white hover:bg-black hover:text-white rounded-full px-4 sm:px-6 py-2 sm:py-3 font-medium transition-all duration-300" onClick={() => window.location.href = 'URL_DE_VOTRE_CALENDLY_OU_AUTRE_SERVICE'}>
                     <CheckCircle className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
                     Prendre un rendez-vous
                   </Button>

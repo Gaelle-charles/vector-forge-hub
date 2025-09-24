@@ -131,10 +131,7 @@ const Blog = () => {
                   <img
                     src={post.image_url}
                     alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    onError={(e) => {
-                      e.currentTarget.src = "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png";
-                    }}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105
                   />
                 </div>
                 

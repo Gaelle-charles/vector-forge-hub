@@ -127,13 +127,13 @@ const Blog = () => {
                 to={`/blog/${post.slug}`}
                 className="group modern-card hover:border-primary/20"
               >
-<div className="aspect-[4/3] sm:aspect-video mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl">
-  <img
-    src={post.image_url}
-    alt={post.title}
-    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-  />
-</div>
+                <div className="aspect-[4/3] sm:aspect-video mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl">
+                  <img
+                    src={post.image_url}
+                    alt={post.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105
+                  />
+                </div>
                 
                 <div className="space-y-4">
                   <div className="flex items-center justify-between text-sm text-white">

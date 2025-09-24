@@ -79,9 +79,6 @@ const Blog = () => {
                       src={featuredArticle.image_url}
                       alt={featuredArticle.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      onError={(e) => {
-                        e.currentTarget.src = "/lovable-uploads/Gemini_Generated_Image_w3mr83w3mr83w3mr.png";
-                      }}
                     />
                   </div>
                   

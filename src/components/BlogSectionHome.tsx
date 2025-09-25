@@ -8,7 +8,7 @@ const BlogSectionHome = () => {
   const {
     articles: allArticles,
     loading
-  } = useArticles(10); // Récupérer plus d'articles pour avoir plus de choix après filtrage
+  } = useArticles(3);
 
   if (loading) {
     return <section id="blog" className="py-40 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
@@ -23,21 +23,12 @@ const BlogSectionHome = () => {
       </section>;
   }
 
-  // Version temporaire sans filtre pour tester
-  // const publishedArticles = allArticles?.filter(article => article.status === "Publié") || [];
+  // Filtrer les articles pour n'afficher que ceux avec le statut "Publié"
+  const publishedArticles = allArticles?.filter(article => article.status === "Publié") || [];
   
-  // TEMPORAIRE: utiliser tous les articles pour tester
-  const publishedArticles = allArticles || [];
-  
-  // Debug: afficher dans la console pour voir ce qui se passe
-  console.log("Tous les articles:", allArticles);
-  console.log("Articles publiés:", publishedArticles);
-  console.log("Statuts des articles:", allArticles?.map(a => ({ id: a.id, title: a.title, status: a.status })));
-  
-  // Trier par date décroissante (plus récent en premier) et prendre les 3 premiers
+  // Trier par date décroissante (plus récent en premier)
   const articles = publishedArticles
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 3);
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 
   if (!articles || articles.length === 0) {
     return <section id="blog" className="py-40 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">

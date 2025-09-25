@@ -89,7 +89,10 @@ const Blog = () => {
                     <img
                       src={mainArticle.image_url}
                       alt={mainArticle.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+                        onError={(e) => {
+                      e.currentTarget.src = "https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Design%20sans%20titre%20(33).png";
+                    }}
                     />
                   </div>
                   

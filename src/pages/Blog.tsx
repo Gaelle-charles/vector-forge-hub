@@ -4,7 +4,13 @@ import { useArticles } from "@/hooks/useArticles";
 import { Button } from "@/components/ui/button";
 
 const Blog = () => {
-  const { articles: blogPosts, featuredArticle, loading } = useArticles();
+  const { articles: allArticles, featuredArticle, loading } = useArticles();
+
+  // Filtrer les articles pour n'afficher que ceux avec le statut "Publié"
+  const blogPosts = allArticles.filter(article => article.status === "Publié");
+  
+  // Filtrer l'article en vedette s'il existe et s'il est publié
+  const publishedFeaturedArticle = featuredArticle?.status === "Publié" ? featuredArticle : null;
 
   if (loading) {
     return (
@@ -66,18 +72,18 @@ const Blog = () => {
       <section className="py-14">
         <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Featured Article en premier si il existe */}
-            {featuredArticle && (
+            {/* Featured Article en premier si il existe et est publié */}
+            {publishedFeaturedArticle && (
               <Link
-                key={featuredArticle.id}
-                to={`/blog/${featuredArticle.slug}`}
+                key={publishedFeaturedArticle.id}
+                to={`/blog/${publishedFeaturedArticle.slug}`}
                 className="group modern-card hover:border-primary/20 md:col-span-2 lg:col-span-3"
               >
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="aspect-[4/3] sm:aspect-video overflow-hidden rounded-xl sm:rounded-2xl">
                     <img
-                      src={featuredArticle.image_url}
-                      alt={featuredArticle.title}
+                      src={publishedFeaturedArticle.image_url}
+                      alt={publishedFeaturedArticle.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
@@ -85,27 +91,27 @@ const Blog = () => {
                   <div className="space-y-4 flex flex-col justify-center">
                     <div className="flex items-center justify-between text-sm text-white">
                       <span className="px-3 py-1 rounded-full font-medium bg-[#e76f51] text-white">
-                        Featured • {featuredArticle.category}
+                        Featured • {publishedFeaturedArticle.category}
                       </span>
                       <div className="flex items-center space-x-2">
                         <Clock className="w-4 h-4" />
-                        <span>{featuredArticle.read_time} min</span>
+                        <span>{publishedFeaturedArticle.read_time} min</span>
                       </div>
                     </div>
                     
                     <h3 className="text-2xl lg:text-3xl font-bold text-foreground group-hover:text-[#e76f51] transition-colors">
-                      {featuredArticle.title}
+                      {publishedFeaturedArticle.title}
                     </h3>
                     
                     <p className="text-medium-gray line-clamp-3">
-                      {featuredArticle.excerpt}
+                      {publishedFeaturedArticle.excerpt}
                     </p>
                     
                     <div className="flex items-center justify-between pt-4 border-t border-border">
                       <div className="flex items-center space-x-3 text-sm text-medium-gray">
                         <div className="flex items-center space-x-1">
                           <Calendar className="w-4 h-4" />
-                          <span>{new Date(featuredArticle.date).toLocaleDateString('fr-FR', {
+                          <span>{new Date(publishedFeaturedArticle.date).toLocaleDateString('fr-FR', {
                             day: 'numeric',
                             month: 'long',
                             year: 'numeric'
@@ -120,7 +126,7 @@ const Blog = () => {
               </Link>
             )}
             
-            {/* Articles normaux */}
+            {/* Articles normaux (seulement ceux qui sont publiés) */}
             {blogPosts.map((post) => (
               <Link
                 key={post.id}

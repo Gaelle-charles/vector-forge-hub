@@ -7,7 +7,7 @@ const BlogSectionHome = () => {
   const {
     articles,
     loading
-  } = useArticles(3);
+  } = useArticles(4);
   if (loading) {
     return <section id="blog" className="py-40 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
         <div className="max-w-7xl mx-auto px-8">

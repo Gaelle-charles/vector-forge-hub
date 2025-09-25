@@ -28,9 +28,22 @@ const Home = () => {
   const [state, handleSubmit] = useForm("xqadrkjd");
 
 
+  const Home = () => {
+  const scrollToSection = sectionId => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
   
-
-  // Animation au scroll avancée avec effet de glissement
+  const videoRefs = useRef([useRef(null), useRef(null), useRef(null)]);
+  const [activeVideo, setActiveVideo] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
+  const [state, handleSubmit] = useForm("xqadrkjd");
+  
+  // Système d'animation de scroll amélioré
   React.useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
@@ -38,6 +51,7 @@ const Home = () => {
         transform: translateY(100px);
         opacity: 0;
         transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform, opacity;
       }
       
       .scroll-animate.animate-section-reveal {
@@ -45,10 +59,18 @@ const Home = () => {
         opacity: 1;
       }
       
+      .scroll-animate.animate-section-blur {
+        transform: translateY(-50px);
+        opacity: 0.3;
+        filter: blur(8px);
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      
       .stagger-child {
         transform: translateY(60px);
         opacity: 0;
         transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform, opacity;
       }
       
       .stagger-child.animate-gentle-fade-up {
@@ -56,54 +78,142 @@ const Home = () => {
         opacity: 1;
       }
       
+      .stagger-child.animate-fade-blur {
+        transform: translateY(-30px);
+        opacity: 0.2;
+        filter: blur(4px);
+      }
+      
       .section-slide-up {
         transform: translateY(80px);
         opacity: 0;
         transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform, opacity;
       }
       
       .section-slide-up.visible {
         transform: translateY(0);
         opacity: 1;
       }
+      
+      .section-slide-up.blurred {
+        transform: translateY(-40px);
+        opacity: 0.4;
+        filter: blur(6px);
+      }
     `;
     document.head.appendChild(style);
+
+    // Map pour tracker l'état de chaque élément et éviter les re-animations
+    const animatedElements = new Map();
+    let currentScrollDirection = 'down';
+    let lastScrollY = window.scrollY;
+
+    // Détection de la direction du scroll
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      currentScrollDirection = currentScrollY > lastScrollY ? 'down' : 'up';
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     const observerOptions = {
-      threshold: 0.15,
+      threshold: [0, 0.15, 0.5, 0.85, 1],
       rootMargin: '0px 0px -80px 0px'
     };
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        // Si l'élément est visible, on ajoute les classes d'animation
-        if (entry.isIntersecting) {
-          const element = entry.target;
-          element.classList.add('animate-section-reveal');
-          element.classList.add('visible');
-          const children = element.querySelectorAll('.stagger-child');
-          children.forEach((child, index) => {
+        const element = entry.target;
+        const elementId = element.id || element.className;
+        const isVisible = entry.isIntersecting;
+        const visibilityRatio = entry.intersectionRatio;
+        
+        // Éviter les re-animations inutiles
+        const currentState = animatedElements.get(elementId);
+        
+        if (isVisible && visibilityRatio >= 0.15) {
+          // Section devient visible
+          if (currentState !== 'visible') {
+            animatedElements.set(elementId, 'visible');
+            
+            element.classList.remove('animate-section-blur', 'animate-fade-blur', 'blurred');
+            element.classList.add('animate-section-reveal', 'visible');
+            
+            // Animation des enfants avec délai
+            const children = element.querySelectorAll('.stagger-child');
+            children.forEach((child, index) => {
+              setTimeout(() => {
+                child.classList.remove('animate-fade-blur');
+                child.classList.add('animate-gentle-fade-up');
+              }, index * 150 + 200);
+            });
+          }
+          
+        } else if (!isVisible && currentState === 'visible') {
+          // Section sort de la vue
+          animatedElements.set(elementId, 'hidden');
+          
+          if (currentScrollDirection === 'down') {
+            // Scroll vers le bas : section précédente devient floutée
+            element.classList.remove('animate-section-reveal', 'visible');
+            element.classList.add('animate-section-blur', 'blurred');
+            
+            const children = element.querySelectorAll('.stagger-child');
+            children.forEach(child => {
+              child.classList.remove('animate-gentle-fade-up');
+              child.classList.add('animate-fade-blur');
+            });
+            
+          } else {
+            // Scroll vers le haut : reset pour réanimation
             setTimeout(() => {
-              child.classList.add('animate-gentle-fade-up');
-            }, index * 150 + 200);
-          });
-        } else {
-          // Si l'élément n'est plus visible, on retire les classes d'animation pour le réanimer lors du prochain scroll
-          const element = entry.target;
-          element.classList.remove('animate-section-reveal');
-          element.classList.remove('visible');
-          const children = element.querySelectorAll('.stagger-child');
-          children.forEach(child => {
-            child.classList.remove('animate-gentle-fade-up');
-          });
+              element.classList.remove('animate-section-reveal', 'animate-section-blur', 'visible', 'blurred');
+              const children = element.querySelectorAll('.stagger-child');
+              children.forEach(child => {
+                child.classList.remove('animate-gentle-fade-up', 'animate-fade-blur');
+              });
+            }, 100);
+          }
+        }
+        
+        // Gestion de l'opacité progressive selon la position
+        if (isVisible) {
+          const opacity = Math.min(1, Math.max(0.3, visibilityRatio * 1.2));
+          const blur = Math.max(0, (1 - visibilityRatio) * 8);
+          
+          if (visibilityRatio < 0.8 && currentScrollDirection === 'down') {
+            element.style.filter = `blur(${blur}px)`;
+            element.style.opacity = opacity;
+          } else if (visibilityRatio >= 0.8) {
+            element.style.filter = 'none';
+            element.style.opacity = '1';
+          }
         }
       });
     }, observerOptions);
-    const elements = document.querySelectorAll('.scroll-animate, .section-slide-up');
-    elements.forEach(element => observer.observe(element));
+
+    // Observer toutes les sections
+    const elements = document.querySelectorAll('.scroll-animate, .section-slide-up, section, .section');
+    elements.forEach(element => {
+      observer.observe(element);
+      // Initialiser l'état de chaque élément
+      const elementId = element.id || element.className;
+      animatedElements.set(elementId, 'initial');
+    });
+
+    // Cleanup
     return () => {
+      window.removeEventListener('scroll', handleScroll);
       observer.disconnect();
-      document.head.removeChild(style);
+      if (document.head.contains(style)) {
+        document.head.removeChild(style);
+      }
     };
   }, []);
+
+    
 
   // Effet pour lancer la première vidéo et enchaîner automatiquement
   useEffect(() => {

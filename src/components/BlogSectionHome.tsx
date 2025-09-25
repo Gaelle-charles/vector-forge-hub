@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useArticles } from "@/hooks/useArticles";
-
 const BlogSectionHome = () => {
   const {
-    articles: allArticles,
+    articles,
     loading
-  } = useArticles();
-
+  } = useArticles(3);
   if (loading) {
     return <section id="blog" className="py-40 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
         <div className="max-w-7xl mx-auto px-8">
@@ -22,15 +20,6 @@ const BlogSectionHome = () => {
         </div>
       </section>;
   }
-
-  // Filtrer les articles pour n'afficher que ceux avec le statut "Publié"
-  const publishedArticles = allArticles.filter(article => article.status === "Publié");
-  
-  // Trier par date décroissante (plus récent en premier) et prendre les 3 premiers
-  const articles = publishedArticles
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 3);
-
   if (!articles || articles.length === 0) {
     return <section id="blog" className="py-40 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
         <div className="max-w-7xl mx-auto px-8">
@@ -42,11 +31,10 @@ const BlogSectionHome = () => {
       </section>;
   }
 
-  // Article principal = le plus récent (premier de la liste triée)
-  const featuredArticle = articles[0];
-  // Autres articles = les 2 suivants
-  const otherArticles = articles.slice(1);
-
+  // dernier article = card orange
+  const featuredArticle = articles[articles.length - 1];
+  // autres articles
+  const otherArticles = articles.slice(0, -1);
   return <section id="blog" className="py-40 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
       <div className="max-w-7xl mx-auto px-8">
         <div className="text-center mb-20">
@@ -57,7 +45,7 @@ const BlogSectionHome = () => {
         </div>
 
         <div className="space-y-12">
-          {/* Article Principal (Plus récent = Featured) */}
+          {/* Article Principal (Dernier = Featured) */}
           <Link to={`/blog/${featuredArticle.slug}`} className="block bg-[#e76f51] rounded-3xl overflow-hidden stagger-child opacity-0 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
             
             <div className="w-full h-80 relative overflow-hidden">
@@ -166,5 +154,4 @@ const BlogSectionHome = () => {
       </div>
     </section>;
 };
-
 export default BlogSectionHome;

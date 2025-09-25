@@ -8,7 +8,7 @@ const BlogSectionHome = () => {
   const {
     articles: allArticles,
     loading
-  } = useArticles();
+  } = useArticles(10); // Récupérer plus d'articles pour avoir plus de choix après filtrage
 
   if (loading) {
     return <section id="blog" className="py-40 bg-white section-slide-up rounded-t-[4rem] -mt-16 z-30 relative">
@@ -24,7 +24,7 @@ const BlogSectionHome = () => {
   }
 
   // Filtrer les articles pour n'afficher que ceux avec le statut "Publié"
-  const publishedArticles = allArticles.filter(article => article.status === "Publié");
+  const publishedArticles = allArticles?.filter(article => article.status === "Publié") || [];
   
   // Trier par date décroissante (plus récent en premier) et prendre les 3 premiers
   const articles = publishedArticles

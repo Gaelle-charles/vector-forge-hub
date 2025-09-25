@@ -27,24 +27,8 @@ const Home = () => {
   // === Formspree hook ===
   const [state, handleSubmit] = useForm("xqadrkjd");
 
-
-const Home = () => {
-  const scrollToSection = sectionId => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  };
-  
-  const videoRefs = useRef([useRef(null), useRef(null), useRef(null)]);
-  const [activeVideo, setActiveVideo] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
-  const [state, handleSubmit] = useForm("xqadrkjd");
-  
-  // Système d'animation de scroll amélioré
-  React.useEffect(() => {
+  // Animation au scroll améliorée - REMPLACEZ votre useEffect par celui-ci
+  useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
       .scroll-animate {
@@ -119,7 +103,7 @@ const Home = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     const observerOptions = {
-      threshold: [0, 0.15, 0.5, 0.85, 1],
+      threshold: [0, 0.15, 0.5, 0.85],
       rootMargin: '0px 0px -80px 0px'
     };
 
@@ -177,25 +161,11 @@ const Home = () => {
             }, 100);
           }
         }
-        
-        // Gestion de l'opacité progressive selon la position
-        if (isVisible) {
-          const opacity = Math.min(1, Math.max(0.3, visibilityRatio * 1.2));
-          const blur = Math.max(0, (1 - visibilityRatio) * 8);
-          
-          if (visibilityRatio < 0.8 && currentScrollDirection === 'down') {
-            element.style.filter = `blur(${blur}px)`;
-            element.style.opacity = opacity;
-          } else if (visibilityRatio >= 0.8) {
-            element.style.filter = 'none';
-            element.style.opacity = '1';
-          }
-        }
       });
     }, observerOptions);
 
     // Observer toutes les sections
-    const elements = document.querySelectorAll('.scroll-animate, .section-slide-up, section, .section');
+    const elements = document.querySelectorAll('.scroll-animate, .section-slide-up');
     elements.forEach(element => {
       observer.observe(element);
       // Initialiser l'état de chaque élément
@@ -212,8 +182,6 @@ const Home = () => {
       }
     };
   }, []);
-
-    
 
   // Effet pour lancer la première vidéo et enchaîner automatiquement
   useEffect(() => {
@@ -277,11 +245,11 @@ const Home = () => {
       }
     }, 100);
   };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-           <Navigation />
-
+      <Navigation />
 
       {/* Video Header Section */}
       <section className="bg-black relative overflow-hidden">
@@ -398,7 +366,6 @@ const Home = () => {
       <BlogSectionHome />
 
       {/* Contact Section */}
-      {/* Contact Section */}
       <section id="contact" className="py-20 sm:py-32 lg:py-40 bg-black section-slide-up rounded-t-[4rem] -mt-16 z-40 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
@@ -487,15 +454,13 @@ const Home = () => {
                   </Button>
                 </div>
               </div>
-              
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-    <Footer />
-
+      <Footer />
     </div>
   );
 };

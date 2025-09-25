@@ -19,9 +19,6 @@ const Footer = () => {
 " className="text-black hover:text-gray-600 transition-colors">
             <Linkedin className="h-6 w-6" />
               </a>
-              <a href="g.charlesbel@gmail.com" className="text-black hover:text-gray-600 transition-colors">
-            <Mail className="h-6 w-6" />
-              </a>
             </div>
 
         {/* Bottom Copyright */}

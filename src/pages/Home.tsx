@@ -28,7 +28,7 @@ const Home = () => {
   const [state, handleSubmit] = useForm("xqadrkjd");
 
 
-  const Home = () => {
+const Home = () => {
   const scrollToSection = sectionId => {
     const element = document.getElementById(sectionId);
     if (element) {

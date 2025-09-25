@@ -22,7 +22,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <img 
-              src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Group%209.svg" 
+              src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20blanc.svg" 
               className="h-5 sm:h-6 md:h-7 lg:h-8" 
               alt="Logo GoGoGo Studio" 
             />

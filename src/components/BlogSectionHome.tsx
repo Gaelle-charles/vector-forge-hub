@@ -54,7 +54,7 @@ const BlogSectionHome = () => {
                 alt={featuredArticle.title} 
                 className="w-full h-full object-cover opacity-70 group-hover:opacity-80 transition-opacity duration-300"
                 onError={(e) => {
-                  e.currentTarget.src = "/lovable-uploads/Design sans titre (33).png";
+                  e.currentTarget.src = "https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Design%20sans%20titre%20(33).png";
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
@@ -104,7 +104,7 @@ const BlogSectionHome = () => {
                       alt={article.title} 
                       className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
                       onError={(e) => {
-                        e.currentTarget.src = "/lovable-uploads/Design sans titre (33).png";
+                        e.currentTarget.src = "https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Design%20sans%20titre%20(33).png";
                       }}
                     />
                   ) : (

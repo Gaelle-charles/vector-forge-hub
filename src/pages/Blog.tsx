@@ -133,7 +133,7 @@ const Blog = () => {
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     onError={(e) => {
-                      e.currentTarget.src = "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png";
+                      e.currentTarget.src = "https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Design%20sans%20titre%20(33).png";
                     }}
                   />
                 </div>

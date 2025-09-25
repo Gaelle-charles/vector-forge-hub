@@ -23,8 +23,16 @@ const BlogSectionHome = () => {
       </section>;
   }
 
-  // Filtrer les articles pour n'afficher que ceux avec le statut "Publié"
-  const publishedArticles = allArticles?.filter(article => article.status === "Publié") || [];
+  // Version temporaire sans filtre pour tester
+  // const publishedArticles = allArticles?.filter(article => article.status === "Publié") || [];
+  
+  // TEMPORAIRE: utiliser tous les articles pour tester
+  const publishedArticles = allArticles || [];
+  
+  // Debug: afficher dans la console pour voir ce qui se passe
+  console.log("Tous les articles:", allArticles);
+  console.log("Articles publiés:", publishedArticles);
+  console.log("Statuts des articles:", allArticles?.map(a => ({ id: a.id, title: a.title, status: a.status })));
   
   // Trier par date décroissante (plus récent en premier) et prendre les 3 premiers
   const articles = publishedArticles

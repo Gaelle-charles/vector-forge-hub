@@ -42,16 +42,7 @@ const Blog = () => {
         <div className="absolute inset-0 z-5 bg-black/40"></div>
         
         {/* Contenu */}
-        <div className="relative z-10 max-w-7xl mx-auto h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 text-center">
-          <div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white drop-shadow-2xl">
-              Blog
-            </h1>
-            <p className="text-xl md:text-2xl text-white/95 max-w-4xl mx-auto mb-12 drop-shadow-xl leading-relaxed">
-              Découvrez nos articles et plongez dans l'univers de l'intelligence artificielle émergentes qui vous permettra de booster votre business.
-            </p>
-          </div>
-        </div>
+
       </section>
 
       {/* Bouton Retour à l'accueil */}

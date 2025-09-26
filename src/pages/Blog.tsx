@@ -6,16 +6,13 @@ import { Button } from "@/components/ui/button";
 const Blog = () => {
   const { articles: allArticles, featuredArticle, loading } = useArticles();
 
-  // Filtrer les articles pour n'afficher que ceux avec le statut "Publié"
-  const publishedArticles = allArticles.filter(article => article.status === "Publié");
-  
-  // L'article principal est le plus récent parmi les articles publiés
-  const mainArticle = publishedArticles.length > 0 
-    ? publishedArticles.sort((a, b) => new Date(b.date) - new Date(a.date))[0] 
+  // L'article principal est le plus récent parmi tous les articles
+  const mainArticle = allArticles.length > 0 
+    ? allArticles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0] 
     : null;
   
   // Les autres articles (sans l'article principal)
-  const blogPosts = publishedArticles.filter(article => article.id !== mainArticle?.id);
+  const blogPosts = allArticles.filter(article => article.id !== mainArticle?.id);
 
   if (loading) {
     return (
@@ -34,13 +31,12 @@ const Blog = () => {
       {/* Hero Section avec Image de Header */}
 <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         {/* Image de fond */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20noir.svg" 
-            alt="Blog GoGoGo Studio" 
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20noir.svg')"
+          }}
+        ></div>
         
         {/* Overlay sombre pour améliorer la lisibilité */}
         <div className="absolute inset-0 z-5 bg-black/40"></div>

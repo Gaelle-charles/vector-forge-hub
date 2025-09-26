@@ -21,11 +21,14 @@ const Navigation = () => {
         <div className="flex items-center justify-between px-3 sm:px-4 md:px-6 py-3 sm:py-3">
           {/* Logo */}
           <div className="flex items-center space-x-2">
+              <a href="/">
+
             <img 
               src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20blanc.svg" 
               className="h-5 sm:h-6 md:h-7 lg:h-8" 
               alt="Logo GoGoGo Studio" 
             />
+                </a>
           </div>
           
           {/* Menu Desktop */}

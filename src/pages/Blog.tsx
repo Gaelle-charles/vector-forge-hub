@@ -34,7 +34,7 @@ const Blog = () => {
         <div 
           className="absolute inset-0 z-0 bg-contain bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20noir.svg')"
+            backgroundImage: "url('https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/BLOG.png')"
           }}
         ></div>
         

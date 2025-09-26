@@ -32,7 +32,7 @@ const Blog = () => {
 <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
         {/* Image de fond */}
         <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 z-0 bg-contain bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20noir.svg')"
           }}

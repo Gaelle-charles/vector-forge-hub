@@ -8,6 +8,7 @@ import SplashScreen from "@/components/SplashScreen";
 import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import LegalNotices from "./pages/LegalNotices";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/mentions-legales" element={<LegalNotices />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </BrowserRouter>

@@ -24,7 +24,12 @@ const Footer = () => {
         {/* Bottom Copyright */}
             <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-black uppercase tracking-wider">
               <p>©GoGoGo 2025</p>
-              <p>TOUS DROITS RÉSERVÉS.</p>
+              <div className="flex items-center space-x-4">
+                <Link to="/mentions-legales" className="hover:text-gray-600 transition-colors">
+                  Mentions légales
+                </Link>
+                <p>TOUS DROITS RÉSERVÉS.</p>
+              </div>
             </div>
 
         </div>

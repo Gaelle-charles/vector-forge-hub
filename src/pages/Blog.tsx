@@ -36,8 +36,8 @@ const Blog = () => {
         {/* Image de fond */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Gemini_Generated_Image_3s74133s74133s74.png" 
-            alt="Intelligence Artificielle" 
+            src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20noir.svg" 
+            alt="Blog GoGoGo Studio" 
             className="w-full h-full object-cover"
           />
         </div>

@@ -60,20 +60,20 @@ const Navigation = () => {
             </button>
           </div>
 
-          {/* Bouton Contact Desktop + Menu Hamburger Mobile */}
+          {/* Menu Hamburger Mobile + Bouton Contact Desktop */}
           <div className="flex items-center">
             <button 
-              onClick={() => scrollToSection('contact')} 
-              className="hidden lg:block bg-[#e76f51] text-white rounded-full px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 font-bold hover:bg-white hover:text-[#e76f51] hover:scale-110 transition-all duration-300 shadow-lg border border-[#e76f51] hover:shadow-[#e76f51]/50 text-xs transform"
-            >
-              <span>CONTACT</span>
-            </button>
-
-            <button 
-              className="lg:hidden p-2 text-white hover:text-[#e76f51] transition-colors ml-auto"
+              className="lg:hidden p-2 text-white hover:text-[#e76f51] transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+
+            <button 
+              onClick={() => scrollToSection('contact')} 
+              className="hidden lg:block bg-[#e76f51] text-white rounded-full px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 font-bold hover:bg-white hover:text-[#e76f51] hover:scale-110 transition-all duration-300 shadow-lg border border-[#e76f51] hover:shadow-[#e76f51]/50 text-xs transform ml-auto"
+            >
+              <span>CONTACT</span>
             </button>
           </div>
         </div>

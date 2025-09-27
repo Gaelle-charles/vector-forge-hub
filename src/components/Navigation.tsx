@@ -19,27 +19,15 @@ const Navigation = () => {
       {/* Navigation principale */}
       <nav className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/90 border border-black rounded-full shadow-2xl backdrop-blur-lg transition-all duration-500 w-[95%] sm:w-[90%] md:w-[85%] lg:w-[70%] xl:w-[60%] max-w-5xl">
         <div className="flex items-center justify-between lg:justify-between px-3 sm:px-4 md:px-6 py-3 sm:py-3">
-          
-          {/* GAUCHE : Menu Hamburger + Logo Desktop */}
-          <div className="flex items-center space-x-2">
-            {/* Menu Hamburger Mobile - MAINTENANT À GAUCHE */}
-            <button 
-              className="lg:hidden p-2 text-white hover:text-[#e76f51] transition-colors"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-            
-            {/* Logo Desktop */}
-            <div className="hidden lg:flex items-center space-x-2">
+          {/* Logo Desktop */}
+          <div className="hidden lg:flex items-center space-x-2 lg:flex-1">
               <a href="/">
-                <img 
-                  src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20blanc.svg" 
-                  className="h-5 sm:h-6 md:h-7 lg:h-8" 
-                  alt="Logo GoGoGo Studio" 
-                />
-              </a>
-            </div>
+            <img 
+              src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20blanc.svg" 
+              className="h-5 sm:h-6 md:h-7 lg:h-8" 
+              alt="Logo GoGoGo Studio" 
+            />
+                </a>
           </div>
           
           {/* Logo centré en responsive */}
@@ -72,16 +60,21 @@ const Navigation = () => {
             </button>
           </div>
 
-          {/* DROITE : Seulement le bouton Contact */}
-          <div className="flex items-center">
+          {/* Bouton Contact + Menu Hamburger */}
+          <div className="flex items-center space-x-3">
             <button 
               onClick={() => scrollToSection('contact')} 
               className="hidden lg:block bg-[#e76f51] text-white rounded-full px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 font-bold hover:bg-white hover:text-[#e76f51] hover:scale-110 transition-all duration-300 shadow-lg border border-[#e76f51] hover:shadow-[#e76f51]/50 text-xs transform"
             >
               <span>CONTACT</span>
             </button>
-            {/* Espace vide en mobile pour équilibrer */}
-            <div className="lg:hidden w-8"></div>
+
+            <button 
+              className="lg:hidden p-2 text-white hover:text-[#e76f51] transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
       </nav>

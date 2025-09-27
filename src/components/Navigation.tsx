@@ -72,7 +72,7 @@ const Navigation = () => {
             </button>
           </div>
 
-          {/* Section droite : Bouton Contact Desktop seulement */}
+          {/* Section droite : Bouton Contact Desktop seulement - PAS de menu hamburger ici */}
           <div className="flex items-center">
             <button 
               onClick={() => scrollToSection('contact')} 
@@ -80,6 +80,8 @@ const Navigation = () => {
             >
               <span>CONTACT</span>
             </button>
+            {/* ESPACE VIDE - pas de menu hamburger ici */}
+            <div className="lg:hidden w-10"></div>
           </div>
         </div>
       </nav>

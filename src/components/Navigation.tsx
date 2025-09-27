@@ -19,10 +19,9 @@ const Navigation = () => {
       {/* Navigation principale */}
       <nav className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/90 border border-black rounded-full shadow-2xl backdrop-blur-lg transition-all duration-500 w-[95%] sm:w-[90%] md:w-[85%] lg:w-[70%] xl:w-[60%] max-w-5xl">
         <div className="flex items-center justify-between lg:justify-between px-3 sm:px-4 md:px-6 py-3 sm:py-3">
-          {/* Logo */}
-          <div className="flex items-center space-x-2 lg:flex-1">
-              <a href="/" className="lg:block">
-
+          {/* Logo Desktop */}
+          <div className="hidden lg:flex items-center space-x-2 lg:flex-1">
+              <a href="/">
             <img 
               src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20blanc.svg" 
               className="h-5 sm:h-6 md:h-7 lg:h-8" 
@@ -100,10 +99,9 @@ const Navigation = () => {
               </button>
 <Link 
   to="/blog" 
-  className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 inline-block"
+  className="text-white hover:text-[#e76f51] font-bold py-4 px-6 rounded-xl hover:bg-white/10 transition-all duration-300 text-center text-lg inline-block"
 >
   Blog
-  <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
 </Link>
               <button 
                 onClick={() => scrollToSection('consultation')}

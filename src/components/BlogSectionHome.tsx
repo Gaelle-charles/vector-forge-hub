@@ -40,7 +40,7 @@ const BlogSectionHome = () => {
         <div className="text-center mb-20">
           <h2 className="text-6xl font-bold text-black mb-6 tracking-tight stagger-child opacity-0">Notre blog</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed stagger-child opacity-0">
-            L'IA, la tech, l'automatisation, sont l'un de vos sujet de prédilection, vous êtes au bon endroit, découvrez nos articles rédigés avec passion et quelques assistants 😉
+            L'IA, la tech, l'automatisation, sont l'un de vos sujet de prédilection, vous êtes au bon endroit, découvrez nos articles rédigés avec passion et quelques assistants
           </p>
         </div>
 

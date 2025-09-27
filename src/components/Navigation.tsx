@@ -19,25 +19,26 @@ const Navigation = () => {
       {/* Navigation principale */}
       <nav className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/90 border border-black rounded-full shadow-2xl backdrop-blur-lg transition-all duration-500 w-[95%] sm:w-[90%] md:w-[85%] lg:w-[70%] xl:w-[60%] max-w-5xl">
         <div className="flex items-center justify-between lg:justify-between px-3 sm:px-4 md:px-6 py-3 sm:py-3">
-          {/* Menu Hamburger Mobile à gauche + Logo Desktop */}
-          <div className="flex items-center">
-            {/* Menu Hamburger Mobile */}
+          
+          {/* Section gauche : Menu hamburger mobile + Logo desktop */}
+          <div className="flex items-center space-x-2">
+            {/* Menu Hamburger Mobile à gauche */}
             <button 
-              className="lg:hidden p-2 text-white hover:text-[#e76f51] transition-colors mr-2"
+              className="lg:hidden p-2 text-white hover:text-[#e76f51] transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
             {/* Logo Desktop */}
-            <div className="hidden lg:flex items-center space-x-2">
-                <a href="/">
-              <img 
-                src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20blanc.svg" 
-                className="h-5 sm:h-6 md:h-7 lg:h-8" 
-                alt="Logo GoGoGo Studio" 
-              />
-                  </a>
+            <div className="hidden lg:flex items-center">
+              <a href="/">
+                <img 
+                  src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20blanc.svg" 
+                  className="h-5 sm:h-6 md:h-7 lg:h-8" 
+                  alt="Logo GoGoGo Studio" 
+                />
+              </a>
             </div>
           </div>
           
@@ -71,7 +72,7 @@ const Navigation = () => {
             </button>
           </div>
 
-          {/* Bouton Contact Desktop */}
+          {/* Section droite : Bouton Contact Desktop seulement */}
           <div className="flex items-center">
             <button 
               onClick={() => scrollToSection('contact')} 

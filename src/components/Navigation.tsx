@@ -18,14 +18,25 @@ const Navigation = () => {
     <>
       {/* Navigation principale */}
       <nav className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 bg-black/90 border border-black rounded-full shadow-2xl backdrop-blur-lg transition-all duration-500 w-[95%] sm:w-[90%] md:w-[85%] lg:w-[70%] xl:w-[60%] max-w-5xl">
-        <div className="flex items-center justify-between px-3 sm:px-4 md:px-6 py-3 sm:py-3">
+        <div className="flex items-center justify-between lg:justify-between px-3 sm:px-4 md:px-6 py-3 sm:py-3">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-              <a href="/">
+          <div className="flex items-center space-x-2 lg:flex-1">
+              <a href="/" className="lg:block">
 
             <img 
               src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20blanc.svg" 
               className="h-5 sm:h-6 md:h-7 lg:h-8" 
+              alt="Logo GoGoGo Studio" 
+            />
+                </a>
+          </div>
+          
+          {/* Logo centré en responsive */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 lg:hidden">
+              <a href="/">
+            <img 
+              src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20blanc.svg" 
+              className="h-5 sm:h-6 md:h-7" 
               alt="Logo GoGoGo Studio" 
             />
                 </a>
@@ -54,10 +65,9 @@ const Navigation = () => {
           <div className="flex items-center space-x-3">
             <button 
               onClick={() => scrollToSection('contact')} 
-              className="bg-[#e76f51] text-white rounded-full px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 font-bold hover:bg-white hover:text-[#e76f51] hover:scale-110 transition-all duration-300 shadow-lg border border-[#e76f51] hover:shadow-[#e76f51]/50 text-xs transform"
+              className="hidden lg:block bg-[#e76f51] text-white rounded-full px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 font-bold hover:bg-white hover:text-[#e76f51] hover:scale-110 transition-all duration-300 shadow-lg border border-[#e76f51] hover:shadow-[#e76f51]/50 text-xs transform"
             >
-              <span className="hidden sm:inline">CONTACT</span>
-              <span className="sm:hidden">📞</span>
+              <span>CONTACT</span>
             </button>
 
             <button 

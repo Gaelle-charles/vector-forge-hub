@@ -6,16 +6,6 @@ const LegalNotices = () => {
   return (
     <div className="min-h-screen pb-10 bg-white">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">
-            Mentions Légales
-          </h1>
-          <p className="text-lg md:text-xl text-black max-w-2xl mx-auto">
-            Agence CHAPOZ - Conformité légale et réglementaire
-          </p>
-        </div>
-      </section>
 
 <section 
   className="relative pt-20 pb-16 bg-cover bg-center bg-no-repeat" 
@@ -37,7 +27,7 @@ const LegalNotices = () => {
       {/* Bouton Retour à l'accueil */}
       <section className="py-6">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Button asChild variant="outline" className="border-black text-black hover:bg-black hover:text-#E76F51">
+          <Button asChild variant="outline" className="border-black text-black hover:bg-black hover:text-[#E76F51]">
             <Link
               to="/"
               className="inline-flex items-center space-x-2"

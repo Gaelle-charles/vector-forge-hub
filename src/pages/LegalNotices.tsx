@@ -37,7 +37,7 @@ const LegalNotices = () => {
       {/* Bouton Retour à l'accueil */}
       <section className="py-6">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Button asChild variant="outline" className="border-black text-black hover:bg-black hover:text-white">
+          <Button asChild variant="outline" className="border-black text-black hover:bg-black hover:text-#E76F51">
             <Link
               to="/"
               className="inline-flex items-center space-x-2"
@@ -57,10 +57,10 @@ const LegalNotices = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6 text-black">1. Informations légales</h2>
               <p className="text-black mb-4 leading-relaxed">
-                Le présent site web est édité par CHAPOZ, société immatriculée sous le numéro SIRET 845 316 975 [5 chiffres à compléter]. La forme juridique de la société est [à compléter - SARL, SAS, etc.] avec un capital social de [à compléter].
+                Le présent site web est édité par CHAPOZ, société immatriculée sous le numéro SIRET 845 316 975 [5 chiffres à compléter]. La forme juridique de la société est SAS avec un capital social de 1000 €.
               </p>
               <p className="text-black mb-4 leading-relaxed">
-                Le siège social est situé à l'adresse suivante : [adresse complète à compléter]. Pour toute correspondance, vous pouvez nous joindre par téléphone au [numéro à compléter] ou par courrier électronique à l'adresse [email à compléter].
+                Le siège social est situé à l'adresse suivante : 97118 SAINT-FRANÇOIS. Pour toute correspondance, vous pouvez nous joindre par téléphone au 06 91 24 23 68 ou par courrier électronique à l'adresse hello@gogogo-studio.fr.
               </p>
               <p className="text-black leading-relaxed">
                 Le directeur de la publication du site est [nom du dirigeant à compléter], en sa qualité de représentant légal de la société CHAPOZ.
@@ -146,19 +146,19 @@ const LegalNotices = () => {
                 Pour toute question, demande d'information ou réclamation relative aux présentes mentions légales, à l'utilisation du site ou au traitement de vos données personnelles, vous pouvez nous contacter par les moyens suivants :
               </p>
               <p className="text-black mb-2 leading-relaxed">
-                Par courrier électronique à l'adresse : [adresse email à compléter]
+                Par courrier électronique à l'adresse : hello@gogogo-studio.fr
               </p>
               <p className="text-black mb-2 leading-relaxed">
-                Par téléphone au numéro : [numéro de téléphone à compléter]
+                Par téléphone au numéro : 06 91 24 23 68
               </p>
               <p className="text-black leading-relaxed">
-                Par courrier postal à l'adresse du siège social : [adresse postale complète à compléter]
+                Par courrier postal à l'adresse du siège social : 97118 SAINT-FRANÇOIS
               </p>
             </div>
 
             <div className="pt-8 border-t border-black">
               <p className="text-center text-black">
-                Dernière mise à jour des mentions légales : [date à compléter]
+                Dernière mise à jour des mentions légales : 1er septembre 2025
               </p>
             </div>
 

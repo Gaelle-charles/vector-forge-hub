@@ -6,12 +6,12 @@ const LegalNotices = () => {
   return (
     <div className="min-h-screen pb-10 bg-white">
       {/* Hero Section */}
-      <section className="relative pt-20 pb-16 bg-gradient-to-br from-primary/5 to-secondary/5">
+      <section className="relative pt-20 pb-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black">
             Mentions Légales
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-black max-w-2xl mx-auto">
             Agence CHAPOZ - Conformité légale et réglementaire
           </p>
         </div>
@@ -20,7 +20,7 @@ const LegalNotices = () => {
       {/* Bouton Retour à l'accueil */}
       <section className="py-6">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Button asChild variant="outline">
+          <Button asChild variant="outline" className="border-black text-black hover:bg-black hover:text-white">
             <Link
               to="/"
               className="inline-flex items-center space-x-2"
@@ -35,169 +35,116 @@ const LegalNotices = () => {
       {/* Contenu des mentions légales */}
       <section className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
+          <div className="space-y-12">
             
-            <div className="space-y-8">
-              
-              <div>
-                <h2 className="text-2xl font-bold mb-4 text-foreground">1. Informations légales</h2>
-                <p className="text-muted-foreground mb-4">
-                  Le présent site web est édité par :
-                </p>
-                <div className="bg-muted/20 p-4 rounded-lg space-y-3">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Raison sociale</p>
-                      <p className="text-foreground font-medium">CHAPOZ</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Numéro SIRET</p>
-                      <p className="text-foreground font-medium">845 316 975 <span className="text-red-500 italic">[5 chiffres à compléter]</span></p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Forme juridique</p>
-                      <p className="text-red-500 italic">SAS</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Capital social</p>
-                      <p className="text-red-500 italic">1000 €</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Siège social</p>
-                      <p className="text-red-500 italic">97118 SAINT-FRANÇOIS</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Téléphone</p>
-                      <p className="text-red-500 italic">06 91 24 23 68</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">E-mail</p>
-                      <p className="text-red-500 italic">hello@gogogo-studio.fr</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Directeur de publication</p>
-                      <p className="text-red-500 italic">CHARLES-BELAMOUR Gaëlle</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-bold mb-4 text-foreground">2. Hébergement</h2>
-                <p className="text-muted-foreground mb-4">
-                  Le site est hébergé par :
-                </p>
-                <div className="bg-muted/20 p-4 rounded-lg">
-                  <div className="space-y-2">
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Hébergeur du site</p>
-                      <p className="text-red-500 italic">[Nom de l'hébergeur]</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Adresse</p>
-                      <p className="text-red-500 italic">[Adresse de l'hébergeur]</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Téléphone</p>
-                      <p className="text-red-500 italic">[Téléphone de l'hébergeur]</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-bold mb-4 text-foreground">3. Propriété intellectuelle</h2>
-                <p className="text-muted-foreground mb-4">
-                  L'ensemble des contenus présents sur ce site (textes, images, vidéos, logos, icônes, etc.) est protégé par les dispositions du Code de la Propriété Intellectuelle et par les conventions internationales relatives au droit d'auteur. Ces contenus ne peuvent être reproduits, utilisés ou représentés sans l'autorisation expresse de CHAPOZ.
-                </p>
-                <p className="text-muted-foreground">
-                  Les marques et logos présents sur le site sont déposés par CHAPOZ ou par des tiers ayant autorisé CHAPOZ à les utiliser. Toute reproduction ou représentation, totale ou partielle, de ces marques et logos, effectuée à partir des éléments du site sans l'autorisation expresse de CHAPOZ est prohibée.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-bold mb-4 text-foreground">4. Données personnelles</h2>
-                <p className="text-muted-foreground mb-4">
-                  Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi "Informatique et Libertés", vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition concernant vos données personnelles.
-                </p>
-                <div className="bg-muted/20 p-4 rounded-lg mb-4">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Responsable du traitement</p>
-                      <p className="text-foreground font-medium">CHAPOZ</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Finalités du traitement</p>
-                      <p className="text-red-500 italic">[À préciser selon votre activité]</p>
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-foreground/70">Base légale</p>
-                      <p className="text-foreground font-medium">Consentement et/ou intérêt légitime</p>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-muted-foreground">
-                  Pour exercer vos droits, vous pouvez nous contacter à l'adresse : <span className="text-red-500 italic">[adresse e-mail]</span> ou par courrier postal à l'adresse du siège social.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-bold mb-4 text-foreground">5. Cookies</h2>
-                <p className="text-muted-foreground mb-4">
-                  Ce site utilise des cookies pour améliorer votre expérience de navigation et réaliser des statistiques de visite. Vous pouvez à tout moment modifier vos préférences en matière de cookies depuis les paramètres de votre navigateur.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-bold mb-4 text-foreground">6. Responsabilité</h2>
-                <p className="text-muted-foreground mb-4">
-                  CHAPOZ s'efforce d'assurer au mieux l'exactitude et la mise à jour des informations diffusées sur ce site. Cependant, CHAPOZ ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur ce site.
-                </p>
-                <p className="text-muted-foreground">
-                  CHAPOZ ne pourra être tenue responsable des dommages directs ou indirects causés au matériel de l'utilisateur lors de l'accès au site, et résultant de l'apparition d'un bug ou d'une incompatibilité.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-bold mb-4 text-foreground">7. Liens hypertextes</h2>
-                <p className="text-muted-foreground">
-                  Le site peut contenir des liens hypertextes vers d'autres sites présents sur le réseau Internet. CHAPOZ ne saurait être responsable du contenu de ces sites externes.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-bold mb-4 text-foreground">8. Droit applicable</h2>
-                <p className="text-muted-foreground">
-                  Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents.
-                </p>
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-bold mb-4 text-foreground">9. Contact</h2>
-                <p className="text-muted-foreground mb-4">
-                  Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter :
-                </p>
-                <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-lg">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="text-center">
-                      <p className="font-semibold text-foreground mb-2">Par e-mail</p>
-                      <p className="text-red-500 italic">hello@gogogo-studio.fr</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="font-semibold text-foreground mb-2">Par téléphone</p>
-                      <p className="text-red-500 italic">06 91 24 23 68</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-6 border-t border-muted">
-                <p className="text-center text-muted-foreground text-sm">
-                  Dernière mise à jour : <span className="text-red-500 italic">1er septembre 2025</span>
-                </p>
-              </div>
-
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-black">1. Informations légales</h2>
+              <p className="text-black mb-4 leading-relaxed">
+                Le présent site web est édité par CHAPOZ, société immatriculée sous le numéro SIRET 845 316 975 [5 chiffres à compléter]. La forme juridique de la société est [à compléter - SARL, SAS, etc.] avec un capital social de [à compléter].
+              </p>
+              <p className="text-black mb-4 leading-relaxed">
+                Le siège social est situé à l'adresse suivante : [adresse complète à compléter]. Pour toute correspondance, vous pouvez nous joindre par téléphone au [numéro à compléter] ou par courrier électronique à l'adresse [email à compléter].
+              </p>
+              <p className="text-black leading-relaxed">
+                Le directeur de la publication du site est [nom du dirigeant à compléter], en sa qualité de représentant légal de la société CHAPOZ.
+              </p>
             </div>
+
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-black">2. Hébergement</h2>
+              <p className="text-black leading-relaxed">
+                Le site web est hébergé par [nom de l'hébergeur à compléter], dont le siège social est situé à [adresse de l'hébergeur à compléter]. L'hébergeur peut être contacté par téléphone au [numéro de téléphone de l'hébergeur à compléter].
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-black">3. Propriété intellectuelle</h2>
+              <p className="text-black mb-4 leading-relaxed">
+                L'ensemble des contenus présents sur ce site, incluant notamment les textes, images, vidéos, logos, icônes, graphismes et tout autre élément composant le site, est protégé par les dispositions du Code de la Propriété Intellectuelle et par les conventions internationales relatives au droit d'auteur. Ces contenus sont la propriété exclusive de CHAPOZ ou de ses partenaires et ne peuvent être reproduits, utilisés, représentés ou exploités de quelque manière que ce soit sans l'autorisation expresse et préalable de CHAPOZ.
+              </p>
+              <p className="text-black leading-relaxed">
+                Les marques, logos et signes distinctifs présents sur le site sont déposés par CHAPOZ ou par des tiers ayant autorisé CHAPOZ à les utiliser. Toute reproduction, représentation, utilisation ou modification, totale ou partielle, de ces marques et logos, effectuée à partir des éléments du site sans l'autorisation expresse de CHAPOZ ou des titulaires des droits concernés est strictement interdite et constitue une contrefaçon sanctionnée par le Code de la Propriété Intellectuelle.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-black">4. Données personnelles</h2>
+              <p className="text-black mb-4 leading-relaxed">
+                Conformément au Règlement Général sur la Protection des Données (RGPD) du 27 avril 2016 et à la loi Informatique et Libertés du 6 janvier 1978 modifiée, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation du traitement, de portabilité et d'opposition concernant vos données personnelles. Ces droits peuvent être exercés à tout moment en nous contactant aux coordonnées mentionnées dans les présentes mentions légales.
+              </p>
+              <p className="text-black mb-4 leading-relaxed">
+                CHAPOZ est le responsable du traitement de vos données personnelles. Les données collectées sur ce site sont traitées pour les finalités suivantes : [à préciser selon votre activité - gestion des demandes de contact, envoi de newsletters, traitement des devis, etc.]. La base légale du traitement repose sur votre consentement et/ou sur l'intérêt légitime de CHAPOZ.
+              </p>
+              <p className="text-black leading-relaxed">
+                Pour exercer vos droits ou pour toute question relative au traitement de vos données personnelles, vous pouvez nous contacter à l'adresse électronique [email à compléter] ou par courrier postal à l'adresse du siège social indiquée ci-dessus. Vous disposez également du droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL).
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-black">5. Cookies et technologies similaires</h2>
+              <p className="text-black mb-4 leading-relaxed">
+                Ce site utilise des cookies et des technologies similaires pour améliorer votre expérience de navigation, personnaliser les contenus et les publicités, fournir des fonctionnalités relatives aux réseaux sociaux et analyser le trafic du site. Les cookies sont de petits fichiers texte stockés sur votre terminal lors de votre visite sur le site.
+              </p>
+              <p className="text-black leading-relaxed">
+                Vous pouvez à tout moment modifier vos préférences en matière de cookies en configurant les paramètres de votre navigateur internet. Toutefois, le refus de certains cookies peut entraîner une limitation des fonctionnalités du site et une altération de votre expérience de navigation. Pour plus d'informations sur les cookies et leur gestion, vous pouvez consulter le site de la CNIL.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-black">6. Responsabilité et garanties</h2>
+              <p className="text-black mb-4 leading-relaxed">
+                CHAPOZ s'efforce d'assurer au mieux de ses possibilités l'exactitude, la fiabilité et la mise à jour régulière des informations diffusées sur ce site. Toutefois, CHAPOZ ne peut garantir l'exactitude, la précision, l'exhaustivité ou l'actualité des informations mises à disposition sur ce site, qu'elles émanent de CHAPOZ elle-même ou de tiers partenaires.
+              </p>
+              <p className="text-black mb-4 leading-relaxed">
+                En conséquence, CHAPOZ décline toute responsabilité en cas d'erreur, d'inexactitude ou d'omission dans les informations présentées sur le site, ainsi que pour tout dommage direct ou indirect résultant de l'utilisation du site ou de l'impossibilité d'y accéder. CHAPOZ ne saurait être tenue responsable des dommages directs ou indirects causés au matériel de l'utilisateur lors de l'accès au site et résultant de l'apparition d'un bug, d'une incompatibilité, d'un virus ou de tout autre problème technique.
+              </p>
+              <p className="text-black leading-relaxed">
+                CHAPOZ se réserve le droit de modifier, suspendre ou interrompre à tout moment, de manière temporaire ou définitive, tout ou partie du site, sans préavis et sans que sa responsabilité puisse être engagée de ce fait. L'utilisateur reconnaît utiliser le site sous sa seule responsabilité.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-black">7. Liens hypertextes</h2>
+              <p className="text-black mb-4 leading-relaxed">
+                Le site peut contenir des liens hypertextes pointant vers d'autres sites internet ou d'autres sources externes. Ces liens sont fournis uniquement pour la commodité de l'utilisateur et ne constituent en aucun cas une validation ou une approbation du contenu de ces sites externes par CHAPOZ.
+              </p>
+              <p className="text-black leading-relaxed">
+                CHAPOZ ne saurait être tenue responsable du contenu, des produits, des services ou de tout autre élément présent sur ces sites tiers, ni des dommages ou pertes avérés ou allégués consécutifs ou en relation avec l'utilisation ou le fait d'avoir fait confiance au contenu, à des biens ou des services disponibles sur ces sites externes. Il appartient à l'utilisateur de prendre les précautions nécessaires pour s'assurer que les sites qu'il consulte sont exempts de tout élément de nature destructrice.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-black">8. Droit applicable et juridiction compétente</h2>
+              <p className="text-black mb-4 leading-relaxed">
+                Les présentes mentions légales sont régies par le droit français. Elles ont été rédigées en langue française, laquelle fait foi en cas de traduction dans une autre langue. L'utilisation du site implique l'acceptation pleine et entière des présentes mentions légales.
+              </p>
+              <p className="text-black leading-relaxed">
+                En cas de litige relatif à l'interprétation, l'exécution ou la validité des présentes mentions légales ou plus généralement relatif à l'utilisation du site, les parties s'efforceront de résoudre leur différend à l'amiable. À défaut d'accord amiable dans un délai de trente jours à compter de la notification du litige par l'une des parties, les tribunaux français seront seuls compétents pour connaître du litige, nonobstant pluralité de défendeurs ou appel en garantie.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-black">9. Contact</h2>
+              <p className="text-black mb-4 leading-relaxed">
+                Pour toute question, demande d'information ou réclamation relative aux présentes mentions légales, à l'utilisation du site ou au traitement de vos données personnelles, vous pouvez nous contacter par les moyens suivants :
+              </p>
+              <p className="text-black mb-2 leading-relaxed">
+                Par courrier électronique à l'adresse : [adresse email à compléter]
+              </p>
+              <p className="text-black mb-2 leading-relaxed">
+                Par téléphone au numéro : [numéro de téléphone à compléter]
+              </p>
+              <p className="text-black leading-relaxed">
+                Par courrier postal à l'adresse du siège social : [adresse postale complète à compléter]
+              </p>
+            </div>
+
+            <div className="pt-8 border-t border-black">
+              <p className="text-center text-black">
+                Dernière mise à jour des mentions légales : [date à compléter]
+              </p>
+            </div>
+
           </div>
         </div>
       </section>

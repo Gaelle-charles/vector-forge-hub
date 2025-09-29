@@ -86,7 +86,7 @@ const LegalNotices = () => {
     La base légale du traitement repose sur : votre consentement (notamment pour l’inscription à la newsletter et la réception de communications commerciales), l’exécution de mesures précontractuelles ou contractuelles (traitement des demandes et élaboration des devis), ainsi que l’intérêt légitime de CHAPOZ (amélioration du site, suivi de la relation avec les clients et prospects).
   </p>
   <p className="text-black leading-relaxed">
-    Pour exercer vos droits ou pour toute question relative au traitement de vos données personnelles, vous pouvez nous contacter à l'adresse électronique <span className="font-semibold">[email à compléter]</span> ou par courrier postal à l'adresse du siège social indiquée ci-dessus. Vous disposez également du droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL).
+    Pour exercer vos droits ou pour toute question relative au traitement de vos données personnelles, vous pouvez nous contacter à l'adresse électronique <span className="font-semibold">hello@gogogo-studio.fr</span> ou par courrier postal à l'adresse du siège social indiquée ci-dessus. Vous disposez également du droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL).
   </p>
 </div>
 

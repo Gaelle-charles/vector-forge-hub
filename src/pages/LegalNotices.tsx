@@ -47,7 +47,7 @@ const LegalNotices = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6 text-black">1. Informations légales</h2>
               <p className="text-black mb-4 leading-relaxed">
-                Le présent site web est édité par CHAPOZ, société immatriculée sous le numéro SIRET 845 316 975 [5 chiffres à compléter]. La forme juridique de la société est SAS avec un capital social de 1000 €.
+                Le présent site web est édité par CHAPOZ, société immatriculée sous le numéro SIRET 845 316 975 00018. La forme juridique de la société est SAS avec un capital social de 1000 €.
               </p>
               <p className="text-black mb-4 leading-relaxed">
                 Le siège social est situé à l'adresse suivante : 97118 SAINT-FRANÇOIS. Pour toute correspondance, vous pouvez nous joindre par téléphone au 06 91 24 23 68 ou par courrier électronique à l'adresse hello@gogogo-studio.fr.
@@ -60,7 +60,7 @@ const LegalNotices = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6 text-black">2. Hébergement</h2>
               <p className="text-black leading-relaxed">
-                Le site web est hébergé par [nom de l'hébergeur à compléter], dont le siège social est situé à [adresse de l'hébergeur à compléter]. L'hébergeur peut être contacté par téléphone au [numéro de téléphone de l'hébergeur à compléter].
+                Le site web est hébergé par LOVABLE, dont le siège social est situé à Lovable Labs Sweden AB, Tunnelgatan 5, 11137 Stockholm, Sweden. L'hébergeur peut être contacté par mail : dpo@lovable.dev.
               </p>
             </div>
 

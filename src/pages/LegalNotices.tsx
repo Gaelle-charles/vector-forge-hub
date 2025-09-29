@@ -12,7 +12,7 @@ const LegalNotices = () => {
             Mentions Légales
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Informations légales concernant le site web de GoGoGo Studio
+            Agence CHAPOZ - Conformité légale et réglementaire
           </p>
         </div>
       </section>
@@ -40,16 +40,45 @@ const LegalNotices = () => {
             <div className="space-y-8">
               
               <div>
-                <h2 className="text-2xl font-bold mb-4 text-foreground">1. Éditeur du site</h2>
+                <h2 className="text-2xl font-bold mb-4 text-foreground">1. Informations légales</h2>
                 <p className="text-muted-foreground mb-4">
                   Le présent site web est édité par :
                 </p>
-                <div className="bg-muted/20 p-4 rounded-lg">
-                  <p className="text-foreground">
-                    <strong>GoGoGo Studio</strong><br/>
-                    Agence digitale spécialisée en intelligence artificielle<br/>
-                    Email : contact@gogogo-studio.com
-                  </p>
+                <div className="bg-muted/20 p-4 rounded-lg space-y-3">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Raison sociale</p>
+                      <p className="text-foreground font-medium">CHAPOZ</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Numéro SIRET</p>
+                      <p className="text-foreground font-medium">845 316 975 <span className="text-red-500 italic">[5 chiffres à compléter]</span></p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Forme juridique</p>
+                      <p className="text-red-500 italic">SAS</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Capital social</p>
+                      <p className="text-red-500 italic">1000 €</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Siège social</p>
+                      <p className="text-red-500 italic">97118 SAINT-FRANÇOIS</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Téléphone</p>
+                      <p className="text-red-500 italic">06 91 24 23 68</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">E-mail</p>
+                      <p className="text-red-500 italic">hello@gogogo-studio.fr</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Directeur de publication</p>
+                      <p className="text-red-500 italic">CHARLES-BELAMOUR Gaëlle</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -59,55 +88,112 @@ const LegalNotices = () => {
                   Le site est hébergé par :
                 </p>
                 <div className="bg-muted/20 p-4 rounded-lg">
-                  <p className="text-foreground">
-                    <strong>Lovable</strong><br/>
-                    Plateforme de développement web<br/>
-                    Site web : https://lovable.dev
-                  </p>
+                  <div className="space-y-2">
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Hébergeur du site</p>
+                      <p className="text-red-500 italic">[Nom de l'hébergeur]</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Adresse</p>
+                      <p className="text-red-500 italic">[Adresse de l'hébergeur]</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Téléphone</p>
+                      <p className="text-red-500 italic">[Téléphone de l'hébergeur]</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               <div>
                 <h2 className="text-2xl font-bold mb-4 text-foreground">3. Propriété intellectuelle</h2>
                 <p className="text-muted-foreground mb-4">
-                  L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.
+                  L'ensemble des contenus présents sur ce site (textes, images, vidéos, logos, icônes, etc.) est protégé par les dispositions du Code de la Propriété Intellectuelle et par les conventions internationales relatives au droit d'auteur. Ces contenus ne peuvent être reproduits, utilisés ou représentés sans l'autorisation expresse de CHAPOZ.
                 </p>
                 <p className="text-muted-foreground">
-                  La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse de GoGoGo Studio.
+                  Les marques et logos présents sur le site sont déposés par CHAPOZ ou par des tiers ayant autorisé CHAPOZ à les utiliser. Toute reproduction ou représentation, totale ou partielle, de ces marques et logos, effectuée à partir des éléments du site sans l'autorisation expresse de CHAPOZ est prohibée.
                 </p>
               </div>
 
               <div>
                 <h2 className="text-2xl font-bold mb-4 text-foreground">4. Données personnelles</h2>
                 <p className="text-muted-foreground mb-4">
-                  Conformément à la loi "Informatique et Libertés" du 6 janvier 1978 modifiée et au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant.
+                  Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi "Informatique et Libertés", vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition concernant vos données personnelles.
                 </p>
+                <div className="bg-muted/20 p-4 rounded-lg mb-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Responsable du traitement</p>
+                      <p className="text-foreground font-medium">CHAPOZ</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Finalités du traitement</p>
+                      <p className="text-red-500 italic">[À préciser selon votre activité]</p>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-foreground/70">Base légale</p>
+                      <p className="text-foreground font-medium">Consentement et/ou intérêt légitime</p>
+                    </div>
+                  </div>
+                </div>
                 <p className="text-muted-foreground">
-                  Pour exercer ces droits, vous pouvez nous contacter à l'adresse : contact@gogogo-studio.com
+                  Pour exercer vos droits, vous pouvez nous contacter à l'adresse : <span className="text-red-500 italic">[adresse e-mail]</span> ou par courrier postal à l'adresse du siège social.
                 </p>
               </div>
 
               <div>
                 <h2 className="text-2xl font-bold mb-4 text-foreground">5. Cookies</h2>
                 <p className="text-muted-foreground mb-4">
-                  Ce site utilise des cookies pour améliorer l'expérience utilisateur et analyser le trafic. En continuant à naviguer sur ce site, vous acceptez l'utilisation de ces cookies.
-                </p>
-                <p className="text-muted-foreground">
-                  Vous pouvez configurer votre navigateur pour refuser les cookies, mais certaines fonctionnalités du site pourraient ne pas fonctionner correctement.
+                  Ce site utilise des cookies pour améliorer votre expérience de navigation et réaliser des statistiques de visite. Vous pouvez à tout moment modifier vos préférences en matière de cookies depuis les paramètres de votre navigateur.
                 </p>
               </div>
 
               <div>
                 <h2 className="text-2xl font-bold mb-4 text-foreground">6. Responsabilité</h2>
+                <p className="text-muted-foreground mb-4">
+                  CHAPOZ s'efforce d'assurer au mieux l'exactitude et la mise à jour des informations diffusées sur ce site. Cependant, CHAPOZ ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur ce site.
+                </p>
                 <p className="text-muted-foreground">
-                  GoGoGo Studio s'efforce d'assurer au mieux de ses possibilités, l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, GoGoGo Studio ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur ce site.
+                  CHAPOZ ne pourra être tenue responsable des dommages directs ou indirects causés au matériel de l'utilisateur lors de l'accès au site, et résultant de l'apparition d'un bug ou d'une incompatibilité.
                 </p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold mb-4 text-foreground">7. Droit applicable</h2>
+                <h2 className="text-2xl font-bold mb-4 text-foreground">7. Liens hypertextes</h2>
+                <p className="text-muted-foreground">
+                  Le site peut contenir des liens hypertextes vers d'autres sites présents sur le réseau Internet. CHAPOZ ne saurait être responsable du contenu de ces sites externes.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-bold mb-4 text-foreground">8. Droit applicable</h2>
                 <p className="text-muted-foreground">
                   Les présentes mentions légales sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-bold mb-4 text-foreground">9. Contact</h2>
+                <p className="text-muted-foreground mb-4">
+                  Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter :
+                </p>
+                <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 rounded-lg">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="text-center">
+                      <p className="font-semibold text-foreground mb-2">Par e-mail</p>
+                      <p className="text-red-500 italic">hello@gogogo-studio.fr</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="font-semibold text-foreground mb-2">Par téléphone</p>
+                      <p className="text-red-500 italic">06 91 24 23 68</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-muted">
+                <p className="text-center text-muted-foreground text-sm">
+                  Dernière mise à jour : <span className="text-red-500 italic">1er septembre 2025</span>
                 </p>
               </div>
 

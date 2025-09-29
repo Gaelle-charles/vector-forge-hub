@@ -27,7 +27,7 @@ const LegalNotices = () => {
       {/* Bouton Retour à l'accueil */}
       <section className="py-6">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Button asChild variant="outline" className="border-black text-black hover:bg-black hover:text-[#E76F51]">
+          <Button asChild variant="outline" className="border-black text-white hover:bg-black hover:text-[#E76F51]">
             <Link
               to="/"
               className="inline-flex items-center space-x-2"
@@ -53,7 +53,7 @@ const LegalNotices = () => {
                 Le siège social est situé à l'adresse suivante : 97118 SAINT-FRANÇOIS. Pour toute correspondance, vous pouvez nous joindre par téléphone au 06 91 24 23 68 ou par courrier électronique à l'adresse hello@gogogo-studio.fr.
               </p>
               <p className="text-black leading-relaxed">
-                Le directeur de la publication du site est [nom du dirigeant à compléter], en sa qualité de représentant légal de la société CHAPOZ.
+                Le directeur de la publication du site est CHARLES-BELAMOUR Gaëlle, en sa qualité de représentant légal de la société CHAPOZ.
               </p>
             </div>
 
@@ -74,18 +74,22 @@ const LegalNotices = () => {
               </p>
             </div>
 
-            <div>
-              <h2 className="text-3xl font-bold mb-6 text-black">4. Données personnelles</h2>
-              <p className="text-black mb-4 leading-relaxed">
-                Conformément au Règlement Général sur la Protection des Données (RGPD) du 27 avril 2016 et à la loi Informatique et Libertés du 6 janvier 1978 modifiée, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation du traitement, de portabilité et d'opposition concernant vos données personnelles. Ces droits peuvent être exercés à tout moment en nous contactant aux coordonnées mentionnées dans les présentes mentions légales.
-              </p>
-              <p className="text-black mb-4 leading-relaxed">
-                CHAPOZ est le responsable du traitement de vos données personnelles. Les données collectées sur ce site sont traitées pour les finalités suivantes : [à préciser selon votre activité - gestion des demandes de contact, envoi de newsletters, traitement des devis, etc.]. La base légale du traitement repose sur votre consentement et/ou sur l'intérêt légitime de CHAPOZ.
-              </p>
-              <p className="text-black leading-relaxed">
-                Pour exercer vos droits ou pour toute question relative au traitement de vos données personnelles, vous pouvez nous contacter à l'adresse électronique [email à compléter] ou par courrier postal à l'adresse du siège social indiquée ci-dessus. Vous disposez également du droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL).
-              </p>
-            </div>
+<div>
+  <h2 className="text-3xl font-bold mb-6 text-black">4. Données personnelles</h2>
+  <p className="text-black mb-4 leading-relaxed">
+    Conformément au Règlement Général sur la Protection des Données (RGPD) du 27 avril 2016 et à la loi Informatique et Libertés du 6 janvier 1978 modifiée, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation du traitement, de portabilité et d'opposition concernant vos données personnelles. Ces droits peuvent être exercés à tout moment en nous contactant aux coordonnées mentionnées dans les présentes mentions légales.
+  </p>
+  <p className="text-black mb-4 leading-relaxed">
+    CHAPOZ est le responsable du traitement de vos données personnelles. Les données collectées sur ce site sont traitées pour les finalités suivantes : gestion des demandes de contact, élaboration et envoi de devis, suivi de la relation commerciale et contractuelle, envoi d’informations et de communications relatives aux services de CHAPOZ (newsletter, actualités, offres promotionnelles), ainsi que l’amélioration de la navigation et de l’expérience utilisateur sur le site.
+  </p>
+  <p className="text-black mb-4 leading-relaxed">
+    La base légale du traitement repose sur : votre consentement (notamment pour l’inscription à la newsletter et la réception de communications commerciales), l’exécution de mesures précontractuelles ou contractuelles (traitement des demandes et élaboration des devis), ainsi que l’intérêt légitime de CHAPOZ (amélioration du site, suivi de la relation avec les clients et prospects).
+  </p>
+  <p className="text-black leading-relaxed">
+    Pour exercer vos droits ou pour toute question relative au traitement de vos données personnelles, vous pouvez nous contacter à l'adresse électronique <span className="font-semibold">[email à compléter]</span> ou par courrier postal à l'adresse du siège social indiquée ci-dessus. Vous disposez également du droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL).
+  </p>
+</div>
+
 
             <div>
               <h2 className="text-3xl font-bold mb-6 text-black">5. Cookies et technologies similaires</h2>

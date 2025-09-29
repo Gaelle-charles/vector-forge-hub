@@ -17,6 +17,23 @@ const LegalNotices = () => {
         </div>
       </section>
 
+<section 
+  className="relative pt-20 pb-16 bg-cover bg-center bg-no-repeat" 
+  style={{ backgroundImage: "url('https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/BLOG%20(2).png')" }}
+>
+  <div className="absolute inset-0 bg-black/50"></div> {/* overlay sombre pour lisibilité */}
+  <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+      Mentions Légales
+    </h1>
+    <p className="text-lg md:text-xl max-w-2xl mx-auto">
+      Agence CHAPOZ - Conformité légale et réglementaire
+    </p>
+  </div>
+</section>
+
+
+      
       {/* Bouton Retour à l'accueil */}
       <section className="py-6">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

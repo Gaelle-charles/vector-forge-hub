@@ -7,39 +7,8 @@ const LegalNotices = () => {
     <div className="min-h-screen pb-10 bg-white">
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 bg-gradient-to-br from-primary/5 to-secondary/5">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-            Mentions Légales
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Informations légales concernant le site web de GoGoGo Studio
-          </p>
-        </div>
-      </section>
 
-      {/* Bouton Retour à l'accueil */}
-      <section className="py-6">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Button asChild variant="outline">
-            <Link
-              to="/"
-              className="inline-flex items-center space-x-2"
-            >
-              <Home className="w-5 h-5" />
-              <span>Retour à l'accueil</span>
-            </Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* Contenu des mentions légales */}
-      <section className="py-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
-            
-            <div className="space-y-8">
-              
-            <div class="content">
+      <div class="content">
         <div class="section">
             <h2>1. INFORMATIONS LÉGALES</h2>
             <div class="info-grid">
@@ -49,7 +18,7 @@ const LegalNotices = () => {
                 </div>
                 <div class="info-item">
                     <div class="info-label">Numéro SIRET</div>
-                    <div class="info-value">845 316 975 00018 <span class="placeholder">[5 chiffres à compléter]</span></div>
+                    <div class="info-value">845 316 975 <span class="placeholder">[5 chiffres à compléter]</span></div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Forme juridique</div>
@@ -61,7 +30,7 @@ const LegalNotices = () => {
                 </div>
                 <div class="info-item">
                     <div class="info-label">Siège social</div>
-                    <div class="info-value placeholder">97118 Saint-François</div>
+                    <div class="info-value placeholder">97118 SAINT-FRANÇOIS</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Téléphone</div>
@@ -69,11 +38,11 @@ const LegalNotices = () => {
                 </div>
                 <div class="info-item">
                     <div class="info-label">E-mail</div>
-                    <div class="info-value placeholder">[À compléter]</div>
+                    <div class="info-value placeholder">hello@gogogo-studio.fr</div>
                 </div>
                 <div class="info-item">
                     <div class="info-label">Directeur de publication</div>
-                    <div class="info-value placeholder">[Nom du dirigeant]</div>
+                    <div class="info-value placeholder">CHARLES-BELAMOUR Gaëlle</div>
                 </div>
             </div>
         </div>
@@ -156,18 +125,19 @@ const LegalNotices = () => {
                     </div>
                     <div class="contact-item">
                         <strong>Téléphone</strong><br>
-                        <span class="placeholder">0691 24 23 68</span>
+                        <span class="placeholder">06 91 24 23 68</span>
                     </div>
-     
+
                 </div>
             </div>
         </div>
     </div>
 
     <div class="footer">
-        <p>Dernière mise à jour : <span class="placeholder">1er septembre 2025</span></p>
+        <p>Dernière mise à jour : <span class="placeholder">1er septembre 2025/span></p>
     </div>
 </div>
+        
       </section>
     </div>
   );

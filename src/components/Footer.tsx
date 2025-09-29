@@ -15,8 +15,7 @@ const Footer = () => {
               <a href="https://www.instagram.com/gogogo.studio?igsh=enQ0cm13cGFyOW9y" className="text-black hover:text-gray-600 transition-colors">
             <Instagram className="h-6 w-6" />
               </a>
-              <a href="https://www.linkedin.com/in/gogogo-studio-51b4821b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app
-" className="text-black hover:text-gray-600 transition-colors">
+              <a href="https://www.linkedin.com/company/gogogo-studio" className="text-black hover:text-gray-600 transition-colors">
             <Linkedin className="h-6 w-6" />
               </a>
             </div>

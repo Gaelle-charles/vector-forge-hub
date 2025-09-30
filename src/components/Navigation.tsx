@@ -58,6 +58,13 @@ const Navigation = () => {
               <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
             </button>
 <Link 
+  to="/portfolio" 
+  className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 inline-block"
+>
+  Portfolio
+  <span className="absolute -bottom-0.5 left-1/2 w-0 h-0.5 bg-[#e76f51] group-hover:w-4 group-hover:left-1/2 group-hover:-translate-x-1/2 transition-all duration-300 rounded-full"></span>
+</Link>
+<Link 
   to="/blog" 
   className="text-white hover:text-[#e76f51] font-bold text-xs px-3 py-1.5 rounded-full transform hover:scale-110 transition-all duration-300 relative group hover:bg-white/20 inline-block"
 >
@@ -102,6 +109,12 @@ const Navigation = () => {
               >
                 Services
               </button>
+<Link 
+  to="/portfolio" 
+  className="text-white hover:text-[#e76f51] font-bold py-4 px-6 rounded-xl hover:bg-white/10 transition-all duration-300 text-center text-lg inline-block"
+>
+  Portfolio
+</Link>
 <Link 
   to="/blog" 
   className="text-white hover:text-[#e76f51] font-bold py-4 px-6 rounded-xl hover:bg-white/10 transition-all duration-300 text-center text-lg inline-block"

@@ -1,133 +1,76 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import React, { useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { 
-  ExternalLink, Github, Play, Award, TrendingUp, Users, 
-  Smartphone, Video, Code, Palette, Zap, Eye, Heart
-} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ExternalLink, Globe, Smartphone, Video } from 'lucide-react';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState('all');
 
+  const categories = [
+    { id: 'all', label: 'Tout', icon: Globe },
+    { id: 'web', label: 'Sites Web', icon: Globe },
+    { id: 'mobile', label: 'Applications', icon: Smartphone },
+    { id: 'video', label: 'Vidéos', icon: Video },
+  ];
+
   const projects = [
     {
       id: 1,
-      title: "EcoSmart - App de Gestion Énergétique",
-      category: "applications",
-      description: "Application mobile moderne pour optimiser la consommation énergétique",
-      image: "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png",
-      technologies: ["React Native", "Node.js", "MongoDB", "TypeScript"],
-      results: [
-        "30% de réduction de consommation",
-        "50K+ utilisateurs actifs", 
-        "4.8/5 étoiles sur les stores"
-      ],
-      links: {
-        live: "#",
-        code: "#"
-      }
+      title: 'Site E-commerce Moderne',
+      category: 'web',
+      description: 'Plateforme e-commerce complète avec paiement intégré et gestion des stocks en temps réel.',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+      tags: ['React', 'Stripe', 'IA'],
+      link: '#',
     },
     {
       id: 2,
-      title: "Brand Studio - Plateforme Creative",
-      category: "design",
-      description: "Plateforme de création et gestion de contenu pour les marques",
-      image: "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png",
-      technologies: ["React", "Figma API", "Adobe SDK", "Next.js"],
-      results: [
-        "10K designs créés/mois",
-        "Réduction 80% temps création",
-        "ROI client 300%+"
-      ],
-      links: {
-        live: "#",
-        demo: "#"
-      }
+      title: 'Application Mobile Fitness',
+      category: 'mobile',
+      description: 'Application de suivi fitness avec plans d\'entraînement personnalisés par IA.',
+      image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=600&fit=crop',
+      tags: ['React Native', 'IA', 'Santé'],
+      link: '#',
     },
     {
       id: 3,
-      title: "CustomerHub Pro",
-      category: "backend",
-      description: "API complète de gestion client avec dashboard analytics",
-      image: "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png",
-      technologies: ["Node.js", "PostgreSQL", "Redis", "GraphQL"],
-      results: [
-        "99.9% uptime garanti",
-        "500+ requêtes/seconde",
-        "Satisfaction 95%"
-      ],
-      links: {
-        live: "#",
-        docs: "#"
-      }
+      title: 'Vidéo Promotionnelle IA',
+      category: 'video',
+      description: 'Vidéo de présentation produit entièrement générée par IA avec voix-off personnalisée.',
+      image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=600&fit=crop',
+      tags: ['IA Vidéo', 'Animation', 'Marketing'],
+      link: '#',
     },
     {
       id: 4,
-      title: "Digital Mastery Program",
-      category: "conseil",
-      description: "Programme de transformation digitale pour les entreprises",
-      image: "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png",
-      technologies: ["Analytics", "SEO", "Performance", "Strategy"],
-      results: [
-        "200+ entreprises accompagnées",
-        "95% taux satisfaction",
-        "ROI moyen 250%"
-      ],
-      links: {
-        program: "#",
-        testimonials: "#"
-      }
+      title: 'Portail Client B2B',
+      category: 'web',
+      description: 'Plateforme de gestion client avec tableau de bord analytique et automatisation des processus.',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+      tags: ['Dashboard', 'Analytics', 'Automation'],
+      link: '#',
     },
     {
       id: 5,
-      title: "HealthTech Dashboard",
-      category: "applications",
-      description: "Tableau de bord médical pour le suivi patient",
-      image: "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png",
-      technologies: ["React", "D3.js", "WebSockets", "FHIR"],
-      results: [
-        "94% précision données",
-        "50 cliniques partenaires",
-        "Certification médicale"
-      ],
-      links: {
-        live: "#",
-        research: "#"
-      }
+      title: 'App de Réservation',
+      category: 'mobile',
+      description: 'Application de réservation en ligne avec notifications push et paiement sécurisé.',
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop',
+      tags: ['Booking', 'Notifications', 'Mobile'],
+      link: '#',
     },
     {
       id: 6,
-      title: "Design System Pro",
-      category: "design",
-      description: "Système de design complet avec composants réutilisables",
-      image: "/lovable-uploads/3a267165-a774-4ac0-a1ab-b489ef8f5bd0.png",
-      technologies: ["Figma", "Storybook", "React", "Tokens"],
-      results: [
-        "100+ composants",
-        "Temps développement -60%",
-        "Cohérence 100%"
-      ],
-      links: {
-        live: "#",
-        gallery: "#"
-      }
-    }
-  ];
-
-  const categories = [
-    { id: 'all', label: 'Tous les projets', icon: <Zap className="h-4 w-4" /> },
-    { id: 'applications', label: 'Applications', icon: <Smartphone className="h-4 w-4" /> },
-    { id: 'design', label: 'Design', icon: <Palette className="h-4 w-4" /> },
-    { id: 'backend', label: 'Backend', icon: <Code className="h-4 w-4" /> },
-    { id: 'conseil', label: 'Conseil', icon: <Users className="h-4 w-4" /> }
-  ];
-
-  const stats = [
-    { icon: <Award className="h-6 w-6" />, number: "150+", label: "Projets livrés" },
-    { icon: <Users className="h-6 w-6" />, number: "500+", label: "Clients satisfaits" },
-    { icon: <TrendingUp className="h-6 w-6" />, number: "300%", label: "ROI moyen client" },
-    { icon: <Heart className="h-6 w-6" />, number: "4.9/5", label: "Note satisfaction" }
+      title: 'Série de Contenus Vidéo',
+      category: 'video',
+      description: 'Série de vidéos courtes pour réseaux sociaux générées avec IA, optimisées pour l\'engagement.',
+      image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&h=600&fit=crop',
+      tags: ['Social Media', 'IA', 'Branding'],
+      link: '#',
+    },
   ];
 
   const filteredProjects = activeCategory === 'all' 
@@ -135,128 +78,86 @@ const Portfolio = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <div className="min-h-screen pt-20 bg-background">
+    <div className="min-h-screen bg-white">
+      <Navigation />
+
       {/* Hero Section */}
-      <section className="py-20 bg-background relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-            Portfolio
-            <span className="block orange-text">Nos Réalisations</span>
+      <section className="bg-black pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Notre Portfolio
           </h1>
-          <p className="text-xl text-medium-gray max-w-3xl mx-auto">
-            Découvrez nos projets les plus innovants et les résultats exceptionnels obtenus
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+            Découvrez nos réalisations : sites web, applications mobiles et vidéos créées avec l'IA
           </p>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="flex justify-center mb-3">
-                  <div className="p-3 bg-primary/10 rounded-2xl text-primary group-hover:scale-110 transition-transform duration-300">
-                    {stat.icon}
-                  </div>
-                </div>
-                <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
-                <div className="text-sm text-medium-gray">{stat.label}</div>
-              </div>
-            ))}
+      {/* Filter Section */}
+      <section className="bg-black pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-3">
+            {categories.map((category) => {
+              const Icon = category.icon;
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-full font-bold transition-all duration-300 ${
+                    activeCategory === category.id
+                      ? 'bg-[#e76f51] text-white scale-105'
+                      : 'bg-white text-black hover:bg-gray-100'
+                  }`}
+                >
+                  <Icon size={20} />
+                  {category.label}
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Portfolio Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                variant={activeCategory === category.id ? "default" : "outline"}
-                onClick={() => setActiveCategory(category.id)}
-                className={`${activeCategory === category.id ? 'modern-button-primary' : 'modern-button-secondary'} flex items-center space-x-2`}
+      {/* Projects Grid */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project) => (
+              <Card 
+                key={project.id} 
+                className="group overflow-hidden border-2 border-gray-200 rounded-3xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
               >
-                {category.icon}
-                <span>{category.label}</span>
-              </Button>
-            ))}
-          </div>
-
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <Card key={project.id} className="modern-card group">
-                <div className="relative overflow-hidden rounded-t-3xl">
+                <div className="relative h-64 overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute top-4 left-4">
-                    <Badge variant="secondary" className="bg-primary/90 text-primary-foreground">
-                      {categories.find(c => c.id === project.category)?.label}
-                    </Badge>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 </div>
-                
-                <CardHeader>
-                  <CardTitle className="text-xl text-foreground">
+                <CardContent className="p-6">
+                  <h3 className="text-2xl font-bold text-black mb-3">
                     {project.title}
-                  </CardTitle>
-                  <CardDescription className="text-medium-gray">
+                  </h3>
+                  <p className="text-gray-700 mb-4 leading-relaxed">
                     {project.description}
-                  </CardDescription>
-                </CardHeader>
-                
-                <CardContent className="space-y-4">
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="outline" className="text-xs border-primary/20">
-                        {tech}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, index) => (
+                      <Badge 
+                        key={index}
+                        className="bg-black text-white hover:bg-[#e76f51] transition-colors"
+                      >
+                        {tag}
                       </Badge>
                     ))}
                   </div>
-
-                  {/* Results */}
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-sm text-foreground">
-                      Résultats clés :
-                    </h4>
-                    {project.results.map((result, resultIndex) => (
-                      <div key={resultIndex} className="flex items-center text-sm text-medium-gray">
-                        <TrendingUp className="h-3 w-3 mr-2 text-primary flex-shrink-0" />
-                        <span>{result}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex space-x-2 pt-4">
-                    {project.links.live && (
-                      <Button size="sm" variant="outline" className="flex-1">
-                        <ExternalLink className="h-4 w-4 mr-1" />
-                        Voir
-                      </Button>
-                    )}
-                    {project.links.code && (
-                      <Button size="sm" variant="outline" className="flex-1">
-                        <Github className="h-4 w-4 mr-1" />
-                        Code
-                      </Button>
-                    )}
-                    {project.links.demo && (
-                      <Button size="sm" variant="outline" className="flex-1">
-                        <Play className="h-4 w-4 mr-1" />
-                        Démo
-                      </Button>
-                    )}
-                  </div>
+                  <Button 
+                    className="w-full bg-[#e76f51] hover:bg-black text-white rounded-full transition-all duration-300 group"
+                  >
+                    Voir le projet
+                    <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -264,76 +165,52 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Client Testimonials */}
-      <section className="py-20 bg-secondary">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center mb-16 text-foreground">
-            Témoignages <span className="orange-text">Clients</span>
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "L'application développée par Gogogo Studio a révolutionné notre processus. Le ROI a dépassé toutes nos attentes !",
-                author: "Marie Dupont",
-                position: "CEO, EcoTech Solutions",
-                rating: 5
-              },
-              {
-                quote: "Une équipe exceptionnelle qui a su comprendre nos besoins et livrer une solution parfaitement adaptée.",
-                author: "Jean-Claude Martin", 
-                position: "CTO, Innovation Corp",
-                rating: 5
-              },
-              {
-                quote: "Le design system créé a transformé notre équipe. Nos développeurs sont maintenant beaucoup plus efficaces.",
-                author: "Sophie Laurent",
-                position: "Lead Designer, Digital & Co",
-                rating: 5
-              }
-            ].map((testimonial, index) => (
-              <Card key={index} className="modern-card">
-                <CardContent className="pt-6">
-                  <div className="flex mb-4">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Award key={i} className="h-5 w-5 text-primary fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-medium-gray mb-4 italic">
-                    "{testimonial.quote}"
-                  </p>
-                  <div>
-                    <div className="font-semibold text-foreground">{testimonial.author}</div>
-                    <div className="text-sm text-primary">{testimonial.position}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+      {/* Stats Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="p-8">
+              <div className="text-5xl font-bold text-[#e76f51] mb-4">50+</div>
+              <div className="text-xl text-white">Projets Réalisés</div>
+            </div>
+            <div className="p-8">
+              <div className="text-5xl font-bold text-[#e76f51] mb-4">30+</div>
+              <div className="text-xl text-white">Clients Satisfaits</div>
+            </div>
+            <div className="p-8">
+              <div className="text-5xl font-bold text-[#e76f51] mb-4">100%</div>
+              <div className="text-xl text-white">Satisfaction</div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-background relative">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Votre Projet est le <span className="orange-text">Prochain</span> !
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black mb-6">
+            Prêt à démarrer votre projet ?
           </h2>
-          <p className="text-xl text-medium-gray mb-8">
-            Rejoignez nos clients satisfaits et donnez vie à vos idées les plus ambitieuses
+          <p className="text-lg text-gray-700 mb-8">
+            Contactez-nous pour discuter de vos besoins et découvrir comment nous pouvons vous aider
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="modern-button-primary text-lg">
-              <Zap className="mr-2 h-5 w-5" />
-              Démarrer mon projet
-            </Button>
-            <Button className="modern-button-outline text-lg">
-              <Eye className="mr-2 h-5 w-5" />
-              Voir plus de projets
-            </Button>
-          </div>
+          <Button 
+            onClick={() => {
+              const element = document.getElementById('contact');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                window.location.href = '/#contact';
+              }
+            }}
+            className="bg-[#e76f51] hover:bg-black text-white text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
+          >
+            Contactez-nous
+          </Button>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

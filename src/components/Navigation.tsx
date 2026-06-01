@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from "react-router-dom";
+import logoBlanc from '@/assets/logo-blanc.svg.asset.json';
 
 
 const Navigation = () => {
@@ -33,7 +34,7 @@ const Navigation = () => {
           <div className="hidden lg:flex items-center space-x-2 lg:flex-1">
               <a href="/">
             <img 
-              src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20blanc.svg" 
+              src={logoBlanc.url}
               className="h-5 sm:h-6 md:h-7 lg:h-8" 
               alt="Logo GoGoGo Studio" 
             />
@@ -44,7 +45,7 @@ const Navigation = () => {
           <div className="lg:hidden flex-1 flex justify-center">
               <a href="/">
             <img 
-              src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/logo%20blanc.svg" 
+              src={logoBlanc.url} 
               className="h-5 sm:h-6 md:h-7" 
               alt="Logo GoGoGo Studio" 
             />

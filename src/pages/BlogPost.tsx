@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { Calendar, User, Clock, ArrowLeft, Share2, Tag } from "lucide-react";
 import { useArticle } from "@/hooks/useArticles";
 import { useEffect } from "react";
+import fallbackImg from "@/assets/fallback.png.asset.json";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -58,7 +59,7 @@ const BlogPost = () => {
           alt={post.title}
           className="w-full h-full object-cover"
           onError={(e) => {
-            e.currentTarget.src = "https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Design%20sans%20titre%20(33).png";
+            e.currentTarget.src = fallbackImg.url;
           }}
         />
         <div className="absolute inset-0 bg-black/40"></div>

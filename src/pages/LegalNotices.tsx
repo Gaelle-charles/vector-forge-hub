@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import blog2Bg from "@/assets/blog-2.png.asset.json";
 
 const LegalNotices = () => {
   return (
@@ -9,7 +10,7 @@ const LegalNotices = () => {
 
 <section 
   className="relative pt-20 pb-16 bg-cover bg-center bg-no-repeat" 
-  style={{ backgroundImage: "url('https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/BLOG%20(2).png')" }}
+  style={{ backgroundImage: `url('${blog2Bg.url}')` }}
 >
   <div className="absolute inset-0 bg-black/50"></div> {/* overlay sombre pour lisibilité */}
   <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">

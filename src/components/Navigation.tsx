@@ -37,6 +37,9 @@ const Navigation = () => {
               src={logoBlanc.url}
               className="h-5 sm:h-6 md:h-7 lg:h-8" 
               alt="Logo GoGoGo Studio" 
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
             />
                 </a>
           </div>
@@ -48,6 +51,9 @@ const Navigation = () => {
               src={logoBlanc.url} 
               className="h-5 sm:h-6 md:h-7" 
               alt="Logo GoGoGo Studio" 
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
             />
                 </a>
           </div>

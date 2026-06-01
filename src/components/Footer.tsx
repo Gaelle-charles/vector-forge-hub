@@ -8,7 +8,7 @@ const Footer = () => {
       <footer className="py-8 bg-white text-white rounded-t-[4rem] -mt-16 z-50 relative">
         <div className="max-w-7xl mx-auto px-8 text-center">
             <div className="flex items-center justify-center space-x-2 mb-8">
-              <img src={logoNoir.url} alt="logo-gogogo-studio"/>
+              <img src={logoNoir.url} alt="logo-gogogo-studio" decoding="async" />
             </div>
 
               {/* Social Links */}

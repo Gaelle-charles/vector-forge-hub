@@ -8,6 +8,9 @@ import { ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, CheckCircl
 import BlogSectionHome from '@/components/BlogSectionHome';
 import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
+import pixarVideo from '@/assets/pixar.mp4.asset.json';
+import sequenceVideo from '@/assets/sequence.mp4.asset.json';
+import fluidVideo from '@/assets/fluid.mp4.asset.json';
 // === Formspree ===
 import { useForm, ValidationError } from "@formspree/react";
 

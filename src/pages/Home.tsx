@@ -8,6 +8,9 @@ import { ArrowUpRight, Download, Globe, Smartphone, Video, Bot, Code, CheckCircl
 import BlogSectionHome from '@/components/BlogSectionHome';
 import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
+import pixarVideo from '@/assets/pixar.mp4.asset.json';
+import sequenceVideo from '@/assets/sequence.mp4.asset.json';
+import fluidVideo from '@/assets/fluid.mp4.asset.json';
 // === Formspree ===
 import { useForm, ValidationError } from "@formspree/react";
 
@@ -267,19 +270,19 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 h-screen border-white">
           <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden" onMouseEnter={() => handleVideoHover(0)} onMouseLeave={handleVideoLeave}>
             <video ref={videoRefs.current[0]} muted playsInline className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 0 ? 'opacity-100' : 'opacity-40'}`}>
-              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/Pixar_animated_short_202509131714_l40d4.mp4" />
+              <source src={pixarVideo.url} type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>
           <div className="relative bg-black border-r border-white md:border-r-2 overflow-hidden" onMouseEnter={() => handleVideoHover(1)} onMouseLeave={handleVideoLeave}>
             <video ref={videoRefs.current[1]} muted playsInline className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 1 ? 'opacity-100' : 'opacity-40'}`}>
-              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_sequence_of_202509122027_jfiaz.mp4" type="video/mp4" />
+              <source src={sequenceVideo.url} type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>
           <div className="relative bg-black overflow-hidden" onMouseEnter={() => handleVideoHover(2)} onMouseLeave={handleVideoLeave}>
             <video ref={videoRefs.current[2]} muted playsInline className={`w-full h-full object-cover transition-opacity duration-500 ${activeVideo === 2 ? 'opacity-100' : 'opacity-40'}`}>
-              <source src="https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Videos/A_rapid_fluid_202509131718_pqdeo.mp4" type="video/mp4" />
+              <source src={fluidVideo.url} type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
           </div>

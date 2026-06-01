@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Calendar, User, ArrowRight, Clock, Home } from "lucide-react";
 import { useArticles } from "@/hooks/useArticles";
 import { Button } from "@/components/ui/button";
+import blogHeader from "@/assets/blog-1.png.asset.json";
+import fallbackImg from "@/assets/fallback.png.asset.json";
 
 const Blog = () => {
   const { articles: allArticles, featuredArticle, loading } = useArticles();

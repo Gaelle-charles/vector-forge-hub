@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { Calendar, User, Clock, ArrowLeft, Share2, Tag } from "lucide-react";
 import { useArticle } from "@/hooks/useArticles";
 import { useEffect } from "react";
+import fallbackImg from "@/assets/fallback.png.asset.json";
 
 const BlogPost = () => {
   const { slug } = useParams();

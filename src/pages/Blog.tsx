@@ -36,7 +36,7 @@ const Blog = () => {
         <div 
           className="absolute inset-0 z-0 bg-contain bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/BLOG%20(1).png')"
+            backgroundImage: "url('" + blogHeader.url + "')"
           }}
         ></div>
         
@@ -80,7 +80,7 @@ const Blog = () => {
                       alt={mainArticle.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
                         onError={(e) => {
-                      e.currentTarget.src = "https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Design%20sans%20titre%20(33).png";
+                      e.currentTarget.src = fallbackImg.url;
                     }}
                     />
                   </div>
@@ -136,7 +136,7 @@ const Blog = () => {
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     onError={(e) => {
-                      e.currentTarget.src = "https://zsvnqforlvunxzphatey.supabase.co/storage/v1/object/public/Images/Design%20sans%20titre%20(33).png";
+                      e.currentTarget.src = fallbackImg.url;
                     }}
                   />
                 </div>
